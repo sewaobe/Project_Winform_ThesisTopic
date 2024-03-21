@@ -1,0 +1,141 @@
+C:\Win\Winform_Project\bin\Debug\Winform_Project.exe.config
+C:\Win\Winform_Project\bin\Debug\Winform_Project.exe
+C:\Win\Winform_Project\bin\Debug\Winform_Project.pdb
+C:\Win\Winform_Project\bin\Debug\Guna.UI2.dll
+C:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.AssemblyReference.cache
+C:\Win\Winform_Project\obj\Debug\Winform_Project.Form1.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.Properties.Resources.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.GenerateResource.cache
+C:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.CoreCompileInputs.cache
+C:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.CopyComplete
+C:\Win\Winform_Project\obj\Debug\Winform_Project.exe
+C:\Win\Winform_Project\obj\Debug\Winform_Project.pdb
+C:\Win\Winform_Project\obj\Debug\Winform_Project.Form2.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_ThesisTopics.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_Progress.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_SupportTopic.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Progress.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg_Done.resources
+D:\Win\Winform_Project\bin\Debug\Winform_Project.exe.config
+D:\Win\Winform_Project\bin\Debug\Winform_Project.exe
+D:\Win\Winform_Project\bin\Debug\Winform_Project.pdb
+D:\Win\Winform_Project\bin\Debug\Guna.UI2.dll
+D:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.AssemblyReference.cache
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_Progress.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_SupportTopic.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_ThesisTopics.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.Form1.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.Form2.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Progress.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg_Done.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.ProfileUC.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.Properties.Resources.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.GenerateResource.cache
+D:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.CoreCompileInputs.cache
+D:\Win\Winform_Project\obj\Debug\Winform_Project.csproj.CopyComplete
+D:\Win\Winform_Project\obj\Debug\Winform_Project.exe
+D:\Win\Winform_Project\obj\Debug\Winform_Project.pdb
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_ThesisTopics_Add.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_SupportTopic_Add.resources
+D:\Win\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Support.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.csproj.AssemblyReference.cache
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Login.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_Progress.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_SupportTopic.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_SupportTopic_Add.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FGiangVien_ThesisTopics.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.Form1.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.Form2.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_ThesisTopics_Add.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_login.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Progress.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg_Done.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Support.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.Properties.Resources.resources
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.csproj.GenerateResource.cache
+C:\Users\bao\Downloads\Win\Winform_Project\obj\Debug\Winform_Project.csproj.CoreCompileInputs.cache
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Login.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_SupportTopic_Add.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_ThesisTopics_Add.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_login.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Support.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Progress_Check.resources
+C:\Win\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Progress_Check.resources
+D:\Win (1)\Winform_Project\bin\Debug\Winform_Project.exe.config
+D:\Win (1)\Winform_Project\bin\Debug\Winform_Project.exe
+D:\Win (1)\Winform_Project\bin\Debug\Winform_Project.pdb
+D:\Win (1)\Winform_Project\bin\Debug\Guna.UI2.dll
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.AssemblyReference.cache
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Login.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_Progress.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Progress_Check.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_SupportTopic.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_SupportTopic_Add.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_ThesisTopics.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_ThesisTopics_Add.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_login.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Progress.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Progress_Check.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg_Done.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Support.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.Properties.Resources.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.GenerateResource.cache
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.CoreCompileInputs.cache
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.CopyComplete
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.exe
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.pdb
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FDangNhap.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_ContactGV.resources
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Reg_New.resources
+D:\Win (1)\Winform_Project\bin\Debug\Bunifu.Licensing.dll
+D:\Win (1)\Winform_Project\bin\Debug\Bunifu.UI.WinForms.dll
+D:\Win (1)\Winform_Project\bin\Debug\Bunifu.UI.WinForms.xml
+D:\Win (1)\Winform_Project\obj\Debug\Winform_Project.exe.licenses
+C:\Win\Win (1)\Winform_Project\bin\Debug\Winform_Project.exe.config
+C:\Win\Win (1)\Winform_Project\bin\Debug\Winform_Project.exe
+C:\Win\Win (1)\Winform_Project\bin\Debug\Winform_Project.pdb
+C:\Win\Win (1)\Winform_Project\bin\Debug\Bunifu.Licensing.dll
+C:\Win\Win (1)\Winform_Project\bin\Debug\Bunifu.UI.WinForms.dll
+C:\Win\Win (1)\Winform_Project\bin\Debug\Guna.UI2.dll
+C:\Win\Win (1)\Winform_Project\bin\Debug\Bunifu.UI.WinForms.xml
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.AssemblyReference.cache
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Login.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_Progress.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Progress_Check.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_SupportTopic.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_SupportTopic_Add.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_ThesisTopics.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FDangNhap.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_ThesisTopics_Add.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_ContactGV.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_login.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Progress.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Progress_Check.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg_Done.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Reg_New.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Support.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.Properties.Resources.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.GenerateResource.cache
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.exe.licenses
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.CoreCompileInputs.cache
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.CopyComplete
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.exe
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.pdb

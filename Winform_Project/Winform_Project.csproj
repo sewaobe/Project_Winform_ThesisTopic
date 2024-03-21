@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC4669CE-91ED-44E3-BB9F-761B3B028C15}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Winform_Project</RootNamespace>
+    <AssemblyName>Winform_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
+      <HintPath>packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.UI.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassDao\ConNguoiDao.cs" />
+    <Compile Include="ClassDao\GiangVienDao.cs" />
+    <Compile Include="ClassDao\SinhVienDao.cs" />
+    <Compile Include="ClassDoiTuong\ConNguoi.cs" />
+    <Compile Include="ClassDoiTuong\GiangVien.cs" />
+    <Compile Include="ClassDoiTuong\LuanVan.cs" />
+    <Compile Include="ClassDoiTuong\SinhVien.cs" />
+    <Compile Include="FormGiangVien\FGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien.Designer.cs">
+      <DependentUpon>FGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Login.Designer.cs">
+      <DependentUpon>FGiangVien_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Progress.Designer.cs">
+      <DependentUpon>FGiangVien_Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Progress_Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Progress_Check.Designer.cs">
+      <DependentUpon>FGiangVien_Progress_Check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_SupportTopic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_SupportTopic.Designer.cs">
+      <DependentUpon>FGiangVien_SupportTopic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_SupportTopic_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_SupportTopic_Add.Designer.cs">
+      <DependentUpon>FGiangVien_SupportTopic_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics.Designer.cs">
+      <DependentUpon>FGiangVien_ThesisTopics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDangNhap.Designer.cs">
+      <DependentUpon>FDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_Add.Designer.cs">
+      <DependentUpon>FGiangVien_ThesisTopics_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Thesis_Accept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Thesis_Accept.Designer.cs">
+      <DependentUpon>FGiangVien_Thesis_Accept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien.Designer.cs">
+      <DependentUpon>FSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_ContactGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_ContactGV.Designer.cs">
+      <DependentUpon>FSinhVien_ContactGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_login.Designer.cs">
+      <DependentUpon>FSinhVien_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress.Designer.cs">
+      <DependentUpon>FSinhVien_Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress_Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress_Check.Designer.cs">
+      <DependentUpon>FSinhVien_Progress_Check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg.Designer.cs">
+      <DependentUpon>FSinhVien_Reg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_Done.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_Done.Designer.cs">
+      <DependentUpon>FSinhVien_Reg_Done.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_New.Designer.cs">
+      <DependentUpon>FSinhVien_Reg_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Support.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Support.Designer.cs">
+      <DependentUpon>FSinhVien_Support.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DBConnection.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormGiangVien\FGiangVien.resx">
+      <DependentUpon>FGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Login.resx">
+      <DependentUpon>FGiangVien_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Progress.resx">
+      <DependentUpon>FGiangVien_Progress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Progress_Check.resx">
+      <DependentUpon>FGiangVien_Progress_Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_SupportTopic.resx">
+      <DependentUpon>FGiangVien_SupportTopic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_SupportTopic_Add.resx">
+      <DependentUpon>FGiangVien_SupportTopic_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_ThesisTopics.resx">
+      <DependentUpon>FGiangVien_ThesisTopics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDangNhap.resx">
+      <DependentUpon>FDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_ThesisTopics_Add.resx">
+      <DependentUpon>FGiangVien_ThesisTopics_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Thesis_Accept.resx">
+      <DependentUpon>FGiangVien_Thesis_Accept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien.resx">
+      <DependentUpon>FSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_ContactGV.resx">
+      <DependentUpon>FSinhVien_ContactGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_login.resx">
+      <DependentUpon>FSinhVien_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Progress.resx">
+      <DependentUpon>FSinhVien_Progress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Progress_Check.resx">
+      <DependentUpon>FSinhVien_Progress_Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Reg.resx">
+      <DependentUpon>FSinhVien_Reg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Reg_Done.resx">
+      <DependentUpon>FSinhVien_Reg_Done.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Reg_New.resx">
+      <DependentUpon>FSinhVien_Reg_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Support.resx">
+      <DependentUpon>FSinhVien_Support.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
