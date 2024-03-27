@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Winform_Project.ClassDoiTuong;
 using Winform_Project.Model;
 
 
@@ -14,6 +16,11 @@ namespace Winform_Project.ClassDao
     {
         
         DBConnection db = new DBConnection();
+
+        public ConNguoiDao()
+        {
+        }
+
         public DataTable LoadData(string sqlStr)
         {
             return db.Load(sqlStr);
@@ -22,5 +29,6 @@ namespace Winform_Project.ClassDao
         {
             string sql = sqlStr;
         }
+        
     }
 }

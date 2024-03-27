@@ -418,8 +418,6 @@
             // 
             // cbbKhoa
             // 
-            this.cbbKhoa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbKhoa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbKhoa.BackColor = System.Drawing.Color.Transparent;
             this.cbbKhoa.BorderRadius = 5;
             this.cbbKhoa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -446,8 +444,6 @@
             // 
             // cbbNganh
             // 
-            this.cbbNganh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbNganh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbNganh.BackColor = System.Drawing.Color.Transparent;
             this.cbbNganh.BorderRadius = 5;
             this.cbbNganh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -474,8 +470,6 @@
             // 
             // cbbNamHoc
             // 
-            this.cbbNamHoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbNamHoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbNamHoc.BackColor = System.Drawing.Color.Transparent;
             this.cbbNamHoc.BorderRadius = 5;
             this.cbbNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -497,8 +491,6 @@
             // 
             // cbbHocKi
             // 
-            this.cbbHocKi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbHocKi.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbHocKi.BackColor = System.Drawing.Color.Transparent;
             this.cbbHocKi.BorderRadius = 5;
             this.cbbHocKi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;

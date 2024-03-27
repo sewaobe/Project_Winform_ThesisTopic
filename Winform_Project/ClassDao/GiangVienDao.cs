@@ -13,6 +13,9 @@ namespace Winform_Project.ClassDao
     {
         DBConnection db = new DBConnection();
         public GiangVienDao() { }
+        public void TimKiem(string item)
+        {
+        }
         public DataTable LoadData(string sqlStr)
         {
             return db.Load(sqlStr);

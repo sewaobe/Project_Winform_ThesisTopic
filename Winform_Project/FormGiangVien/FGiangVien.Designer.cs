@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FGiangVien));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTenGiangVien = new System.Windows.Forms.Label();
             this.btnDuyetDeTai = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.lblChucVu = new System.Windows.Forms.Label();
@@ -44,10 +46,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.lblTenGiangVien = new System.Windows.Forms.Label();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel_container.SuspendLayout();
@@ -76,6 +76,24 @@
             this.guna2Panel1.Size = new System.Drawing.Size(170, 950);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.Location = new System.Drawing.Point(170, 0);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(1267, 131);
+            this.guna2Panel3.TabIndex = 4;
+            // 
+            // lblTenGiangVien
+            // 
+            this.lblTenGiangVien.AutoSize = true;
+            this.lblTenGiangVien.BackColor = System.Drawing.Color.Transparent;
+            this.lblTenGiangVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenGiangVien.Location = new System.Drawing.Point(4, 129);
+            this.lblTenGiangVien.Name = "lblTenGiangVien";
+            this.lblTenGiangVien.Size = new System.Drawing.Size(150, 22);
+            this.lblTenGiangVien.TabIndex = 5;
+            this.lblTenGiangVien.Text = "Ten Giang Vien";
             // 
             // btnDuyetDeTai
             // 
@@ -293,28 +311,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "TRANG CHỦ";
             // 
-            // guna2ShadowForm1
-            // 
-            this.guna2ShadowForm1.Load += new System.EventHandler(this.guna2ShadowForm1_Load);
-            // 
-            // lblTenGiangVien
-            // 
-            this.lblTenGiangVien.AutoSize = true;
-            this.lblTenGiangVien.BackColor = System.Drawing.Color.Transparent;
-            this.lblTenGiangVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenGiangVien.Location = new System.Drawing.Point(4, 129);
-            this.lblTenGiangVien.Name = "lblTenGiangVien";
-            this.lblTenGiangVien.Size = new System.Drawing.Size(150, 22);
-            this.lblTenGiangVien.TabIndex = 5;
-            this.lblTenGiangVien.Text = "Ten Giang Vien";
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.Location = new System.Drawing.Point(170, 0);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(1267, 131);
-            this.guna2Panel3.TabIndex = 4;
-            // 
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
@@ -322,6 +318,10 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(1427, 128);
             this.guna2Panel4.TabIndex = 5;
+            // 
+            // guna2ShadowForm1
+            // 
+            this.guna2ShadowForm1.Load += new System.EventHandler(this.guna2ShadowForm1_Load);
             // 
             // FGiangVien
             // 
@@ -365,8 +365,8 @@
         public Guna.UI2.WinForms.Guna2Button btnDangXuat;
         public Guna.UI2.WinForms.Guna2Button btnDuyetDeTai;
         public Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
-        private System.Windows.Forms.Label lblTenGiangVien;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        public System.Windows.Forms.Label lblTenGiangVien;
     }
 }

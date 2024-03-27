@@ -69,7 +69,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ClassDoiTuong\TaiKhoanDangNhap.cs" />
+    <Compile Include="Nganh_Khoa.cs" />
     <Compile Include="ClassDao\ConNguoiDao.cs" />
     <Compile Include="ClassDao\GiangVienDao.cs" />
     <Compile Include="ClassDao\SinhVienDao.cs" />
@@ -77,11 +78,11 @@
     <Compile Include="ClassDoiTuong\GiangVien.cs" />
     <Compile Include="ClassDoiTuong\LuanVan.cs" />
     <Compile Include="ClassDoiTuong\SinhVien.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_1.Designer.cs">
+      <DependentUpon>FGiangVien_ThesisTopics_1.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGiangVien\FGiangVien.cs">
       <SubType>Form</SubType>
@@ -119,12 +120,6 @@
     <Compile Include="FormGiangVien\FGiangVien_SupportTopic_Add.Designer.cs">
       <DependentUpon>FGiangVien_SupportTopic_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics.Designer.cs">
-      <DependentUpon>FGiangVien_ThesisTopics.cs</DependentUpon>
-    </Compile>
     <Compile Include="FDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +131,12 @@
     </Compile>
     <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_Add.Designer.cs">
       <DependentUpon>FGiangVien_ThesisTopics_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_Main.Designer.cs">
+      <DependentUpon>FGiangVien_ThesisTopics_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGiangVien\FGiangVien_Thesis_Accept.cs">
       <SubType>Form</SubType>
@@ -212,8 +213,8 @@
     <Compile Include="ucItems.Designer.cs">
       <DependentUpon>ucItems.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_ThesisTopics_1.resx">
+      <DependentUpon>FGiangVien_ThesisTopics_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien.resx">
       <DependentUpon>FGiangVien.cs</DependentUpon>
@@ -233,14 +234,14 @@
     <EmbeddedResource Include="FormGiangVien\FGiangVien_SupportTopic_Add.resx">
       <DependentUpon>FGiangVien_SupportTopic_Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGiangVien\FGiangVien_ThesisTopics.resx">
-      <DependentUpon>FGiangVien_ThesisTopics.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FDangNhap.resx">
       <DependentUpon>FDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien_ThesisTopics_Add.resx">
       <DependentUpon>FGiangVien_ThesisTopics_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_ThesisTopics_Main.resx">
+      <DependentUpon>FGiangVien_ThesisTopics_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien_Thesis_Accept.resx">
       <DependentUpon>FGiangVien_Thesis_Accept.cs</DependentUpon>

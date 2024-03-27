@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project.Model
 {
@@ -44,5 +45,6 @@ namespace Winform_Project.Model
             conn.Close();
             return dtSinhVien;
         }
+        
     }
 }

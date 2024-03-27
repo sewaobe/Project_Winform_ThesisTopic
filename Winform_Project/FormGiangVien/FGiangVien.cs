@@ -60,7 +60,7 @@ namespace Winform_Project
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
-            container(new FGiangVien_ThesisTopics());
+            container(new FGiangVien());
 
         }
 
@@ -76,7 +76,7 @@ namespace Winform_Project
 
         private void btnThemDeTai_Click(object sender, EventArgs e)
         {
-            container(new FGiangVien_ThesisTopics());
+            container(new FGiangVien_ThesisTopics_Main());
 
         }
 

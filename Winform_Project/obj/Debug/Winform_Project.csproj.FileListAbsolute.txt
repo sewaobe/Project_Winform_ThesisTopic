@@ -119,7 +119,6 @@ C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_Progress.res
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Progress_Check.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_SupportTopic.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_SupportTopic_Add.resources
-C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_ThesisTopics.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FDangNhap.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_ThesisTopics_Add.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.resources
@@ -144,5 +143,6 @@ C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.dll
 C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.SqlServer.dll
 C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.xml
 C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.SqlServer.xml
-C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.Form1.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.ucItems.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FGiangVien_ThesisTopics_1.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_ThesisTopics_Main.resources

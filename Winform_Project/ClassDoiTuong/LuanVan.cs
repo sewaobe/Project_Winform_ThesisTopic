@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace Winform_Project.ClassDoiTuong
             this.Nganh = nganh;
             this.TenGiangVien = tenGiangVien;
         }
-
+        
         public string MaDeTai { get => maDeTai; set => maDeTai = value; }
         public string TenDeTai { get => tenDeTai; set => tenDeTai = value; }
         public string TheLoai { get => theLoai; set => theLoai = value; }

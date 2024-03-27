@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDao;
+using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project
 {
     public partial class FDangNhap : Form
     {
+        ConNguoiDao conNguoiDao = new ConNguoiDao();    
         public FDangNhap()
         {
             InitializeComponent();
@@ -24,19 +27,30 @@ namespace Winform_Project
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (txtTaiKhoan.Text == "1" && txtMatKhau.Text == "1")
+            TaiKhoanDangNhap tk = new TaiKhoanDangNhap(txtTaiKhoan.Text,txtMatKhau.Text);
+            string sqlStr = string.Format("SELECT HoTen, ChucVu, MSSV FROM ThongTinDangNhap WHERE TenDangNhap='{0}' AND MatKhau='{1}'", tk.TenDangNhap, tk.MatKhau);
+            DataTable dt = conNguoiDao.LoadData(sqlStr);
+            if (dt.Rows.Count > 0)
             {
-                FGiangVien fGiangVien = new FGiangVien();
-                this.Hide();
-                fGiangVien.ShowDialog();
+                MessageBox.Show("Tai khoan hop le");
+                if (dt.Rows[0][1].ToString() == "Giảng viên")
+                {
+                    FGiangVien fGiangVien = new FGiangVien();
+                    fGiangVien.lblChucVu.Text = dt.Rows[0][1].ToString();
+                    fGiangVien.lblTenGiangVien.Text = dt.Rows[0][0].ToString();
+                    this.Hide();
+                    fGiangVien.ShowDialog();
+
+                }
                 
+
             }
             else
             {
-                FSinhVien.FSinhVien fSinhVien = new FSinhVien.FSinhVien();  
-                this.Hide();
-                fSinhVien.ShowDialog();
+                MessageBox.Show("Tai khoan khong hop le!!!");
+                
             }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -12,13 +12,13 @@ namespace Winform_Project
 {
     public partial class ucItems : UserControl
     {
-        Class1 j;
+        Nganh_Khoa j;
         public ucItems()
         {
             InitializeComponent();
         }
 
-        public ucItems(Class1 j)
+        public ucItems(Nganh_Khoa j)
         {
             InitializeComponent();
 

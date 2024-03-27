@@ -66,6 +66,7 @@
             this.txtMoTa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtMoTa.Location = new System.Drawing.Point(42, 285);
             this.txtMoTa.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.PasswordChar = '\0';
             this.txtMoTa.PlaceholderText = "";
@@ -117,6 +118,7 @@
             this.txtTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtTen.Location = new System.Drawing.Point(44, 181);
             this.txtTen.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
             this.txtTen.PasswordChar = '\0';
             this.txtTen.PlaceholderText = "";
@@ -172,6 +174,7 @@
             this.txtMaDeTai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtMaDeTai.Location = new System.Drawing.Point(44, 74);
             this.txtMaDeTai.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtMaDeTai.Multiline = true;
             this.txtMaDeTai.Name = "txtMaDeTai";
             this.txtMaDeTai.PasswordChar = '\0';
             this.txtMaDeTai.PlaceholderText = "";
@@ -194,6 +197,7 @@
             this.txtSoLuong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtSoLuong.Location = new System.Drawing.Point(565, 74);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtSoLuong.Multiline = true;
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.PasswordChar = '\0';
             this.txtSoLuong.PlaceholderText = "";
@@ -227,6 +231,7 @@
             this.txtYeuCau.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtYeuCau.Location = new System.Drawing.Point(44, 454);
             this.txtYeuCau.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtYeuCau.Multiline = true;
             this.txtYeuCau.Name = "txtYeuCau";
             this.txtYeuCau.PasswordChar = '\0';
             this.txtYeuCau.PlaceholderText = "";
@@ -260,6 +265,7 @@
             this.txtChucNang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtChucNang.Location = new System.Drawing.Point(44, 601);
             this.txtChucNang.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtChucNang.Multiline = true;
             this.txtChucNang.Name = "txtChucNang";
             this.txtChucNang.PasswordChar = '\0';
             this.txtChucNang.PlaceholderText = "";
@@ -284,14 +290,14 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(988, 5);
+            this.guna2Panel1.Size = new System.Drawing.Size(982, 5);
             this.guna2Panel1.TabIndex = 45;
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel2.Location = new System.Drawing.Point(988, 0);
+            this.guna2Panel2.Location = new System.Drawing.Point(982, 0);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(5, 823);
             this.guna2Panel2.TabIndex = 46;
@@ -302,7 +308,7 @@
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 818);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(988, 5);
+            this.guna2Panel3.Size = new System.Drawing.Size(982, 5);
             this.guna2Panel3.TabIndex = 47;
             // 
             // guna2Panel4
@@ -356,6 +362,7 @@
             this.txtTheLoai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtTheLoai.Location = new System.Drawing.Point(51, 748);
             this.txtTheLoai.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtTheLoai.Multiline = true;
             this.txtTheLoai.Name = "txtTheLoai";
             this.txtTheLoai.PasswordChar = '\0';
             this.txtTheLoai.PlaceholderText = "";
@@ -368,7 +375,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(993, 823);
+            this.ClientSize = new System.Drawing.Size(987, 823);
             this.Controls.Add(this.lblTheLoai);
             this.Controls.Add(this.txtTheLoai);
             this.Controls.Add(this.guna2Button1);
