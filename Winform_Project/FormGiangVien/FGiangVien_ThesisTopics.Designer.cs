@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FGiangVien_ThesisTopics));
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -98,6 +98,8 @@
             // 
             // cbbKhoa
             // 
+            this.cbbKhoa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbKhoa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbKhoa.Items.AddRange(new object[] {
             "Công nghệ thông tin",
             "Thiết kế đồ họa",
@@ -111,9 +113,12 @@
             this.cbbKhoa.Name = "cbbKhoa";
             this.cbbKhoa.Size = new System.Drawing.Size(300, 33);
             this.cbbKhoa.Text = "Khoa";
+            this.cbbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbbKhoa_SelectedIndexChanged);
             // 
             // cbbNganh
             // 
+            this.cbbNganh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbNganh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbNganh.Items.AddRange(new object[] {
             "Công nghệ thông tin",
             "Thiết kế đồ họa",
@@ -130,6 +135,8 @@
             // 
             // cbbNamHoc
             // 
+            this.cbbNamHoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbNamHoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbNamHoc.Items.AddRange(new object[] {
             "2020 - 2021",
             "2021 - 2022",
@@ -141,6 +148,8 @@
             // 
             // cbbHocKy
             // 
+            this.cbbHocKy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbHocKy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbHocKy.Items.AddRange(new object[] {
             "Kỳ 1",
             "Kỳ 2",
@@ -151,6 +160,8 @@
             // 
             // cbbTheLoai
             // 
+            this.cbbTheLoai.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbTheLoai.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbTheLoai.Items.AddRange(new object[] {
             "Game\t",
             "Kinh tế",
@@ -165,51 +176,50 @@
             this.gvDeTai.AllowUserToDeleteRows = false;
             this.gvDeTai.AllowUserToResizeColumns = false;
             this.gvDeTai.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvDeTai.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvDeTai.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
             this.gvDeTai.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvDeTai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvDeTai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.gvDeTai.ColumnHeadersHeight = 25;
             this.gvDeTai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.gvDeTai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColSua,
             this.ColXoa});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvDeTai.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvDeTai.DefaultCellStyle = dataGridViewCellStyle38;
             this.gvDeTai.EnableHeadersVisualStyles = true;
             this.gvDeTai.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gvDeTai.Location = new System.Drawing.Point(21, 171);
             this.gvDeTai.Name = "gvDeTai";
             this.gvDeTai.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvDeTai.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvDeTai.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.gvDeTai.RowHeadersVisible = false;
             this.gvDeTai.RowHeadersWidth = 62;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.gvDeTai.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
+            this.gvDeTai.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.gvDeTai.RowTemplate.Height = 28;
             this.gvDeTai.Size = new System.Drawing.Size(1396, 671);
             this.gvDeTai.TabIndex = 26;

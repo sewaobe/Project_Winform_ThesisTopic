@@ -39,13 +39,23 @@
     <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <HintPath>packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.UI.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="ClassDao\ConNguoiDao.cs" />
     <Compile Include="ClassDao\GiangVienDao.cs" />
     <Compile Include="ClassDao\SinhVienDao.cs" />
@@ -66,6 +77,12 @@
     <Compile Include="ClassDoiTuong\GiangVien.cs" />
     <Compile Include="ClassDoiTuong\LuanVan.cs" />
     <Compile Include="ClassDoiTuong\SinhVien.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGiangVien\FGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +143,12 @@
     <Compile Include="FormGiangVien\FGiangVien_Thesis_Accept.Designer.cs">
       <DependentUpon>FGiangVien_Thesis_Accept.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Thesis_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Thesis_Edit.Designer.cs">
+      <DependentUpon>FGiangVien_Thesis_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSinhVien\FSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +206,15 @@
     <Compile Include="Model\DBConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucItems.Designer.cs">
+      <DependentUpon>ucItems.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien.resx">
       <DependentUpon>FGiangVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien_Thesis_Accept.resx">
       <DependentUpon>FGiangVien_Thesis_Accept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Thesis_Edit.resx">
+      <DependentUpon>FGiangVien_Thesis_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien.resx">
       <DependentUpon>FSinhVien.cs</DependentUpon>
@@ -250,6 +285,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucItems.resx">
+      <DependentUpon>ucItems.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.datasource" />
     <None Include="Properties\Settings.settings">
@@ -265,6 +303,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

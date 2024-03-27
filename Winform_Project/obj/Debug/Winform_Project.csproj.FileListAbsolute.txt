@@ -139,3 +139,10 @@ C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.CoreCompileInput
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.CopyComplete
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.exe
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.pdb
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Thesis_Edit.resources
+C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.dll
+C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.xml
+C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.Form1.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.ucItems.resources

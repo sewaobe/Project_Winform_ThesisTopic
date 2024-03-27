@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colTienDo = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.deTaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cbbKhoa = new System.Windows.Forms.ToolStripComboBox();
             this.cbbNganh = new System.Windows.Forms.ToolStripComboBox();
             this.cbbNamHoc = new System.Windows.Forms.ToolStripComboBox();
             this.cbbHocKy = new System.Windows.Forms.ToolStripComboBox();
+            this.deTaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -66,10 +66,6 @@
             this.colTienDo.Name = "colTienDo";
             this.colTienDo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colTienDo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // deTaiBindingSource
-            // 
-            this.deTaiBindingSource.DataMember = "DeTai\r\n";
             // 
             // guna2Button1
             // 
@@ -98,7 +94,7 @@
             this.cbbHocKy});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1232, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(1232, 37);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -116,7 +112,7 @@
             "Ngôn ngữ Anh",
             "Ngôn ngữ Trung"});
             this.cbbKhoa.Name = "cbbKhoa";
-            this.cbbKhoa.Size = new System.Drawing.Size(300, 35);
+            this.cbbKhoa.Size = new System.Drawing.Size(300, 33);
             this.cbbKhoa.Text = "Khoa";
             // 
             // cbbNganh
@@ -133,7 +129,7 @@
             "Ngôn ngữ Anh",
             "Ngôn ngữ Trung"});
             this.cbbNganh.Name = "cbbNganh";
-            this.cbbNganh.Size = new System.Drawing.Size(300, 35);
+            this.cbbNganh.Size = new System.Drawing.Size(300, 33);
             this.cbbNganh.Text = "Ngành";
             // 
             // cbbNamHoc
@@ -145,7 +141,7 @@
             "2022-2023",
             "2023-2024"});
             this.cbbNamHoc.Name = "cbbNamHoc";
-            this.cbbNamHoc.Size = new System.Drawing.Size(121, 35);
+            this.cbbNamHoc.Size = new System.Drawing.Size(121, 33);
             this.cbbNamHoc.Text = "Năm học";
             // 
             // cbbHocKy
@@ -156,8 +152,12 @@
             "Kỳ 2",
             "Kỳ 3"});
             this.cbbHocKy.Name = "cbbHocKy";
-            this.cbbHocKy.Size = new System.Drawing.Size(121, 35);
+            this.cbbHocKy.Size = new System.Drawing.Size(121, 33);
             this.cbbHocKy.Text = "Học kỳ";
+            // 
+            // deTaiBindingSource
+            // 
+            this.deTaiBindingSource.DataMember = "DeTai\r\n";
             // 
             // FGiangVien_Progress
             // 
@@ -172,9 +172,9 @@
             this.Text = "FGiangVien_Progress";
             this.Load += new System.EventHandler(this.FGiangVien_Progress_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

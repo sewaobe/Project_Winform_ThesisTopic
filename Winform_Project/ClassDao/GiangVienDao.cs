@@ -24,5 +24,16 @@ namespace Winform_Project.ClassDao
                                             lv.MaDeTai, lv.TenDeTai, lv.SoLuong, lv.MoTa, lv.YeuCau, lv.ChucNang, lv.NgayBatDau, lv.NgayKetThuc, lv.TheLoai, lv.Khoa, lv.Nganh, lv.TenGiangVien);
             db.ThucThi(sqlStr);
         }
+        public void Sua(LuanVan lv)
+        {
+            string sqlStr = string.Format("UPDATE ThongTinDeTai SET TenDeTai = '{0}', SoLuong = '1', MoTa = '{2}', YeuCau = '{3}', ChucNang = '{4}', NgayBatDau = '{5}', NgayKetThuc='{6}'," +
+                "TheLoai = '{7}', Khoa = '{8}', Nganh = '{9}' WHERE MaDeTai = '{10}'",lv.TenDeTai, lv.SoLuong, lv.MoTa, lv.YeuCau, lv.ChucNang, lv.NgayBatDau, lv.NgayKetThuc, lv.TheLoai, lv.Khoa, lv.Nganh,lv.MaDeTai);
+            db.ThucThi(sqlStr);
+        }
+        public void Xoa(LuanVan lv)
+        {
+            string sqlStr = string.Format("DELETE FROM ThongTinDeTai WHERE MaDeTai = '{0}'", lv.MaDeTai);
+            db.ThucThi(sqlStr);
+        }
     }
 }

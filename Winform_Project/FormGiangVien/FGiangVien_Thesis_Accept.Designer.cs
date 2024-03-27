@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colTrangThaiDeTai = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.deTaiBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.deTaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fGiangVienThesisAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cbbKhoa = new System.Windows.Forms.ToolStripComboBox();
             this.cbbNganh = new System.Windows.Forms.ToolStripComboBox();
             this.cbbNamHoc = new System.Windows.Forms.ToolStripComboBox();
             this.cbbHocKy = new System.Windows.Forms.ToolStripComboBox();
+            this.deTaiBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.deTaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fGiangVienThesisAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fGiangVienThesisAcceptBindingSource)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -72,18 +72,6 @@
             this.colTrangThaiDeTai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colTrangThaiDeTai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // deTaiBindingSource1
-            // 
-            this.deTaiBindingSource1.DataMember = "DeTai\r\n";
-            // 
-            // deTaiBindingSource
-            // 
-            this.deTaiBindingSource.DataMember = "DeTai\r\n";
-            // 
-            // fGiangVienThesisAcceptBindingSource
-            // 
-            this.fGiangVienThesisAcceptBindingSource.DataSource = typeof(Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(252)))), ((int)(((byte)(246)))));
@@ -96,7 +84,6 @@
             this.cbbHocKy});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1232, 37);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
@@ -159,6 +146,18 @@
             this.cbbHocKy.Size = new System.Drawing.Size(121, 33);
             this.cbbHocKy.Text = "Học kỳ";
             // 
+            // deTaiBindingSource1
+            // 
+            this.deTaiBindingSource1.DataMember = "DeTai\r\n";
+            // 
+            // deTaiBindingSource
+            // 
+            this.deTaiBindingSource.DataMember = "DeTai\r\n";
+            // 
+            // fGiangVienThesisAcceptBindingSource
+            // 
+            this.fGiangVienThesisAcceptBindingSource.DataSource = typeof(Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept);
+            // 
             // FGiangVien_Thesis_Accept
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -172,11 +171,11 @@
             this.Text = "FGiangVien_Thesis_Accept";
             this.Load += new System.EventHandler(this.FGiangVien_Thesis_Accept_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fGiangVienThesisAcceptBindingSource)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

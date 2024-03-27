@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
+using Winform_Project.ClassDoiTuong;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
@@ -87,20 +88,35 @@ namespace Winform_Project
             string click = gvDeTai.Columns[e.ColumnIndex].Index.ToString();
             if (click == "0")
             {
-                FGiangVien_ThesisTopics_Add fgiangVien_ThesisTopics_Add = new FGiangVien_ThesisTopics_Add();
-                fgiangVien_ThesisTopics_Add.txtMaDeTai.Text = gvDeTai.Rows[e.RowIndex].Cells["MaDeTai"].Value.ToString();
-                fgiangVien_ThesisTopics_Add.txtTen.Text = gvDeTai.Rows[e.RowIndex].Cells["TenDeTai"].Value.ToString();
-                fgiangVien_ThesisTopics_Add.txtTheLoai.Text = gvDeTai.Rows[e.RowIndex].Cells["TheLoai"].Value.ToString();
-                fgiangVien_ThesisTopics_Add.txtMoTa.Text = gvDeTai.Rows[e.RowIndex].Cells["MoTa"].Value.ToString();
-                fgiangVien_ThesisTopics_Add.txtYeuCau.Text = gvDeTai.Rows[e.RowIndex].Cells["YeuCau"].Value.ToString();
-                fgiangVien_ThesisTopics_Add.txtChucNang.Text = gvDeTai.Rows[e.RowIndex].Cells["ChucNang"].Value.ToString();
-                fgiangVien_ThesisTopics_Add.txtSoLuong.Text = gvDeTai.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
-                fgiangVien_ThesisTopics_Add.btnThem.Text = "Sửa";
-/*                fgiangVien_ThesisTopics_Add.btnThem.Click += Edit;
-*/                this.Hide();
-                fgiangVien_ThesisTopics_Add.ShowDialog();
+                FGiangVien_Thesis_Edit fgiangVien_Thesis_Edit = new FGiangVien_Thesis_Edit();
+                fgiangVien_Thesis_Edit.txtMaDeTai.Text = gvDeTai.Rows[e.RowIndex].Cells["MaDeTai"].Value.ToString();
+                fgiangVien_Thesis_Edit.txtTen.Text = gvDeTai.Rows[e.RowIndex].Cells["TenDeTai"].Value.ToString();
+                fgiangVien_Thesis_Edit.txtTheLoai.Text = gvDeTai.Rows[e.RowIndex].Cells["TheLoai"].Value.ToString();
+                fgiangVien_Thesis_Edit.txtMoTa.Text = gvDeTai.Rows[e.RowIndex].Cells["MoTa"].Value.ToString();
+                fgiangVien_Thesis_Edit.txtYeuCau.Text = gvDeTai.Rows[e.RowIndex].Cells["YeuCau"].Value.ToString();
+                fgiangVien_Thesis_Edit.txtChucNang.Text = gvDeTai.Rows[e.RowIndex].Cells["ChucNang"].Value.ToString();
+                fgiangVien_Thesis_Edit.txtSoLuong.Text = gvDeTai.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
+                fgiangVien_Thesis_Edit.cbbKhoa.Text = gvDeTai.Rows[e.RowIndex].Cells["Khoa"].Value.ToString();
+                fgiangVien_Thesis_Edit.cbbNganh.Text = gvDeTai.Rows[e.RowIndex].Cells["Nganh"].Value.ToString();
+                this.Hide();
+                fgiangVien_Thesis_Edit.ShowDialog();
                 this.Show();
             }
+            else if (click == "1")
+            {
+                if(MessageBox.Show($"Bạn muốn xóa đề tài này?","Xác minh xóa đề tài", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    LuanVan lv = new LuanVan();
+                    lv.MaDeTai = gvDeTai.Rows[e.RowIndex].Cells["MaDeTai"].Value.ToString();
+                    gvDao.Xoa(lv);
+                }
+                
+            }
+        }
+
+        private void cbbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
