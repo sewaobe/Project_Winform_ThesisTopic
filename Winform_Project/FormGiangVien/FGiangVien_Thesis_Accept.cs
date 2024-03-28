@@ -36,6 +36,7 @@ namespace Winform_Project.FormGiangVien
         private void btnDaDuyet_Click(object sender, EventArgs e)
         {
             gvDeTai.DataSource = gvDao.LoadData("SELECT ThongTinDeTai.MaDeTai, ThongTinDeTai.TenDeTai, ThongTinDeTai.TheLoai, ThongTinDeTai.NgayBatDau, ThongTinDeTai.NgayKetThuc, ThongTinNhomDangKy.MaSoNhom, ThongTinNhomDangKy.TrangThai FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy ON ThongTinNhomDangKy.MaDeTai = ThongTinDeTai.MaDeTai AND ThongTinNhomDangKy.TrangThai = 'Da duyet'");
+            gvDeTai.Columns["colDuyet"].Visible = false;
             gvDeTai.Visible = !gvDeTai.Visible;
             txtTimKiem.Visible = !txtTimKiem.Visible;
             if(gvDeTai.Visible == true) 
@@ -48,6 +49,8 @@ namespace Winform_Project.FormGiangVien
         {
             gvDeTai.DataSource = gvDao.LoadData("SELECT ThongTinDeTai.MaDeTai, ThongTinDeTai.TenDeTai, ThongTinDeTai.TheLoai, ThongTinDeTai.NgayBatDau, ThongTinDeTai.NgayKetThuc, ThongTinNhomDangKy.MaSoNhom, ThongTinNhomDangKy.TrangThai FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy ON ThongTinNhomDangKy.MaDeTai = ThongTinDeTai.MaDeTai AND ThongTinNhomDangKy.TrangThai = 'Chua duyet'");
             gvDeTai.Visible = !gvDeTai.Visible;
+            gvDeTai.Columns["colDuyet"].Visible = true;
+
             txtTimKiem.Visible = !txtTimKiem.Visible;
         }
     }

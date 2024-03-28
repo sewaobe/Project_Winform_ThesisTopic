@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project.FormSinhVien
 {
     public partial class FSinhVien_login : Form
     {
+        SinhVien SinhVienAccount = new SinhVien("Bao", "", DateTime.Now, "", "", "", "22110285");
         public FSinhVien_login()
         {
             InitializeComponent();
@@ -39,6 +41,18 @@ namespace Winform_Project.FormSinhVien
         {
             Change(true);
 
+        }
+
+        private void FSinhVien_login_Load(object sender, EventArgs e)
+        {
+            txtMSSV.Text = SinhVienAccount.Mssv;
+            txtTen.Text = SinhVienAccount.Ten;
+            cbbGioiTinh.Text = SinhVienAccount.GioiTinh;
+            DTPngaysinh.Value = SinhVienAccount.NgaySinh;
+            txtSDT.Text = SinhVienAccount.Sdt;
+            txtEmail.Text = "không có";
+            cbbKhoa.Text = SinhVienAccount.Khoa;
+            cbbNganh.Text = SinhVienAccount.Nganh;
         }
     }
 }

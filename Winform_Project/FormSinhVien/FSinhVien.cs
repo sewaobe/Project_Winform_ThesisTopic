@@ -7,15 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDoiTuong;
 using Winform_Project.FormSinhVien;
 
 namespace Winform_Project.FSinhVien
 {
     public partial class FSinhVien : Form
     {
+        SinhVien SinhVienAccount = new SinhVien("Bao", "", DateTime.Now, "", "", "", "22110285");
+
         public FSinhVien()
         {
             InitializeComponent();
+            lblTen.Text = SinhVienAccount.Ten;
+            lblMSSV.Text = SinhVienAccount.Mssv;
         }
         private void container(object form)
         {

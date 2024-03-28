@@ -45,6 +45,7 @@
             this.btnDaDuyet = new Guna.UI2.WinForms.Guna2Button();
             this.btnChuaDuyet = new Guna.UI2.WinForms.Guna2Button();
             this.fGiangVienThesisAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colDuyet = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).BeginInit();
@@ -64,7 +65,7 @@
             this.cbbHocKy});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1232, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(1232, 37);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -153,6 +154,8 @@
             this.gvDeTai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvDeTai.ColumnHeadersHeight = 30;
             this.gvDeTai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.gvDeTai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDuyet});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,6 +261,14 @@
             // 
             this.fGiangVienThesisAcceptBindingSource.DataSource = typeof(Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept);
             // 
+            // colDuyet
+            // 
+            this.colDuyet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDuyet.HeaderText = "Duyet";
+            this.colDuyet.MinimumWidth = 8;
+            this.colDuyet.Name = "colDuyet";
+            this.colDuyet.Width = 57;
+            // 
             // FGiangVien_Thesis_Accept
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -300,5 +311,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private Guna.UI2.WinForms.Guna2Button btnDaDuyet;
         private Guna.UI2.WinForms.Guna2Button btnChuaDuyet;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colDuyet;
     }
 }

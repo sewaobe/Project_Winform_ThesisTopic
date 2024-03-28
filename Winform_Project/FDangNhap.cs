@@ -42,6 +42,16 @@ namespace Winform_Project
                     fGiangVien.ShowDialog();
 
                 }
+                else
+                {
+                    FSinhVien.FSinhVien fSinhVien = new FSinhVien.FSinhVien();
+                    fSinhVien.lblTen.Text = dt.Rows[0][0].ToString();
+                    fSinhVien.lblChucVu.Text = dt.Rows[0][1].ToString();
+                    fSinhVien.lblMSSV.Text = dt.Rows[0][2].ToString();
+                    this.Hide();
+                    fSinhVien.ShowDialog();
+
+                }
                 
 
             }

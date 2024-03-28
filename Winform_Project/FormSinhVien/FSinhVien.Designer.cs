@@ -32,9 +32,9 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLienHeGVHD = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblChucVu = new System.Windows.Forms.Label();
+            this.lblMSSV = new System.Windows.Forms.Label();
+            this.lblTen = new System.Windows.Forms.Label();
             this.btnThongBao = new Guna.UI2.WinForms.Guna2Button();
             this.btnTienDo = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangKyDeTai = new Guna.UI2.WinForms.Guna2Button();
@@ -57,9 +57,9 @@
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.Window;
             this.guna2Panel1.Controls.Add(this.btnLienHeGVHD);
             this.guna2Panel1.Controls.Add(this.btnDangXuat);
-            this.guna2Panel1.Controls.Add(this.label5);
-            this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Controls.Add(this.label3);
+            this.guna2Panel1.Controls.Add(this.lblChucVu);
+            this.guna2Panel1.Controls.Add(this.lblMSSV);
+            this.guna2Panel1.Controls.Add(this.lblTen);
             this.guna2Panel1.Controls.Add(this.btnThongBao);
             this.guna2Panel1.Controls.Add(this.btnTienDo);
             this.guna2Panel1.Controls.Add(this.btnDangKyDeTai);
@@ -70,7 +70,7 @@
             this.guna2Panel1.ForeColor = System.Drawing.Color.Black;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(151, 769);
+            this.guna2Panel1.Size = new System.Drawing.Size(152, 951);
             this.guna2Panel1.TabIndex = 2;
             // 
             // btnLienHeGVHD
@@ -90,7 +90,7 @@
             this.btnLienHeGVHD.ImageSize = new System.Drawing.Size(40, 40);
             this.btnLienHeGVHD.Location = new System.Drawing.Point(21, 563);
             this.btnLienHeGVHD.Name = "btnLienHeGVHD";
-            this.btnLienHeGVHD.Size = new System.Drawing.Size(107, 57);
+            this.btnLienHeGVHD.Size = new System.Drawing.Size(106, 57);
             this.btnLienHeGVHD.TabIndex = 11;
             this.btnLienHeGVHD.Click += new System.EventHandler(this.btnLienHeGVHD_Click);
             // 
@@ -111,36 +111,36 @@
             this.btnDangXuat.ImageSize = new System.Drawing.Size(40, 40);
             this.btnDangXuat.Location = new System.Drawing.Point(21, 678);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(107, 56);
+            this.btnDangXuat.Size = new System.Drawing.Size(106, 55);
             this.btnDangXuat.TabIndex = 10;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
-            // label5
+            // lblChucVu
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 212);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 20);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Chức vụ";
+            this.lblChucVu.AutoSize = true;
+            this.lblChucVu.Location = new System.Drawing.Point(34, 212);
+            this.lblChucVu.Name = "lblChucVu";
+            this.lblChucVu.Size = new System.Drawing.Size(66, 20);
+            this.lblChucVu.TabIndex = 9;
+            this.lblChucVu.Text = "Chức vụ";
             // 
-            // label4
+            // lblMSSV
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 174);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "MSSV";
+            this.lblMSSV.AutoSize = true;
+            this.lblMSSV.Location = new System.Drawing.Point(45, 174);
+            this.lblMSSV.Name = "lblMSSV";
+            this.lblMSSV.Size = new System.Drawing.Size(55, 20);
+            this.lblMSSV.TabIndex = 8;
+            this.lblMSSV.Text = "MSSV";
             // 
-            // label3
+            // lblTen
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 137);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tên sinh viên";
+            this.lblTen.AutoSize = true;
+            this.lblTen.Location = new System.Drawing.Point(26, 137);
+            this.lblTen.Name = "lblTen";
+            this.lblTen.Size = new System.Drawing.Size(101, 20);
+            this.lblTen.TabIndex = 0;
+            this.lblTen.Text = "Tên sinh viên";
             // 
             // btnThongBao
             // 
@@ -157,9 +157,9 @@
             this.btnThongBao.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnThongBao.Image = ((System.Drawing.Image)(resources.GetObject("btnThongBao.Image")));
             this.btnThongBao.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnThongBao.Location = new System.Drawing.Point(19, 485);
+            this.btnThongBao.Location = new System.Drawing.Point(20, 485);
             this.btnThongBao.Name = "btnThongBao";
-            this.btnThongBao.Size = new System.Drawing.Size(107, 60);
+            this.btnThongBao.Size = new System.Drawing.Size(106, 60);
             this.btnThongBao.TabIndex = 5;
             this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
             // 
@@ -178,9 +178,9 @@
             this.btnTienDo.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnTienDo.Image = ((System.Drawing.Image)(resources.GetObject("btnTienDo.Image")));
             this.btnTienDo.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnTienDo.Location = new System.Drawing.Point(19, 421);
+            this.btnTienDo.Location = new System.Drawing.Point(20, 422);
             this.btnTienDo.Name = "btnTienDo";
-            this.btnTienDo.Size = new System.Drawing.Size(107, 45);
+            this.btnTienDo.Size = new System.Drawing.Size(106, 45);
             this.btnTienDo.TabIndex = 4;
             this.btnTienDo.Click += new System.EventHandler(this.btnTienDo_Click);
             // 
@@ -199,9 +199,9 @@
             this.btnDangKyDeTai.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnDangKyDeTai.Image = ((System.Drawing.Image)(resources.GetObject("btnDangKyDeTai.Image")));
             this.btnDangKyDeTai.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnDangKyDeTai.Location = new System.Drawing.Point(19, 350);
+            this.btnDangKyDeTai.Location = new System.Drawing.Point(20, 349);
             this.btnDangKyDeTai.Name = "btnDangKyDeTai";
-            this.btnDangKyDeTai.Size = new System.Drawing.Size(107, 45);
+            this.btnDangKyDeTai.Size = new System.Drawing.Size(106, 45);
             this.btnDangKyDeTai.TabIndex = 3;
             this.btnDangKyDeTai.Click += new System.EventHandler(this.btnDangKyDeTai_Click);
             // 
@@ -222,7 +222,7 @@
             this.btnThongTinCaNhan.ImageSize = new System.Drawing.Size(40, 40);
             this.btnThongTinCaNhan.Location = new System.Drawing.Point(21, 275);
             this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
-            this.btnThongTinCaNhan.Size = new System.Drawing.Size(107, 45);
+            this.btnThongTinCaNhan.Size = new System.Drawing.Size(106, 45);
             this.btnThongTinCaNhan.TabIndex = 2;
             this.btnThongTinCaNhan.Click += new System.EventHandler(this.btnThongTinCaNhan_Click);
             // 
@@ -245,9 +245,9 @@
             this.guna2Panel_container.Controls.Add(this.guna2Panel2);
             this.guna2Panel_container.Controls.Add(this.label7);
             this.guna2Panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel_container.Location = new System.Drawing.Point(151, 0);
+            this.guna2Panel_container.Location = new System.Drawing.Point(152, 0);
             this.guna2Panel_container.Name = "guna2Panel_container";
-            this.guna2Panel_container.Size = new System.Drawing.Size(1327, 769);
+            this.guna2Panel_container.Size = new System.Drawing.Size(1448, 951);
             this.guna2Panel_container.TabIndex = 4;
             // 
             // guna2Panel2
@@ -257,7 +257,7 @@
             this.guna2Panel2.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel2.Location = new System.Drawing.Point(0, 106);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1232, 663);
+            this.guna2Panel2.Size = new System.Drawing.Size(1446, 842);
             this.guna2Panel2.TabIndex = 5;
             this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
@@ -296,7 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1478, 769);
+            this.ClientSize = new System.Drawing.Size(1600, 951);
             this.Controls.Add(this.guna2Panel_container);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -316,21 +316,22 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button btnThongBao;
-        private Guna.UI2.WinForms.Guna2Button btnTienDo;
-        private Guna.UI2.WinForms.Guna2Button btnDangKyDeTai;
-        private Guna.UI2.WinForms.Guna2Button btnThongTinCaNhan;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel_container;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2Button btnDangXuat;
-        private Guna.UI2.WinForms.Guna2Button btnLienHeGVHD;
+
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        public Guna.UI2.WinForms.Guna2Button btnThongBao;
+        public Guna.UI2.WinForms.Guna2Button btnTienDo;
+        public Guna.UI2.WinForms.Guna2Button btnDangKyDeTai;
+        public Guna.UI2.WinForms.Guna2Button btnThongTinCaNhan;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel_container;
+        public System.Windows.Forms.Label lblChucVu;
+        public System.Windows.Forms.Label lblMSSV;
+        public System.Windows.Forms.Label lblTen;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        public System.Windows.Forms.Label label6;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        public System.Windows.Forms.Label label7;
+        public Guna.UI2.WinForms.Guna2Button btnDangXuat;
+        public Guna.UI2.WinForms.Guna2Button btnLienHeGVHD;
     }
 }
