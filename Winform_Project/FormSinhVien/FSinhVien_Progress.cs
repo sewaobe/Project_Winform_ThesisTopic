@@ -10,14 +10,39 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using Winform_Project.FormSinhVien;
+using System.Data.SqlClient;
+using Winform_Project.Model;
+using System.Data.SqlTypes;
+using Winform_Project.ClassDao;
+using System.Windows.Forms.DataVisualization.Charting;
+using Winform_Project.ClassDoiTuong;
+using System.Reflection;
+using System.IO;
+
 
 namespace Winform_Project.FSinhVien
 {
     public partial class FSinhVien_Progress : Form
     {
+        SinhVienDao svDao = new SinhVienDao();
+        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+
         public FSinhVien_Progress()
         {
             InitializeComponent();
+        }
+        private void FSinhVien_Progress_Load(object sender, EventArgs e)
+        {
+            //string sqlStr = string.Format("SELECT * FROM TienDo INNER JOIN ThongTinNhomDangKy On TienDo.MaSoNhom = ThongTinNhomDangKy.MaSoNhom WHERE ThongTinNhomDangKy.MSSV={0}", SinhVienAccount.Mssv);
+            string sqlStr = string.Format("SELECT * FROM TienDo WHERE MaSoNhom='{0}'", SinhVienAccount.Masonhom);
+            DataTable dt = svDao.LoadData(sqlStr);
+            chartTienDo.ChartAreas["ChartArea1"].AxisX.Title = "Lần Báo Cáo";
+            chartTienDo.ChartAreas["ChartArea1"].AxisY.Title = "Tiến Độ";
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                chartTienDo.Series["TienDo"].Points.AddXY(dt.Rows[i]["LanBaoCao"], dt.Rows[i]["TienDo"]);
+            }
+           
         }
         bool expand1 = false;
         bool expand2 = false;   
@@ -55,14 +80,6 @@ namespace Winform_Project.FSinhVien
            
         }
 
-
-        private void FSinhVien_Progress_Load(object sender, EventArgs e)
-        {
-
-        }
-       
-    
-
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -78,13 +95,21 @@ namespace Winform_Project.FSinhVien
 
         private void btnXemNhanXet_Click(object sender, EventArgs e)
         {
-            FSinhVien_Progress_Check fsinhVien_Progress_Check = new FSinhVien_Progress_Check();
-            fsinhVien_Progress_Check.ShowDialog();
+
+             string sqlStr = string.Format("SELECT * FROM TienDo WHERE MaSoNhom='{0}' and LanBaoCao='{1}'", SinhVienAccount.Masonhom, cbbLanBaoCao.SelectedIndex+1);
+            DataTable dtTienDo = svDao.LoadData(sqlStr);
+            if (dtTienDo.Rows.Count > 0)
+            {
+                txtDanhGia.Text = dtTienDo.Rows[0]["TienDo"].ToString();
+                txtNhanXet.Text = dtTienDo.Rows[0]["NhanXet"].ToString();
+            }
+
         }
 
         private void btnGui_Click(object sender, EventArgs e)
         {
-
+            DataTable dt = svDao.LoadData(string.Format("SELECT * FROM ThongTinNhomDangKy WHERE MSSV={0}", SinhVienAccount.Mssv));
+            svDao.guiBaoCao(dt.Rows[0]["MaSoNhom"].ToString(), dt.Rows[0]["MaDeTai"].ToString(), txtFile.Text);
         }
     }
 }

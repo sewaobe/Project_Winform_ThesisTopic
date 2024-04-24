@@ -14,7 +14,11 @@ namespace Winform_Project
 {
     public partial class FDangNhap : Form
     {
-        ConNguoiDao conNguoiDao = new ConNguoiDao();    
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
+        SinhVienDao svDao = new SinhVienDao();
+        GiangVienDao gvDao = new GiangVienDao();
+        public static SinhVien SinhVienAccount;
+        public static GiangVien giangVienAccount;
         public FDangNhap()
         {
             InitializeComponent();
@@ -28,26 +32,23 @@ namespace Winform_Project
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             TaiKhoanDangNhap tk = new TaiKhoanDangNhap(txtTaiKhoan.Text,txtMatKhau.Text);
-            string sqlStr = string.Format("SELECT HoTen, ChucVu, MSSV FROM ThongTinDangNhap WHERE TenDangNhap='{0}' AND MatKhau='{1}'", tk.TenDangNhap, tk.MatKhau);
-            DataTable dt = conNguoiDao.LoadData(sqlStr);
+            DataTable dt = conNguoiDao.XacNhanDangNhap(tk);
             if (dt.Rows.Count > 0)
             {
                 MessageBox.Show("Tai khoan hop le");
-                if (dt.Rows[0][1].ToString() == "Giảng viên")
+                if (dt.Rows[0]["ChucVu"].ToString() == "Giảng viên")
                 {
+                    LayThongTinGiangVien(dt.Rows[0]["HoTen"].ToString());
                     FGiangVien fGiangVien = new FGiangVien();
-                    fGiangVien.lblChucVu.Text = dt.Rows[0][1].ToString();
-                    fGiangVien.lblTenGiangVien.Text = dt.Rows[0][0].ToString();
                     this.Hide();
                     fGiangVien.ShowDialog();
 
                 }
                 else
                 {
+                    layThongTinSinhVien(dt.Rows[0]["MSSV"].ToString());
+                    //SinhVienAccount = svDao.LayThongTinSinhVien(dt.Rows[0]["MSSV"].ToString());
                     FSinhVien.FSinhVien fSinhVien = new FSinhVien.FSinhVien();
-                    fSinhVien.lblTen.Text = dt.Rows[0][0].ToString();
-                    fSinhVien.lblChucVu.Text = dt.Rows[0][1].ToString();
-                    fSinhVien.lblMSSV.Text = dt.Rows[0][2].ToString();
                     this.Hide();
                     fSinhVien.ShowDialog();
 
@@ -62,7 +63,14 @@ namespace Winform_Project
             }
             
         }
-
+        public void LayThongTinGiangVien(string hoTen)
+        {
+            giangVienAccount = gvDao.LayThongTinGiangVien(hoTen);
+        }
+        public void layThongTinSinhVien(string mssv)
+        {
+            SinhVienAccount = svDao.LayThongTinSinhVien(mssv);
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);

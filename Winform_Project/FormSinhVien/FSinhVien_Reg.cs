@@ -17,7 +17,7 @@ namespace Winform_Project.FSinhVien
 {
     public partial class FSinhVien_Reg : Form
     {
-        SinhVien SinhVienAccount = new SinhVien("Bao", "", DateTime.Now, "", "", "", "22110285");
+        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
         public FSinhVien_Reg()
         {
@@ -26,7 +26,7 @@ namespace Winform_Project.FSinhVien
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            FSinhVien_Reg_Done fSinhVien_Reg_Done = new FSinhVien_Reg_Done();
+            FSinhVien_Reg_Done fSinhVien_Reg_Done = new FSinhVien_Reg_Done(null);
             this.Hide();
             fSinhVien_Reg_Done.ShowDialog();
             this.Show();
@@ -38,61 +38,177 @@ namespace Winform_Project.FSinhVien
         }
         private void Instance_GridView()
         {
-            gvDeTai.Columns["MaDeTai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            gvDeTai.Columns["MaDeTai"].HeaderText = "Mã đề tài";
-            gvDeTai.Columns["TenDeTai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            gvDeTai.Columns["TenDeTai"].HeaderText = "Tên đề tài";
-            gvDeTai.Columns["TheLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            gvDeTai.Columns["TheLoai"].HeaderText = "Thể loại";
-            gvDeTai.Columns["NgayBatDau"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            gvDeTai.Columns["NgayBatDau"].HeaderText = "Ngày bắt đầu";
-            gvDeTai.Columns["NgayKetThuc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            gvDeTai.Columns["NgayKetThuc"].HeaderText = "Ngày kết thúc";
-            gvDeTai.Columns["MoTa"].Visible = false;
-            gvDeTai.Columns["ChucNang"].Visible = false;
-            gvDeTai.Columns["TenGiangVien"].Visible = false;
-            gvDeTai.Columns["Khoa"].Visible = false;
-            gvDeTai.Columns["Nganh"].Visible = false;
-            gvDeTai.Columns["YeuCau"].Visible = false;
-            gvDeTai.Columns["SoLuong"].Visible = false;
+
         }
         private void FSinhVien_Reg_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'winDataSet4._DeTai__' table. You can move, or remove it, as needed.
-            gvDeTai.DataSource = svDao.LoadData("SELECT * From ThongTinDeTai");
             Instance_GridView();
+            DataTable dtDeTai = svDao.LoadData("SELECT * From ThongTinDeTai");
+            for (int i = 0; i < dtDeTai.Rows.Count; i++)
+            {
+                //đổ data vô các combobox
+                if(!cbbGiangVien.Items.Contains(dtDeTai.Rows[i]["TenGiangVien"].ToString()))
+                {
+                    cbbGiangVien.Items.Add(dtDeTai.Rows[i]["TenGiangVien"].ToString());
+                }
+                if(!cbbTheLoai.Items.Contains(dtDeTai.Rows[i]["TheLoai"].ToString()))
+                {
+                    cbbTheLoai.Items.Add(dtDeTai.Rows[i]["TheLoai"].ToString());
+                }
+
+                //thêm uc_DeTai
+                LuanVan lv = new LuanVan(dtDeTai.Rows[i]["MaDeTai"].ToString(),
+                                        dtDeTai.Rows[i]["TenDeTai"].ToString(),
+                                        dtDeTai.Rows[i]["TheLoai"].ToString(),
+                                        dtDeTai.Rows[i]["SoLuong"].ToString(),
+                                        dtDeTai.Rows[i]["MoTa"].ToString(),
+                                        dtDeTai.Rows[i]["ChucNang"].ToString(),
+                                        dtDeTai.Rows[i]["YeuCau"].ToString(),
+                                        dtDeTai.Rows[i]["CongNghe"].ToString(),
+                                        dtDeTai.Rows[i]["Khoa"].ToString(),
+                                        dtDeTai.Rows[i]["Nganh"].ToString(),
+                                        dtDeTai.Rows[i]["HocKy"].ToString(),
+                                        dtDeTai.Rows[i]["TenGiangVien"].ToString(),
+                                        dtDeTai.Rows[i]["TrangThai"].ToString());
+                uc_SV_DeTai uc_sv_detai = new uc_SV_DeTai(lv);
+                flow_DeTai.Controls.Add(uc_sv_detai);
+                uc_sv_detai.Show();
+            }
+            
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (cbbNamHoc.SelectedIndex == -1 || cbbHocKy.SelectedIndex == -1)
-            {
-                MessageBox.Show("Mời bạn nhập đủ thông tin Khoa/Ngành/Năm/Kì của đề tài!!!!");
-                return;
-            }
-            
-            FSinhVien_Reg_New fSinhVien_Reg_New = new FSinhVien_Reg_New(cbbNamHoc.Text, cbbHocKy.Text);
+            //if (cbbNamHoc.SelectedIndex == -1 || cbbHocKy.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Mời bạn nhập đủ thông tin Khoa/Ngành/Năm/Kì của đề tài!!!!");
+            //    return;
+            //}
+
+            FSinhVien_Reg_New fSinhVien_Reg_New = new FSinhVien_Reg_New("hoc ki 2");
             this.Hide();
             fSinhVien_Reg_New.ShowDialog();
             this.Show();
         }
 
-        private void gvDeTai_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            string click = gvDeTai.Columns[e.ColumnIndex].Index.ToString();
-            if (click == "0")
-            {
 
-                FSinhVien_Reg_Done fSinhVien_Reg_Done = new FSinhVien_Reg_Done();
-                fSinhVien_Reg_Done.txtMoTa.Text = gvDeTai.Rows[e.RowIndex].Cells["MoTa"].Value.ToString();
-                fSinhVien_Reg_Done.txtChucNang.Text = gvDeTai.Rows[e.RowIndex].Cells["ChucNang"].Value.ToString();
-                //fSinhVien_Reg_Done.txtCongNghe.Text = gvDeTai.Rows[e.RowIndex].Cells["CongNghe"].Value.ToString();
-                fSinhVien_Reg_Done.txtMaDeTai.Text = gvDeTai.Rows[e.RowIndex].Cells["MaDeTai"].Value.ToString();
-                fSinhVien_Reg_Done.txtTenDeTai.Text = gvDeTai.Rows[e.RowIndex].Cells["TenDeTai"].Value.ToString();
-                this.Hide();
-                fSinhVien_Reg_Done.ShowDialog();
-                this.Show();
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //uc_SV_DeTai uc_sv_detai = new uc_SV_DeTai();
+            //flow_DeTai.Controls.Add(uc_sv_detai);
+            //uc_sv_detai.Show();
+        }
+        private void timkiem()
+        {
+            if (txtTimKiem.Text.Length > 0 || cbbGiangVien.SelectedIndex != 0 || cbbTheLoai.SelectedIndex != 0 || cbbHocKy.SelectedIndex != 0)
+            {
+                foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+                {
+                    if ((uc.lblTenDeTai2.Text.Contains(txtTimKiem.Text) && txtTimKiem.Text.Length > 0) || uc.lblGVHD2.Text.Contains(cbbGiangVien.Text) || uc.lblTheLoai2.Text.Contains(cbbTheLoai.Text) || uc.lblHocKy2.Text.Contains(cbbHocKy.Text))
+                    {
+                        uc.Visible = true;
+                    }
+                    else { uc.Visible = false; }
+                }
             }
-        } 
+            else
+            {
+                foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+                {
+                    uc.Visible = true;
+                }
+            }
+        }
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            timkiem();
+            //if (txtTimKiem.Text.Length > 0)
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        if (uc.lblTenDeTai2.Text.Contains(txtTimKiem.Text) == false)
+            //        {
+            //            uc.Visible = false;
+            //        }
+            //        else { uc.Visible = true; }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        uc.Visible = true;
+            //    }
+            //}
+        }
+
+        private void cbbGiangVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            timkiem();
+            //if (cbbGiangVien.SelectedIndex!=-1)
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        if (uc.lblGVHD2.Text.Contains(cbbGiangVien.Text) == false)
+            //        {
+            //            uc.Visible = false;
+            //        }
+            //        else { uc.Visible = true; }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        uc.Visible = true;
+            //    }
+            //}
+        }
+
+        private void cbbTheLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            timkiem();
+            //if (cbbTheLoai.SelectedIndex != -1)
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        if (uc.lblTheLoai2.Text.Contains(cbbTheLoai.Text) == false)
+            //        {
+            //            uc.Visible = false;
+            //        }
+            //        else { uc.Visible = true; }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        uc.Visible = true;
+            //    }
+            //}
+        }
+
+        private void cbbHocKy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            timkiem();
+            //if (cbbHocKy.SelectedIndex != -1)
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        if (uc.lblHocKy2.Text.Contains(cbbHocKy.Text) == false)
+            //        {
+            //            uc.Visible = false;
+            //        }
+            //        else { uc.Visible = true; }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (uc_SV_DeTai uc in flow_DeTai.Controls)
+            //    {
+            //        uc.Visible = true;
+            //    }
+            //}
+        }
     }
 }

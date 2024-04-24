@@ -49,6 +49,8 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.lblTheLoai = new System.Windows.Forms.Label();
             this.txtTheLoai = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCongNghe = new System.Windows.Forms.Label();
+            this.cbbCongNghe = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtMoTa
@@ -370,12 +372,39 @@
             this.txtTheLoai.Size = new System.Drawing.Size(348, 45);
             this.txtTheLoai.TabIndex = 51;
             // 
+            // lblCongNghe
+            // 
+            this.lblCongNghe.AutoSize = true;
+            this.lblCongNghe.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCongNghe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCongNghe.Location = new System.Drawing.Point(456, 748);
+            this.lblCongNghe.Name = "lblCongNghe";
+            this.lblCongNghe.Size = new System.Drawing.Size(87, 20);
+            this.lblCongNghe.TabIndex = 52;
+            this.lblCongNghe.Text = "Công nghệ";
+            // 
+            // cbbCongNghe
+            // 
+            this.cbbCongNghe.FormattingEnabled = true;
+            this.cbbCongNghe.Items.AddRange(new object[] {
+            "Winform",
+            "ASP.NET",
+            "WPF",
+            "ReactJS",
+            "NodeJS"});
+            this.cbbCongNghe.Location = new System.Drawing.Point(450, 761);
+            this.cbbCongNghe.Name = "cbbCongNghe";
+            this.cbbCongNghe.Size = new System.Drawing.Size(298, 28);
+            this.cbbCongNghe.TabIndex = 54;
+            // 
             // FGiangVien_ThesisTopics_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(987, 823);
+            this.Controls.Add(this.lblCongNghe);
+            this.Controls.Add(this.cbbCongNghe);
             this.Controls.Add(this.lblTheLoai);
             this.Controls.Add(this.txtTheLoai);
             this.Controls.Add(this.guna2Button1);
@@ -431,5 +460,7 @@
         public Guna.UI2.WinForms.Guna2Button guna2Button1;
         public System.Windows.Forms.Label lblTheLoai;
         public Guna.UI2.WinForms.Guna2TextBox txtTheLoai;
+        public System.Windows.Forms.Label lblCongNghe;
+        private System.Windows.Forms.ComboBox cbbCongNghe;
     }
 }

@@ -13,7 +13,7 @@ namespace Winform_Project.FormSinhVien
 {
     public partial class FSinhVien_login : Form
     {
-        SinhVien SinhVienAccount = new SinhVien("Bao", "", DateTime.Now, "", "", "", "22110285");
+        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         public FSinhVien_login()
         {
             InitializeComponent();

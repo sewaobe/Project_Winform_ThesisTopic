@@ -29,11 +29,14 @@ namespace Winform_Project.Model
                     MessageBox.Show("Thuc thi that bai");
 
                 }
-                conn.Close();
             }
             catch
             {
                 MessageBox.Show("Loi thuc thi");
+            }
+            finally
+            {
+                conn.Close();
             }
         }
         public DataTable Load(string sqlStr)

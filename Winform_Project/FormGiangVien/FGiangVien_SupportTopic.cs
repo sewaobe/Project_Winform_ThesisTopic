@@ -13,6 +13,7 @@ namespace Winform_Project
 {
     public partial class FGiangVien_SupportTopic : Form
     {
+
         public FGiangVien_SupportTopic()
         {
             InitializeComponent();
@@ -31,6 +32,11 @@ namespace Winform_Project
         private void FGiangVien_SupportTopic_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'winDataSet2._DeTai__' table. You can move, or remove it, as needed.
+
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
 
         }
     }

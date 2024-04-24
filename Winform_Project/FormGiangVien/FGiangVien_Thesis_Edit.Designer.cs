@@ -51,12 +51,13 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblKhoa = new System.Windows.Forms.Label();
             this.lblNganh = new System.Windows.Forms.Label();
-            this.lblNamHoc = new System.Windows.Forms.Label();
+            this.lblCongNghe = new System.Windows.Forms.Label();
             this.lblHocKi = new System.Windows.Forms.Label();
-            this.cbbKhoa = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cbbNganh = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cbbNamHoc = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cbbHocKi = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cbbKhoa = new System.Windows.Forms.ComboBox();
+            this.cbbNganh = new System.Windows.Forms.ComboBox();
+            this.cbbHocKi = new System.Windows.Forms.ComboBox();
+            this.cbbCongNghe = new System.Windows.Forms.ComboBox();
+            this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // lblTheLoai
@@ -291,7 +292,7 @@
             this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSua.ForeColor = System.Drawing.Color.Black;
-            this.btnSua.Location = new System.Drawing.Point(881, 748);
+            this.btnSua.Location = new System.Drawing.Point(799, 748);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(142, 49);
             this.btnSua.TabIndex = 57;
@@ -394,23 +395,23 @@
             this.lblNganh.TabIndex = 75;
             this.lblNganh.Text = "Ngành";
             // 
-            // lblNamHoc
+            // lblCongNghe
             // 
-            this.lblNamHoc.AutoSize = true;
-            this.lblNamHoc.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblNamHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNamHoc.Location = new System.Drawing.Point(842, 493);
-            this.lblNamHoc.Name = "lblNamHoc";
-            this.lblNamHoc.Size = new System.Drawing.Size(72, 20);
-            this.lblNamHoc.TabIndex = 77;
-            this.lblNamHoc.Text = "Năm học";
+            this.lblCongNghe.AutoSize = true;
+            this.lblCongNghe.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCongNghe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCongNghe.Location = new System.Drawing.Point(845, 592);
+            this.lblCongNghe.Name = "lblCongNghe";
+            this.lblCongNghe.Size = new System.Drawing.Size(87, 20);
+            this.lblCongNghe.TabIndex = 77;
+            this.lblCongNghe.Text = "Công nghệ";
             // 
             // lblHocKi
             // 
             this.lblHocKi.AutoSize = true;
             this.lblHocKi.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblHocKi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHocKi.Location = new System.Drawing.Point(845, 628);
+            this.lblHocKi.Location = new System.Drawing.Point(848, 441);
             this.lblHocKi.Name = "lblHocKi";
             this.lblHocKi.Size = new System.Drawing.Size(53, 20);
             this.lblHocKi.TabIndex = 79;
@@ -418,15 +419,7 @@
             // 
             // cbbKhoa
             // 
-            this.cbbKhoa.BackColor = System.Drawing.Color.Transparent;
-            this.cbbKhoa.BorderRadius = 5;
-            this.cbbKhoa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbKhoa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbKhoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbKhoa.ItemHeight = 30;
+            this.cbbKhoa.FormattingEnabled = true;
             this.cbbKhoa.Items.AddRange(new object[] {
             "Công nghệ thông tin",
             "Thiết kế đồ họa",
@@ -437,22 +430,14 @@
             "Quản trị kinh doanh",
             "Ngôn ngữ Anh",
             "Ngôn ngữ Trung"});
-            this.cbbKhoa.Location = new System.Drawing.Point(820, 192);
+            this.cbbKhoa.Location = new System.Drawing.Point(823, 195);
             this.cbbKhoa.Name = "cbbKhoa";
-            this.cbbKhoa.Size = new System.Drawing.Size(237, 36);
-            this.cbbKhoa.TabIndex = 80;
+            this.cbbKhoa.Size = new System.Drawing.Size(237, 28);
+            this.cbbKhoa.TabIndex = 84;
             // 
             // cbbNganh
             // 
-            this.cbbNganh.BackColor = System.Drawing.Color.Transparent;
-            this.cbbNganh.BorderRadius = 5;
-            this.cbbNganh.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbNganh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNganh.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbNganh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbNganh.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbNganh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbNganh.ItemHeight = 30;
+            this.cbbNganh.FormattingEnabled = true;
             this.cbbNganh.Items.AddRange(new object[] {
             "Công nghệ thông tin",
             "Thiết kế đồ họa",
@@ -463,51 +448,52 @@
             "Quản trị kinh doanh",
             "Ngôn ngữ Anh",
             "Ngôn ngữ Trung"});
-            this.cbbNganh.Location = new System.Drawing.Point(823, 330);
+            this.cbbNganh.Location = new System.Drawing.Point(826, 330);
             this.cbbNganh.Name = "cbbNganh";
-            this.cbbNganh.Size = new System.Drawing.Size(234, 36);
-            this.cbbNganh.TabIndex = 81;
-            // 
-            // cbbNamHoc
-            // 
-            this.cbbNamHoc.BackColor = System.Drawing.Color.Transparent;
-            this.cbbNamHoc.BorderRadius = 5;
-            this.cbbNamHoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNamHoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbNamHoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbNamHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbNamHoc.ItemHeight = 30;
-            this.cbbNamHoc.Items.AddRange(new object[] {
-            "2020 - 2021",
-            "2021 - 2022",
-            "2022 - 2023",
-            "2023 - 2024"});
-            this.cbbNamHoc.Location = new System.Drawing.Point(823, 505);
-            this.cbbNamHoc.Name = "cbbNamHoc";
-            this.cbbNamHoc.Size = new System.Drawing.Size(234, 36);
-            this.cbbNamHoc.TabIndex = 82;
+            this.cbbNganh.Size = new System.Drawing.Size(237, 28);
+            this.cbbNganh.TabIndex = 85;
             // 
             // cbbHocKi
             // 
-            this.cbbHocKi.BackColor = System.Drawing.Color.Transparent;
-            this.cbbHocKi.BorderRadius = 5;
-            this.cbbHocKi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbHocKi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbHocKi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbHocKi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbHocKi.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbHocKi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbHocKi.ItemHeight = 30;
+            this.cbbHocKi.FormattingEnabled = true;
             this.cbbHocKi.Items.AddRange(new object[] {
-            "Kỳ 1",
-            "Kỳ 2",
-            "Kỳ 3"});
-            this.cbbHocKi.Location = new System.Drawing.Point(823, 641);
+            "Hoc Ky 1",
+            "Hoc Ky 2",
+            "Hoc Ky 3"});
+            this.cbbHocKi.Location = new System.Drawing.Point(826, 454);
             this.cbbHocKi.Name = "cbbHocKi";
-            this.cbbHocKi.Size = new System.Drawing.Size(234, 36);
-            this.cbbHocKi.TabIndex = 83;
+            this.cbbHocKi.Size = new System.Drawing.Size(237, 28);
+            this.cbbHocKi.TabIndex = 86;
+            // 
+            // cbbCongNghe
+            // 
+            this.cbbCongNghe.FormattingEnabled = true;
+            this.cbbCongNghe.Items.AddRange(new object[] {
+            "ASP.NET",
+            "Winform",
+            "C#"});
+            this.cbbCongNghe.Location = new System.Drawing.Point(826, 601);
+            this.cbbCongNghe.Name = "cbbCongNghe";
+            this.cbbCongNghe.Size = new System.Drawing.Size(237, 28);
+            this.cbbCongNghe.TabIndex = 87;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.AutoRoundedCorners = true;
+            this.btnXoa.BorderRadius = 23;
+            this.btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnXoa.ForeColor = System.Drawing.Color.Black;
+            this.btnXoa.Location = new System.Drawing.Point(968, 748);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(142, 49);
+            this.btnXoa.TabIndex = 88;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // FGiangVien_Thesis_Edit
             // 
@@ -515,10 +501,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1122, 832);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.lblCongNghe);
+            this.Controls.Add(this.cbbCongNghe);
             this.Controls.Add(this.lblHocKi);
-            this.Controls.Add(this.lblNamHoc);
+            this.Controls.Add(this.cbbHocKi);
             this.Controls.Add(this.lblNganh);
+            this.Controls.Add(this.cbbNganh);
             this.Controls.Add(this.lblKhoa);
+            this.Controls.Add(this.cbbKhoa);
             this.Controls.Add(this.lblTheLoai);
             this.Controls.Add(this.txtTheLoai);
             this.Controls.Add(this.guna2Button1);
@@ -540,10 +531,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.cbbKhoa);
-            this.Controls.Add(this.cbbNganh);
-            this.Controls.Add(this.cbbNamHoc);
-            this.Controls.Add(this.cbbHocKi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FGiangVien_Thesis_Edit";
             this.Text = "FGiangVien_Thesis_Edit";
@@ -577,11 +564,12 @@
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public System.Windows.Forms.Label lblKhoa;
         public System.Windows.Forms.Label lblNganh;
-        public System.Windows.Forms.Label lblNamHoc;
+        public System.Windows.Forms.Label lblCongNghe;
         public System.Windows.Forms.Label lblHocKi;
-        public Guna.UI2.WinForms.Guna2ComboBox cbbKhoa;
-        public Guna.UI2.WinForms.Guna2ComboBox cbbNganh;
-        public Guna.UI2.WinForms.Guna2ComboBox cbbNamHoc;
-        public Guna.UI2.WinForms.Guna2ComboBox cbbHocKi;
+        private System.Windows.Forms.ComboBox cbbKhoa;
+        private System.Windows.Forms.ComboBox cbbNganh;
+        private System.Windows.Forms.ComboBox cbbHocKi;
+        private System.Windows.Forms.ComboBox cbbCongNghe;
+        public Guna.UI2.WinForms.Guna2Button btnXoa;
     }
 }

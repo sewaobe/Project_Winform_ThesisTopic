@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Winform_Project.ClassDoiTuong
 {
-    internal class ConNguoi
+    public class ConNguoi
     {
         private string ten;
         private string gioiTinh;

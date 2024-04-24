@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project.FormGiangVien
 {
@@ -15,6 +16,19 @@ namespace Winform_Project.FormGiangVien
         public FGiangVien_Login()
         {
             InitializeComponent();
+          
+        }
+        public FGiangVien_Login(GiangVien gv)
+        {
+            InitializeComponent();
+
+            txtTen.Text = gv.Ten;
+            cbbGioiTinh.Text = gv.GioiTinh;
+            DTPngaySinh.Value = gv.NgaySinh;
+            txtSDT.Text = gv.Sdt;
+            txtEmail.Text = gv.Email;
+            txtFace.Text = gv.Facebook;
+
         }
         private void Change(bool val)
         {

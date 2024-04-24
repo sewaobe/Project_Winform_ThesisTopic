@@ -15,41 +15,67 @@ namespace Winform_Project.FormGiangVien
     public partial class FGiangVien_Thesis_Edit : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
+        LuanVan lv;
         public FGiangVien_Thesis_Edit()
         {
             InitializeComponent();
         }
-
+        public FGiangVien_Thesis_Edit(LuanVan lv)
+        {
+            try
+            {
+                InitializeComponent();
+                this.lv = lv;
+                txtMaDeTai.Text = lv.MaDeTai;
+                txtTen.Text = lv.TenDeTai;
+                txtSoLuong.Text = lv.SoLuong;
+                txtChucNang.Text = lv.ChucNang;
+                txtMoTa.Text = lv.MoTa;
+                txtTheLoai.Text = lv.TheLoai;
+                txtYeuCau.Text = lv.YeuCau;
+                cbbKhoa.Text = lv.Khoa;
+                cbbNganh.Text = lv.Nganh;
+                cbbHocKi.Text = lv.HocKy;
+                cbbCongNghe.Text = lv.CongNghe;
+            }
+            catch
+            {
+                ;
+            }
+           
+        }
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
         private LuanVan LoadData()
         {
-            DateTime dtStart, dtEnd;
-
-            if (cbbHocKi.Text == "Kỳ 1")
-            {
-                dtStart = new DateTime(Int32.Parse(cbbNamHoc.Text.Substring(0, 4)), 8, 25);
-                dtEnd = new DateTime(Int32.Parse(cbbNamHoc.Text.Substring(0, 4)) + 1, 1, 1);
-            }
-            else if (cbbHocKi.Text == "Kỳ 2")
-            {
-                dtStart = new DateTime(Int32.Parse(cbbNamHoc.Text.Substring(0, 4)), 1, 1);
-                dtEnd = new DateTime(Int32.Parse(cbbNamHoc.Text.Substring(0, 4)), 6, 1);
-            }
-            else
-            {
-                dtStart = new DateTime(Int32.Parse(cbbNamHoc.Text.Substring(0, 4)), 6, 1);
-                dtEnd = new DateTime(Int32.Parse(cbbNamHoc.Text.Substring(0, 4)), 8, 25);
-            }
-            return new LuanVan(txtMaDeTai.Text, txtTen.Text, txtTheLoai.Text, txtSoLuong.Text, dtStart, dtEnd, txtMoTa.Text, txtChucNang.Text, txtYeuCau.Text, cbbKhoa.Text, cbbNganh.Text, "TenGiangVien"); 
+            return new LuanVan(txtMaDeTai.Text,
+                              txtTen.Text,
+                              txtTheLoai.Text,
+                              txtSoLuong.Text,
+                              txtMoTa.Text,
+                              txtChucNang.Text,
+                              txtYeuCau.Text,
+                              cbbCongNghe.Text,
+                              cbbKhoa.Text,
+                              cbbNganh.Text,
+                              cbbHocKi.Text,
+                              "Nguyen Van A",
+                              lv.TrangThai
+                              ) ;
         }
-        
+
         private void btnSua_Click(object sender, EventArgs e)
         {
             LuanVan lv = LoadData();
             gvDao.Sua(lv);
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            LuanVan lv = LoadData();
+            gvDao.Xoa(lv);
         }
     }
 }

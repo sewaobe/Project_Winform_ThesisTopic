@@ -18,11 +18,16 @@ namespace Winform_Project.FSinhVien
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.ConnStr);
         LuanVan luanvan = new LuanVan();
         SinhVienDao svDao = new SinhVienDao();
-        SinhVien SinhVienAccount = new SinhVien("Bao", "", DateTime.Now, "", "", "", "22110285");
-
-        public FSinhVien_Reg_Done()
+        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        public FSinhVien_Reg_Done( LuanVan lv)
         {
             InitializeComponent();
+            luanvan = lv;
+            txtMoTa.Text = lv.MoTa;
+            txtChucNang.Text = lv.ChucNang;
+            txtCongNghe.Text = lv.CongNghe;
+            txtMaDeTai.Text = lv.MaDeTai;
+            txtTenDeTai.Text = lv.TenDeTai;
         }
 
         private void FSinhVien_Reg_Done_Load(object sender, EventArgs e)
@@ -67,6 +72,9 @@ namespace Winform_Project.FSinhVien
             if(cbXacNhan.Checked == true)
             {
                 svDao.DangKy(SinhVienAccount, txtIDnhom.Text, txtMaDeTai.Text);
+                FDangNhap fDangNhap = new FDangNhap();
+                fDangNhap.layThongTinSinhVien(SinhVienAccount.Mssv);
+                this.Hide();
             }    
         }
     }

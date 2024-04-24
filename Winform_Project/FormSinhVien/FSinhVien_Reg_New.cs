@@ -15,12 +15,11 @@ namespace Winform_Project.FormSinhVien
     public partial class FSinhVien_Reg_New : Form
     {
         SinhVienDao svDao = new SinhVienDao();
-        SinhVien SinhVienAccount = new SinhVien("Bao","", DateTime.Now, "","","","22110285");
+        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         private string namHoc, hocKi;
-        public FSinhVien_Reg_New(string NamHoc, string HocKi)
+        public FSinhVien_Reg_New(string HocKi)
         {
             InitializeComponent();
-            this.namHoc = NamHoc;
             this.hocKi = HocKi;
         }
 
@@ -47,25 +46,8 @@ namespace Winform_Project.FormSinhVien
         }
         private LuanVan LoadData()
         {
-            DateTime dtStart, dtEnd;
-
-            if (hocKi == "Kỳ 1")
-            {
-                MessageBox.Show(namHoc.Substring(0, 4));
-                dtStart = new DateTime(Int32.Parse(namHoc.Substring(0, 4)), 8, 25);
-                dtEnd = new DateTime(Int32.Parse(namHoc.Substring(0, 4)) + 1, 1, 1);
-            }
-            else if (hocKi == "Kỳ 2")
-            {
-                dtStart = new DateTime(Int32.Parse(namHoc.Substring(0, 4)), 1, 1);
-                dtEnd = new DateTime(Int32.Parse(namHoc.Substring(0, 4)), 6, 1);
-            }
-            else
-            {
-                dtStart = new DateTime(Int32.Parse(namHoc.Substring(0, 4)), 6, 1);
-                dtEnd = new DateTime(Int32.Parse(namHoc.Substring(0, 4)), 8, 25);
-            }
-            return new LuanVan(txtMaDeTai.Text, txtTenDeTai.Text, txtTheLoai.Text, "abc", dtStart, dtEnd, txtMoTa.Text, txtChucNang.Text, "abc", SinhVienAccount.Khoa, SinhVienAccount.Nganh, cbbGVHD1.Text);
+           
+            return new LuanVan(txtMaDeTai.Text, txtTenDeTai.Text, txtTheLoai.Text,"5", txtMoTa.Text, txtChucNang.Text, "abc", SinhVienAccount.Khoa, SinhVienAccount.Nganh, cbbGVHD1.Text,txtCongNghe.Text,hocKi,"Chua duyet");
         }
         private void btnDangKy_Click_1(object sender, EventArgs e)
         {
@@ -73,6 +55,8 @@ namespace Winform_Project.FormSinhVien
             {
                 LuanVan lv = LoadData();
                 svDao.DangKy(SinhVienAccount, txtIDnhom.Text, txtMaDeTai.Text);
+                FDangNhap fDangNhap = new FDangNhap();
+                fDangNhap.layThongTinSinhVien(SinhVienAccount.Mssv);
                 svDao.DeXuatDeTai(lv);
             }
         }

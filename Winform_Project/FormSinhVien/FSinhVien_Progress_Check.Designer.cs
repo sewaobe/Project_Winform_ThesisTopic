@@ -31,10 +31,10 @@
             this.lblNameGiangVien = new System.Windows.Forms.Label();
             this.lblDanhGia = new System.Windows.Forms.Label();
             this.lblNhanXet = new System.Windows.Forms.Label();
-            this.cbbGiangVien = new System.Windows.Forms.ComboBox();
             this.txtNhanXet = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnQuayVe = new Guna.UI2.WinForms.Guna2Button();
             this.txtDanhGia = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTenGiangVien = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // lblNameGiangVien
@@ -69,19 +69,6 @@
             this.lblNhanXet.Size = new System.Drawing.Size(100, 24);
             this.lblNhanXet.TabIndex = 2;
             this.lblNhanXet.Text = "Nhận xét:";
-            // 
-            // cbbGiangVien
-            // 
-            this.cbbGiangVien.FormattingEnabled = true;
-            this.cbbGiangVien.Items.AddRange(new object[] {
-            "Giảng viên A",
-            "Giảng viên B"});
-            this.cbbGiangVien.Location = new System.Drawing.Point(175, 90);
-            this.cbbGiangVien.Margin = new System.Windows.Forms.Padding(2);
-            this.cbbGiangVien.Name = "cbbGiangVien";
-            this.cbbGiangVien.Size = new System.Drawing.Size(203, 21);
-            this.cbbGiangVien.TabIndex = 3;
-            this.cbbGiangVien.SelectedIndexChanged += new System.EventHandler(this.cbbGiangVien_SelectedIndexChanged);
             // 
             // txtNhanXet
             // 
@@ -139,16 +126,36 @@
             this.txtDanhGia.SelectedText = "";
             this.txtDanhGia.Size = new System.Drawing.Size(203, 21);
             this.txtDanhGia.TabIndex = 6;
+            this.txtDanhGia.TextChanged += new System.EventHandler(this.txtDanhGia_TextChanged);
+            // 
+            // txtTenGiangVien
+            // 
+            this.txtTenGiangVien.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTenGiangVien.DefaultText = "";
+            this.txtTenGiangVien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTenGiangVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTenGiangVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenGiangVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenGiangVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenGiangVien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTenGiangVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenGiangVien.Location = new System.Drawing.Point(175, 85);
+            this.txtTenGiangVien.Name = "txtTenGiangVien";
+            this.txtTenGiangVien.PasswordChar = '\0';
+            this.txtTenGiangVien.PlaceholderText = "";
+            this.txtTenGiangVien.SelectedText = "";
+            this.txtTenGiangVien.Size = new System.Drawing.Size(203, 21);
+            this.txtTenGiangVien.TabIndex = 7;
             // 
             // FSinhVien_Progress_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(652, 386);
+            this.Controls.Add(this.txtTenGiangVien);
             this.Controls.Add(this.txtDanhGia);
             this.Controls.Add(this.btnQuayVe);
             this.Controls.Add(this.txtNhanXet);
-            this.Controls.Add(this.cbbGiangVien);
             this.Controls.Add(this.lblNhanXet);
             this.Controls.Add(this.lblDanhGia);
             this.Controls.Add(this.lblNameGiangVien);
@@ -166,9 +173,9 @@
         private System.Windows.Forms.Label lblNameGiangVien;
         private System.Windows.Forms.Label lblDanhGia;
         private System.Windows.Forms.Label lblNhanXet;
-        private System.Windows.Forms.ComboBox cbbGiangVien;
         private Guna.UI2.WinForms.Guna2TextBox txtNhanXet;
         public Guna.UI2.WinForms.Guna2Button btnQuayVe;
         private Guna.UI2.WinForms.Guna2TextBox txtDanhGia;
+        private Guna.UI2.WinForms.Guna2TextBox txtTenGiangVien;
     }
 }

@@ -16,6 +16,7 @@ namespace Winform_Project
 {
     public partial class FGiangVien_ThesisTopics_1 : Form
     {
+        ClassDoiTuong.GiangVien giangVienAccount = FDangNhap.giangVienAccount;
         ucItems uc;
         int flag = 0;
         string ten_nganh = string.Empty;
@@ -60,7 +61,7 @@ namespace Winform_Project
                     btnQuayVe.Visible = true;
                 pos_current_X += 100;
                 uc.Location = new Point(pos_current_X, pos_current_Y);
-                if(item == "HocKy")
+                if (item == "HocKy")
                     uc.picBgk.Click += TranFroms;
                 else
                     uc.picBgk.Click += LoadDataKhoa;
@@ -105,17 +106,6 @@ namespace Winform_Project
             else if(flag == 2)
             {
                 List<Nganh_Khoa> nganh = new List<Nganh_Khoa>();
-                for(int i = 0; i < namHoc.Length; i++)
-                {
-                    Nganh_Khoa nganh_Khoa = new Nganh_Khoa(namHoc[i], "\\CÁC KHOA\\CLC.png");
-                    nganh.Add(nganh_Khoa);
-                }
-                Load_Layout(nganh, "NamHoc");
-
-            }
-            else if(flag == 3)
-            {
-                List<Nganh_Khoa> nganh = new List<Nganh_Khoa>();
                 for (int i = 0; i < hocKy.Length; i++)
                 {
                     Nganh_Khoa nganh_Khoa = new Nganh_Khoa(hocKy[i], "\\CÁC KHOA\\CLC.png");
@@ -133,7 +123,7 @@ namespace Winform_Project
             if (gnpck != null)
                 lblPaths.Add(gnpck.Tag.ToString());
 
-            FGiangVien_ThesisTopics_Add fgiangVien_ThesisTopics_Add = new FGiangVien_ThesisTopics_Add(lblPaths[1], lblPaths[2], "ABC", lblPaths[3], lblPaths[4]);
+            FGiangVien_ThesisTopics_Add fgiangVien_ThesisTopics_Add = new FGiangVien_ThesisTopics_Add(lblPaths[1], lblPaths[2], giangVienAccount.Ten, lblPaths[3]);
             this.Hide();
             fgiangVien_ThesisTopics_Add.ShowDialog();
         }

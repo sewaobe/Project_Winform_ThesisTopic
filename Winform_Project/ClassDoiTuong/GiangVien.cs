@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Winform_Project.ClassDoiTuong
 {
-    internal class GiangVien : ConNguoi
+    public class GiangVien : ConNguoi
     {
         private string email;
         private string facebook;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
 using Winform_Project.FormSinhVien;
 
@@ -14,13 +15,14 @@ namespace Winform_Project.FSinhVien
 {
     public partial class FSinhVien : Form
     {
-        SinhVien SinhVienAccount = new SinhVien("Bao", "", DateTime.Now, "", "", "", "22110285");
-
+        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienDao svDao = new SinhVienDao();      
         public FSinhVien()
         {
             InitializeComponent();
             lblTen.Text = SinhVienAccount.Ten;
             lblMSSV.Text = SinhVienAccount.Mssv;
+            container(new FSinhVien_Reg());
         }
         private void container(object form)
         {
@@ -80,9 +82,10 @@ namespace Winform_Project.FSinhVien
             container(new FSinhVien_ContactGV());
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        private void FSinhVien_Load(object sender, EventArgs e)
         {
-
+            
         }
+
     }
 }

@@ -20,7 +20,11 @@ namespace Winform_Project.ClassDao
         public ConNguoiDao()
         {
         }
-
+        public DataTable XacNhanDangNhap(TaiKhoanDangNhap tk)
+        {
+            string sqlStr = string.Format("SELECT * FROM ThongTinDangNhap WHERE TenDangNhap='{0}' AND MatKhau='{1}'", tk.TenDangNhap, tk.MatKhau);
+            return db.Load(sqlStr);
+        }
         public DataTable LoadData(string sqlStr)
         {
             return db.Load(sqlStr);

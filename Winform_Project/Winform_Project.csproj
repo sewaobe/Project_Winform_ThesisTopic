@@ -69,13 +69,101 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassDao\SinhVienDao.cs" />
+    <Compile Include="ClassDoiTuong\BaoCao.cs" />
+    <Compile Include="ClassDoiTuong\GiangVien.cs" />
+    <Compile Include="ClassDoiTuong\NhiemVu.cs" />
     <Compile Include="ClassDoiTuong\TaiKhoanDangNhap.cs" />
+    <Compile Include="ClassDoiTuong\ThongBao.cs" />
+    <Compile Include="ClassDoiTuong\TinNhan.cs" />
+    <Compile Include="FormGiangVien\FGiangVien_Controls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Controls.Designer.cs">
+      <DependentUpon>FGiangVien_Controls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Support_Add_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Support_Add_SinhVien.Designer.cs">
+      <DependentUpon>FGiangVien_Support_Add_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien.Designer.cs">
+      <DependentUpon>FSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_ContactGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_ContactGV.Designer.cs">
+      <DependentUpon>FSinhVien_ContactGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_login.Designer.cs">
+      <DependentUpon>FSinhVien_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress.Designer.cs">
+      <DependentUpon>FSinhVien_Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress_Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Progress_Check.Designer.cs">
+      <DependentUpon>FSinhVien_Progress_Check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg.Designer.cs">
+      <DependentUpon>FSinhVien_Reg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_Done.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_Done.Designer.cs">
+      <DependentUpon>FSinhVien_Reg_Done.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Reg_New.Designer.cs">
+      <DependentUpon>FSinhVien_Reg_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Support.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Support.Designer.cs">
+      <DependentUpon>FSinhVien_Support.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Support_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Support_View.Designer.cs">
+      <DependentUpon>FSinhVien_Support_View.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nganh_Khoa.cs" />
     <Compile Include="ClassDao\ConNguoiDao.cs" />
     <Compile Include="ClassDao\GiangVienDao.cs" />
-    <Compile Include="ClassDao\SinhVienDao.cs" />
     <Compile Include="ClassDoiTuong\ConNguoi.cs" />
-    <Compile Include="ClassDoiTuong\GiangVien.cs" />
     <Compile Include="ClassDoiTuong\LuanVan.cs" />
     <Compile Include="ClassDoiTuong\SinhVien.cs" />
     <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_1.cs">
@@ -150,69 +238,81 @@
     <Compile Include="FormGiangVien\FGiangVien_Thesis_Edit.Designer.cs">
       <DependentUpon>FGiangVien_Thesis_Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSinhVien\FSinhVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien.Designer.cs">
-      <DependentUpon>FSinhVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_ContactGV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_ContactGV.Designer.cs">
-      <DependentUpon>FSinhVien_ContactGV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_login.Designer.cs">
-      <DependentUpon>FSinhVien_login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Progress.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Progress.Designer.cs">
-      <DependentUpon>FSinhVien_Progress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Progress_Check.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Progress_Check.Designer.cs">
-      <DependentUpon>FSinhVien_Progress_Check.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Reg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Reg.Designer.cs">
-      <DependentUpon>FSinhVien_Reg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Reg_Done.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Reg_Done.Designer.cs">
-      <DependentUpon>FSinhVien_Reg_Done.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Reg_New.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Reg_New.Designer.cs">
-      <DependentUpon>FSinhVien_Reg_New.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Support.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Support.Designer.cs">
-      <DependentUpon>FSinhVien_Support.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\DBConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucItems.cs">
+    <Compile Include="ucNhiemVu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucItems.Designer.cs">
+    <Compile Include="ucNhiemVu.Designer.cs">
+      <DependentUpon>ucNhiemVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_GV\ucBaoCao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_GV\ucBaoCao.Designer.cs">
+      <DependentUpon>ucBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_GV\ucChiTietDeTai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_GV\ucChiTietDeTai.Designer.cs">
+      <DependentUpon>ucChiTietDeTai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_GV\ucDeTai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_GV\ucDeTai.Designer.cs">
+      <DependentUpon>ucDeTai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_GV\ucFGiangVien_Progress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_GV\ucFGiangVien_Progress.Designer.cs">
+      <DependentUpon>ucFGiangVien_Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_GV\ucFGiangVien_Suppost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_GV\ucFGiangVien_Suppost.Designer.cs">
+      <DependentUpon>ucFGiangVien_Suppost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_GV\ucItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_GV\ucItems.Designer.cs">
       <DependentUpon>ucItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="uc_GV\ucTongSoDeTai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_GV\ucTongSoDeTai.Designer.cs">
+      <DependentUpon>ucTongSoDeTai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_DeTai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_DeTai.Designer.cs">
+      <DependentUpon>uc_SV_DeTai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_ThongBao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_ThongBao.Designer.cs">
+      <DependentUpon>uc_SV_ThongBao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_ThongTin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_ThongTin.Designer.cs">
+      <DependentUpon>uc_SV_ThongTin.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Controls.resx">
+      <DependentUpon>FGiangVien_Controls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Support_Add_SinhVien.resx">
+      <DependentUpon>FGiangVien_Support_Add_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien_ThesisTopics_1.resx">
       <DependentUpon>FGiangVien_ThesisTopics_1.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +349,12 @@
     <EmbeddedResource Include="FormGiangVien\FGiangVien_Thesis_Edit.resx">
       <DependentUpon>FGiangVien_Thesis_Edit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien.resx">
       <DependentUpon>FSinhVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +382,9 @@
     <EmbeddedResource Include="FormSinhVien\FSinhVien_Support.resx">
       <DependentUpon>FSinhVien_Support.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Support_View.resx">
+      <DependentUpon>FSinhVien_Support_View.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -286,8 +395,38 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ucItems.resx">
+    <EmbeddedResource Include="ucNhiemVu.resx">
+      <DependentUpon>ucNhiemVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_GV\ucBaoCao.resx">
+      <DependentUpon>ucBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_GV\ucChiTietDeTai.resx">
+      <DependentUpon>ucChiTietDeTai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_GV\ucDeTai.resx">
+      <DependentUpon>ucDeTai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_GV\ucFGiangVien_Progress.resx">
+      <DependentUpon>ucFGiangVien_Progress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_GV\ucFGiangVien_Suppost.resx">
+      <DependentUpon>ucFGiangVien_Suppost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_GV\ucItems.resx">
       <DependentUpon>ucItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_GV\ucTongSoDeTai.resx">
+      <DependentUpon>ucTongSoDeTai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_SV\uc_SV_DeTai.resx">
+      <DependentUpon>uc_SV_DeTai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_SV\uc_SV_ThongBao.resx">
+      <DependentUpon>uc_SV_ThongBao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_SV\uc_SV_ThongTin.resx">
+      <DependentUpon>uc_SV_ThongTin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.datasource" />
@@ -306,6 +445,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resourcess\email.png" />
+    <Content Include="Resourcess\letter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
