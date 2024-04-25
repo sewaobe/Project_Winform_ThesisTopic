@@ -38,7 +38,15 @@
             this.radioHoanThanh = new System.Windows.Forms.RadioButton();
             this.radioThucHien = new System.Windows.Forms.RadioButton();
             this.fLoTrungTam = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTaoDeTai
@@ -138,15 +146,74 @@
             // 
             // fLoTrungTam
             // 
+            this.fLoTrungTam.AutoScroll = true;
             this.fLoTrungTam.Location = new System.Drawing.Point(127, 101);
+            this.fLoTrungTam.Margin = new System.Windows.Forms.Padding(0);
             this.fLoTrungTam.Name = "fLoTrungTam";
             this.fLoTrungTam.Size = new System.Drawing.Size(1120, 419);
             this.fLoTrungTam.TabIndex = 39;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.guna2Panel3);
+            this.guna2Panel1.FillColor = System.Drawing.Color.Green;
+            this.guna2Panel1.Location = new System.Drawing.Point(121, 92);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(1130, 3);
+            this.guna2Panel1.TabIndex = 44;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.FillColor = System.Drawing.Color.Green;
+            this.guna2Panel2.Location = new System.Drawing.Point(121, 92);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(3, 435);
+            this.guna2Panel2.TabIndex = 45;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.FillColor = System.Drawing.Color.Green;
+            this.guna2Panel3.Location = new System.Drawing.Point(1117, 0);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(3, 419);
+            this.guna2Panel3.TabIndex = 46;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.Controls.Add(this.guna2Panel5);
+            this.guna2Panel4.FillColor = System.Drawing.Color.Green;
+            this.guna2Panel4.Location = new System.Drawing.Point(121, 525);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(1130, 3);
+            this.guna2Panel4.TabIndex = 47;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.FillColor = System.Drawing.Color.Green;
+            this.guna2Panel5.Location = new System.Drawing.Point(1117, 0);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(3, 419);
+            this.guna2Panel5.TabIndex = 46;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.FillColor = System.Drawing.Color.Green;
+            this.guna2Panel6.Location = new System.Drawing.Point(1250, 93);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(3, 435);
+            this.guna2Panel6.TabIndex = 46;
             // 
             // ucFGiangVien_Suppost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.fLoTrungTam);
+            this.Controls.Add(this.guna2Panel6);
+            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.guna2Panel4);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.btnTaoDeTai);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.lblTimKiem);
@@ -154,10 +221,11 @@
             this.Controls.Add(this.radioQuaHan);
             this.Controls.Add(this.radioHoanThanh);
             this.Controls.Add(this.radioThucHien);
-            this.Controls.Add(this.fLoTrungTam);
             this.Name = "ucFGiangVien_Suppost";
             this.Size = new System.Drawing.Size(1378, 615);
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,5 +242,11 @@
         public System.Windows.Forms.RadioButton radioHoanThanh;
         public System.Windows.Forms.RadioButton radioThucHien;
         public System.Windows.Forms.FlowLayoutPanel fLoTrungTam;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
     }
 }

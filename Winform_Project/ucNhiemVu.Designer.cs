@@ -36,6 +36,8 @@
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblTrangThai = new System.Windows.Forms.Label();
+            this.panelRight = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelBottom = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
@@ -111,17 +113,38 @@
             // 
             this.lblTrangThai.AutoSize = true;
             this.lblTrangThai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrangThai.Location = new System.Drawing.Point(218, 3);
+            this.lblTrangThai.Location = new System.Drawing.Point(184, 3);
             this.lblTrangThai.Name = "lblTrangThai";
             this.lblTrangThai.Size = new System.Drawing.Size(80, 20);
             this.lblTrangThai.TabIndex = 7;
             this.lblTrangThai.Text = "Trạng thái";
+            // 
+            // panelRight
+            // 
+            this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelRight.FillColor = System.Drawing.Color.Lime;
+            this.panelRight.Location = new System.Drawing.Point(358, 0);
+            this.panelRight.Name = "panelRight";
+            this.panelRight.Size = new System.Drawing.Size(3, 198);
+            this.panelRight.TabIndex = 8;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.FillColor = System.Drawing.Color.Lime;
+            this.panelBottom.Location = new System.Drawing.Point(0, 195);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(358, 3);
+            this.panelBottom.TabIndex = 9;
             // 
             // ucNhiemVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.panelBottom);
+            this.Controls.Add(this.panelRight);
             this.Controls.Add(this.lblTrangThai);
             this.Controls.Add(this.guna2CirclePictureBox3);
             this.Controls.Add(this.guna2CirclePictureBox2);
@@ -130,7 +153,7 @@
             this.Controls.Add(this.lblThoiGian);
             this.Controls.Add(this.lblTieuDe);
             this.Name = "ucNhiemVu";
-            this.Size = new System.Drawing.Size(365, 202);
+            this.Size = new System.Drawing.Size(361, 198);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
@@ -148,5 +171,7 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;
         private System.Windows.Forms.Label lblTrangThai;
+        private Guna.UI2.WinForms.Guna2Panel panelRight;
+        private Guna.UI2.WinForms.Guna2Panel panelBottom;
     }
 }

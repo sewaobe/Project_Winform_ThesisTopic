@@ -32,17 +32,75 @@ namespace Winform_Project.ClassDao
         }
         public void ThemNhiemVu(NhiemVu nv)
         {
-            string sqlStr = string.Format("INSERT INTO NhiemVu(TieuDe, ThoiGianGui, ThoiGianKetThuc, TenNguoiNhan, TenNguoiGui, TrangThai, NoiDung)" +
-                                           $"VALUES ('{nv.TieuDe}', '{nv.ThoiGianGui}', '{nv.ThoiGianKetThuc}', '{nv.TenNguoiNhan}', '{nv.TenNguoiGui}', '{nv.TrangThai}'), '{nv.NoiDung}'");
+            string sqlStr = string.Format("INSERT INTO NhiemVu(TieuDe, ThoiGianGui, ThoiGianKetThuc, TenNguoiNhan, TenNguoiGui, TrangThai, NoiDung, MSSV, MaSoNhom)" +
+                                           $"VALUES ('{nv.TieuDe}', '{nv.ThoiGianGui}', '{nv.ThoiGianKetThuc}', '{nv.TenNguoiNhan}', '{nv.TenNguoiGui}', '{nv.TrangThai}', '{nv.NoiDung}', '{nv.MSSV}', '{nv.MaSoNhom}')");
+            db.ThucThi(sqlStr);
+        }
+        public void ThongBaoToiSinhVien(ThongBao tb)
+        {
+            string sqlStr = string.Format("INSERT INTO ThongBao(TieuDe, TenGiangVien, MaSoNhom, NoiDung, ThoiGianGui, TrangThai)" +
+                                          $"VALUES('{tb.Tieude}', '{tb.Tengiangvien}', '{tb.Masonhom}', '{tb.Noidung}', '{tb.Thoigiangui}','{tb.Trangthai}')");
             db.ThucThi(sqlStr);
         }
         public DataTable LoadData(string sqlStr)
         {
             return db.Load(sqlStr);
         }
+        public List<ucNhiemVu> LayThongTinNhiemVu(string MSN, string trangThai)
+        {
+            List<ucNhiemVu> listUcNhiemVu = new List<ucNhiemVu>();
+            string sqlStr;
+            if (trangThai == "Tat ca")
+            {
+                sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE MaSoNhom = '{MSN}'");
+            }
+            else
+            {
+                sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE MaSoNhom = '{MSN}' AND TrangThai ='{trangThai}'");
+            }
+            DataTable dtNhiemVu = db.Load(sqlStr);
+            if (dtNhiemVu.Rows.Count > 0)
+            {
+                for(int i = 0;i< dtNhiemVu.Rows.Count; i++)
+                {
+                    NhiemVu nhiemVu = new NhiemVu(dtNhiemVu.Rows[i]["TieuDe"].ToString(),
+                                                 Convert.ToDateTime(dtNhiemVu.Rows[i]["ThoiGianGui"]),
+                                                 Convert.ToDateTime(dtNhiemVu.Rows[i]["ThoiGianKetThuc"]),
+                                                 dtNhiemVu.Rows[i]["TenNguoiGui"].ToString(),
+                                                 dtNhiemVu.Rows[i]["TenNguoiNhan"].ToString(),
+                                                 dtNhiemVu.Rows[i]["TrangThai"].ToString(),
+                                                 dtNhiemVu.Rows[i]["NoiDung"].ToString(),
+                                                 dtNhiemVu.Rows[i]["MSSV"].ToString(),
+                                                 dtNhiemVu.Rows[i]["MaSoNhom"].ToString());
+                    ucNhiemVu uc = new ucNhiemVu(nhiemVu);
+                    listUcNhiemVu.Add(uc);
+
+                }
+                return listUcNhiemVu;
+            }
+            return null;
+        }
         public DataTable LayThongTinDeTai(string maDeTai)
         {
             string sqlStr = string.Format($"SELECT * FROM ThongTinDeTai WHERE MaDeTai = '{maDeTai}'");
+            return db.Load(sqlStr);
+        }
+        public void NhanXetBaoCao(BaoCao bc)
+        {
+            string sqlStr = string.Format($"UPDATE BaoCao SET TieuDe ='{bc.TieuDe}' , " +
+                                                            $"MaSoNhom = '{bc.MaSoNhom}'," +
+                                                            $" FileBaoCao = '{bc.File}', " +
+                                                            $"TienDo =  '{bc.TienDo}'," +
+                                                            $" NhanXet = '{bc.NhanXet}', " +
+                                                            $"ThoiGianGui = '{bc.ThoiGianGui}', " +
+                                                            $"TrangThai = '{bc.TrangThai}'," +
+                                                            $" MaDeTai = 'NULL'" +
+                                                            $"WHERE TieuDe = '{bc.TieuDe}'");
+            db.ThucThi(sqlStr);
+        }
+        public DataTable LayThongTinBaoCao(string maSoNhom)
+        {
+            string sqlStr = string.Format($"SELECT * FROM BaoCao WHERE MaSoNhom = '{maSoNhom}'");
             return db.Load(sqlStr);
         }
         public DataTable LayThongTinSinhVien(string maNhom)

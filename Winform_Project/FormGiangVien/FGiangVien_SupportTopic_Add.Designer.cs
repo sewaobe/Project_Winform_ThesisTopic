@@ -201,13 +201,14 @@
             this.pckThoiGianKetThuc.FillColor = System.Drawing.Color.White;
             this.pckThoiGianKetThuc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.pckThoiGianKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.pckThoiGianKetThuc.Location = new System.Drawing.Point(735, 206);
+            this.pckThoiGianKetThuc.Location = new System.Drawing.Point(762, 206);
             this.pckThoiGianKetThuc.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.pckThoiGianKetThuc.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.pckThoiGianKetThuc.Name = "pckThoiGianKetThuc";
-            this.pckThoiGianKetThuc.Size = new System.Drawing.Size(30, 36);
+            this.pckThoiGianKetThuc.Size = new System.Drawing.Size(30, 48);
             this.pckThoiGianKetThuc.TabIndex = 33;
             this.pckThoiGianKetThuc.Value = new System.DateTime(2024, 4, 17, 11, 9, 49, 197);
+            this.pckThoiGianKetThuc.ValueChanged += new System.EventHandler(this.pckThoiGianKetThuc_ValueChanged);
             // 
             // label4
             // 
@@ -255,13 +256,14 @@
             this.pckThoiGianBatDau.FillColor = System.Drawing.Color.White;
             this.pckThoiGianBatDau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.pckThoiGianBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.pckThoiGianBatDau.Location = new System.Drawing.Point(307, 206);
+            this.pckThoiGianBatDau.Location = new System.Drawing.Point(335, 206);
             this.pckThoiGianBatDau.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.pckThoiGianBatDau.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.pckThoiGianBatDau.Name = "pckThoiGianBatDau";
-            this.pckThoiGianBatDau.Size = new System.Drawing.Size(30, 36);
+            this.pckThoiGianBatDau.Size = new System.Drawing.Size(32, 48);
             this.pckThoiGianBatDau.TabIndex = 28;
             this.pckThoiGianBatDau.Value = new System.DateTime(2024, 4, 17, 11, 9, 49, 197);
+            this.pckThoiGianBatDau.ValueChanged += new System.EventHandler(this.pckThoiGianBatDau_ValueChanged);
             // 
             // label2
             // 
@@ -355,6 +357,10 @@
             this.cbbTrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbbTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbTrangThai.ItemHeight = 30;
+            this.cbbTrangThai.Items.AddRange(new object[] {
+            "Dang thuc hien",
+            "Da hoan thanh",
+            "Qua han"});
             this.cbbTrangThai.Location = new System.Drawing.Point(472, 311);
             this.cbbTrangThai.Name = "cbbTrangThai";
             this.cbbTrangThai.Size = new System.Drawing.Size(320, 36);

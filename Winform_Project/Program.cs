@@ -19,7 +19,7 @@ namespace Winform_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FDangNhap());
+            Application.Run(new FGiangVien_Calendar());
 /*            Application.Run(new FGiangVien_ThesisTopics_1());
 */        }
     }

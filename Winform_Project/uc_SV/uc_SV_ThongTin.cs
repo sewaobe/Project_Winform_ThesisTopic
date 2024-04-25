@@ -13,7 +13,7 @@ namespace Winform_Project.uc_SV
 {
     public partial class uc_SV_ThongTin : UserControl
     {
-        SinhVien sv = new SinhVien();
+        public SinhVien sv = new SinhVien();
         public uc_SV_ThongTin()
         {
             InitializeComponent();

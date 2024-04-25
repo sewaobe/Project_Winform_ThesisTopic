@@ -99,9 +99,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblTen;
-        private System.Windows.Forms.Label lblMSSV;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox btnThemSinhVien;
+        public System.Windows.Forms.Label lblTen;
+        public System.Windows.Forms.Label lblMSSV;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        public Guna.UI2.WinForms.Guna2CirclePictureBox btnThemSinhVien;
     }
 }

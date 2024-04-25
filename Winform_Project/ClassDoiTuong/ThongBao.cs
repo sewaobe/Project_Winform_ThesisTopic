@@ -14,10 +14,9 @@ namespace Winform_Project.ClassDoiTuong
         private string noidung;
         private string trangthai;
         private DateTime thoigiangui;
-        private DateTime thoigianketthuc;
         public ThongBao() { }
 
-        public ThongBao(string masonhom, string tengiangvien, string tieude, string noidung, string trangthai, DateTime thoigiangui, DateTime thoigianketthuc)
+        public ThongBao(string masonhom, string tengiangvien, string tieude, string noidung, string trangthai, DateTime thoigiangui)
         {
             this.masonhom = masonhom;
             this.tengiangvien = tengiangvien;
@@ -25,7 +24,6 @@ namespace Winform_Project.ClassDoiTuong
             this.noidung = noidung;
             this.trangthai = trangthai;
             this.thoigiangui = thoigiangui;
-            this.thoigianketthuc = thoigianketthuc;
         }
 
         public string Masonhom { get => masonhom; set => masonhom = value; }
@@ -34,6 +32,5 @@ namespace Winform_Project.ClassDoiTuong
         public string Noidung { get => noidung; set => noidung = value; }
         public string Trangthai { get => trangthai; set => trangthai = value; }
         public DateTime Thoigiangui { get => thoigiangui; set => thoigiangui = value; }
-        public DateTime Thoigianketthuc { get => thoigianketthuc; set => thoigianketthuc = value; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Winform_Project
 {
     public partial class ucBaoCao : UserControl
     {
+        public BaoCao baoCao;
         public ucBaoCao()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace Winform_Project
             lblThoiGianGui.Text = bc.ThoiGianGui;
             lblFile.Text = bc.File;
             lblTrangThai.Text = bc.TrangThai;
+            this.baoCao = bc;
         }
         private void label1_Click(object sender, EventArgs e)
         {

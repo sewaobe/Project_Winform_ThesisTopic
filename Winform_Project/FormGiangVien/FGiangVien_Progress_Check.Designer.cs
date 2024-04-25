@@ -31,7 +31,7 @@
             this.lblBaoCao = new System.Windows.Forms.Label();
             this.lblDanhGia = new System.Windows.Forms.Label();
             this.lblNhanXet = new System.Windows.Forms.Label();
-            this.guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.progress = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.txtNhanXet = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnGui = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -40,7 +40,7 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTieuDe = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // lblBaoCao
@@ -74,15 +74,15 @@
             this.lblNhanXet.TabIndex = 4;
             this.lblNhanXet.Text = "Nhận xét";
             // 
-            // guna2ProgressBar1
+            // progress
             // 
-            this.guna2ProgressBar1.Location = new System.Drawing.Point(288, 167);
-            this.guna2ProgressBar1.Name = "guna2ProgressBar1";
-            this.guna2ProgressBar1.Size = new System.Drawing.Size(285, 31);
-            this.guna2ProgressBar1.TabIndex = 6;
-            this.guna2ProgressBar1.Text = "guna2ProgressBar1";
-            this.guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ProgressBar1.Value = 10;
+            this.progress.Location = new System.Drawing.Point(288, 167);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(285, 31);
+            this.progress.TabIndex = 6;
+            this.progress.Text = "guna2ProgressBar1";
+            this.progress.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.progress.Value = 10;
             // 
             // txtNhanXet
             // 
@@ -120,6 +120,7 @@
             this.btnGui.Size = new System.Drawing.Size(166, 52);
             this.btnGui.TabIndex = 8;
             this.btnGui.Text = "Gửi";
+            this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
             // 
             // guna2Button1
             // 
@@ -136,6 +137,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(34, 42);
             this.guna2Button1.TabIndex = 69;
             this.guna2Button1.Text = "X";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Panel3
             // 
@@ -183,32 +185,32 @@
             this.label1.TabIndex = 70;
             this.label1.Text = "Nội dung nhận xét";
             // 
-            // guna2TextBox1
+            // txtTieuDe
             // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(288, 90);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(285, 35);
-            this.guna2TextBox1.TabIndex = 71;
+            this.txtTieuDe.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTieuDe.DefaultText = "";
+            this.txtTieuDe.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTieuDe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTieuDe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTieuDe.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTieuDe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTieuDe.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTieuDe.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTieuDe.Location = new System.Drawing.Point(288, 90);
+            this.txtTieuDe.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtTieuDe.Name = "txtTieuDe";
+            this.txtTieuDe.PasswordChar = '\0';
+            this.txtTieuDe.PlaceholderText = "";
+            this.txtTieuDe.SelectedText = "";
+            this.txtTieuDe.Size = new System.Drawing.Size(285, 35);
+            this.txtTieuDe.TabIndex = 71;
             // 
             // FGiangVien_Progress_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 564);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.txtTieuDe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2Panel3);
@@ -217,12 +219,13 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.btnGui);
             this.Controls.Add(this.txtNhanXet);
-            this.Controls.Add(this.guna2ProgressBar1);
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.lblNhanXet);
             this.Controls.Add(this.lblDanhGia);
             this.Controls.Add(this.lblBaoCao);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FGiangVien_Progress_Check";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FGiangVien_Progress_Check";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,7 +236,7 @@
         private System.Windows.Forms.Label lblBaoCao;
         private System.Windows.Forms.Label lblDanhGia;
         private System.Windows.Forms.Label lblNhanXet;
-        private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
+        private Guna.UI2.WinForms.Guna2ProgressBar progress;
         private Guna.UI2.WinForms.Guna2TextBox txtNhanXet;
         private Guna.UI2.WinForms.Guna2Button btnGui;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
@@ -242,6 +245,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtTieuDe;
     }
 }

@@ -45,6 +45,7 @@
             this.ClientSize = new System.Drawing.Size(671, 450);
             this.Controls.Add(this.fLoTrungTam);
             this.Name = "FGiangVien_Support_Add_SinhVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FGiangVien_Support_Add_SinhVien";
             this.ResumeLayout(false);
 

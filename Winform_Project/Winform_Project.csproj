@@ -53,6 +53,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -76,6 +77,18 @@
     <Compile Include="ClassDoiTuong\TaiKhoanDangNhap.cs" />
     <Compile Include="ClassDoiTuong\ThongBao.cs" />
     <Compile Include="ClassDoiTuong\TinNhan.cs" />
+    <Compile Include="FNhiemVu_NoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FNhiemVu_NoiDung.Designer.cs">
+      <DependentUpon>FNhiemVu_NoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Calendar.Designer.cs">
+      <DependentUpon>FGiangVien_Calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGiangVien\FGiangVien_Controls.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +320,12 @@
     <Compile Include="uc_SV\uc_SV_ThongTin.Designer.cs">
       <DependentUpon>uc_SV_ThongTin.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FNhiemVu_NoiDung.resx">
+      <DependentUpon>FNhiemVu_NoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Calendar.resx">
+      <DependentUpon>FGiangVien_Calendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien_Controls.resx">
       <DependentUpon>FGiangVien_Controls.cs</DependentUpon>
     </EmbeddedResource>

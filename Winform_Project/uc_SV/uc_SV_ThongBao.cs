@@ -46,8 +46,8 @@ namespace Winform_Project
             uc_SV_ThongBao_Load(sender, e);
             fSinhVien_Support_View.Text=thongbao.Tieude;
             fSinhVien_Support_View.txtNoiDung.Text = thongbao.Noidung;
-            fSinhVien_Support_View.lblThoiGianKetThuc.Text="Thời gian kết thúc: " + thongbao.Thoigianketthuc.ToString();
-            fSinhVien_Support_View.Show();
+/*            fSinhVien_Support_View.lblThoiGianKetThuc.Text="Thời gian kết thúc: " + thongbao.Thoigianketthuc.ToString();
+*/            fSinhVien_Support_View.Show();
         }
 
 

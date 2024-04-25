@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,8 +74,77 @@ namespace Winform_Project.FormGiangVien
             fLoTrungTam.Controls.Clear();
             progress.Location = new Point(btnNhiemVu.Location.X, btnChiTiet.Location.Y + 30);
             ucFGiangVien_Suppost uc = new ucFGiangVien_Suppost();
+            uc.Load += ucFGiangVien_Support_Load;
             uc.btnTaoDeTai.Click += btnNVTao_Click;
+            uc.radioHoanThanh.Click += ucFGiangVien_Support_Load_Done;
+            uc.radioQuaHan.Click += ucFGiangVien_Support_Load_No_Done;
+            uc.radioThucHien.Click += ucFGiangVien_Support_Load_Processing;
+            uc.radioTatCa.Click += ucFGiangVien_Support_Load_All;
             fLoTrungTam.Controls.Add(uc);
+        }
+        private void ucFGiangVien_Support_Load(object sender, EventArgs e)
+        {
+            ucFGiangVien_Suppost uc = sender as ucFGiangVien_Suppost;
+            uc.radioTatCa.Checked = true;
+            ucFGiangVien_Support_Load_All(uc.radioTatCa,e);
+        }
+        private void NhiemVu_NoiDung(object sender, EventArgs e)
+        {
+            ucNhiemVu ucNhiemVu = sender as ucNhiemVu;
+            FNhiemVu_NoiDung FNhiemVu_NoiDung = new FNhiemVu_NoiDung(ucNhiemVu.nhiemVu);
+            FNhiemVu_NoiDung.ShowDialog();
+
+        }
+        private void ucFGiangVien_Support_Load_Type(List<ucNhiemVu> listUcNhiemVu, ucFGiangVien_Suppost uc)
+        {
+
+            try
+            {
+                uc.fLoTrungTam.Controls.Clear();
+                for (int i = 0; i < listUcNhiemVu.Count; i++)
+                {
+                    ucNhiemVu ucNhiemVu = listUcNhiemVu[i];
+                    ucNhiemVu.Click += NhiemVu_NoiDung;
+                    uc.fLoTrungTam.Controls.Add(ucNhiemVu);
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Loi!!!!!!");
+            }
+        }
+        private void ucFGiangVien_Support_Load_All(object sender, EventArgs e)
+        {
+            
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom,"Tat ca");
+            RadioButton radio = sender as RadioButton;
+            ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
+            ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
+        }
+        private void ucFGiangVien_Support_Load_Done(object sender, EventArgs e)
+        {
+
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Da hoan thanh");
+            RadioButton radio = sender as RadioButton;
+            ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
+            ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
+        }
+        private void ucFGiangVien_Support_Load_No_Done(object sender, EventArgs e)
+        {
+
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Qua han");
+            RadioButton radio = sender as RadioButton;
+            ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
+            ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
+        }
+        private void ucFGiangVien_Support_Load_Processing(object sender, EventArgs e)
+        {
+
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Dang thuc hien");
+            RadioButton radio = sender as RadioButton;
+            ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
+            ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
         }
         private void btnNVTao_Click(object sender, EventArgs e)
         {
@@ -93,33 +163,51 @@ namespace Winform_Project.FormGiangVien
         {
             fLoTrungTam.Controls.Clear();
             progress.Location = new Point(btnBaoCao.Location.X, btnChiTiet.Location.Y + 30);
-            DataTable dt = gvDao.LoadData($"SELECT TieuDe, FileBaoCao,ThoiGianGui, TienDo FROM TienDo WHERE MaSoNhom = '{2}'");
+            DataTable dt = gvDao.LayThongTinBaoCao("2");
             List<BaoCao> list = new List<BaoCao>();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                string trangThai;
-                if (dt.Rows[i]["TienDo"].ToString() != "NULL")
-                    trangThai = "Da duyet";
-                else
-                    trangThai = "Chua duyet";
-                BaoCao bc = new BaoCao(dt.Rows[i]["TieuDe"].ToString(), dt.Rows[i]["ThoiGianGui"].ToString(), dt.Rows[i]["FileBaoCao"].ToString(), trangThai);
+                BaoCao bc = new BaoCao(dt.Rows[i]["TieuDe"].ToString(), dt.Rows[i]["ThoiGianGui"].ToString(), dt.Rows[i]["FileBaoCao"].ToString(), dt.Rows[i]["TrangThai"].ToString(), dt.Rows[i]["MaSoNhom"].ToString());
                 list.Add(bc);
             }
             foreach(BaoCao bc in list)
             {
                 ucBaoCao ucBaoCao = new ucBaoCao(bc);
-                ucBaoCao.btnDanhGia.Click += btnDanhGiaBaoCao_Click;
-                ucBaoCao.btnXoa.Click += btnXoaBaoCao_Click;
+                if (bc.TrangThai != "Dang cho")
+                {
+                    ucBaoCao.btnDanhGia.Visible = false;
+                    ucBaoCao.btnXoa.Visible = false;
+                }
+                else
+                {
+                    ucBaoCao.btnDanhGia.Click += btnDanhGiaBaoCao_Click;
+                    ucBaoCao.btnXoa.Click += btnXoaBaoCao_Click;
+                }
                 fLoTrungTam.Controls.Add(ucBaoCao);
             }
         }
         private void btnXoaBaoCao_Click(object sender, EventArgs e)
         {
-                //Xoa bao cao -> Gui thong bao toi sinh vien (bao cao lan x da khong duoc duyet)
+            //Xoa bao cao -> Gui thong bao toi sinh vien (bao cao lan x da khong duoc duyet)
+            Guna2Button btn = sender as Guna2Button;
+            ucBaoCao ucBaoCao = btn.Parent as ucBaoCao;
+            ThongBao tb = new ThongBao(maSoNhom, FDangNhap.giangVienAccount.Ten, "Duyet de tai", $"{ucBaoCao.lblTieuDe.Text} khong duoc duyet!!!","Chua doc", DateTime.Now);
+            gvDao.ThongBaoToiSinhVien(tb);
+            ucBaoCao.baoCao.TrangThai = "Khong duyet";
+            gvDao.NhanXetBaoCao(ucBaoCao.baoCao);
+
         }
         private void btnDanhGiaBaoCao_Click(object sender, EventArgs e)
         {
-                //Duyet bao cao -> Gui thong bao toi sinh vien (bao cao lan x da duoc duyet)
+            //Duyet bao cao -> Gui thong bao toi sinh vien (bao cao lan x da duoc duyet)
+            Guna2Button btn = sender as Guna2Button;
+            ucBaoCao ucBaoCao = btn.Parent as ucBaoCao;
+            FGiangVien_Progress_Check fGiangVien_Progress_Check = new FGiangVien_Progress_Check(ucBaoCao.baoCao);
+            fGiangVien_Progress_Check.ShowDialog();
+            ThongBao tb = new ThongBao(maSoNhom, FDangNhap.giangVienAccount.Ten, "Duyet de tai", $"{ucBaoCao.lblTieuDe.Text} da duoc duyet!!!", "Chua doc", DateTime.Now);
+            gvDao.ThongBaoToiSinhVien(tb);
+
+
         }
 
         private void FGiangVien_Controls_Load(object sender, EventArgs e)
