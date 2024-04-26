@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project
 {
     public partial class FNhiemVu_NoiDung : Form
     {
+        SinhVienDao svDao = new SinhVienDao();
+        NhiemVu nhiemVu;
+
         public FNhiemVu_NoiDung(NhiemVu nhiemVu)
         {
             InitializeComponent();
@@ -23,11 +27,23 @@ namespace Winform_Project
             
             if (nhiemVu.TrangThai == "Dang thuc hien")
                 btnXacNhan.Enabled = true;
+            this.nhiemVu = nhiemVu;
         }
 
         private void btnTroVe_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn chắc chắn đã làm xong nhiệm vụ của giảng viên giao chứ?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                svDao.capnhatTrangThaiNhiemVu(nhiemVu);
+                this.Hide();
+            }
+
         }
     }
 }

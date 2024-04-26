@@ -35,7 +35,6 @@ namespace Winform_Project.FormSinhVien
                                                  dtThongBao.Rows[i]["NoiDung"].ToString(),
                                                  dtThongBao.Rows[i]["TrangThai"].ToString(),
                                                  Convert.ToDateTime(dtThongBao.Rows[i]["ThoiGianGui"]));
-                
                 uc_SV_ThongBao uc_sv_ThongBao = new uc_SV_ThongBao(thongBao);
                 flowThongBao.Controls.Add(uc_sv_ThongBao);
                 uc_sv_ThongBao.Show();

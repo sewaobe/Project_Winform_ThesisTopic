@@ -266,6 +266,7 @@
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.AutoScroll = true;
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 72);
             this.guna2Panel2.Name = "guna2Panel2";

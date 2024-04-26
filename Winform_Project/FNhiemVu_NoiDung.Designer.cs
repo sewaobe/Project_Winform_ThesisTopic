@@ -81,6 +81,7 @@
             this.btnXacNhan.Size = new System.Drawing.Size(115, 45);
             this.btnXacNhan.TabIndex = 23;
             this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // txtNoiDung
             // 

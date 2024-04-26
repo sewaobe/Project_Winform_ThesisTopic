@@ -41,6 +41,7 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLich = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,6 +190,22 @@
             this.btnExit.TabIndex = 9;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnLich
+            // 
+            this.btnLich.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLich.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLich.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLich.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLich.FillColor = System.Drawing.Color.White;
+            this.btnLich.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLich.ForeColor = System.Drawing.Color.Black;
+            this.btnLich.Location = new System.Drawing.Point(973, 28);
+            this.btnLich.Name = "btnLich";
+            this.btnLich.Size = new System.Drawing.Size(180, 45);
+            this.btnLich.TabIndex = 10;
+            this.btnLich.Text = "Lịch";
+            this.btnLich.Click += new System.EventHandler(this.btnLich_Click);
+            // 
             // FGiangVien_Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -197,6 +214,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1441, 745);
+            this.Controls.Add(this.btnLich);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.guna2PictureBox2);
             this.Controls.Add(this.guna2Panel3);
@@ -232,5 +250,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Button btnExit;
+        private Guna.UI2.WinForms.Guna2Button btnLich;
     }
 }

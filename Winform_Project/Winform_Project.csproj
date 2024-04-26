@@ -83,11 +83,11 @@
     <Compile Include="FNhiemVu_NoiDung.Designer.cs">
       <DependentUpon>FNhiemVu_NoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGiangVien\FGiangVien_Calendar.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FormGiangVien\uc_Calendar.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormGiangVien\FGiangVien_Calendar.Designer.cs">
-      <DependentUpon>FGiangVien_Calendar.cs</DependentUpon>
+    <Compile Include="FormGiangVien\uc_Calendar.Designer.cs">
+      <DependentUpon>uc_Calendar.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGiangVien\FGiangVien_Controls.cs">
       <SubType>Form</SubType>
@@ -172,6 +172,12 @@
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien_Support_View.Designer.cs">
       <DependentUpon>FSinhVien_Support_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_Lich_SuKien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Lich_SuKien.Designer.cs">
+      <DependentUpon>F_Lich_SuKien.cs</DependentUpon>
     </Compile>
     <Compile Include="Nganh_Khoa.cs" />
     <Compile Include="ClassDao\ConNguoiDao.cs" />
@@ -302,6 +308,30 @@
     <Compile Include="uc_GV\ucTongSoDeTai.Designer.cs">
       <DependentUpon>ucTongSoDeTai.cs</DependentUpon>
     </Compile>
+    <Compile Include="uc_Lich_Ngay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_Lich_Ngay.Designer.cs">
+      <DependentUpon>uc_Lich_Ngay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_Lich_Thang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_Lich_Thang.Designer.cs">
+      <DependentUpon>uc_Lich_Thang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_Lich_ThoiGian.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_Lich_ThoiGian.Designer.cs">
+      <DependentUpon>uc_Lich_ThoiGian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_Lich_Thu_Ngay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_Lich_Thu_Ngay.Designer.cs">
+      <DependentUpon>uc_Lich_Thu_Ngay.cs</DependentUpon>
+    </Compile>
     <Compile Include="uc_SV\uc_SV_DeTai.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -323,8 +353,8 @@
     <EmbeddedResource Include="FNhiemVu_NoiDung.resx">
       <DependentUpon>FNhiemVu_NoiDung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGiangVien\FGiangVien_Calendar.resx">
-      <DependentUpon>FGiangVien_Calendar.cs</DependentUpon>
+    <EmbeddedResource Include="FormGiangVien\uc_Calendar.resx">
+      <DependentUpon>uc_Calendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien_Controls.resx">
       <DependentUpon>FGiangVien_Controls.cs</DependentUpon>
@@ -404,6 +434,9 @@
     <EmbeddedResource Include="FormSinhVien\FSinhVien_Support_View.resx">
       <DependentUpon>FSinhVien_Support_View.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_Lich_SuKien.resx">
+      <DependentUpon>F_Lich_SuKien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -437,6 +470,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uc_GV\ucTongSoDeTai.resx">
       <DependentUpon>ucTongSoDeTai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_Lich_Ngay.resx">
+      <DependentUpon>uc_Lich_Ngay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_Lich_Thang.resx">
+      <DependentUpon>uc_Lich_Thang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_Lich_ThoiGian.resx">
+      <DependentUpon>uc_Lich_ThoiGian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_Lich_Thu_Ngay.resx">
+      <DependentUpon>uc_Lich_Thu_Ngay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uc_SV\uc_SV_DeTai.resx">
       <DependentUpon>uc_SV_DeTai.cs</DependentUpon>

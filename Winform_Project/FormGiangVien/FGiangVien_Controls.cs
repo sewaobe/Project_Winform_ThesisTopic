@@ -217,6 +217,14 @@ namespace Winform_Project.FormGiangVien
 
         }
 
+        private void btnLich_Click(object sender, EventArgs e)
+        {
+            fLoTrungTam.Controls.Clear();
+            progress.Location = new Point(btnNhiemVu.Location.X, btnChiTiet.Location.Y + 30);
+            uc_Calendar uc_Calendar = new uc_Calendar();
+            fLoTrungTam.Controls.Add(uc_Calendar);
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Hide();

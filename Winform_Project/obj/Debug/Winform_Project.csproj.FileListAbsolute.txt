@@ -162,4 +162,9 @@ C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.exe
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.pdb
 C:\Win\Win (1)\Winform_Project\bin\Debug\Winform_Project.pdb
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FNhiemVu_NoiDung.resources
-C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.FGiangVien_Calendar.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.uc_Lich_Thang.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.uc_Lich_Ngay.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.uc_Lich_Thu_Ngay.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.F_Lich_SuKien.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.uc_Lich_ThoiGian.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormGiangVien.uc_Calendar.resources

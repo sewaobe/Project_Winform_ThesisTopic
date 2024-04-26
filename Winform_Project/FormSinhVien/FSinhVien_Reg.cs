@@ -68,8 +68,9 @@ namespace Winform_Project.FSinhVien
                                         dtDeTai.Rows[i]["Khoa"].ToString(),
                                         dtDeTai.Rows[i]["Nganh"].ToString(),
                                         dtDeTai.Rows[i]["HocKy"].ToString(),
-                                        dtDeTai.Rows[i]["TenGiangVien"].ToString(),
-                                        dtDeTai.Rows[i]["TrangThai"].ToString());
+                                        dtDeTai.Rows[i]["TenGiangVien"].ToString(),"Chua Duyet"
+                                        //dtDeTai.Rows[i]["TrangThai"].ToString()
+                                        );
                 uc_SV_DeTai uc_sv_detai = new uc_SV_DeTai(lv);
                 flow_DeTai.Controls.Add(uc_sv_detai);
                 uc_sv_detai.Show();
