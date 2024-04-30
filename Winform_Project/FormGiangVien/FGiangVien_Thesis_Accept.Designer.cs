@@ -35,14 +35,15 @@
             this.btnDuyet = new Guna.UI2.WinForms.Guna2Button();
             this.btnCho = new Guna.UI2.WinForms.Guna2Button();
             this.fLoTrungTam = new System.Windows.Forms.FlowLayoutPanel();
+            this.headerDeTai = new Guna.UI2.WinForms.Guna2Button();
+            this.headerOparetor = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnDongY = new Guna.UI2.WinForms.Guna2Button();
             this.btnTuChoi = new Guna.UI2.WinForms.Guna2Button();
             this.btnTongQuan = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.progress = new Guna.UI2.WinForms.Guna2Panel();
-            this.headerDeTai = new Guna.UI2.WinForms.Guna2Button();
-            this.headerMaNhom = new Guna.UI2.WinForms.Guna2Button();
-            this.headerOperation = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiDuyet = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiCho = new Guna.UI2.WinForms.Guna2Button();
             this.fGiangVienThesisAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).BeginInit();
@@ -99,13 +100,45 @@
             this.fLoTrungTam.BackColor = System.Drawing.SystemColors.Control;
             this.fLoTrungTam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fLoTrungTam.Controls.Add(this.headerDeTai);
-            this.fLoTrungTam.Controls.Add(this.headerMaNhom);
-            this.fLoTrungTam.Controls.Add(this.headerOperation);
+            this.fLoTrungTam.Controls.Add(this.headerOparetor);
             this.fLoTrungTam.Location = new System.Drawing.Point(12, 187);
+            this.fLoTrungTam.Margin = new System.Windows.Forms.Padding(0);
             this.fLoTrungTam.Name = "fLoTrungTam";
             this.fLoTrungTam.Size = new System.Drawing.Size(1208, 570);
             this.fLoTrungTam.TabIndex = 7;
             this.fLoTrungTam.Paint += new System.Windows.Forms.PaintEventHandler(this.fLoTrungTam_Paint);
+            // 
+            // headerDeTai
+            // 
+            this.headerDeTai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.headerDeTai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.headerDeTai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.headerDeTai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.headerDeTai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.headerDeTai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.headerDeTai.ForeColor = System.Drawing.Color.Black;
+            this.headerDeTai.Location = new System.Drawing.Point(0, 0);
+            this.headerDeTai.Margin = new System.Windows.Forms.Padding(0);
+            this.headerDeTai.Name = "headerDeTai";
+            this.headerDeTai.Size = new System.Drawing.Size(1016, 45);
+            this.headerDeTai.TabIndex = 0;
+            this.headerDeTai.Text = "Đề tài";
+            // 
+            // headerOparetor
+            // 
+            this.headerOparetor.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.headerOparetor.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.headerOparetor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.headerOparetor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.headerOparetor.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.headerOparetor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.headerOparetor.ForeColor = System.Drawing.Color.Black;
+            this.headerOparetor.Location = new System.Drawing.Point(1016, 0);
+            this.headerOparetor.Margin = new System.Windows.Forms.Padding(0);
+            this.headerOparetor.Name = "headerOparetor";
+            this.headerOparetor.Size = new System.Drawing.Size(189, 45);
+            this.headerOparetor.TabIndex = 1;
+            this.headerOparetor.Text = "Oparetor";
             // 
             // guna2TextBox1
             // 
@@ -190,50 +223,41 @@
             this.progress.Size = new System.Drawing.Size(160, 5);
             this.progress.TabIndex = 12;
             // 
-            // headerDeTai
+            // btnThayDoiDuyet
             // 
-            this.headerDeTai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.headerDeTai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.headerDeTai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.headerDeTai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.headerDeTai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.headerDeTai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.headerDeTai.ForeColor = System.Drawing.Color.Black;
-            this.headerDeTai.Location = new System.Drawing.Point(3, 3);
-            this.headerDeTai.Name = "headerDeTai";
-            this.headerDeTai.Size = new System.Drawing.Size(681, 45);
-            this.headerDeTai.TabIndex = 0;
-            this.headerDeTai.Text = "Đề tài";
+            this.btnThayDoiDuyet.AutoRoundedCorners = true;
+            this.btnThayDoiDuyet.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiDuyet.BorderRadius = 6;
+            this.btnThayDoiDuyet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiDuyet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiDuyet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiDuyet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiDuyet.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiDuyet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiDuyet.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiDuyet.Location = new System.Drawing.Point(641, 107);
+            this.btnThayDoiDuyet.Name = "btnThayDoiDuyet";
+            this.btnThayDoiDuyet.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiDuyet.TabIndex = 13;
+            this.btnThayDoiDuyet.Visible = false;
             // 
-            // headerMaNhom
+            // btnThayDoiCho
             // 
-            this.headerMaNhom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.headerMaNhom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.headerMaNhom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.headerMaNhom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.headerMaNhom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.headerMaNhom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headerMaNhom.ForeColor = System.Drawing.Color.Black;
-            this.headerMaNhom.Location = new System.Drawing.Point(690, 3);
-            this.headerMaNhom.Name = "headerMaNhom";
-            this.headerMaNhom.Size = new System.Drawing.Size(271, 45);
-            this.headerMaNhom.TabIndex = 1;
-            this.headerMaNhom.Text = "Mã nhóm";
-            // 
-            // headerOperation
-            // 
-            this.headerOperation.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.headerOperation.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.headerOperation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.headerOperation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.headerOperation.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.headerOperation.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headerOperation.ForeColor = System.Drawing.Color.Black;
-            this.headerOperation.Location = new System.Drawing.Point(967, 3);
-            this.headerOperation.Name = "headerOperation";
-            this.headerOperation.Size = new System.Drawing.Size(223, 45);
-            this.headerOperation.TabIndex = 2;
-            this.headerOperation.Text = "Operation";
+            this.btnThayDoiCho.AutoRoundedCorners = true;
+            this.btnThayDoiCho.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiCho.BorderRadius = 6;
+            this.btnThayDoiCho.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiCho.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiCho.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiCho.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiCho.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiCho.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiCho.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiCho.Location = new System.Drawing.Point(599, 107);
+            this.btnThayDoiCho.Name = "btnThayDoiCho";
+            this.btnThayDoiCho.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiCho.TabIndex = 14;
+            this.btnThayDoiCho.Visible = false;
             // 
             // fGiangVienThesisAcceptBindingSource
             // 
@@ -245,6 +269,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1232, 769);
+            this.Controls.Add(this.btnThayDoiCho);
+            this.Controls.Add(this.btnThayDoiDuyet);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.btnTongQuan);
             this.Controls.Add(this.btnTuChoi);
@@ -282,7 +308,8 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox btnTongQuan;
         private Guna.UI2.WinForms.Guna2Panel progress;
         private Guna.UI2.WinForms.Guna2Button headerDeTai;
-        private Guna.UI2.WinForms.Guna2Button headerMaNhom;
-        private Guna.UI2.WinForms.Guna2Button headerOperation;
+        private Guna.UI2.WinForms.Guna2Button headerOparetor;
+        private Guna.UI2.WinForms.Guna2Button btnThayDoiDuyet;
+        private Guna.UI2.WinForms.Guna2Button btnThayDoiCho;
     }
 }

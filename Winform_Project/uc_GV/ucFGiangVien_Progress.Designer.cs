@@ -35,34 +35,47 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTrangThaiNhiemVu = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTienDoBaoCao = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTrangThaiNhiemVu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTienDoBaoCao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // chart1
+            // chartTrangThaiNhiemVu
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chartTrangThaiNhiemVu.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(28, 22);
-            this.chart1.Name = "chart1";
+            this.chartTrangThaiNhiemVu.Legends.Add(legend1);
+            this.chartTrangThaiNhiemVu.Location = new System.Drawing.Point(28, 22);
+            this.chartTrangThaiNhiemVu.Name = "chartTrangThaiNhiemVu";
+            this.chartTrangThaiNhiemVu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartTrangThaiNhiemVu.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(88)))), ((int)(((byte)(127))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(220)))), ((int)(((byte)(205))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))))};
+            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            series1.BorderColor = System.Drawing.Color.White;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            series1.CustomProperties = "CollectedToolTip=0, CollectedColor=White";
+            series1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1298, 469);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            series1.Name = "chartPie";
+            this.chartTrangThaiNhiemVu.Series.Add(series1);
+            this.chartTrangThaiNhiemVu.Size = new System.Drawing.Size(1262, 469);
+            this.chartTrangThaiNhiemVu.TabIndex = 0;
+            this.chartTrangThaiNhiemVu.Text = "chart1";
+            this.chartTrangThaiNhiemVu.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartTrangThaiNhiemVu_GetToolTipText);
+            this.chartTrangThaiNhiemVu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartTrangThaiNhiemVu_MouseMove);
             // 
             // label1
             // 
@@ -87,22 +100,22 @@
             this.guna2PictureBox1.TabIndex = 2;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // chart2
+            // chartTienDoBaoCao
             // 
             chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
+            this.chartTienDoBaoCao.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(28, 529);
-            this.chart2.Name = "chart2";
-            this.chart2.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
+            this.chartTienDoBaoCao.Legends.Add(legend2);
+            this.chartTienDoBaoCao.Location = new System.Drawing.Point(28, 529);
+            this.chartTienDoBaoCao.Name = "chartTienDoBaoCao";
+            this.chartTienDoBaoCao.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(1298, 520);
-            this.chart2.TabIndex = 3;
-            this.chart2.Text = "chart2";
+            series2.Name = "chartLine";
+            this.chartTienDoBaoCao.Series.Add(series2);
+            this.chartTienDoBaoCao.Size = new System.Drawing.Size(1262, 520);
+            this.chartTienDoBaoCao.TabIndex = 3;
+            this.chartTienDoBaoCao.Text = "chart2";
             // 
             // guna2PictureBox2
             // 
@@ -133,15 +146,16 @@
             this.AutoScroll = true;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2PictureBox2);
-            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.chartTienDoBaoCao);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartTrangThaiNhiemVu);
             this.Name = "ucFGiangVien_Progress";
-            this.Size = new System.Drawing.Size(1326, 615);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.Size = new System.Drawing.Size(1295, 660);
+            this.Load += new System.EventHandler(this.ucFGiangVien_Progress_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.chartTrangThaiNhiemVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTienDoBaoCao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,10 +164,10 @@
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTrangThaiNhiemVu;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTienDoBaoCao;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label label2;
     }

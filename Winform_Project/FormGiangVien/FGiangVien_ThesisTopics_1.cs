@@ -23,21 +23,21 @@ namespace Winform_Project
         string[] khoa = { "\\CÁC KHOA\\CLC.png", "\\CÁC KHOA\\CKĐ.png", "\\CÁC KHOA\\CƠ KHÍ MÁY.png", "\\CÁC KHOA\\CÔNG NGHỆ THÔNG TIN.png", "\\CÁC KHOA\\DIEN - DIEN TU.png", "\\CÁC KHOA\\ĐTQT.png", "\\CÁC KHOA\\HÓA THỰC PHẨM.png", "\\CÁC KHOA\\KHOA HỌC ỨNG DỤNG.png", "\\CÁC KHOA\\Kinh tế.png", "\\CÁC KHOA\\LOGO Khoa In.png", "\\CÁC KHOA\\Logo Thời trang và Du lịch.png", "\\CÁC KHOA\\NGOẠI NGỮ.png", "\\CÁC KHOA\\XÂY DỰNG.png" };
         Dictionary<string, string> khoa_nganh = new Dictionary<string, string>()
         {
-            { "Chất lượng cao","Chất lượng cao1, Chất lượng cao2, Chất lượng cao3"},
-            { "Cơ khí điện","Cơ khí điện1, Cơ khí điện2, Cơ khí điện3"},
-            { "Cơ khí máy","Cơ khí máy1, Cơ khí máy2, Cơ khí máy3"},
-            { "Công nghệ thông tin","Công nghệ thông tin1, Công nghệ thông tin2, Công nghệ thông tin3"},
-            { "Điện-Điện tử","Điện-Điện tử1, Điện-Điện tử2, Điện-Điện tử3"},
-            { "Đào tạo quốc tế","Đào tạo quốc tế1, Đào tạo quốc tế2, Đào tạo quốc tế3"},
-            { "Hóa thực phẩm","Hóa thực phẩm1, Hóa thực phẩm2, Hóa thực phẩm3"},
-            { "Khoa học ứng dụng","Khoa học ứng dụng1, Khoa học ứng dụng2, Khoa học ứng dụng3"},
+            { "Chat luong cao","Chat luong cao1, Chat luong cao2, Chat luong cao3"},
+            { "Co khi dien","Co khi dien1, Co khi dien2, Co khi dien3"},
+            { "Co khi may","Co khi may1, Co khi may2, Co khi may3"},
+            { "Cong nghe thong tin","Cong nghe thong tin1, Cong nghe thong tin2, Cong nghe thong tin3"},
+            { "Dien-Dien tu","Dien-Dien tu1, Dien-Dien tu2, Dien-Dien tu3"},
+            { "Dao tao quoc te","Dao tao quoc te1, Dao tao quoc te2, Dao tao quoc te3"},
+            { "Hoa thuc pham","Hoa thuc pham1, Hoa thuc pham2, Hoa thuc pham3"},
+            { "Khoa hoc ung dung","Khoa hoc ung dung1, Khoa hoc ung dung2, Khoa hoc ung dung3"},
             { "Khoa in","Khoa in1, Khoa in2, Khoa in3"},
-            { "Khoa Du lịch và thời trang","Khoa Du lịch và thời trang1, Khoa Du lịch và thời trang2, Khoa Du lịch và thời trang3"},
-            { "Ngoại ngữ","Ngoại ngữ1, Ngoại ngữ2, Ngoại ngữ3"},
-            { "Xây dựng","Xây dựng1, Xây dựng2, Xây dựng3"},
+            { "Khoa Du lich va thoi trang","Khoa Du lich va thoi trang1, Khoa Du lich va thoi trang2, Khoa Du lich va thoi trang3"},
+            { "Ngoai ngu","Ngoai ngu1, Ngoai ngu2, Ngoai ngu3"},
+            { "Xay dung","Xay dung1, Xay dung2, Xay dung3"},
         };
         string[] namHoc = {"2019-2020","2020-2021","2021-2022","2022-2023","2023-2024","2024-2025"};
-        string[] hocKy = { "Kỳ 1", "Kỳ 2", "Kỳ 3" };
+        string[] hocKy = { "Ky 1", "Ky 2", "Ky 3" };
         List<string> lblPaths = new List<string>();
         public FGiangVien_ThesisTopics_1()
         {

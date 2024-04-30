@@ -39,5 +39,14 @@ namespace Winform_Project.FormGiangVien
         {
             this.Hide();
         }
+
+        private void progress_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
+        {
+            lblValueProgress.Visible = true;
+            lblValueProgress.Text = progress.Value.ToString();
+            lblValueProgress.Location = new Point(progress.Location.X + progress.Value*5/3, progress.Location.Y-20);
+        }
+
+        
     }
 }

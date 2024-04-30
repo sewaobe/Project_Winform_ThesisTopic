@@ -42,6 +42,11 @@ namespace Winform_Project.ClassDao
                                           $"VALUES('{tb.Tieude}', '{tb.Tengiangvien}', '{tb.Masonhom}', '{tb.Noidung}', '{tb.Thoigiangui}','{tb.Trangthai}')");
             db.ThucThi(sqlStr);
         }
+        public DataTable LayThongTinDeTaiDangCapNhat(string trangThai)
+        {
+            string sqlStr = string.Format($"SELECT * FROM ThongTinDeTai WHERE TrangThai = '{trangThai}'");
+            return db.Load(sqlStr);
+        }
         public DataTable LoadData(string sqlStr)
         {
             return db.Load(sqlStr);
@@ -106,6 +111,11 @@ namespace Winform_Project.ClassDao
         public DataTable LayThongTinSinhVien(string maNhom)
         {
             string sqlStr = string.Format($"SELECT * FROM SinhVien Where MaSoNhom = '{maNhom}'");
+            return db.Load(sqlStr);
+        }
+        public DataTable LayThongTinTatCaNhomDangKy()
+        {
+            string sqlStr = string.Format("SELECT * FROM ThongTinNhomDangKy");
             return db.Load(sqlStr);
         }
         public void Them(LuanVan lv)

@@ -35,7 +35,8 @@ namespace Winform_Project
             DataTable dt = conNguoiDao.XacNhanDangNhap(tk);
             if (dt.Rows.Count > 0)
             {
-                MessageBox.Show("Tai khoan hop le");
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Đăng nhập thành công", "Thành công");
+                uc_Toast_Notice.Show();
                 if (dt.Rows[0]["ChucVu"].ToString() == "Giảng viên")
                 {
                     LayThongTinGiangVien(dt.Rows[0]["HoTen"].ToString());
@@ -58,8 +59,8 @@ namespace Winform_Project
             }
             else
             {
-                MessageBox.Show("Tai khoan khong hop le!!!");
-                
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Đăng nhập thất bại", "Thất bại");
+                uc_Toast_Notice.Show();
             }
             
         }

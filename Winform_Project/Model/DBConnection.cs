@@ -22,17 +22,19 @@ namespace Winform_Project.Model
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    MessageBox.Show("Thuc thi thanh cong");
+                    uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi thành công", "Thành công");
+                    uc_Toast_Notice.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Thuc thi that bai");
-
+                    uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi thất bại", "Thất bại");
+                    uc_Toast_Notice.Show();
                 }
             }
             catch
             {
-                MessageBox.Show("Loi thuc thi");
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi thất bại", "Thất bại");
+                uc_Toast_Notice.Show();
             }
             finally
             {

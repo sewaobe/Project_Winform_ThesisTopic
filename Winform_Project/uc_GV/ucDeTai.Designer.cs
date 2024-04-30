@@ -37,9 +37,9 @@
             this.lblMaDeTai = new System.Windows.Forms.Label();
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnYeuThich = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.fLoCongNghe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnYeuThich)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTenDeTai
@@ -100,7 +100,7 @@
             this.btnChiTiet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(83)))), ((int)(((byte)(83)))));
             this.btnChiTiet.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChiTiet.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnChiTiet.Location = new System.Drawing.Point(555, 128);
+            this.btnChiTiet.Location = new System.Drawing.Point(879, 128);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(116, 37);
             this.btnChiTiet.TabIndex = 4;
@@ -121,7 +121,8 @@
             // 
             this.lblTrangThai.AutoSize = true;
             this.lblTrangThai.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrangThai.Location = new System.Drawing.Point(438, 13);
+            this.lblTrangThai.ForeColor = System.Drawing.Color.Olive;
+            this.lblTrangThai.Location = new System.Drawing.Point(794, 13);
             this.lblTrangThai.Name = "lblTrangThai";
             this.lblTrangThai.Size = new System.Drawing.Size(93, 18);
             this.lblTrangThai.TabIndex = 6;
@@ -133,20 +134,20 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(204)))), ((int)(((byte)(156)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 178);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(684, 3);
+            this.guna2Panel1.Size = new System.Drawing.Size(1010, 3);
             this.guna2Panel1.TabIndex = 7;
             // 
-            // guna2CirclePictureBox1
+            // btnYeuThich
             // 
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(608, 13);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(63, 54);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 9;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.btnYeuThich.Image = ((System.Drawing.Image)(resources.GetObject("btnYeuThich.Image")));
+            this.btnYeuThich.ImageRotate = 0F;
+            this.btnYeuThich.Location = new System.Drawing.Point(932, 13);
+            this.btnYeuThich.Name = "btnYeuThich";
+            this.btnYeuThich.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnYeuThich.Size = new System.Drawing.Size(63, 54);
+            this.btnYeuThich.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnYeuThich.TabIndex = 9;
+            this.btnYeuThich.TabStop = false;
             // 
             // ucDeTai
             // 
@@ -154,7 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.guna2CirclePictureBox1);
+            this.Controls.Add(this.btnYeuThich);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.lblTrangThai);
             this.Controls.Add(this.lblMaDeTai);
@@ -163,9 +164,9 @@
             this.Controls.Add(this.lblTheLoai);
             this.Controls.Add(this.lblTenDeTai);
             this.Name = "ucDeTai";
-            this.Size = new System.Drawing.Size(684, 181);
+            this.Size = new System.Drawing.Size(1010, 181);
             this.fLoCongNghe.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnYeuThich)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +181,6 @@
         public System.Windows.Forms.Label lblMaDeTai;
         public System.Windows.Forms.Label lblTrangThai;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox btnYeuThich;
     }
 }

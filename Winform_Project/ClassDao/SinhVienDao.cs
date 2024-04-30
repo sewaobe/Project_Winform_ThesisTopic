@@ -71,12 +71,7 @@ namespace Winform_Project.ClassDao
                                             MaSoNhom, MaDeTai, FileBaoCao, (dtBaoCao.Rows.Count + 1).ToString());
             db.ThucThi(sqlStr);
         }
-        public void docThongBao(ThongBao tb)
-        {
-            string sqlStr = string.Format("UPDATE ThongBao SET TrangThai='Da Doc' Where MaSoNhom='{0}'",
-                                            tb.Masonhom);
-            db.ThucThi(sqlStr);
-        }
+       
         public void GuiTinNhan(TinNhan tinnhan)
         {
             string sqlStr = string.Format("INSERT INTO Messenger(NguoiGui,NguoiNhan,NoiDung,ThoiGianGui)" +

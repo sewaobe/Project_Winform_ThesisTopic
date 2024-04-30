@@ -131,7 +131,7 @@ namespace Winform_Project
 
         private void btnThongTinCaNhan_Click(object sender, EventArgs e)
         {
-            DataTable dt = gvDao.LoadData($"SELECT * FROM GiangVien WHERE HoTen = '{tenGV}'");
+            DataTable dt = gvDao.LoadData($"SELECT * FROM GiangVien WHERE HoTen = '{lblTenGiangVien.Text}'");
             DateTime date = DateTime.Now;
             
             if (dt.Rows.Count > 0)
@@ -214,6 +214,17 @@ namespace Winform_Project
                 }
             }
         }
+        private void movePicChonBtn(object sender)
+        {
+            Guna2Button btn = sender as Guna2Button;
+            picChonBtn.Location = new Point(btn.Location.X + 30, btn.Location.Y );
+            picChonBtn.SendToBack();
+        }
+        private void btnThongTinCaNhan_CheckedChanged(object sender, EventArgs e)
+        {
+            movePicChonBtn(sender);
+        }
+        
 
         private void fLoTrungTam_Paint(object sender, PaintEventArgs e)
         {

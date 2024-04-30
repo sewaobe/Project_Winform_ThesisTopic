@@ -125,7 +125,7 @@
             this.txtTen.PasswordChar = '\0';
             this.txtTen.PlaceholderText = "";
             this.txtTen.SelectedText = "";
-            this.txtTen.Size = new System.Drawing.Size(883, 66);
+            this.txtTen.Size = new System.Drawing.Size(883, 77);
             this.txtTen.TabIndex = 27;
             // 
             // lblTenDeTai
@@ -176,7 +176,6 @@
             this.txtMaDeTai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtMaDeTai.Location = new System.Drawing.Point(44, 74);
             this.txtMaDeTai.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txtMaDeTai.Multiline = true;
             this.txtMaDeTai.Name = "txtMaDeTai";
             this.txtMaDeTai.PasswordChar = '\0';
             this.txtMaDeTai.PlaceholderText = "";
@@ -199,7 +198,6 @@
             this.txtSoLuong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtSoLuong.Location = new System.Drawing.Point(565, 74);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txtSoLuong.Multiline = true;
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.PasswordChar = '\0';
             this.txtSoLuong.PlaceholderText = "";
@@ -364,7 +362,6 @@
             this.txtTheLoai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
             this.txtTheLoai.Location = new System.Drawing.Point(51, 748);
             this.txtTheLoai.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txtTheLoai.Multiline = true;
             this.txtTheLoai.Name = "txtTheLoai";
             this.txtTheLoai.PasswordChar = '\0';
             this.txtTheLoai.PlaceholderText = "";

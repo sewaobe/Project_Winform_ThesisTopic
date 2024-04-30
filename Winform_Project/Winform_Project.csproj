@@ -83,6 +83,12 @@
     <Compile Include="FNhiemVu_NoiDung.Designer.cs">
       <DependentUpon>FNhiemVu_NoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Notify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\FGiangVien_Notify.Designer.cs">
+      <DependentUpon>FGiangVien_Notify.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGiangVien\uc_Calendar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,17 +107,17 @@
     <Compile Include="FormGiangVien\FGiangVien_Support_Add_SinhVien.Designer.cs">
       <DependentUpon>FGiangVien_Support_Add_SinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSinhVien\Form1.cs">
+    <Compile Include="FormSinhVien\FSinhVien_Controls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSinhVien\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormSinhVien\FSinhVien_Controls.Designer.cs">
+      <DependentUpon>FSinhVien_Controls.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSinhVien\Form2.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FormSinhVien\uc_SinhVien_NhiemVu.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormSinhVien\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="FormSinhVien\uc_SinhVien_NhiemVu.Designer.cs">
+      <DependentUpon>uc_SinhVien_NhiemVu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien.cs">
       <SubType>Form</SubType>
@@ -350,8 +356,17 @@
     <Compile Include="uc_SV\uc_SV_ThongTin.Designer.cs">
       <DependentUpon>uc_SV_ThongTin.cs</DependentUpon>
     </Compile>
+    <Compile Include="uc_Toast_Notice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uc_Toast_Notice.Designer.cs">
+      <DependentUpon>uc_Toast_Notice.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FNhiemVu_NoiDung.resx">
       <DependentUpon>FNhiemVu_NoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\FGiangVien_Notify.resx">
+      <DependentUpon>FGiangVien_Notify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\uc_Calendar.resx">
       <DependentUpon>uc_Calendar.cs</DependentUpon>
@@ -398,11 +413,11 @@
     <EmbeddedResource Include="FormGiangVien\FGiangVien_Thesis_Edit.resx">
       <DependentUpon>FGiangVien_Thesis_Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSinhVien\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Controls.resx">
+      <DependentUpon>FSinhVien_Controls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSinhVien\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="FormSinhVien\uc_SinhVien_NhiemVu.resx">
+      <DependentUpon>uc_SinhVien_NhiemVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien.resx">
       <DependentUpon>FSinhVien.cs</DependentUpon>
@@ -446,6 +461,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ucNhiemVu.resx">
       <DependentUpon>ucNhiemVu.cs</DependentUpon>
@@ -492,6 +508,9 @@
     <EmbeddedResource Include="uc_SV\uc_SV_ThongTin.resx">
       <DependentUpon>uc_SV_ThongTin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="uc_Toast_Notice.resx">
+      <DependentUpon>uc_Toast_Notice.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.datasource" />
     <None Include="Properties\Settings.settings">
@@ -513,6 +532,10 @@
   <ItemGroup>
     <Content Include="Resourcess\email.png" />
     <Content Include="Resourcess\letter.png" />
+    <None Include="Resources\letter.png" />
+    <None Include="Resources\letter %281%29.png" />
+    <None Include="Resources\remove.png" />
+    <None Include="Resources\accept %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

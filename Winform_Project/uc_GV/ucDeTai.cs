@@ -30,7 +30,7 @@ namespace Winform_Project
             lblTheLoai.Text = lv.TheLoai;
             lblTrangThai.Text = lv.TrangThai;
             if (lblTrangThai.Text == "Chua duyet")
-                lblTrangThai.ForeColor = Color.Yellow;
+                lblTrangThai.ForeColor = Color.Olive;
             else if (lblTrangThai.Text == "Chua dang ki")
                 lblTrangThai.ForeColor = Color.Red;
             else

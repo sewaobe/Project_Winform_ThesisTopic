@@ -41,19 +41,22 @@ namespace Winform_Project.FormSinhVien
             DataTable dtSinhVien = svDao.LoadData(sqlStr);
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
-                    dtSinhVien.Rows[i]["GioiTinh"].ToString(),
-                    Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
-                    dtSinhVien.Rows[i]["SDT"].ToString(),
-                    dtSinhVien.Rows[i]["Khoa"].ToString(),
-                    dtSinhVien.Rows[i]["Nganh"].ToString(),
-                    dtSinhVien.Rows[i]["MSSV"].ToString(),
-                    txtIDnhom.Text
-                                                    );
-                uc_SV_ThongTin uc_SV_ThongTin = new uc_SV_ThongTin(sinhvien);
-                uc_SV_ThongTin.btnThemSinhVien.Click += btnThemSV_Click;
-                flowThongTinSV.Controls.Add(uc_SV_ThongTin);
-                uc_SV_ThongTin.Show();
+                if (dtSinhVien.Rows[i]["MaSoNhom"].ToString() == "")
+                {
+                    SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
+                        dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                        Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                        dtSinhVien.Rows[i]["SDT"].ToString(),
+                        dtSinhVien.Rows[i]["Khoa"].ToString(),
+                        dtSinhVien.Rows[i]["Nganh"].ToString(),
+                        dtSinhVien.Rows[i]["MSSV"].ToString(),
+                        txtIDnhom.Text
+                                                        );
+                    uc_SV_ThongTin uc_SV_ThongTin = new uc_SV_ThongTin(sinhvien);
+                    uc_SV_ThongTin.btnThemSinhVien.Click += btnThemSV_Click;
+                    flowThongTinSV.Controls.Add(uc_SV_ThongTin);
+                    uc_SV_ThongTin.Show();
+                }
             }
         }
 
@@ -78,6 +81,7 @@ namespace Winform_Project.FormSinhVien
 
             
             svDao.themSinhVien(uc.sv, txtMaDeTai.Text);
+            FSinhVien_Reg_New_Load(sender, e);
         }
         private LuanVan LoadData()
         {

@@ -32,8 +32,9 @@ namespace Winform_Project.FormGiangVien
         }
         private void Load_fLo(string trangThai)
         {
-            DataTable dtDeTai = gvDao.LoadData($"SELECT * FROM ThongTinDeTai WHERE TrangThai = '{trangThai}'");
-            DataTable dtNhom = gvDao.LoadData("SELECT * FROM ThongTinNhomDangKy");
+            DataTable dtDeTai = gvDao.LayThongTinDeTaiDangCapNhat(trangThai);
+
+            DataTable dtNhom = gvDao.LayThongTinTatCaNhomDangKy();
             List<LuanVan> lv_list = new List<LuanVan>();
             for (int i = 0; i < dtDeTai.Rows.Count; i++)
             {
@@ -69,19 +70,21 @@ namespace Winform_Project.FormGiangVien
             }
             
             Guna2Button hdDeTai = headerDeTai;
-            Guna2Button hdNhom = headerMaNhom;
-            Guna2Button hdOperation = headerOperation;
+            Guna2Button hdOparetor = headerOparetor;
+            
             fLoTrungTam.Controls.Add(hdDeTai);
-            fLoTrungTam.Controls.Add(hdNhom);
-            fLoTrungTam.Controls.Add(hdOperation);
+            fLoTrungTam.Controls.Add(hdOparetor);
             
             foreach (LuanVan lv in lv_list)
             {
                 string sql = $"MaDeTai = '{lv.MaDeTai}'";
                 //Lay MSN 
-               
                 DataRow[] rows = dtNhom.Select(sql);
-               
+                string maSoNhomDangKy = "";
+                if (rows.Count() > 0)
+                {
+                    maSoNhomDangKy = rows[0]["MaSoNhom"].ToString();
+                }
                 //Hien de tai
                 ucDeTai uc = new ucDeTai(lv);
                 uc.btnChiTiet.Visible = false;
@@ -89,16 +92,16 @@ namespace Winform_Project.FormGiangVien
                 fLoTrungTam.Controls.Add(uc);
 
                 //Hien ma nhom
-                Label lbl = new Label();
+              /*  Label lbl = new Label();
                 if (rows.Count() > 0)
                 {
                     MessageBox.Show(rows[0]["MaSoNhom"].ToString());
                     lbl.Text = rows[0]["MaSoNhom"].ToString();
                     fLoTrungTam.Controls.Add(lbl);
-                }
+                }*/
 
-                
-                
+
+                //Click vô pictureBox - btnTongQuan
                 if (trangThai == "Da duyet")
                 {
                     Guna2CirclePictureBox pic = new Guna2CirclePictureBox();
@@ -110,20 +113,20 @@ namespace Winform_Project.FormGiangVien
                     pic.MouseLeave += picLeave;
                     pic.Visible = true;
                     pic.Click += picClick;
-                    pic.Tag = lv.MaDeTai + "," + lbl.Text;
-                    
+                    pic.Tag = lv.MaDeTai + "," + maSoNhomDangKy;
+                    pic.Margin = new Padding(40, 30, 0, 0); 
                     fLoTrungTam.Controls.Add(pic);
                 }
                 else
                 {
                     Guna2Button btnDY = taoNut(lv, btnDongY);
-                    btnDY.Tag = lbl.Text + "," + lv.MaDeTai;
-
+                    btnDY.Margin = new Padding(20, 30, 0, 0);
+                    btnDY.Tag = maSoNhomDangKy + "," + lv.MaDeTai;
                     btnDY.Click += btnDuyetClick;
                     Guna2Button btnTC = taoNut(lv, btnTuChoi);
-                    btnTC.Tag = lbl.Text +","+ lv.MaDeTai;
+                    btnTC.Margin = new Padding(20, 30, 0, 0);
+                    btnTC.Tag = maSoNhomDangKy + ","+ lv.MaDeTai;
                     btnTC.Click += btnTuChoiClick;
-                    Guna2Button btn = btnDY;
                     fLoTrungTam.Controls.Add(btnDY);
                     fLoTrungTam.Controls.Add(btnTC);
                 }
@@ -138,9 +141,18 @@ namespace Winform_Project.FormGiangVien
             if (dt.Rows.Count > 0)
             {
                 FGiangVien_Controls fGiangVien_Controls = new FGiangVien_Controls(ucDeTai.lv.MaDeTai, dt.Rows[0]["MaSoNhom"].ToString());
+                if (dt.Rows[0]["TrangThai"].ToString() == "")
+                {
+                    MessageBox.Show("Đề tài chưa được duyệt!! Vui lòng duyệt đề tài");
+                    fGiangVien_Controls.btnBaoCao.Visible = false;
+                    fGiangVien_Controls.btnLich.Visible = false;
+                    fGiangVien_Controls.btnNhiemVu.Visible = false;
+                    fGiangVien_Controls.btnTienDo.Visible = false;
+                }
                 fGiangVien_Controls.ShowDialog();
             }
         }
+        
         private void picLeave(object sender, EventArgs e)
         {
             Guna2CirclePictureBox pic = (Guna2CirclePictureBox)sender;
@@ -172,6 +184,8 @@ namespace Winform_Project.FormGiangVien
         }
         private void btnDuyetClick(object sender, EventArgs e)
         {
+            btnThayDoiDuyet.Visible = true;
+            btnThayDoiDuyet.Location = new Point(btnDuyet.Location.X + btnDuyet.Size.Width - 10, btnDuyet.Location.Y);
             Guna2Button btn = (Guna2Button)sender;
             string[] maSo = btn.Tag.ToString().Split(',');
             gvDao.DuyetDeTai(maSo[0], maSo[1]);
@@ -183,6 +197,12 @@ namespace Winform_Project.FormGiangVien
         private void FGiangVien_Thesis_Accept_Load(object sender, EventArgs e)
         {
             Load_fLo("Da duyet");
+            DataTable dtDeTai = gvDao.LayThongTinDeTaiDangCapNhat("Chua duyet");
+            if (dtDeTai.Rows.Count > 0)
+            {
+                btnThayDoiCho.Visible = true;
+                btnThayDoiCho.Location = new Point(btnCho.Location.X + btnCho.Size.Width - 10, btnCho.Location.Y);
+            }
         }
 
         private void fLoTrungTam_Paint(object sender, PaintEventArgs e)
@@ -192,6 +212,7 @@ namespace Winform_Project.FormGiangVien
 
         private void btnDuyet_Click(object sender, EventArgs e)
         {
+            btnThayDoiDuyet.Visible = false;
             progress.Location = new Point(btnDuyet.Location.X, btnDuyet.Location.Y + 35);
             fLoTrungTam.Controls.Clear();   
             Load_fLo("Da duyet");
@@ -200,6 +221,7 @@ namespace Winform_Project.FormGiangVien
 
         private void btnCho_Click(object sender, EventArgs e)
         {
+            btnThayDoiCho.Visible = false;
             progress.Location = new Point(btnCho.Location.X, btnCho.Location.Y + 35);
             fLoTrungTam.Controls.Clear();
             Load_fLo("Chua duyet");

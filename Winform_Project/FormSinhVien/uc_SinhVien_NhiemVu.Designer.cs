@@ -1,6 +1,6 @@
 ﻿namespace Winform_Project.FormSinhVien
 {
-    partial class Form2
+    partial class uc_SinhVien_NhiemVu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_SinhVien_NhiemVu));
             this.btnThucHien = new Guna.UI2.WinForms.Guna2Button();
             this.btnHoanThanh = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuaHan = new Guna.UI2.WinForms.Guna2Button();
@@ -58,10 +58,9 @@
             this.btnThucHien.Image = ((System.Drawing.Image)(resources.GetObject("btnThucHien.Image")));
             this.btnThucHien.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThucHien.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnThucHien.Location = new System.Drawing.Point(27, 29);
-            this.btnThucHien.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThucHien.Location = new System.Drawing.Point(21, 45);
             this.btnThucHien.Name = "btnThucHien";
-            this.btnThucHien.Size = new System.Drawing.Size(243, 40);
+            this.btnThucHien.Size = new System.Drawing.Size(411, 62);
             this.btnThucHien.TabIndex = 0;
             this.btnThucHien.Text = "Đang thực hiện";
             // 
@@ -77,10 +76,9 @@
             this.btnHoanThanh.Image = ((System.Drawing.Image)(resources.GetObject("btnHoanThanh.Image")));
             this.btnHoanThanh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHoanThanh.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnHoanThanh.Location = new System.Drawing.Point(341, 29);
-            this.btnHoanThanh.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHoanThanh.Location = new System.Drawing.Point(486, 45);
             this.btnHoanThanh.Name = "btnHoanThanh";
-            this.btnHoanThanh.Size = new System.Drawing.Size(243, 40);
+            this.btnHoanThanh.Size = new System.Drawing.Size(402, 62);
             this.btnHoanThanh.TabIndex = 1;
             this.btnHoanThanh.Text = "Đã hoàn thành";
             // 
@@ -96,10 +94,9 @@
             this.btnQuaHan.Image = ((System.Drawing.Image)(resources.GetObject("btnQuaHan.Image")));
             this.btnQuaHan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnQuaHan.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnQuaHan.Location = new System.Drawing.Point(659, 29);
-            this.btnQuaHan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuaHan.Location = new System.Drawing.Point(926, 45);
             this.btnQuaHan.Name = "btnQuaHan";
-            this.btnQuaHan.Size = new System.Drawing.Size(243, 40);
+            this.btnQuaHan.Size = new System.Drawing.Size(398, 62);
             this.btnQuaHan.TabIndex = 2;
             this.btnQuaHan.Text = "Đã quá hạn";
             // 
@@ -107,30 +104,27 @@
             // 
             this.flowDangThucHien.AutoScroll = true;
             this.flowDangThucHien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowDangThucHien.Location = new System.Drawing.Point(27, 73);
-            this.flowDangThucHien.Margin = new System.Windows.Forms.Padding(2);
+            this.flowDangThucHien.Location = new System.Drawing.Point(21, 112);
             this.flowDangThucHien.Name = "flowDangThucHien";
-            this.flowDangThucHien.Size = new System.Drawing.Size(244, 497);
+            this.flowDangThucHien.Size = new System.Drawing.Size(411, 522);
             this.flowDangThucHien.TabIndex = 3;
             // 
             // flowDaHoanThanh
             // 
             this.flowDaHoanThanh.AutoScroll = true;
             this.flowDaHoanThanh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowDaHoanThanh.Location = new System.Drawing.Point(341, 73);
-            this.flowDaHoanThanh.Margin = new System.Windows.Forms.Padding(2);
+            this.flowDaHoanThanh.Location = new System.Drawing.Point(486, 112);
             this.flowDaHoanThanh.Name = "flowDaHoanThanh";
-            this.flowDaHoanThanh.Size = new System.Drawing.Size(244, 497);
+            this.flowDaHoanThanh.Size = new System.Drawing.Size(402, 522);
             this.flowDaHoanThanh.TabIndex = 4;
             // 
             // flowDaQuaHan
             // 
             this.flowDaQuaHan.AutoScroll = true;
             this.flowDaQuaHan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowDaQuaHan.Location = new System.Drawing.Point(659, 73);
-            this.flowDaQuaHan.Margin = new System.Windows.Forms.Padding(2);
+            this.flowDaQuaHan.Location = new System.Drawing.Point(926, 112);
             this.flowDaQuaHan.Name = "flowDaQuaHan";
-            this.flowDaQuaHan.Size = new System.Drawing.Size(244, 497);
+            this.flowDaQuaHan.Size = new System.Drawing.Size(398, 522);
             this.flowDaQuaHan.TabIndex = 4;
             // 
             // guna2CirclePictureBox1
@@ -138,11 +132,10 @@
             this.guna2CirclePictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(253, 3);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(380, 5);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(35, 22);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(52, 34);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 5;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -153,10 +146,9 @@
             this.lblSoLuongThucHien.BackColor = System.Drawing.SystemColors.Control;
             this.lblSoLuongThucHien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoLuongThucHien.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.lblSoLuongThucHien.Location = new System.Drawing.Point(265, 6);
-            this.lblSoLuongThucHien.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLuongThucHien.Location = new System.Drawing.Point(395, 9);
             this.lblSoLuongThucHien.Name = "lblSoLuongThucHien";
-            this.lblSoLuongThucHien.Size = new System.Drawing.Size(15, 15);
+            this.lblSoLuongThucHien.Size = new System.Drawing.Size(21, 22);
             this.lblSoLuongThucHien.TabIndex = 6;
             this.lblSoLuongThucHien.Text = "1";
             // 
@@ -166,10 +158,9 @@
             this.lblSoLuongHoanThanh.BackColor = System.Drawing.SystemColors.Control;
             this.lblSoLuongHoanThanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoLuongHoanThanh.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblSoLuongHoanThanh.Location = new System.Drawing.Point(579, 6);
-            this.lblSoLuongHoanThanh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLuongHoanThanh.Location = new System.Drawing.Point(830, 14);
             this.lblSoLuongHoanThanh.Name = "lblSoLuongHoanThanh";
-            this.lblSoLuongHoanThanh.Size = new System.Drawing.Size(15, 15);
+            this.lblSoLuongHoanThanh.Size = new System.Drawing.Size(21, 22);
             this.lblSoLuongHoanThanh.TabIndex = 8;
             this.lblSoLuongHoanThanh.Text = "1";
             // 
@@ -178,11 +169,10 @@
             this.guna2CirclePictureBox2.BackColor = System.Drawing.SystemColors.Control;
             this.guna2CirclePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox2.Image")));
             this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(568, 3);
-            this.guna2CirclePictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(813, 9);
             this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
             this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(35, 22);
+            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(52, 34);
             this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox2.TabIndex = 7;
             this.guna2CirclePictureBox2.TabStop = false;
@@ -193,10 +183,9 @@
             this.lblSoLuongQuaHan.BackColor = System.Drawing.SystemColors.Control;
             this.lblSoLuongQuaHan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoLuongQuaHan.ForeColor = System.Drawing.Color.Red;
-            this.lblSoLuongQuaHan.Location = new System.Drawing.Point(897, 6);
-            this.lblSoLuongQuaHan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLuongQuaHan.Location = new System.Drawing.Point(1282, 9);
             this.lblSoLuongQuaHan.Name = "lblSoLuongQuaHan";
-            this.lblSoLuongQuaHan.Size = new System.Drawing.Size(15, 15);
+            this.lblSoLuongQuaHan.Size = new System.Drawing.Size(21, 22);
             this.lblSoLuongQuaHan.TabIndex = 10;
             this.lblSoLuongQuaHan.Text = "1";
             // 
@@ -205,20 +194,18 @@
             this.guna2CirclePictureBox3.BackColor = System.Drawing.SystemColors.Control;
             this.guna2CirclePictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox3.Image")));
             this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(886, 3);
-            this.guna2CirclePictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(1266, 5);
             this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(35, 22);
+            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(52, 34);
             this.guna2CirclePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox3.TabIndex = 9;
             this.guna2CirclePictureBox3.TabStop = false;
             // 
-            // Form2
+            // uc_SinhVien_NhiemVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 618);
             this.Controls.Add(this.lblSoLuongQuaHan);
             this.Controls.Add(this.guna2CirclePictureBox3);
             this.Controls.Add(this.lblSoLuongHoanThanh);
@@ -231,10 +218,8 @@
             this.Controls.Add(this.btnQuaHan);
             this.Controls.Add(this.btnHoanThanh);
             this.Controls.Add(this.btnThucHien);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "uc_SinhVien_NhiemVu";
+            this.Size = new System.Drawing.Size(1350, 650);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();

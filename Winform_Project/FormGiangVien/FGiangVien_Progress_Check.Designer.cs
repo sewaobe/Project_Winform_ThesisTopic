@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FGiangVien_Progress_Check));
             this.lblBaoCao = new System.Windows.Forms.Label();
             this.lblDanhGia = new System.Windows.Forms.Label();
             this.lblNhanXet = new System.Windows.Forms.Label();
-            this.progress = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.txtNhanXet = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnGui = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -41,6 +42,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTieuDe = new Guna.UI2.WinForms.Guna2TextBox();
+            this.progress = new Bunifu.UI.WinForms.BunifuHSlider();
+            this.lblValueProgress = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblBaoCao
@@ -73,16 +76,6 @@
             this.lblNhanXet.Size = new System.Drawing.Size(153, 37);
             this.lblNhanXet.TabIndex = 4;
             this.lblNhanXet.Text = "Nhận xét";
-            // 
-            // progress
-            // 
-            this.progress.Location = new System.Drawing.Point(288, 167);
-            this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(285, 31);
-            this.progress.TabIndex = 6;
-            this.progress.Text = "guna2ProgressBar1";
-            this.progress.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.progress.Value = 10;
             // 
             // txtNhanXet
             // 
@@ -205,11 +198,75 @@
             this.txtTieuDe.Size = new System.Drawing.Size(285, 35);
             this.txtTieuDe.TabIndex = 71;
             // 
+            // progress
+            // 
+            this.progress.AllowCursorChanges = true;
+            this.progress.AllowHomeEndKeysDetection = false;
+            this.progress.AllowIncrementalClickMoves = true;
+            this.progress.AllowMouseDownEffects = false;
+            this.progress.AllowMouseHoverEffects = false;
+            this.progress.AllowScrollingAnimations = true;
+            this.progress.AllowScrollKeysDetection = true;
+            this.progress.AllowScrollOptionsMenu = true;
+            this.progress.AllowShrinkingOnFocusLost = false;
+            this.progress.BackColor = System.Drawing.Color.Transparent;
+            this.progress.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progress.BackgroundImage")));
+            this.progress.BindingContainer = null;
+            this.progress.BorderRadius = 2;
+            this.progress.BorderThickness = 1;
+            this.progress.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.progress.DrawThickBorder = false;
+            this.progress.DurationBeforeShrink = 2000;
+            this.progress.ElapsedColor = System.Drawing.Color.DodgerBlue;
+            this.progress.LargeChange = 10;
+            this.progress.Location = new System.Drawing.Point(288, 166);
+            this.progress.Maximum = 100;
+            this.progress.Minimum = 0;
+            this.progress.MinimumSize = new System.Drawing.Size(0, 31);
+            this.progress.MinimumThumbLength = 18;
+            this.progress.Name = "progress";
+            this.progress.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.progress.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.progress.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.progress.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(149)))), ((int)(((byte)(150)))));
+            this.progress.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(149)))), ((int)(((byte)(150)))));
+            this.progress.ShrinkSizeLimit = 3;
+            this.progress.Size = new System.Drawing.Size(285, 31);
+            this.progress.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(149)))), ((int)(((byte)(150)))));
+            this.progress.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
+            this.progress.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
+            this.progress.SmallChange = 5;
+            this.progress.TabIndex = 72;
+            this.progress.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(149)))), ((int)(((byte)(150)))));
+            this.progress.ThumbFillColor = System.Drawing.SystemColors.Control;
+            this.progress.ThumbLength = 28;
+            this.progress.ThumbMargin = 1;
+            this.progress.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
+            this.progress.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
+            this.progress.Value = 50;
+            this.progress.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.progress_Scroll);
+            // 
+            // lblValueProgress
+            // 
+            this.lblValueProgress.AutoSize = true;
+            this.lblValueProgress.BackColor = System.Drawing.SystemColors.Control;
+            this.lblValueProgress.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValueProgress.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblValueProgress.Location = new System.Drawing.Point(410, 135);
+            this.lblValueProgress.Name = "lblValueProgress";
+            this.lblValueProgress.Size = new System.Drawing.Size(36, 28);
+            this.lblValueProgress.TabIndex = 73;
+            this.lblValueProgress.Text = "52";
+            this.lblValueProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblValueProgress.Visible = false;
+            // 
             // FGiangVien_Progress_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 564);
+            this.Controls.Add(this.lblValueProgress);
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.txtTieuDe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2Button1);
@@ -219,7 +276,6 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.btnGui);
             this.Controls.Add(this.txtNhanXet);
-            this.Controls.Add(this.progress);
             this.Controls.Add(this.lblNhanXet);
             this.Controls.Add(this.lblDanhGia);
             this.Controls.Add(this.lblBaoCao);
@@ -236,7 +292,6 @@
         private System.Windows.Forms.Label lblBaoCao;
         private System.Windows.Forms.Label lblDanhGia;
         private System.Windows.Forms.Label lblNhanXet;
-        private Guna.UI2.WinForms.Guna2ProgressBar progress;
         private Guna.UI2.WinForms.Guna2TextBox txtNhanXet;
         private Guna.UI2.WinForms.Guna2Button btnGui;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
@@ -246,5 +301,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtTieuDe;
+        private Bunifu.UI.WinForms.BunifuHSlider progress;
+        private System.Windows.Forms.Label lblValueProgress;
     }
 }

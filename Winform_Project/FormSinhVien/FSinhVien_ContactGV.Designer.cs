@@ -31,21 +31,22 @@
             this.flowmess = new System.Windows.Forms.FlowLayoutPanel();
             this.txtmess = new System.Windows.Forms.TextBox();
             this.btnGui = new Guna.UI2.WinForms.Guna2Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // flowmess
             // 
-            this.flowmess.Location = new System.Drawing.Point(0, 0);
+            this.flowmess.Location = new System.Drawing.Point(0, 36);
             this.flowmess.Name = "flowmess";
-            this.flowmess.Size = new System.Drawing.Size(930, 569);
+            this.flowmess.Size = new System.Drawing.Size(375, 583);
             this.flowmess.TabIndex = 0;
             // 
             // txtmess
             // 
-            this.txtmess.Location = new System.Drawing.Point(12, 579);
+            this.txtmess.Location = new System.Drawing.Point(381, 579);
             this.txtmess.Multiline = true;
             this.txtmess.Name = "txtmess";
-            this.txtmess.Size = new System.Drawing.Size(794, 27);
+            this.txtmess.Size = new System.Drawing.Size(425, 27);
             this.txtmess.TabIndex = 0;
             // 
             // btnGui
@@ -64,11 +65,21 @@
             this.btnGui.Text = "Gửi";
             this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 3);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(375, 27);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // FSinhVien_ContactGV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 618);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnGui);
             this.Controls.Add(this.txtmess);
             this.Controls.Add(this.flowmess);
@@ -86,5 +97,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowmess;
         private System.Windows.Forms.TextBox txtmess;
         private Guna.UI2.WinForms.Guna2Button btnGui;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -16,13 +16,15 @@ namespace Winform_Project
     public partial class uc_SV_ThongBao : UserControl
     {
         ThongBao thongbao = new ThongBao();
-        SinhVienDao svDao = new SinhVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         public uc_SV_ThongBao(ThongBao tb)
         {
             InitializeComponent();
             thongbao = tb;
             lblTieuDe.Text = tb.Tieude;
-            lblNoiDung.Text = tb.Noidung;
+            lblNguoiGui.Text = tb.Tengiangvien;
+            lblThoiGianGui.Text = tb.Thoigiangui.Day.ToString() + "/" + tb.Thoigiangui.Month.ToString() + "/" + tb.Thoigiangui.Year.ToString();
+
             
         }
 
@@ -30,17 +32,17 @@ namespace Winform_Project
         {
             if (thongbao.Trangthai == "Da Doc")
             {
-                
+                pic.Image = Properties.Resources.letter_open;
             }
             else
             {
-                
+                pic.Image = Properties.Resources.letter_close;
             }
         }
 
         private void uc_SV_ThongBao_Click(object sender, EventArgs e)
         {
-            svDao.docThongBao(thongbao);
+            conNguoiDao.docThongBao(thongbao);
             FSinhVien_Support_View fSinhVien_Support_View = new FSinhVien_Support_View();
             thongbao.Trangthai = "Da Doc";
             uc_SV_ThongBao_Load(sender, e);

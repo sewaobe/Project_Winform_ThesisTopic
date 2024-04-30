@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
+using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
 {
@@ -43,7 +44,7 @@ namespace Winform_Project
                 svDao.capnhatTrangThaiNhiemVu(nhiemVu);
                 this.Hide();
             }
-
+            FGiangVien_Controls.flag_NhiemVu = 1;
         }
     }
 }

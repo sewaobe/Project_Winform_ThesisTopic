@@ -60,10 +60,10 @@ namespace Winform_Project.FSinhVien
 
         private void btnTienDo_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            FSinhVien_Controls form1 = new FSinhVien_Controls();
             container(form1);
 
-            form1.btnNhiemVu.Click += btnNhiemVu_Click;
+            //form1.btnNhiemVu.Click += btnNhiemVu_Click;
         }
 
         private void btnThongBao_Click(object sender, EventArgs e)
@@ -83,10 +83,10 @@ namespace Winform_Project.FSinhVien
         {
             container(new FSinhVien_ContactGV());
         }
-        private void btnNhiemVu_Click(object sender, EventArgs e)
-        {
-            container(new Form2());
-        }
+        //private void btnNhiemVu_Click(object sender, EventArgs e)
+        //{
+        //    container(new Form2());
+        //}
 
 
         private void FSinhVien_Load(object sender, EventArgs e)

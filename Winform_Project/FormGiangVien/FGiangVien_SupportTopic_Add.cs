@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
+using Winform_Project.FormSinhVien;
 
 namespace Winform_Project.FormGiangVien
 {
@@ -38,6 +39,7 @@ namespace Winform_Project.FormGiangVien
                                           FGiangVien_Support_Add_SinhVien.sinhVien.Mssv,
                                           FGiangVien_Support_Add_SinhVien.sinhVien.Masonhom);
             gvDao.ThemNhiemVu(nhiemVu);
+            FSinhVien_Controls.flag_NhiemVu = 1;
         }
 
         private void btnThemSinhVien_Click(object sender, EventArgs e)

@@ -42,6 +42,10 @@
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.btnLich = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiNhiemVu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiBaoCao = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiTienDo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiLich = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,6 +210,78 @@
             this.btnLich.Text = "Lịch";
             this.btnLich.Click += new System.EventHandler(this.btnLich_Click);
             // 
+            // btnThayDoiNhiemVu
+            // 
+            this.btnThayDoiNhiemVu.AutoRoundedCorners = true;
+            this.btnThayDoiNhiemVu.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiNhiemVu.BorderRadius = 6;
+            this.btnThayDoiNhiemVu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiNhiemVu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiNhiemVu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiNhiemVu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiNhiemVu.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiNhiemVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiNhiemVu.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiNhiemVu.Location = new System.Drawing.Point(580, 28);
+            this.btnThayDoiNhiemVu.Name = "btnThayDoiNhiemVu";
+            this.btnThayDoiNhiemVu.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiNhiemVu.TabIndex = 15;
+            this.btnThayDoiNhiemVu.Visible = false;
+            // 
+            // btnThayDoiBaoCao
+            // 
+            this.btnThayDoiBaoCao.AutoRoundedCorners = true;
+            this.btnThayDoiBaoCao.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiBaoCao.BorderRadius = 6;
+            this.btnThayDoiBaoCao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiBaoCao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiBaoCao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiBaoCao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiBaoCao.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiBaoCao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiBaoCao.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiBaoCao.Location = new System.Drawing.Point(766, 28);
+            this.btnThayDoiBaoCao.Name = "btnThayDoiBaoCao";
+            this.btnThayDoiBaoCao.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiBaoCao.TabIndex = 16;
+            this.btnThayDoiBaoCao.Visible = false;
+            // 
+            // btnThayDoiTienDo
+            // 
+            this.btnThayDoiTienDo.AutoRoundedCorners = true;
+            this.btnThayDoiTienDo.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiTienDo.BorderRadius = 6;
+            this.btnThayDoiTienDo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiTienDo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiTienDo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiTienDo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiTienDo.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiTienDo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiTienDo.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiTienDo.Location = new System.Drawing.Point(952, 28);
+            this.btnThayDoiTienDo.Name = "btnThayDoiTienDo";
+            this.btnThayDoiTienDo.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiTienDo.TabIndex = 17;
+            this.btnThayDoiTienDo.Visible = false;
+            // 
+            // btnThayDoiLich
+            // 
+            this.btnThayDoiLich.AutoRoundedCorners = true;
+            this.btnThayDoiLich.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiLich.BorderRadius = 6;
+            this.btnThayDoiLich.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiLich.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiLich.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiLich.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiLich.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiLich.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiLich.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiLich.Location = new System.Drawing.Point(1138, 28);
+            this.btnThayDoiLich.Name = "btnThayDoiLich";
+            this.btnThayDoiLich.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiLich.TabIndex = 18;
+            this.btnThayDoiLich.Visible = false;
+            // 
             // FGiangVien_Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -214,6 +290,10 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1441, 745);
+            this.Controls.Add(this.btnThayDoiLich);
+            this.Controls.Add(this.btnThayDoiTienDo);
+            this.Controls.Add(this.btnThayDoiBaoCao);
+            this.Controls.Add(this.btnThayDoiNhiemVu);
             this.Controls.Add(this.btnLich);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.guna2PictureBox2);
@@ -237,11 +317,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Button btnChiTiet;
-        private Guna.UI2.WinForms.Guna2Button btnNhiemVu;
-        private Guna.UI2.WinForms.Guna2Button btnBaoCao;
-        private Guna.UI2.WinForms.Guna2Button btnTienDo;
         private System.Windows.Forms.FlowLayoutPanel fLoTrungTam;
         private Guna.UI2.WinForms.Guna2Panel progress;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
@@ -250,6 +325,14 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Button btnExit;
-        private Guna.UI2.WinForms.Guna2Button btnLich;
+        public Guna.UI2.WinForms.Guna2Button btnChiTiet;
+        public Guna.UI2.WinForms.Guna2Button btnNhiemVu;
+        public Guna.UI2.WinForms.Guna2Button btnBaoCao;
+        public Guna.UI2.WinForms.Guna2Button btnTienDo;
+        public Guna.UI2.WinForms.Guna2Button btnLich;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoiNhiemVu;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoiBaoCao;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoiTienDo;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoiLich;
     }
 }

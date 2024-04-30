@@ -12,11 +12,11 @@ using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project.FormSinhVien
 {
-    public partial class Form2 : Form
+    public partial class uc_SinhVien_NhiemVu : UserControl
     {
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
-        public Form2()
+        public uc_SinhVien_NhiemVu()
         {
             InitializeComponent();
         }

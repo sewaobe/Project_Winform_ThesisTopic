@@ -25,7 +25,7 @@ namespace Winform_Project.FormSinhVien
         public void FSinhVien_Support_Load(object sender, EventArgs e)
         {
             //string sqlStr = string.Format("SELECT ThongBao.MaSoNhom,ThongBao.TenGiangVien,ThongBao.TieuDe,ThongBao.NoiDung,ThongBao.TrangThai,ThongBao.ThoiGianGui,ThongBao.ThoiGianKetThuc,ThongTinNhomDangKy.MSSV FROM ThongBao INNER JOIN ThongTinNhomDangKy On ThongBao.MaSoNhom = ThongTinNhomDangKy.MaSoNhom WHERE ThongTinNhomDangKy.MSSV={0}", SinhVienAccount.Mssv);
-            string sqlStr = string.Format("SELECT * FROM ThongBao WHERE MaSoNhom={0}", SinhVienAccount.Masonhom);
+            string sqlStr = string.Format("SELECT * FROM ThongBao WHERE MaSoNhom='{0}'", SinhVienAccount.Masonhom);
             DataTable dtThongBao = svDao.LoadData(sqlStr);
             for (int i = 0; i < dtThongBao.Rows.Count; i++)
             {

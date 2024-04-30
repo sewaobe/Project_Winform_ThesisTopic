@@ -50,17 +50,17 @@
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.label12 = new System.Windows.Forms.Label();
             this.guna2CircleProgressBar2 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.label10 = new System.Windows.Forms.Label();
             this.guna2CircleProgressBar3 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox9 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox10 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -256,6 +256,18 @@
             this.guna2CircleProgressBar1.Text = "progressBarLuanVanHoanThanh";
             this.guna2CircleProgressBar1.Value = 98;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(65, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 22);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "%";
+            // 
             // guna2CircleProgressBar2
             // 
             this.guna2CircleProgressBar2.BackColor = System.Drawing.Color.White;
@@ -274,6 +286,18 @@
             this.guna2CircleProgressBar2.Text = "progressBarLuanVanChuaHoanThanh";
             this.guna2CircleProgressBar2.Value = 2;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(68, 74);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 22);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "%";
+            // 
             // guna2CircleProgressBar3
             // 
             this.guna2CircleProgressBar3.BackColor = System.Drawing.Color.White;
@@ -291,6 +315,18 @@
             this.guna2CircleProgressBar3.TabIndex = 19;
             this.guna2CircleProgressBar3.Text = "progressBarLuanVanDiem";
             this.guna2CircleProgressBar3.Value = 69;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(72, 74);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(26, 22);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "%";
             // 
             // label4
             // 
@@ -357,42 +393,6 @@
             this.label9.Size = new System.Drawing.Size(81, 22);
             this.label9.TabIndex = 25;
             this.label9.Text = "Số lượng";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(68, 74);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(26, 22);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "%";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(72, 74);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(26, 22);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "%";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(65, 74);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(26, 22);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "%";
             // 
             // guna2PictureBox8
             // 

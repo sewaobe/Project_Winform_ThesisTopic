@@ -33,6 +33,12 @@ namespace Winform_Project.ClassDao
         {
             string sql = sqlStr;
         }
-        
+        public void docThongBao(ThongBao tb)
+        {
+            string sqlStr = string.Format("UPDATE ThongBao SET TrangThai='Da Doc' Where TieuDe='{0}'",
+                                            tb.Tieude);
+            db.ThucThi(sqlStr);
+        }
+       
     }
 }

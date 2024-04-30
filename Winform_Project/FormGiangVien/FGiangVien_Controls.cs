@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
+using Winform_Project.FormSinhVien;
 
 namespace Winform_Project.FormGiangVien
 {
@@ -17,6 +18,7 @@ namespace Winform_Project.FormGiangVien
     {
         GiangVienDao gvDao = new GiangVienDao();
         public static string maSoNhom, maDeTai;
+        public static int flag_NhiemVu = 0, flag_BaoCao = 0, flag_TienDo = 0, flag_Lich = 0;
         public FGiangVien_Controls()
         {
             InitializeComponent();
@@ -71,6 +73,7 @@ namespace Winform_Project.FormGiangVien
 
         private void btnNhiemVu_Click(object sender, EventArgs e)
         {
+            btnThayDoiOFF(btnThayDoiNhiemVu, FGiangVien_Controls.flag_NhiemVu);
             fLoTrungTam.Controls.Clear();
             progress.Location = new Point(btnNhiemVu.Location.X, btnChiTiet.Location.Y + 30);
             ucFGiangVien_Suppost uc = new ucFGiangVien_Suppost();
@@ -92,6 +95,7 @@ namespace Winform_Project.FormGiangVien
         {
             ucNhiemVu ucNhiemVu = sender as ucNhiemVu;
             FNhiemVu_NoiDung FNhiemVu_NoiDung = new FNhiemVu_NoiDung(ucNhiemVu.nhiemVu);
+            FNhiemVu_NoiDung.btnXacNhan.Visible = false;
             FNhiemVu_NoiDung.ShowDialog();
 
         }
@@ -105,6 +109,7 @@ namespace Winform_Project.FormGiangVien
                 {
                     ucNhiemVu ucNhiemVu = listUcNhiemVu[i];
                     ucNhiemVu.Click += NhiemVu_NoiDung;
+                    
                     uc.fLoTrungTam.Controls.Add(ucNhiemVu);
 
                 }
@@ -134,6 +139,7 @@ namespace Winform_Project.FormGiangVien
         {
 
             List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Qua han");
+            
             RadioButton radio = sender as RadioButton;
             ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
             ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
@@ -153,6 +159,8 @@ namespace Winform_Project.FormGiangVien
         }
         private void btnTienDo_Click(object sender, EventArgs e)
         {
+            btnThayDoiOFF(btnThayDoiTienDo, FGiangVien_Controls.flag_TienDo);
+
             fLoTrungTam.Controls.Clear();
             progress.Location = new Point(btnTienDo.Location.X, btnChiTiet.Location.Y + 30);
             ucFGiangVien_Progress uc = new ucFGiangVien_Progress();
@@ -161,6 +169,7 @@ namespace Winform_Project.FormGiangVien
 
         private void btnHoTro_Click(object sender, EventArgs e)
         {
+            btnThayDoiOFF(btnThayDoiBaoCao, FGiangVien_Controls.flag_BaoCao);
             fLoTrungTam.Controls.Clear();
             progress.Location = new Point(btnBaoCao.Location.X, btnChiTiet.Location.Y + 30);
             DataTable dt = gvDao.LayThongTinBaoCao("2");
@@ -209,18 +218,33 @@ namespace Winform_Project.FormGiangVien
 
 
         }
-
+        private void btnThayDoiON(Guna2Button btn, int flag)
+        {
+            if (flag != 0)
+                btn.Visible = true;
+        }
+        private void btnThayDoiOFF(Guna2Button btn, int flag)
+        {
+            btn.Visible = false;
+            flag = 1;
+        }
         private void FGiangVien_Controls_Load(object sender, EventArgs e)
         {
             fLoTrungTam.Controls.Clear();
             HienThiThongTinChiTiet();
+            btnThayDoiON(btnThayDoiNhiemVu, flag_NhiemVu);
+            btnThayDoiON(btnThayDoiBaoCao, flag_BaoCao);
+            btnThayDoiON(btnThayDoiTienDo, flag_TienDo);
+            btnThayDoiON(btnThayDoiLich, flag_Lich);
 
         }
 
         private void btnLich_Click(object sender, EventArgs e)
         {
+            btnThayDoiOFF(btnThayDoiLich, FGiangVien_Controls.flag_Lich);
+
             fLoTrungTam.Controls.Clear();
-            progress.Location = new Point(btnNhiemVu.Location.X, btnChiTiet.Location.Y + 30);
+            progress.Location = new Point(btnLich.Location.X, btnChiTiet.Location.Y + 30);
             uc_Calendar uc_Calendar = new uc_Calendar();
             fLoTrungTam.Controls.Add(uc_Calendar);
         }

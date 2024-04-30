@@ -55,7 +55,6 @@ namespace Winform_Project.FormGiangVien
         {
             LuanVan lv = LoadData();
             gvDao.Them(lv);
-            
         }
     }
 }
