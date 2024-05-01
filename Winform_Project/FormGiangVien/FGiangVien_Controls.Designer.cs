@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FGiangVien_Controls));
             this.btnChiTiet = new Guna.UI2.WinForms.Guna2Button();
             this.btnNhiemVu = new Guna.UI2.WinForms.Guna2Button();
@@ -39,13 +40,17 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.btnLich = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiNhiemVu = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiBaoCao = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiTienDo = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiLich = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTroChuyen = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTongKet = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiTroChuyen = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +63,7 @@
             this.btnChiTiet.FillColor = System.Drawing.Color.White;
             this.btnChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChiTiet.ForeColor = System.Drawing.Color.Black;
-            this.btnChiTiet.Location = new System.Drawing.Point(229, 28);
+            this.btnChiTiet.Location = new System.Drawing.Point(131, 28);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(180, 45);
             this.btnChiTiet.TabIndex = 0;
@@ -74,7 +79,7 @@
             this.btnNhiemVu.FillColor = System.Drawing.Color.White;
             this.btnNhiemVu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhiemVu.ForeColor = System.Drawing.Color.Black;
-            this.btnNhiemVu.Location = new System.Drawing.Point(415, 28);
+            this.btnNhiemVu.Location = new System.Drawing.Point(317, 28);
             this.btnNhiemVu.Name = "btnNhiemVu";
             this.btnNhiemVu.Size = new System.Drawing.Size(180, 45);
             this.btnNhiemVu.TabIndex = 1;
@@ -90,7 +95,7 @@
             this.btnBaoCao.FillColor = System.Drawing.Color.White;
             this.btnBaoCao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBaoCao.ForeColor = System.Drawing.Color.Black;
-            this.btnBaoCao.Location = new System.Drawing.Point(601, 28);
+            this.btnBaoCao.Location = new System.Drawing.Point(503, 28);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.Size = new System.Drawing.Size(180, 45);
             this.btnBaoCao.TabIndex = 2;
@@ -106,7 +111,7 @@
             this.btnTienDo.FillColor = System.Drawing.Color.White;
             this.btnTienDo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTienDo.ForeColor = System.Drawing.Color.Black;
-            this.btnTienDo.Location = new System.Drawing.Point(787, 28);
+            this.btnTienDo.Location = new System.Drawing.Point(689, 28);
             this.btnTienDo.Name = "btnTienDo";
             this.btnTienDo.Size = new System.Drawing.Size(180, 45);
             this.btnTienDo.TabIndex = 3;
@@ -125,7 +130,7 @@
             // progress
             // 
             this.progress.FillColor = System.Drawing.Color.Blue;
-            this.progress.Location = new System.Drawing.Point(229, 79);
+            this.progress.Location = new System.Drawing.Point(131, 79);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(180, 5);
             this.progress.TabIndex = 5;
@@ -166,34 +171,6 @@
             this.guna2Panel4.Size = new System.Drawing.Size(5, 740);
             this.guna2Panel4.TabIndex = 1;
             // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(32, 12);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(74, 85);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox2.TabIndex = 8;
-            this.guna2PictureBox2.TabStop = false;
-            // 
-            // btnExit
-            // 
-            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExit.FillColor = System.Drawing.Color.White;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnExit.Location = new System.Drawing.Point(1387, 28);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(42, 45);
-            this.btnExit.TabIndex = 9;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // btnLich
             // 
             this.btnLich.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -203,7 +180,7 @@
             this.btnLich.FillColor = System.Drawing.Color.White;
             this.btnLich.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLich.ForeColor = System.Drawing.Color.Black;
-            this.btnLich.Location = new System.Drawing.Point(973, 28);
+            this.btnLich.Location = new System.Drawing.Point(875, 28);
             this.btnLich.Name = "btnLich";
             this.btnLich.Size = new System.Drawing.Size(180, 45);
             this.btnLich.TabIndex = 10;
@@ -222,7 +199,7 @@
             this.btnThayDoiNhiemVu.FillColor = System.Drawing.Color.Crimson;
             this.btnThayDoiNhiemVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnThayDoiNhiemVu.ForeColor = System.Drawing.Color.Black;
-            this.btnThayDoiNhiemVu.Location = new System.Drawing.Point(580, 28);
+            this.btnThayDoiNhiemVu.Location = new System.Drawing.Point(482, 28);
             this.btnThayDoiNhiemVu.Name = "btnThayDoiNhiemVu";
             this.btnThayDoiNhiemVu.Size = new System.Drawing.Size(15, 15);
             this.btnThayDoiNhiemVu.TabIndex = 15;
@@ -240,7 +217,7 @@
             this.btnThayDoiBaoCao.FillColor = System.Drawing.Color.Crimson;
             this.btnThayDoiBaoCao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnThayDoiBaoCao.ForeColor = System.Drawing.Color.Black;
-            this.btnThayDoiBaoCao.Location = new System.Drawing.Point(766, 28);
+            this.btnThayDoiBaoCao.Location = new System.Drawing.Point(668, 28);
             this.btnThayDoiBaoCao.Name = "btnThayDoiBaoCao";
             this.btnThayDoiBaoCao.Size = new System.Drawing.Size(15, 15);
             this.btnThayDoiBaoCao.TabIndex = 16;
@@ -258,7 +235,7 @@
             this.btnThayDoiTienDo.FillColor = System.Drawing.Color.Crimson;
             this.btnThayDoiTienDo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnThayDoiTienDo.ForeColor = System.Drawing.Color.Black;
-            this.btnThayDoiTienDo.Location = new System.Drawing.Point(952, 28);
+            this.btnThayDoiTienDo.Location = new System.Drawing.Point(854, 28);
             this.btnThayDoiTienDo.Name = "btnThayDoiTienDo";
             this.btnThayDoiTienDo.Size = new System.Drawing.Size(15, 15);
             this.btnThayDoiTienDo.TabIndex = 17;
@@ -276,11 +253,94 @@
             this.btnThayDoiLich.FillColor = System.Drawing.Color.Crimson;
             this.btnThayDoiLich.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnThayDoiLich.ForeColor = System.Drawing.Color.Black;
-            this.btnThayDoiLich.Location = new System.Drawing.Point(1138, 28);
+            this.btnThayDoiLich.Location = new System.Drawing.Point(1040, 28);
             this.btnThayDoiLich.Name = "btnThayDoiLich";
             this.btnThayDoiLich.Size = new System.Drawing.Size(15, 15);
             this.btnThayDoiLich.TabIndex = 18;
             this.btnThayDoiLich.Visible = false;
+            // 
+            // btnTroChuyen
+            // 
+            this.btnTroChuyen.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTroChuyen.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTroChuyen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTroChuyen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTroChuyen.FillColor = System.Drawing.Color.White;
+            this.btnTroChuyen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroChuyen.ForeColor = System.Drawing.Color.Black;
+            this.btnTroChuyen.Location = new System.Drawing.Point(1061, 28);
+            this.btnTroChuyen.Name = "btnTroChuyen";
+            this.btnTroChuyen.Size = new System.Drawing.Size(180, 45);
+            this.btnTroChuyen.TabIndex = 19;
+            this.btnTroChuyen.Text = "Trò chuyện";
+            // 
+            // btnTongKet
+            // 
+            this.btnTongKet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTongKet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTongKet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTongKet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTongKet.FillColor = System.Drawing.Color.White;
+            this.btnTongKet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTongKet.ForeColor = System.Drawing.Color.Black;
+            this.btnTongKet.Location = new System.Drawing.Point(1247, 28);
+            this.btnTongKet.Name = "btnTongKet";
+            this.btnTongKet.Size = new System.Drawing.Size(134, 45);
+            this.btnTongKet.TabIndex = 20;
+            this.btnTongKet.Text = "Tổng kết";
+            this.btnTongKet.Click += new System.EventHandler(this.btnTongKet_Click);
+            // 
+            // btnThayDoiTroChuyen
+            // 
+            this.btnThayDoiTroChuyen.AutoRoundedCorners = true;
+            this.btnThayDoiTroChuyen.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiTroChuyen.BorderRadius = 6;
+            this.btnThayDoiTroChuyen.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiTroChuyen.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiTroChuyen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiTroChuyen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiTroChuyen.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiTroChuyen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiTroChuyen.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiTroChuyen.Location = new System.Drawing.Point(1226, 28);
+            this.btnThayDoiTroChuyen.Name = "btnThayDoiTroChuyen";
+            this.btnThayDoiTroChuyen.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiTroChuyen.TabIndex = 21;
+            this.btnThayDoiTroChuyen.Visible = false;
+            // 
+            // btnExit
+            // 
+            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExit.FillColor = System.Drawing.Color.White;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnExit.Location = new System.Drawing.Point(1387, 28);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(42, 45);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(32, 12);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(74, 85);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 8;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // FGiangVien_Controls
             // 
@@ -290,6 +350,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1441, 745);
+            this.Controls.Add(this.btnThayDoiTroChuyen);
+            this.Controls.Add(this.btnTongKet);
+            this.Controls.Add(this.btnTroChuyen);
             this.Controls.Add(this.btnThayDoiLich);
             this.Controls.Add(this.btnThayDoiTienDo);
             this.Controls.Add(this.btnThayDoiBaoCao);
@@ -334,5 +397,9 @@
         public Guna.UI2.WinForms.Guna2Button btnThayDoiBaoCao;
         public Guna.UI2.WinForms.Guna2Button btnThayDoiTienDo;
         public Guna.UI2.WinForms.Guna2Button btnThayDoiLich;
+        public Guna.UI2.WinForms.Guna2Button btnTroChuyen;
+        public Guna.UI2.WinForms.Guna2Button btnTongKet;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoiTroChuyen;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

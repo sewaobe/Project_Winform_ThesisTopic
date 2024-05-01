@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDao;
 using Winform_Project.FormGiangVien;
 using Winform_Project.uc_GV;
 
@@ -14,6 +15,7 @@ namespace Winform_Project
 {
     public partial class FGiangVien_Progress : Form
     {
+        GiangVienDao gvDao = new GiangVienDao();
         public FGiangVien_Progress()
         {
             InitializeComponent();
@@ -26,12 +28,17 @@ namespace Winform_Project
         }
         private void LoadUCTong(string ten, string soLuong, ucTongSoDeTai uc, int maMau1, int maMau2, int maMau3)
         {
+            Color color = Color.FromArgb(maMau1, maMau2, maMau3);
+
             uc.lblTen.Text = ten;
             uc.lblSoLuong.Text = soLuong;
-            uc.BackColor  = Color.FromArgb(maMau1, maMau2, maMau3);
-            uc.progressBar.BackColor = Color.FromArgb(maMau1, maMau2, maMau3);
-            uc.progressBar.ProgressColor = Color.FromArgb(maMau1, maMau2, maMau3);
-            uc.progressBar.ProgressColor2 = Color.White;
+            uc.lblTen.BackColor = color;
+            uc.lblSoLuong.BackColor = color;
+            uc.pic.FillColor = color;
+            uc.progressBar.FillColor = Color.White;
+            uc.progressBar.BackColor = uc.pic.FillColor;
+            uc.progressBar.ProgressColor2 = Color.FromArgb(53,41,123);
+            uc.progressBar.ProgressColor = Color.FromArgb(53, 41, 123);
         }
         private void FGiangVien_Progress_Load(object sender, EventArgs e)
         {
@@ -51,7 +58,18 @@ namespace Winform_Project
         {
 
         }
+        private void Load_Chart_Line()
+        {
+            DataTable dtBaoCao = gvDao.LayThongTinBaoCao(FGiangVien_Controls.maSoNhom);
 
+            chartThongKeChatLuong.ChartAreas["ChartArea1"].AxisX.Title = "Tiêu đề báo cáo";
+            chartThongKeChatLuong.ChartAreas["ChartArea1"].AxisY.Title = "Tiến độ (%)";
+
+            for (int i = 0; i < dtBaoCao.Rows.Count; i++)
+            {
+                chartThongKeChatLuong.Series["chartLine"].Points.AddXY(dtBaoCao.Rows[i]["TieuDe"].ToString(), dtBaoCao.Rows[i]["TienDo"].ToString());
+            }
+        }
         private void guna2PictureBox9_Click(object sender, EventArgs e)
         {
 

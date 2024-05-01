@@ -23,6 +23,7 @@ namespace Winform_Project.FormGiangVien
             this.nganh = Nganh; 
             this.tenGiangVien = TenGiangVien;
             this.hocKi = HocKi; 
+            
         }
         public FGiangVien_ThesisTopics_Add()
         {

@@ -107,6 +107,12 @@
     <Compile Include="FormGiangVien\FGiangVien_Support_Add_SinhVien.Designer.cs">
       <DependentUpon>FGiangVien_Support_Add_SinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGiangVien\uc_GV_TongKet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormGiangVien\uc_GV_TongKet.Designer.cs">
+      <DependentUpon>uc_GV_TongKet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSinhVien\FSinhVien_Controls.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +362,18 @@
     <Compile Include="uc_SV\uc_SV_ThongTin.Designer.cs">
       <DependentUpon>uc_SV_ThongTin.cs</DependentUpon>
     </Compile>
+    <Compile Include="uc_SV\uc_SV_TongKet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_TongKet.Designer.cs">
+      <DependentUpon>uc_SV_TongKet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_TongKet_DanhGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_SV\uc_SV_TongKet_DanhGia.Designer.cs">
+      <DependentUpon>uc_SV_TongKet_DanhGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="uc_Toast_Notice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -412,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGiangVien\FGiangVien_Thesis_Edit.resx">
       <DependentUpon>FGiangVien_Thesis_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiangVien\uc_GV_TongKet.resx">
+      <DependentUpon>uc_GV_TongKet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien_Controls.resx">
       <DependentUpon>FSinhVien_Controls.cs</DependentUpon>
@@ -507,6 +528,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uc_SV\uc_SV_ThongTin.resx">
       <DependentUpon>uc_SV_ThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_SV\uc_SV_TongKet.resx">
+      <DependentUpon>uc_SV_TongKet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_SV\uc_SV_TongKet_DanhGia.resx">
+      <DependentUpon>uc_SV_TongKet_DanhGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uc_Toast_Notice.resx">
       <DependentUpon>uc_Toast_Notice.cs</DependentUpon>

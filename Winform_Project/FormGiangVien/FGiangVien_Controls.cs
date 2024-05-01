@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
 using Winform_Project.FormSinhVien;
+using Winform_Project.uc_SV;
 
 namespace Winform_Project.FormGiangVien
 {
@@ -122,7 +123,7 @@ namespace Winform_Project.FormGiangVien
         private void ucFGiangVien_Support_Load_All(object sender, EventArgs e)
         {
             
-            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom,"Tat ca");
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom,"Tat ca","NULL");
             RadioButton radio = sender as RadioButton;
             ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
             ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
@@ -130,7 +131,7 @@ namespace Winform_Project.FormGiangVien
         private void ucFGiangVien_Support_Load_Done(object sender, EventArgs e)
         {
 
-            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Da hoan thanh");
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Da hoan thanh", "NULL");
             RadioButton radio = sender as RadioButton;
             ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
             ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
@@ -138,7 +139,7 @@ namespace Winform_Project.FormGiangVien
         private void ucFGiangVien_Support_Load_No_Done(object sender, EventArgs e)
         {
 
-            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Qua han");
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Qua han", "NULL");
             
             RadioButton radio = sender as RadioButton;
             ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
@@ -147,7 +148,7 @@ namespace Winform_Project.FormGiangVien
         private void ucFGiangVien_Support_Load_Processing(object sender, EventArgs e)
         {
 
-            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Dang thuc hien");
+            List<ucNhiemVu> listUcNhiemVu = gvDao.LayThongTinNhiemVu(maSoNhom, "Dang thuc hien", "NULL");
             RadioButton radio = sender as RadioButton;
             ucFGiangVien_Suppost uc = radio.Parent as ucFGiangVien_Suppost;
             ucFGiangVien_Support_Load_Type(listUcNhiemVu, uc);
@@ -223,6 +224,31 @@ namespace Winform_Project.FormGiangVien
             if (flag != 0)
                 btn.Visible = true;
         }
+
+        private void btnTongKet_Click(object sender, EventArgs e)
+        {
+            progress.Location = new Point(btnTongKet.Location.X, btnChiTiet.Location.Y + 30);
+            uc_GV_TongKet uc_GV_TongKet = new uc_GV_TongKet();
+            DataTable dtSinhVien = gvDao.LayThongTinSinhVien(maSoNhom);
+            for (int i = 0; i < dtSinhVien.Rows.Count; i++)
+            {
+                SinhVien sv = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
+                                           dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                                           Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                                           dtSinhVien.Rows[i]["SDT"].ToString(),
+                                           dtSinhVien.Rows[i]["Khoa"].ToString(),
+                                           dtSinhVien.Rows[i]["Nganh"].ToString(),
+                                           dtSinhVien.Rows[i]["MSSV"].ToString(),
+                                           dtSinhVien.Rows[i]["MaSoNhom"].ToString());
+                uc_SV_TongKet uc_SV_TongKet = new uc_SV_TongKet(sv);
+                uc_SV_TongKet_DanhGia uc_SV_TongKet_DanhGia = new uc_SV_TongKet_DanhGia(sv);
+                uc_GV_TongKet.fLo_UC_SV_TongKet.Controls.Add(uc_SV_TongKet);
+                uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Add(uc_SV_TongKet_DanhGia);
+            }
+            fLoTrungTam.Controls.Clear();
+            fLoTrungTam.Controls.Add(uc_GV_TongKet);
+        }
+
         private void btnThayDoiOFF(Guna2Button btn, int flag)
         {
             btn.Visible = false;

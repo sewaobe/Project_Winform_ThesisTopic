@@ -51,17 +51,31 @@ namespace Winform_Project.ClassDao
         {
             return db.Load(sqlStr);
         }
-        public List<ucNhiemVu> LayThongTinNhiemVu(string MSN, string trangThai)
+        public List<ucNhiemVu> LayThongTinNhiemVu(string MSN, string trangThai, string MSSV)
         {
             List<ucNhiemVu> listUcNhiemVu = new List<ucNhiemVu>();
             string sqlStr;
-            if (trangThai == "Tat ca")
+            if(MSSV != "NULL")
             {
-                sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE MaSoNhom = '{MSN}'");
+                if (trangThai == "Tat ca")
+                {
+                    sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE MSSV = '{MSSV}'");
+                }
+                else
+                {
+                    sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE TrangThai ='{trangThai}' AND MSSV = '{MSSV}'");
+                }
             }
             else
             {
-                sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE MaSoNhom = '{MSN}' AND TrangThai ='{trangThai}'");
+                if (trangThai == "Tat ca")
+                {
+                    sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE MaSoNhom = '{MSN}'");
+                }
+                else
+                {
+                    sqlStr = string.Format($"SELECT * FROM NhiemVu WHERE MaSoNhom = '{MSN}' AND TrangThai ='{trangThai}'");
+                }
             }
             DataTable dtNhiemVu = db.Load(sqlStr);
             if (dtNhiemVu.Rows.Count > 0)

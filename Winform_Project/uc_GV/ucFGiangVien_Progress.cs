@@ -22,7 +22,19 @@ namespace Winform_Project
             InitializeComponent();
             
         }
-        private void Load_Chart()
+        private void Load_Chart_Line()
+        {
+            DataTable dtBaoCao = gvDao.LayThongTinBaoCao(FGiangVien_Controls.maSoNhom);
+
+            chartTienDoBaoCao.ChartAreas["ChartArea1"].AxisX.Title = "Tiêu đề báo cáo";
+            chartTienDoBaoCao.ChartAreas["ChartArea1"].AxisY.Title = "Tiến độ (%)";
+                
+            for(int i = 0; i < dtBaoCao.Rows.Count; i++)
+            {
+                chartTienDoBaoCao.Series["chartLine"].Points.AddXY(dtBaoCao.Rows[i]["TieuDe"].ToString(), dtBaoCao.Rows[i]["TienDo"].ToString());
+            }
+        }
+        private void Load_Chart_Pie()
         {
             chartTrangThaiNhiemVu.Series["chartPie"].Points.AddXY("Đang thực hiện",Math.Round((this.soNhiemVuDangThucHien *100/ this.tongSoNhiemVu),1).ToString());
             chartTrangThaiNhiemVu.Series["chartPie"].Points.AddXY("Đã hoàn thành", Math.Round((this.soNhiemVuDaHoanThanh *100/ this.tongSoNhiemVu),1).ToString());
@@ -31,23 +43,44 @@ namespace Winform_Project
             chartTrangThaiNhiemVu.Series["chartPie"].Points[1].Color = Color.FromArgb(1, 220, 205);
             chartTrangThaiNhiemVu.Series["chartPie"].Points[2].Color = Color.FromArgb(241, 88, 127);
         }
+        //Đếm số lượng nhiệm vụ ở các trạng thái
         private double load_SoLuongNhiemVu(string trangThai)
         {
             List<ucNhiemVu> listUcNhiemVu = new List<ucNhiemVu>();
-            listUcNhiemVu = gvDao.LayThongTinNhiemVu(FGiangVien_Controls.maSoNhom, trangThai);
+            listUcNhiemVu = gvDao.LayThongTinNhiemVu(FGiangVien_Controls.maSoNhom, trangThai, "NULL");
             double soNhiemVuTrangThai = listUcNhiemVu is null ? 0 : listUcNhiemVu.Count;
             return soNhiemVuTrangThai;
         }
+
+        private void chartTienDoBaoCao_GetToolTipText(object sender, ToolTipEventArgs e)
+        {
+            if(e.HitTestResult.ChartElementType == ChartElementType.DataPoint)
+            {
+                int i = e.HitTestResult.PointIndex;
+                DataPoint dp = e.HitTestResult.Series.Points[i];
+                e.Text = dp.AxisLabel.ToString()+": " + dp.YValues[0].ToString();
+                chartTienDoBaoCao.Series["chartLine"].Points[i].BorderWidth = 8;
+            }
+            else
+            {
+                foreach (DataPoint dp in chartTienDoBaoCao.Series["chartLine"].Points)
+                {
+                    dp.BorderWidth = 1;
+                }
+
+            }
+        }
+
         private void ucFGiangVien_Progress_Load(object sender, EventArgs e)
         {
             this.soNhiemVuDangThucHien = load_SoLuongNhiemVu("Dang thuc hien");
             this.soNhiemVuDaHoanThanh = load_SoLuongNhiemVu("Da hoan thanh");
             this.soNhiemVuDaQuaHan = load_SoLuongNhiemVu("Qua han");
             this.tongSoNhiemVu = this.soNhiemVuDaQuaHan + this.soNhiemVuDaHoanThanh + this.soNhiemVuDangThucHien;
-            Load_Chart();
-
+            Load_Chart_Pie();
+            Load_Chart_Line();
         }
-
+        //Tao toolStrip + border Ones/Pie
         private void chartTrangThaiNhiemVu_GetToolTipText(object sender, ToolTipEventArgs e)
         {
             if (e.HitTestResult.ChartElementType == ChartElementType.DataPoint)
