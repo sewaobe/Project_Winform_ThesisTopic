@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project.Model
@@ -20,6 +21,12 @@ namespace Winform_Project.Model
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
+
+                if (sqlStr.Contains("@"))
+                {
+                    cmd.Parameters.Add("@File", SqlDbType.VarBinary).Value = SinhVienDao.buffer_s;
+                }
+
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi thành công", "Thành công");
@@ -33,7 +40,7 @@ namespace Winform_Project.Model
             }
             catch
             {
-                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi thất bại", "Thất bại");
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi lỗi", "Thất bại");
                 uc_Toast_Notice.Show();
             }
             finally

@@ -14,11 +14,18 @@ namespace Winform_Project.FormGiangVien
 {
     public partial class uc_Calendar : UserControl
     {
+        
         public static int Thang = DateTime.Now.Month, Nam = DateTime.Now.Year;
         public static FlowLayoutPanel fLoTrungTam;
         public uc_Calendar()
         {
             InitializeComponent();
+            bunifuToolTip1.SetToolTip(bgkHenTrucTuyen, "Hẹn gặp mặt trực tuyến");
+            bunifuToolTip1.SetToolTip(pckHenTrucTuyen, "Hẹn gặp mặt trực tuyến");
+            bunifuToolTip1.SetToolTip(bgkHenGapMat, "Hẹn gặp mặt trực tiếp");
+            bunifuToolTip1.SetToolTip(pckHenGapMat, "Hẹn gặp mặt trực tiếp");
+            bunifuToolTip1.SetToolTip(bgkKhac, "Lí do khác");
+            bunifuToolTip1.SetToolTip(pckKhac, "Lí do khác");
         }
     
         private void btnNamPhai_Click(object sender, EventArgs e)
@@ -59,26 +66,12 @@ namespace Winform_Project.FormGiangVien
             uc_Lich_Thu_Ngay ucThuNgay = new uc_Lich_Thu_Ngay();
             fLoTrungTamNgay.Controls.Add(ucThuNgay);
         }
-        private void HienThiChuThich(object sender, EventArgs e)
-        {
-            Guna2CirclePictureBox pck = sender as Guna2CirclePictureBox;
-            lblLoaiSuKien.Visible = true;
-            lblLoaiSuKien.Text = pck.Tag.ToString();
-        }
-        private void TatChuThich(object sender, EventArgs e)
-        {
-            lblLoaiSuKien.Visible = false;
-        }
+        
         private void FGiangVien_Calendar_Load(object sender, EventArgs e)
         {
             fLoTrungTam = fLoTrungTamNgay;
             Load_UC();
-            bgkHenTrucTuyen.MouseHover += HienThiChuThich;
-            bgkHenTrucTuyen.MouseLeave += TatChuThich;
-            bgkHenGapMat.MouseHover += HienThiChuThich;
-            bgkHenGapMat.MouseLeave += TatChuThich; 
-            bgkKhac.MouseHover += HienThiChuThich;
-            bgkKhac.MouseLeave += TatChuThich;
+            
         }
     }
 }

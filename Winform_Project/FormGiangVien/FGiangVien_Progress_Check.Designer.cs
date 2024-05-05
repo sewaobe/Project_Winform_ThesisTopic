@@ -42,8 +42,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTieuDe = new Guna.UI2.WinForms.Guna2TextBox();
-            this.progress = new Bunifu.UI.WinForms.BunifuHSlider();
             this.lblValueProgress = new System.Windows.Forms.Label();
+            this.progress = new Bunifu.UI.WinForms.BunifuHSlider();
             this.SuspendLayout();
             // 
             // lblBaoCao
@@ -198,6 +198,20 @@
             this.txtTieuDe.Size = new System.Drawing.Size(285, 35);
             this.txtTieuDe.TabIndex = 71;
             // 
+            // lblValueProgress
+            // 
+            this.lblValueProgress.AutoSize = true;
+            this.lblValueProgress.BackColor = System.Drawing.SystemColors.Control;
+            this.lblValueProgress.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValueProgress.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblValueProgress.Location = new System.Drawing.Point(410, 135);
+            this.lblValueProgress.Name = "lblValueProgress";
+            this.lblValueProgress.Size = new System.Drawing.Size(36, 28);
+            this.lblValueProgress.TabIndex = 73;
+            this.lblValueProgress.Text = "52";
+            this.lblValueProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblValueProgress.Visible = false;
+            // 
             // progress
             // 
             this.progress.AllowCursorChanges = true;
@@ -246,20 +260,6 @@
             this.progress.Value = 50;
             this.progress.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.progress_Scroll);
             // 
-            // lblValueProgress
-            // 
-            this.lblValueProgress.AutoSize = true;
-            this.lblValueProgress.BackColor = System.Drawing.SystemColors.Control;
-            this.lblValueProgress.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValueProgress.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblValueProgress.Location = new System.Drawing.Point(410, 135);
-            this.lblValueProgress.Name = "lblValueProgress";
-            this.lblValueProgress.Size = new System.Drawing.Size(36, 28);
-            this.lblValueProgress.TabIndex = 73;
-            this.lblValueProgress.Text = "52";
-            this.lblValueProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblValueProgress.Visible = false;
-            // 
             // FGiangVien_Progress_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -289,19 +289,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblBaoCao;
-        private System.Windows.Forms.Label lblDanhGia;
-        private System.Windows.Forms.Label lblNhanXet;
-        private Guna.UI2.WinForms.Guna2TextBox txtNhanXet;
-        private Guna.UI2.WinForms.Guna2Button btnGui;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox txtTieuDe;
-        private Bunifu.UI.WinForms.BunifuHSlider progress;
-        private System.Windows.Forms.Label lblValueProgress;
+
+        public System.Windows.Forms.Label lblBaoCao;
+        public System.Windows.Forms.Label lblDanhGia;
+        public System.Windows.Forms.Label lblNhanXet;
+        public Guna.UI2.WinForms.Guna2TextBox txtNhanXet;
+        public Guna.UI2.WinForms.Guna2Button btnGui;
+        public Guna.UI2.WinForms.Guna2Button guna2Button1;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2TextBox txtTieuDe;
+        public Bunifu.UI.WinForms.BunifuHSlider progress;
+        public System.Windows.Forms.Label lblValueProgress;
     }
 }

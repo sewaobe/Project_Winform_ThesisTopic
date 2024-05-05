@@ -9,6 +9,7 @@ namespace Winform_Project.ClassDoiTuong
 {
     public class LuanVan
     {
+       
         private string maDeTai;
         private string tenDeTai;
         private string theLoai;
@@ -42,7 +43,8 @@ namespace Winform_Project.ClassDoiTuong
             this.HocKy = hocKy;
             this.TrangThai = trangThai;
         }
-        
+        [Required]
+        [Range(minimum:1,maximum:3,ErrorMessage ="123")]
         public string MaDeTai { get => maDeTai; set => maDeTai = value; }
         public string TenDeTai { get => tenDeTai; set => tenDeTai = value; }
         public string TheLoai { get => theLoai; set => theLoai = value; }

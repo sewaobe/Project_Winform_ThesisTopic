@@ -39,8 +39,8 @@
             this.radioThucHien = new System.Windows.Forms.RadioButton();
             this.fLoTrungTam = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -163,14 +163,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1130, 3);
             this.guna2Panel1.TabIndex = 44;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.FillColor = System.Drawing.Color.Green;
-            this.guna2Panel2.Location = new System.Drawing.Point(121, 92);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(3, 435);
-            this.guna2Panel2.TabIndex = 45;
-            // 
             // guna2Panel3
             // 
             this.guna2Panel3.FillColor = System.Drawing.Color.Green;
@@ -178,6 +170,14 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(3, 419);
             this.guna2Panel3.TabIndex = 46;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.FillColor = System.Drawing.Color.Green;
+            this.guna2Panel2.Location = new System.Drawing.Point(121, 92);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(3, 435);
+            this.guna2Panel2.TabIndex = 45;
             // 
             // guna2Panel4
             // 

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
+using Winform_Project.FSinhVien;
 using Winform_Project.uc_SV;
 
 namespace Winform_Project.FormSinhVien
@@ -20,19 +21,43 @@ namespace Winform_Project.FormSinhVien
     {
         SinhVienDao svDao = new SinhVienDao();
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVien sv=new SinhVien();
+        GiangVien gv;
         public FSinhVien_ContactGV()
         {
             InitializeComponent();
         }
 
+        private void AppendText(string text, bool isMine)
+        {
+            rtbMessages.SelectionStart = rtbMessages.TextLength;
+            rtbMessages.SelectionLength = 0;
+            rtbMessages.SelectionColor = isMine ? Color.White : Color.Black;
+            rtbMessages.SelectionBackColor = isMine ? Color.Blue : Color.LightGray;
+            rtbMessages.SelectionAlignment = isMine ? HorizontalAlignment.Right : HorizontalAlignment.Left;
+            rtbMessages.AppendText(text + "\n");
+            rtbMessages.ScrollToCaret();
+        }
         private void FSinhVien_ContactGV_Load(object sender, EventArgs e)
         {
             flowmess.Controls.Clear();
-            string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV LIKE '{0}%'", textBox1.Text);
+            string sqlStr = string.Format("SELECT * FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy On ThongTinDeTai.MaDeTai = ThongTinNhomDangKy.MaDeTai WHERE ThongTinNhomDangKy.MSSV={0}", SinhVienAccount.Mssv);
+            DataTable dt = svDao.LoadData(sqlStr);
+
+
+            uc_SV_ThongTin uc_sv_ThongTin = new uc_SV_ThongTin();
+            uc_sv_ThongTin.lblTen.Text = dt.Rows[0]["TenGiangVien"].ToString();
+            uc_sv_ThongTin.lblMSSV.Visible = false;
+            uc_sv_ThongTin.btnThemSinhVien.Click += btnMessGV_Click;
+            flowmess.Controls.Add(uc_sv_ThongTin);
+
+
+
+            sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV LIKE '{0}%'", textBox1.Text);
             DataTable dtSinhVien = svDao.LoadData(sqlStr);
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                if (dtSinhVien.Rows[i]["MaSoNhom"].ToString() == SinhVienAccount.Masonhom)
+                if (dtSinhVien.Rows[i]["MaSoNhom"].ToString() == SinhVienAccount.Masonhom && dtSinhVien.Rows[i]["MSSV"].ToString() != SinhVienAccount.Mssv)
                 {
                     SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
                         dtSinhVien.Rows[i]["GioiTinh"].ToString(),
@@ -43,104 +68,99 @@ namespace Winform_Project.FormSinhVien
                         dtSinhVien.Rows[i]["MSSV"].ToString(),
                         dtSinhVien.Rows[i]["MaSoNhom"].ToString()
                                                         );
-                    uc_SV_ThongTin uc_sv_ThongTin = new uc_SV_ThongTin(sinhvien);
+                    uc_sv_ThongTin = new uc_SV_ThongTin(sinhvien);
                     uc_sv_ThongTin.btnThemSinhVien.Click += btnThemSV_Click;
                     flowmess.Controls.Add(uc_sv_ThongTin);
                     uc_sv_ThongTin.Show();
                 }
             }
-            //string sqlStr = string.Format("SELECT * FROM Messenger WHERE NguoiNhan='{0}' or NguoiGui='{0}'", SinhVienAccount.Mssv);
-            //DataTable dt = svDao.LoadData(sqlStr);
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            //{
-            //    Label label = new Label();
-            //    label.Width = flowmess.Width / 4 * 3;
-            //    if (dt.Rows[i]["NguoiGui"].ToString() == SinhVienAccount.Mssv)
-            //    {
-            //        label.Width = flowmess.Width;
-            //        label.Left = flowmess.Width - label.Width;
-            //        label.TextAlign = ContentAlignment.MiddleRight;
-            //    }
-            //    else
-            //    {
-            //        label.Width = flowmess.Width / 4 * 3;
-            //    }
 
-            //    label.Text = dt.Rows[i]["NoiDung"].ToString();
-            //    flowmess.Controls.Add(label);
 
         }
+
+        private void btnMessGV_Click(object sender, EventArgs e)
+        {
+            Guna2CirclePictureBox btn = (Guna2CirclePictureBox)sender;
+            uc_SV_ThongTin uc = btn.Parent as uc_SV_ThongTin;
+            sv = null;
+            ChangeUCColor(uc);
+            LoadMess(sender, e, sv);
+        }
+
         private void btnThemSV_Click(object sender, EventArgs e)
         {
             Guna2CirclePictureBox btn = (Guna2CirclePictureBox)sender;
             uc_SV_ThongTin uc = btn.Parent as uc_SV_ThongTin;
-            LoadMess(sender, e);
+            ChangeUCColor(uc);
+            sv = uc.sv;
+            LoadMess(sender, e,uc.sv);
         }
 
         private void btnGui_Click(object sender, EventArgs e)
         {
             if (txtmess.Text.Length > 0)
             {
-                string sqlStr = string.Format("SELECT * FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy On ThongTinDeTai.MaDeTai = ThongTinNhomDangKy.MaDeTai WHERE ThongTinNhomDangKy.MSSV={0}", SinhVienAccount.Mssv);
-                DataTable dt = svDao.LoadData(sqlStr);
-                TinNhan tinNhan = new TinNhan(SinhVienAccount.Mssv, dt.Rows[0]["TenGiangVien"].ToString(), txtmess.Text, DateTime.Now);
+                TinNhan tinNhan;
+                if (sv == null)
+                {
+                    string sqlStr = string.Format("SELECT * FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy On ThongTinDeTai.MaDeTai = ThongTinNhomDangKy.MaDeTai WHERE ThongTinNhomDangKy.MSSV={0}", SinhVienAccount.Mssv);
+                    DataTable dt = svDao.LoadData(sqlStr);
+                    tinNhan = new TinNhan(SinhVienAccount.Mssv, dt.Rows[0]["TenGiangVien"].ToString(), txtmess.Text, DateTime.Now);
+                }
+                else { tinNhan = new TinNhan(SinhVienAccount.Mssv,sv.Mssv, txtmess.Text, DateTime.Now); }
+
                 svDao.GuiTinNhan(tinNhan);
                 flowmess.Controls.Clear();
                 txtmess.Clear();
-                LoadMess(sender, e);
+                FSinhVien_ContactGV_Load(sender, e);
+                LoadMess(sender, e, sv);
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+
+        private void LoadMess(object sender, EventArgs e, SinhVien sv)
+        {
+            string sqlStr;
+            rtbMessages.Clear();
+            if (sv == null)
+            {
+                sqlStr = string.Format("SELECT * FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy On ThongTinDeTai.MaDeTai = ThongTinNhomDangKy.MaDeTai WHERE ThongTinNhomDangKy.MSSV={0}", SinhVienAccount.Mssv);
+                DataTable dt = svDao.LoadData(sqlStr);
+                sqlStr = string.Format("SELECT * FROM Messenger WHERE (NguoiNhan='{0}' and NguoiGui='{1}') or (NguoiNhan='{1}' and NguoiGui='{0}')", SinhVienAccount.Mssv, dt.Rows[0]["TenGiangVien"].ToString());
+                lblContactName.Text = dt.Rows[0]["TenGiangVien"].ToString();
+            }
+            else
+            {
+                sqlStr = string.Format("SELECT * FROM Messenger WHERE (NguoiNhan='{0}' and NguoiGui='{1}') or (NguoiNhan='{1}' and NguoiGui='{0}')", SinhVienAccount.Mssv, sv.Mssv);
+                lblContactName.Text = sv.Ten;
+            }
+            DataTable dtmess = svDao.LoadData(sqlStr);
+            for (int i = 0; i < dtmess.Rows.Count; i++)
+            {
+                if (dtmess.Rows[i]["NguoiGui"].ToString() == SinhVienAccount.Mssv)
+                {
+                    AppendText(dtmess.Rows[i]["NoiDung"].ToString() + "\n", true);
+                }
+                else
+                {
+                    AppendText(dtmess.Rows[i]["NoiDung"].ToString() + "\n", false);
+
+                }
+            }
+           
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             FSinhVien_ContactGV_Load(sender, e);
         }
-        private void LoadMess(object sender, EventArgs e)
+        private void ChangeUCColor(UserControl uc)
         {
-            string sqlStr = string.Format("SELECT * FROM Messenger WHERE NguoiNhan='{0}' or NguoiGui='{0}'", SinhVienAccount.Mssv);
-            DataTable dt = svDao.LoadData(sqlStr);
-            for (int i = 0; i < dt.Rows.Count; i++)
+            foreach (UserControl control in flowmess.Controls)
             {
-                TextBox textBox = new TextBox();
-
-                Label label = new Label();
-                               
-                label.Text = dt.Rows[i]["NoiDung"].ToString();
-                label.AutoSize = true;
-                label.Refresh();
-                if (label.Width > 555 / 4 * 3)
-                {
-                    textBox.Multiline = true;
-                    textBox.Width = 555 / 4 * 3;
-                }
-                else
-                {
-                    textBox.Width = label.Width;
-                }
-                MessageBox.Show(label.Width.ToString() + "  " + textBox.Width.ToString());
-                textBox.Text = label.Text;
-
-                //if (dt.Rows[i]["NguoiGui"].ToString() == SinhVienAccount.Mssv)
-                //{
-                //    textBox.Left = this.Width - textBox.Width; 
-                //    textBox.Location = new Point(this.Width - textBox.Width, i*(textBox.Height+3));
-                //}
-                //else
-                //{
-                //    textBox.Location = new Point(376, i * (textBox.Height + 3));
-                //}
-                if (dt.Rows[i]["NguoiGui"].ToString() == SinhVienAccount.Mssv)
-                {
-                    label.Left = this.Width - label.Width; 
-                    label.Location = new Point(this.Width - label.Width, i*(label.Height+3));
-                }
-                else
-                {
-                    label.Location = new Point(376, i * (label.Height + 3));
-                }
-                this.Controls.Add(label);
-                //flowmess.Controls.Add(label);
+                control.BackColor = Color.LightGray;
             }
+            uc.BackColor = Color.Blue;
         }
     }
 

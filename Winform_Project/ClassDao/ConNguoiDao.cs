@@ -16,7 +16,7 @@ namespace Winform_Project.ClassDao
     {
         
         DBConnection db = new DBConnection();
-
+        
         public ConNguoiDao()
         {
         }
@@ -39,6 +39,20 @@ namespace Winform_Project.ClassDao
                                             tb.Tieude);
             db.ThucThi(sqlStr);
         }
-       
+        public DataTable LayThongTinDeTaiDangCapNhat(string trangThai)
+        {
+            string sqlStr = string.Format($"SELECT * FROM ThongTinDeTai WHERE TrangThai = '{trangThai}'");
+            return db.Load(sqlStr);
+        }
+        public DataTable LayThongTinTatCaNhomDangKy()
+        {
+            string sqlStr = string.Format("SELECT * FROM ThongTinNhomDangKy");
+            return db.Load(sqlStr);
+        }
+        public DataTable LayThongTinSinhVien(string maNhom)
+        {
+            string sqlStr = string.Format($"SELECT * FROM SinhVien Where MaSoNhom = '{maNhom}'");
+            return db.Load(sqlStr);
+        }
     }
 }

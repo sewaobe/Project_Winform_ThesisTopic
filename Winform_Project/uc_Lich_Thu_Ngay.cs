@@ -36,7 +36,7 @@ namespace Winform_Project
             int tongNgayTrongThang = DateTime.DaysInMonth(Nam, Thang);
 
             int thu = Convert.ToInt32(ngayDauTienCuaThang.DayOfWeek.ToString("d"));
-            for(int i =1; i<=thu;i++)
+            for(int i =1; i<thu;i++)
             {
                 uc_Lich_Ngay ucNgay =  new uc_Lich_Ngay();
                 ucNgay.btnNgay.Text = "";

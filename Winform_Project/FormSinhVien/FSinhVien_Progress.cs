@@ -109,7 +109,7 @@ namespace Winform_Project.FSinhVien
         private void btnGui_Click(object sender, EventArgs e)
         {
             DataTable dt = svDao.LoadData(string.Format("SELECT * FROM ThongTinNhomDangKy WHERE MSSV={0}", SinhVienAccount.Mssv));
-            svDao.guiBaoCao(dt.Rows[0]["MaSoNhom"].ToString(), dt.Rows[0]["MaDeTai"].ToString(), txtFile.Text);
+            //svDao.guiBaoCao(dt.Rows[0]["MaSoNhom"].ToString(), dt.Rows[0]["MaDeTai"].ToString(), txtFile.Text);
         }
     }
 }

@@ -36,6 +36,7 @@
             this.btnThayDoiNhanXet = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiTienDo = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiNhiemVu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLich = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // btnNhanXet
@@ -80,12 +81,11 @@
             // 
             // fLoTrungTam
             // 
-            this.fLoTrungTam.AutoScroll = true;
             this.fLoTrungTam.BackColor = System.Drawing.SystemColors.Control;
             this.fLoTrungTam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fLoTrungTam.Location = new System.Drawing.Point(12, 172);
+            this.fLoTrungTam.Location = new System.Drawing.Point(34, 172);
             this.fLoTrungTam.Name = "fLoTrungTam";
-            this.fLoTrungTam.Size = new System.Drawing.Size(1416, 678);
+            this.fLoTrungTam.Size = new System.Drawing.Size(1368, 651);
             this.fLoTrungTam.TabIndex = 3;
             // 
             // btnNhiemVu
@@ -119,7 +119,7 @@
             this.btnThayDoiNhanXet.Location = new System.Drawing.Point(271, 55);
             this.btnThayDoiNhanXet.Name = "btnThayDoiNhanXet";
             this.btnThayDoiNhanXet.Size = new System.Drawing.Size(15, 15);
-            this.btnThayDoiNhanXet.TabIndex = 18;
+            this.btnThayDoiNhanXet.TabIndex = 16;
             this.btnThayDoiNhanXet.Visible = false;
             // 
             // btnThayDoiTienDo
@@ -137,7 +137,7 @@
             this.btnThayDoiTienDo.Location = new System.Drawing.Point(457, 55);
             this.btnThayDoiTienDo.Name = "btnThayDoiTienDo";
             this.btnThayDoiTienDo.Size = new System.Drawing.Size(15, 15);
-            this.btnThayDoiTienDo.TabIndex = 19;
+            this.btnThayDoiTienDo.TabIndex = 17;
             this.btnThayDoiTienDo.Visible = false;
             // 
             // btnThayDoiNhiemVu
@@ -155,8 +155,24 @@
             this.btnThayDoiNhiemVu.Location = new System.Drawing.Point(643, 55);
             this.btnThayDoiNhiemVu.Name = "btnThayDoiNhiemVu";
             this.btnThayDoiNhiemVu.Size = new System.Drawing.Size(15, 15);
-            this.btnThayDoiNhiemVu.TabIndex = 20;
+            this.btnThayDoiNhiemVu.TabIndex = 18;
             this.btnThayDoiNhiemVu.Visible = false;
+            // 
+            // btnLich
+            // 
+            this.btnLich.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLich.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLich.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLich.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLich.FillColor = System.Drawing.Color.White;
+            this.btnLich.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLich.ForeColor = System.Drawing.Color.Black;
+            this.btnLich.Location = new System.Drawing.Point(664, 55);
+            this.btnLich.Name = "btnLich";
+            this.btnLich.Size = new System.Drawing.Size(180, 45);
+            this.btnLich.TabIndex = 19;
+            this.btnLich.Text = "Lịch";
+            this.btnLich.Click += new System.EventHandler(this.btnLich_Click);
             // 
             // FSinhVien_Controls
             // 
@@ -164,6 +180,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1440, 862);
+            this.Controls.Add(this.btnLich);
             this.Controls.Add(this.btnThayDoiNhiemVu);
             this.Controls.Add(this.btnThayDoiTienDo);
             this.Controls.Add(this.btnThayDoiNhanXet);
@@ -190,5 +207,6 @@
         public Guna.UI2.WinForms.Guna2Button btnThayDoiNhanXet;
         public Guna.UI2.WinForms.Guna2Button btnThayDoiTienDo;
         public Guna.UI2.WinForms.Guna2Button btnThayDoiNhiemVu;
+        public Guna.UI2.WinForms.Guna2Button btnLich;
     }
 }

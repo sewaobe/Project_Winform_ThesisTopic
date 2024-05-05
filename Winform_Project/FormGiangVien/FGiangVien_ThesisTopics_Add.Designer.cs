@@ -163,6 +163,7 @@
             // 
             // txtMaDeTai
             // 
+            this.txtMaDeTai.Animated = true;
             this.txtMaDeTai.BorderColor = System.Drawing.Color.Black;
             this.txtMaDeTai.BorderRadius = 5;
             this.txtMaDeTai.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -182,6 +183,7 @@
             this.txtMaDeTai.SelectedText = "";
             this.txtMaDeTai.Size = new System.Drawing.Size(348, 45);
             this.txtMaDeTai.TabIndex = 25;
+            this.txtMaDeTai.Tag = "123";
             // 
             // txtSoLuong
             // 

@@ -18,6 +18,7 @@ namespace Winform_Project.FormGiangVien
     public partial class FGiangVien_Controls : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         public static string maSoNhom, maDeTai;
         public static int flag_NhiemVu = 0, flag_BaoCao = 0, flag_TienDo = 0, flag_Lich = 0;
         public FGiangVien_Controls()
@@ -47,7 +48,7 @@ namespace Winform_Project.FormGiangVien
                                      dtLuanVan.Rows[0]["HocKy"].ToString(),
                                      dtLuanVan.Rows[0]["TenGiangVien"].ToString(),
                                      dtLuanVan.Rows[0]["TrangThai"].ToString());
-            DataTable dtNhomSinhVien = gvDao.LayThongTinSinhVien(maSoNhom);
+            DataTable dtNhomSinhVien = conNguoiDao.LayThongTinSinhVien(maSoNhom);
             List<SinhVien> listSinhVien = new List<SinhVien>();
 
             for (int i = 0; i < dtNhomSinhVien.Rows.Count; i++)
@@ -173,7 +174,7 @@ namespace Winform_Project.FormGiangVien
             btnThayDoiOFF(btnThayDoiBaoCao, FGiangVien_Controls.flag_BaoCao);
             fLoTrungTam.Controls.Clear();
             progress.Location = new Point(btnBaoCao.Location.X, btnChiTiet.Location.Y + 30);
-            DataTable dt = gvDao.LayThongTinBaoCao("2");
+            DataTable dt = gvDao.LayThongTinBaoCao(maSoNhom);
             List<BaoCao> list = new List<BaoCao>();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
@@ -183,6 +184,8 @@ namespace Winform_Project.FormGiangVien
             foreach(BaoCao bc in list)
             {
                 ucBaoCao ucBaoCao = new ucBaoCao(bc);
+                ucBaoCao.Click += Open_File_BaoCao;
+
                 if (bc.TrangThai != "Dang cho")
                 {
                     ucBaoCao.btnDanhGia.Visible = false;
@@ -195,6 +198,12 @@ namespace Winform_Project.FormGiangVien
                 }
                 fLoTrungTam.Controls.Add(ucBaoCao);
             }
+        }
+        //Mo file bao cao
+        private void Open_File_BaoCao(object sender, EventArgs e)
+        {
+            ucBaoCao uc = sender as ucBaoCao;
+            gvDao.Open_File(uc.baoCao);
         }
         private void btnXoaBaoCao_Click(object sender, EventArgs e)
         {
@@ -229,7 +238,7 @@ namespace Winform_Project.FormGiangVien
         {
             progress.Location = new Point(btnTongKet.Location.X, btnChiTiet.Location.Y + 30);
             uc_GV_TongKet uc_GV_TongKet = new uc_GV_TongKet();
-            DataTable dtSinhVien = gvDao.LayThongTinSinhVien(maSoNhom);
+            DataTable dtSinhVien = conNguoiDao.LayThongTinSinhVien(maSoNhom);
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
                 SinhVien sv = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),

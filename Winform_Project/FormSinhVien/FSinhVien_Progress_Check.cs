@@ -18,33 +18,20 @@ namespace Winform_Project.FormSinhVien
     {
         SinhVienDao svDao = new SinhVienDao();
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
-        private int index;
-        public FSinhVien_Progress_Check(int index)
+        public FSinhVien_Progress_Check()
         {
             InitializeComponent();
-            this.index = index;
         }
 
         private void btnQuayVe_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Hide();
 
         }
 
         private void FSinhVien_Progress_Check_Load(object sender, EventArgs e)
         {
-            string sqlStr = string.Format("SELECT * FROM ThongTinNhomDangKy WHERE MSSV={0}", SinhVienAccount.Mssv);
-            DataTable dtThongTinNhom = svDao.LoadData(sqlStr);
-            sqlStr = string.Format("SELECT * FROM TienDo WHERE MaSoNhom={0} and LanBaoCao={1}", dtThongTinNhom.Rows[0]["MaSoNhom"],index);
-            DataTable dtTienDo = svDao.LoadData(sqlStr);
-            sqlStr = string.Format("SELECT * FROM ThongTinDeTai WHERE MaDeTai={0}", dtThongTinNhom.Rows[0]["MaDeTai"]);
-            DataTable dtThongTinDeTai = svDao.LoadData(sqlStr);           
-            if (dtThongTinDeTai.Rows.Count > 0)
-            {
-                txtDanhGia.Text = dtTienDo.Rows[0]["TienDo"].ToString();
-                txtNhanXet.Text = dtTienDo.Rows[0]["NhanXet"].ToString();
-                txtTenGiangVien.Text = dtThongTinDeTai.Rows[0]["TenGiangVien"].ToString();
-            }
+
             
         }
 
@@ -56,6 +43,28 @@ namespace Winform_Project.FormSinhVien
         private void txtDanhGia_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            BaoCao bc = new BaoCao(txtTieuDe.Text,
+                       DateTime.Now.ToString(),
+                       txtFile.Text,
+                       "NULL",
+                       "NULL",
+                       SinhVienAccount.Masonhom,
+                       "Dang cho");
+            svDao.Save_File(bc);
+            this.Hide();
+
+        }
+
+        private void btnThemFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.ShowDialog();
+            txtFile.Text = open.FileName;
+            txtTieuDe.Text = open.SafeFileName;
         }
     }
 }

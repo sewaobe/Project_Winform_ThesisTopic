@@ -21,6 +21,7 @@ namespace Winform_Project.FormGiangVien
     public partial class FGiangVien_Thesis_Accept : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         public FGiangVien_Thesis_Accept()
         {
             InitializeComponent();
@@ -32,42 +33,10 @@ namespace Winform_Project.FormGiangVien
         }
         private void Load_fLo(string trangThai)
         {
-            DataTable dtDeTai = gvDao.LayThongTinDeTaiDangCapNhat(trangThai);
+            DataTable dtDeTai = conNguoiDao.LayThongTinDeTaiDangCapNhat(trangThai);
 
-            DataTable dtNhom = gvDao.LayThongTinTatCaNhomDangKy();
-            List<LuanVan> lv_list = new List<LuanVan>();
-            for (int i = 0; i < dtDeTai.Rows.Count; i++)
-            {
-                string MaDeTai, TenDeTai, SoLuong, MoTa, YeuCau, ChucNang, TheLoai, CongNghe, Nganh, Khoa, HocKy, TenGiangVien, TrangThai;
-
-                MaDeTai = dtDeTai.Rows[i]["MaDeTai"].ToString();
-                TenDeTai = dtDeTai.Rows[i]["TenDeTai"].ToString();
-                SoLuong = dtDeTai.Rows[i]["SoLuong"].ToString();
-                MoTa = dtDeTai.Rows[i]["MoTa"].ToString();
-                YeuCau = dtDeTai.Rows[i]["YeuCau"].ToString();
-                ChucNang = dtDeTai.Rows[i]["ChucNang"].ToString();
-                TheLoai = dtDeTai.Rows[i]["TheLoai"].ToString();
-                CongNghe = dtDeTai.Rows[i]["CongNghe"].ToString();
-                Nganh = dtDeTai.Rows[i]["Nganh"].ToString();
-                Khoa = dtDeTai.Rows[i]["Khoa"].ToString();
-                HocKy = dtDeTai.Rows[i]["HocKy"].ToString();
-                TenGiangVien = dtDeTai.Rows[i]["TenGiangVien"].ToString();
-                TrangThai = dtDeTai.Rows[i]["TrangThai"].ToString();
-                LuanVan lv = new LuanVan(MaDeTai,
-                                         TenDeTai,
-                                         TheLoai,
-                                         SoLuong,
-                                         MoTa,
-                                         ChucNang,
-                                         YeuCau,
-                                         CongNghe,
-                                         Khoa,
-                                         Nganh,
-                                         HocKy,
-                                         TenGiangVien,
-                                         TrangThai);
-                lv_list.Add(lv);
-            }
+            DataTable dtNhom = conNguoiDao.LayThongTinTatCaNhomDangKy();
+            List<LuanVan> lv_list = gvDao.ChuyenDoiDuLieuSangLuanVan(dtDeTai);
             
             Guna2Button hdDeTai = headerDeTai;
             Guna2Button hdOparetor = headerOparetor;
@@ -188,7 +157,7 @@ namespace Winform_Project.FormGiangVien
             btnThayDoiDuyet.Location = new Point(btnDuyet.Location.X + btnDuyet.Size.Width - 10, btnDuyet.Location.Y);
             Guna2Button btn = (Guna2Button)sender;
             string[] maSo = btn.Tag.ToString().Split(',');
-            gvDao.DuyetDeTai(maSo[0], maSo[1]);
+            gvDao.DuyetDeTai(maSo[1], maSo[0]);
         }
         private void btnTuChoiClick(object sender, EventArgs e)
         {
@@ -197,7 +166,7 @@ namespace Winform_Project.FormGiangVien
         private void FGiangVien_Thesis_Accept_Load(object sender, EventArgs e)
         {
             Load_fLo("Da duyet");
-            DataTable dtDeTai = gvDao.LayThongTinDeTaiDangCapNhat("Chua duyet");
+            DataTable dtDeTai = conNguoiDao.LayThongTinDeTaiDangCapNhat("Chua duyet");
             if (dtDeTai.Rows.Count > 0)
             {
                 btnThayDoiCho.Visible = true;
@@ -225,51 +194,6 @@ namespace Winform_Project.FormGiangVien
             progress.Location = new Point(btnCho.Location.X, btnCho.Location.Y + 35);
             fLoTrungTam.Controls.Clear();
             Load_fLo("Chua duyet");
-        }
-
-        /* private void btnDaDuyet_Click(object sender, EventArgs e)
-         {
-             gvDeTaiDaDuyet.DataSource = gvDao.LoadData("SELECT ThongTinDeTai.MaDeTai, ThongTinDeTai.TenDeTai, ThongTinDeTai.TheLoai, ThongTinDeTai.HocKy, ThongTinNhomDangKy.MaSoNhom, ThongTinNhomDangKy.TrangThai FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy ON ThongTinNhomDangKy.MaDeTai = ThongTinDeTai.MaDeTai AND ThongTinNhomDangKy.TrangThai = 'Da duyet'");
-             Location_gv(gvDeTaiDaDuyet, txtTimKiemDaDuyet, gvDeTaiDaDuyet.Location.X, btnDaDuyet.Location.Y);
-             if (gvDeTaiDaDuyet.Visible == true)
-                 btnChuaDuyet.Location = new Point(btnDaDuyet.Location.X, gvDeTaiDaDuyet.Location.Y + gvDeTaiDaDuyet.Height + 30);
-             else
-                 btnChuaDuyet.Location = new Point(btnDaDuyet.Location.X, btnDaDuyet.Location.Y + btnDaDuyet.Height + 30);
-         }
-
-         private void btnChuaDuyet_Click(object sender, EventArgs e)
-         {
-             gvDeTaiChuaDuyet.DataSource = gvDao.LoadData("SELECT ThongTinDeTai.MaDeTai, ThongTinDeTai.TenDeTai, ThongTinDeTai.TheLoai, ThongTinDeTai.HocKy, ThongTinNhomDangKy.MaSoNhom, ThongTinNhomDangKy.TrangThai FROM ThongTinDeTai INNER JOIN ThongTinNhomDangKy ON ThongTinNhomDangKy.MaDeTai = ThongTinDeTai.MaDeTai AND ThongTinNhomDangKy.TrangThai = 'Chua duyet'");
-             Location_gv(gvDeTaiChuaDuyet, txtTimKiemChuaDuyet, gvDeTaiChuaDuyet.Location.X, btnChuaDuyet.Location.Y);
-
-
-         }
-         private void Location_gv(DataGridView gv, Guna2TextBox txt, int x, int y)
-         {
-             gv.Visible = !gv.Visible;
-             txt.Visible = !txt.Visible;
-             txt.Location = new Point(txt.Location.X, y+50);
-             gv.Location = new Point(x, y+100);
-             int height_gv = 30;
-             foreach (DataGridViewRow dtgvr in gv.Rows)
-             {
-                 height_gv += dtgvr.Height;
-             }
-             gv.Height = height_gv;
-         }
-         private void gvDeTai_CellContentClick(object sender, DataGridViewCellEventArgs e)
-         {
-
-         }
-
-         private void gvDeTaiChuaDuyet_CellContentClick(object sender, DataGridViewCellEventArgs e)
-         {
-             string click = gvDeTaiChuaDuyet.Columns[e.ColumnIndex].Index.ToString();
-             if (click == "0")
-             {
-                 gvDao.DuyetDeTai(gvDeTaiChuaDuyet.Rows[e.RowIndex].Cells["MaSoNhom"].Value.ToString());
-
-             }
-         }*/
+        }        
     }
 }

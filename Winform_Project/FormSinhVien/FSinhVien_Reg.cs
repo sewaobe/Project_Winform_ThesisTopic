@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace Winform_Project.FSinhVien
     {
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         public FSinhVien_Reg()
         {
             InitializeComponent();
@@ -36,14 +38,10 @@ namespace Winform_Project.FSinhVien
         {
 
         }
-        private void Instance_GridView()
-        {
-
-        }
+        
         private void FSinhVien_Reg_Load(object sender, EventArgs e)
         {
-            Instance_GridView();
-            DataTable dtDeTai = svDao.LoadData("SELECT * From ThongTinDeTai");
+            DataTable dtDeTai = conNguoiDao.LayThongTinDeTaiDangCapNhat("Chua dang ki");
             for (int i = 0; i < dtDeTai.Rows.Count; i++)
             {
                 //đổ data vô các combobox
@@ -57,27 +55,36 @@ namespace Winform_Project.FSinhVien
                 }
 
                 //thêm uc_DeTai
-                LuanVan lv = new LuanVan(dtDeTai.Rows[i]["MaDeTai"].ToString(),
-                                        dtDeTai.Rows[i]["TenDeTai"].ToString(),
-                                        dtDeTai.Rows[i]["TheLoai"].ToString(),
-                                        dtDeTai.Rows[i]["SoLuong"].ToString(),
-                                        dtDeTai.Rows[i]["MoTa"].ToString(),
-                                        dtDeTai.Rows[i]["ChucNang"].ToString(),
-                                        dtDeTai.Rows[i]["YeuCau"].ToString(),
-                                        dtDeTai.Rows[i]["CongNghe"].ToString(),
-                                        dtDeTai.Rows[i]["Khoa"].ToString(),
-                                        dtDeTai.Rows[i]["Nganh"].ToString(),
-                                        dtDeTai.Rows[i]["HocKy"].ToString(),
-                                        dtDeTai.Rows[i]["TenGiangVien"].ToString(),"Chua Duyet"
-                                        //dtDeTai.Rows[i]["TrangThai"].ToString()
-                                        );
-                uc_SV_DeTai uc_sv_detai = new uc_SV_DeTai(lv);
-                flow_DeTai.Controls.Add(uc_sv_detai);
-                uc_sv_detai.Show();
+                if (dtDeTai.Rows[i]["TrangThai"].ToString() == "Chua dang ki")
+                {
+                    LuanVan lv = new LuanVan(dtDeTai.Rows[i]["MaDeTai"].ToString(),
+                                            dtDeTai.Rows[i]["TenDeTai"].ToString(),
+                                            dtDeTai.Rows[i]["TheLoai"].ToString(),
+                                            dtDeTai.Rows[i]["SoLuong"].ToString(),
+                                            dtDeTai.Rows[i]["MoTa"].ToString(),
+                                            dtDeTai.Rows[i]["ChucNang"].ToString(),
+                                            dtDeTai.Rows[i]["YeuCau"].ToString(),
+                                            dtDeTai.Rows[i]["CongNghe"].ToString(),
+                                            dtDeTai.Rows[i]["Khoa"].ToString(),
+                                            dtDeTai.Rows[i]["Nganh"].ToString(),
+                                            dtDeTai.Rows[i]["HocKy"].ToString(),
+                                            dtDeTai.Rows[i]["TenGiangVien"].ToString(),
+                                            dtDeTai.Rows[i]["TrangThai"].ToString()
+                                            );
+                    uc_SV_DeTai uc_sv_detai = new uc_SV_DeTai(lv);
+                    uc_sv_detai.btnChiTiet.Click += btnChiTiet_Click;
+                    flow_DeTai.Controls.Add(uc_sv_detai);
+                }
             }
             
         }
-
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            Guna2Button btn = sender as Guna2Button;
+            uc_SV_DeTai uc = btn.Parent as uc_SV_DeTai;
+            FSinhVien_Reg_Done fSinhVien_Reg_Done = new FSinhVien_Reg_Done(uc.luanvan);
+            fSinhVien_Reg_Done.ShowDialog();
+        }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             //if (cbbNamHoc.SelectedIndex == -1 || cbbHocKy.SelectedIndex == -1)

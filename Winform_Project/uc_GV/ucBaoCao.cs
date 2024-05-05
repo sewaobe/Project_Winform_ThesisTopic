@@ -22,10 +22,11 @@ namespace Winform_Project
         public ucBaoCao(BaoCao bc)
         {
             InitializeComponent();
-            lblTieuDe.Text = bc.TieuDe;
+            lblTieuDe.Text = bc.TieuDe.Substring(0,bc.TieuDe.IndexOf("."));
             lblThoiGianGui.Text = bc.ThoiGianGui;
-            lblFile.Text = bc.File;
+            lblFile.Text = bc.TieuDe;
             lblTrangThai.Text = bc.TrangThai;
+
             this.baoCao = bc;
         }
         private void label1_Click(object sender, EventArgs e)

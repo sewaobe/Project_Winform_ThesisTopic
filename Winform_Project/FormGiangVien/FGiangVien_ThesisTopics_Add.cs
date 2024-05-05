@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -51,10 +54,32 @@ namespace Winform_Project.FormGiangVien
         {
             this.Hide();
         }
+        private void Validation(object sender)
+        {
+            var validacao = new List<ValidationResult>();
+            var contexto = new ValidationContext(sender, null, null);
+            Validator.TryValidateObject(sender, contexto, validacao, true);
+            foreach(var erro in validacao)
+            {
 
+                foreach (Guna2TextBox txt in this.Controls.OfType<Guna2TextBox>())
+                {
+                    if (txt.Tag is null == false)
+                    {
+                        if (txt.Tag.ToString() == erro.ErrorMessage)
+                        {
+                            ErrorProvider eror = new ErrorProvider();
+                            eror.SetError(txt, "!!!");
+                        }
+                    }
+                }
+                
+            }
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             LuanVan lv = LoadData();
+            Validation(lv);
             gvDao.Them(lv);
         }
     }

@@ -77,6 +77,12 @@
     <Compile Include="ClassDoiTuong\TaiKhoanDangNhap.cs" />
     <Compile Include="ClassDoiTuong\ThongBao.cs" />
     <Compile Include="ClassDoiTuong\TinNhan.cs" />
+    <Compile Include="FLichHen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FLichHen.Designer.cs">
+      <DependentUpon>FLichHen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FNhiemVu_NoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,17 +119,23 @@
     <Compile Include="FormGiangVien\uc_GV_TongKet.Designer.cs">
       <DependentUpon>uc_GV_TongKet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Accepted.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Accepted.Designer.cs">
+      <DependentUpon>FSinhVien_Accepted.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSinhVien\FSinhVien_Controls.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien_Controls.Designer.cs">
       <DependentUpon>FSinhVien_Controls.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSinhVien\uc_SinhVien_NhiemVu.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="FormSinhVien\FSinhVien_NhiemVu.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSinhVien\uc_SinhVien_NhiemVu.Designer.cs">
-      <DependentUpon>uc_SinhVien_NhiemVu.cs</DependentUpon>
+    <Compile Include="FormSinhVien\FSinhVien_NhiemVu.designer.cs">
+      <DependentUpon>FSinhVien_NhiemVu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien.cs">
       <SubType>Form</SubType>
@@ -184,6 +196,12 @@
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien_Support_View.Designer.cs">
       <DependentUpon>FSinhVien_Support_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Thesis_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien\FSinhVien_Thesis_Detail.Designer.cs">
+      <DependentUpon>FSinhVien_Thesis_Detail.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Lich_SuKien.cs">
       <SubType>Form</SubType>
@@ -380,6 +398,9 @@
     <Compile Include="uc_Toast_Notice.Designer.cs">
       <DependentUpon>uc_Toast_Notice.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FLichHen.resx">
+      <DependentUpon>FLichHen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FNhiemVu_NoiDung.resx">
       <DependentUpon>FNhiemVu_NoiDung.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,11 +455,14 @@
     <EmbeddedResource Include="FormGiangVien\uc_GV_TongKet.resx">
       <DependentUpon>uc_GV_TongKet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Accepted.resx">
+      <DependentUpon>FSinhVien_Accepted.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien_Controls.resx">
       <DependentUpon>FSinhVien_Controls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSinhVien\uc_SinhVien_NhiemVu.resx">
-      <DependentUpon>uc_SinhVien_NhiemVu.cs</DependentUpon>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_NhiemVu.resx">
+      <DependentUpon>FSinhVien_NhiemVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien.resx">
       <DependentUpon>FSinhVien.cs</DependentUpon>
@@ -469,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien_Support_View.resx">
       <DependentUpon>FSinhVien_Support_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien\FSinhVien_Thesis_Detail.resx">
+      <DependentUpon>FSinhVien_Thesis_Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Lich_SuKien.resx">
       <DependentUpon>F_Lich_SuKien.cs</DependentUpon>

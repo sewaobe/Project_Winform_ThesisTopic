@@ -20,7 +20,14 @@ namespace Winform_Project.FormGiangVien
         {
             InitializeComponent();
             txtTieuDe.Text = bc.TieuDe;
+            
             this.baoCao = bc;
+        }
+        public FGiangVien_Progress_Check()
+        {
+            InitializeComponent();
+            
+            
         }
 
         private void btnGui_Click(object sender, EventArgs e)

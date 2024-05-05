@@ -17,6 +17,7 @@ namespace Winform_Project.FormGiangVien
     public partial class FGiangVien_Support_Add_SinhVien : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         public static SinhVien sinhVien;
         public FGiangVien_Support_Add_SinhVien()
         {
@@ -26,7 +27,7 @@ namespace Winform_Project.FormGiangVien
         private void LoadData()
         {
             fLoTrungTam.Controls.Clear();
-            DataTable dtNhomSinhVien = gvDao.LayThongTinSinhVien(FGiangVien_Controls.maSoNhom);
+            DataTable dtNhomSinhVien = conNguoiDao.LayThongTinSinhVien(FGiangVien_Controls.maSoNhom);
             for (int i = 0; i < dtNhomSinhVien.Rows.Count; i++)
             {
                 SinhVien sv = new SinhVien(dtNhomSinhVien.Rows[i]["HoTen"].ToString(),
