@@ -59,5 +59,6 @@ namespace Winform_Project.ClassDao
             string sqlStr = string.Format($"SELECT * FROM Lich WHERE MaSoNhom = '{maNhom}'");
             return db.Load(sqlStr);
         }
+            
     }
 }

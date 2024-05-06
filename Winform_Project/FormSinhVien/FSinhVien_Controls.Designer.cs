@@ -38,6 +38,8 @@
             this.btnThayDoiNhiemVu = new Guna.UI2.WinForms.Guna2Button();
             this.btnLich = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiLich = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTroChuyen = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiTroChuyen = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // btnNhanXet
@@ -193,12 +195,47 @@
             this.btnThayDoiLich.TabIndex = 20;
             this.btnThayDoiLich.Visible = false;
             // 
+            // btnTroChuyen
+            // 
+            this.btnTroChuyen.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTroChuyen.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTroChuyen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTroChuyen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTroChuyen.FillColor = System.Drawing.Color.White;
+            this.btnTroChuyen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroChuyen.ForeColor = System.Drawing.Color.Black;
+            this.btnTroChuyen.Location = new System.Drawing.Point(850, 55);
+            this.btnTroChuyen.Name = "btnTroChuyen";
+            this.btnTroChuyen.Size = new System.Drawing.Size(180, 45);
+            this.btnTroChuyen.TabIndex = 21;
+            this.btnTroChuyen.Text = "Trò chuyện";
+            // 
+            // btnThayDoiTroChuyen
+            // 
+            this.btnThayDoiTroChuyen.AutoRoundedCorners = true;
+            this.btnThayDoiTroChuyen.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiTroChuyen.BorderRadius = 6;
+            this.btnThayDoiTroChuyen.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiTroChuyen.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiTroChuyen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiTroChuyen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiTroChuyen.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiTroChuyen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiTroChuyen.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiTroChuyen.Location = new System.Drawing.Point(1015, 55);
+            this.btnThayDoiTroChuyen.Name = "btnThayDoiTroChuyen";
+            this.btnThayDoiTroChuyen.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiTroChuyen.TabIndex = 22;
+            this.btnThayDoiTroChuyen.Visible = false;
+            // 
             // FSinhVien_Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1440, 862);
+            this.Controls.Add(this.btnThayDoiTroChuyen);
+            this.Controls.Add(this.btnTroChuyen);
             this.Controls.Add(this.btnThayDoiLich);
             this.Controls.Add(this.btnLich);
             this.Controls.Add(this.btnThayDoiNhiemVu);
@@ -229,5 +266,7 @@
         public Guna.UI2.WinForms.Guna2Button btnThayDoiNhiemVu;
         public Guna.UI2.WinForms.Guna2Button btnLich;
         public Guna.UI2.WinForms.Guna2Button btnThayDoiLich;
+        public Guna.UI2.WinForms.Guna2Button btnTroChuyen;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoiTroChuyen;
     }
 }

@@ -74,14 +74,9 @@ namespace Winform_Project
                     uc_Lich_Ngay.btnNgay.ForeColor = Color.Blue;
                 foreach(var item in listLich)
                 {
-                    if(item.ThoiGianBatDau.Day == i) //Check ngày nào đã được hẹn -> Tô màu cho ngày đó theo sự kiện
+                    if(item.ThoiGianBatDau.Day == i && item.ThoiGianBatDau.Month == uc_Calendar.Thang && item.ThoiGianBatDau.Year == uc_Calendar.Nam) //Check ngày nào đã được hẹn -> Tô màu cho ngày đó theo sự kiện
                     {
-                        if (item.SuKien == "Online meeting")
-                            uc_Lich_Ngay.btnNgay.FillColor = Color.PaleTurquoise;
-                        else if (item.SuKien == "Offline meeting")
-                            uc_Lich_Ngay.btnNgay.FillColor = Color.PaleVioletRed;
-                        else
-                            uc_Lich_Ngay.btnNgay.FillColor = Color.Plum;
+                        
                         uc_Lich_Ngay.btnNgay.FillColor = Color.LightBlue;
 
                     }

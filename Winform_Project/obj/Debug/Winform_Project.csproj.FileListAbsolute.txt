@@ -176,3 +176,5 @@ C:\Win\Win (1)\Winform_Project\bin\Debug\EntityFramework.SqlServer.xml
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.csproj.CopyComplete
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.exe
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.pdb
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FChat_Messages.resources
+C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.uc_User_Chat.resources
