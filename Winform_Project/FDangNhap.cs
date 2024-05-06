@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
+using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
 {
@@ -39,6 +40,7 @@ namespace Winform_Project
                 uc_Toast_Notice.Show();
                 if (dt.Rows[0]["ChucVu"].ToString() == "Giảng viên")
                 {
+                    FGiangVien_Controls.role = 0;
                     LayThongTinGiangVien(dt.Rows[0]["HoTen"].ToString());
                     FGiangVien fGiangVien = new FGiangVien();
                     this.Hide();
@@ -47,6 +49,8 @@ namespace Winform_Project
                 }
                 else
                 {
+                    FGiangVien_Controls.role = 1;
+
                     layThongTinSinhVien(dt.Rows[0]["MSSV"].ToString());
                     //SinhVienAccount = svDao.LayThongTinSinhVien(dt.Rows[0]["MSSV"].ToString());
                     FSinhVien.FSinhVien fSinhVien = new FSinhVien.FSinhVien();

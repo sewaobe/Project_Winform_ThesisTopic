@@ -17,6 +17,12 @@ namespace Winform_Project.ClassDao
     {
         DBConnection db = new DBConnection();
         public static byte[] buffer_s;
+        public void DatLich(Lich lich)
+        {
+            string sqlStr = string.Format("INSERT INTO Lich(TieuDe, NoiDung, ThoiGianBatDau, ThoiGianKetThuc, SuKien, MaSoNhom)" +
+                                           $"Values('{lich.TieuDe}','{lich.NoiDung}','{lich.ThoiGianBatDau}','{lich.ThoiGianKetThuc}','{lich.SuKien}','{lich.MaSoNhom}')");
+            db.ThucThi(sqlStr);
+        }
         public GiangVienDao() { }
         public List<LuanVan> ChuyenDoiDuLieuSangLuanVan(DataTable dtDeTai)
         {

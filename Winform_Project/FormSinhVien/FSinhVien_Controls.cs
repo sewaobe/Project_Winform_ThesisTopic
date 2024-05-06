@@ -19,7 +19,7 @@ namespace Winform_Project.FormSinhVien
     {
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
-        public static int flag_NhiemVu = 0, flag_NhanXet = 0, flag_TienDo = 0;
+        public static int flag_NhiemVu = 0, flag_NhanXet = 0, flag_TienDo = 0, flag_Lich = 0;
 
         public FSinhVien_Controls()
         {
@@ -142,6 +142,8 @@ namespace Winform_Project.FormSinhVien
 
         private void btnLich_Click(object sender, EventArgs e)
         {
+            btnThayDoiOff(FSinhVien_Controls.flag_Lich, btnThayDoiLich);
+
             progress.Location = new Point(btnLich.Location.X, btnNhanXet.Location.Y + 40);
 
             fLoTrungTam.Controls.Clear();
@@ -156,6 +158,7 @@ namespace Winform_Project.FormSinhVien
             btnThayDoiOn(FSinhVien_Controls.flag_NhiemVu, btnThayDoiNhiemVu);
             btnThayDoiOn(FSinhVien_Controls.flag_TienDo, btnThayDoiTienDo);
             btnThayDoiOn(FSinhVien_Controls.flag_NhanXet, btnThayDoiNhanXet);
+            btnThayDoiOn(FSinhVien_Controls.flag_Lich, btnThayDoiLich);
         }
 
         private void btnNhiemVu_Click(object sender, EventArgs e)

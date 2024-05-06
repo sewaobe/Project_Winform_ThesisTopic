@@ -73,6 +73,7 @@
     <Compile Include="ClassDao\SinhVienDao.cs" />
     <Compile Include="ClassDoiTuong\BaoCao.cs" />
     <Compile Include="ClassDoiTuong\GiangVien.cs" />
+    <Compile Include="ClassDoiTuong\Lich.cs" />
     <Compile Include="ClassDoiTuong\NhiemVu.cs" />
     <Compile Include="ClassDoiTuong\TaiKhoanDangNhap.cs" />
     <Compile Include="ClassDoiTuong\ThongBao.cs" />

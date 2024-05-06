@@ -217,6 +217,7 @@
             // fLoTrungTamThang
             // 
             this.fLoTrungTamThang.AutoScroll = true;
+            this.fLoTrungTamThang.BackColor = System.Drawing.SystemColors.Control;
             this.fLoTrungTamThang.Location = new System.Drawing.Point(41, 180);
             this.fLoTrungTamThang.Name = "fLoTrungTamThang";
             this.fLoTrungTamThang.Size = new System.Drawing.Size(227, 407);

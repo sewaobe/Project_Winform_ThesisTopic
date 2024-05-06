@@ -39,15 +39,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtTieuDe = new Guna.UI2.WinForms.Guna2TextBox();
             this.ThoiGianBatDau = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.ThoiGianKetThuc = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.cbbSuKien = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtNoiDung = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnGui = new Guna.UI2.WinForms.Guna2Button();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung)).BeginInit();
+            this.DTPTimeStart = new Bunifu.UI.WinForms.BunifuDatePicker();
+            this.DTPTimeEnd = new Bunifu.UI.WinForms.BunifuDatePicker();
+            this.txtNoiDung = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // guna2Panel4
@@ -130,7 +130,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(52, 254);
+            this.label5.Location = new System.Drawing.Point(52, 262);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 28);
             this.label5.TabIndex = 78;
@@ -145,15 +145,6 @@
             this.label6.Size = new System.Drawing.Size(99, 28);
             this.label6.TabIndex = 79;
             this.label6.Text = "Nội dung:";
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(89, 348);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(29, 22);
-            this.guna2HtmlLabel1.TabIndex = 80;
-            this.guna2HtmlLabel1.Text = "abc";
             // 
             // txtTieuDe
             // 
@@ -180,7 +171,7 @@
             // 
             // ThoiGianBatDau
             // 
-            this.ThoiGianBatDau.BackColor = System.Drawing.Color.Transparent;
+            this.ThoiGianBatDau.BackColor = System.Drawing.Color.White;
             this.ThoiGianBatDau.BorderColor = System.Drawing.Color.Silver;
             this.ThoiGianBatDau.BorderRadius = 1;
             this.ThoiGianBatDau.Color = System.Drawing.Color.Silver;
@@ -189,23 +180,24 @@
             this.ThoiGianBatDau.DisabledColor = System.Drawing.Color.Gray;
             this.ThoiGianBatDau.DisplayWeekNumbers = false;
             this.ThoiGianBatDau.DPHeight = 0;
+            this.ThoiGianBatDau.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.ThoiGianBatDau.FillDatePicker = false;
             this.ThoiGianBatDau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ThoiGianBatDau.ForeColor = System.Drawing.Color.Black;
             this.ThoiGianBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.ThoiGianBatDau.Icon = ((System.Drawing.Image)(resources.GetObject("ThoiGianBatDau.Icon")));
-            this.ThoiGianBatDau.IconColor = System.Drawing.Color.Gray;
+            this.ThoiGianBatDau.IconColor = System.Drawing.SystemColors.Control;
             this.ThoiGianBatDau.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.ThoiGianBatDau.LeftTextMargin = 5;
             this.ThoiGianBatDau.Location = new System.Drawing.Point(248, 149);
-            this.ThoiGianBatDau.MinimumSize = new System.Drawing.Size(0, 32);
+            this.ThoiGianBatDau.MinimumSize = new System.Drawing.Size(4, 32);
             this.ThoiGianBatDau.Name = "ThoiGianBatDau";
             this.ThoiGianBatDau.Size = new System.Drawing.Size(220, 32);
             this.ThoiGianBatDau.TabIndex = 82;
             // 
             // ThoiGianKetThuc
             // 
-            this.ThoiGianKetThuc.BackColor = System.Drawing.Color.Transparent;
+            this.ThoiGianKetThuc.BackColor = System.Drawing.Color.White;
             this.ThoiGianKetThuc.BorderColor = System.Drawing.Color.Silver;
             this.ThoiGianKetThuc.BorderRadius = 1;
             this.ThoiGianKetThuc.Color = System.Drawing.Color.Silver;
@@ -214,16 +206,17 @@
             this.ThoiGianKetThuc.DisabledColor = System.Drawing.Color.Gray;
             this.ThoiGianKetThuc.DisplayWeekNumbers = false;
             this.ThoiGianKetThuc.DPHeight = 0;
+            this.ThoiGianKetThuc.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.ThoiGianKetThuc.FillDatePicker = false;
             this.ThoiGianKetThuc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ThoiGianKetThuc.ForeColor = System.Drawing.Color.Black;
             this.ThoiGianKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.ThoiGianKetThuc.Icon = ((System.Drawing.Image)(resources.GetObject("ThoiGianKetThuc.Icon")));
-            this.ThoiGianKetThuc.IconColor = System.Drawing.Color.Gray;
+            this.ThoiGianKetThuc.IconColor = System.Drawing.SystemColors.Control;
             this.ThoiGianKetThuc.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.ThoiGianKetThuc.LeftTextMargin = 5;
             this.ThoiGianKetThuc.Location = new System.Drawing.Point(248, 200);
-            this.ThoiGianKetThuc.MinimumSize = new System.Drawing.Size(0, 32);
+            this.ThoiGianKetThuc.MinimumSize = new System.Drawing.Size(4, 32);
             this.ThoiGianKetThuc.Name = "ThoiGianKetThuc";
             this.ThoiGianKetThuc.Size = new System.Drawing.Size(220, 32);
             this.ThoiGianKetThuc.TabIndex = 83;
@@ -242,28 +235,16 @@
             this.cbbSuKien.FormattingEnabled = true;
             this.cbbSuKien.ItemHeight = 30;
             this.cbbSuKien.Items.AddRange(new object[] {
-            "Cong nghe thong tin",
-            "Kinh te",
-            "Thuong mai dien tu",
-            "Co khi dien"});
+            "Online meeting",
+            "Offline meeting",
+            "Other...."});
             this.cbbSuKien.ItemsAppearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbSuKien.ItemsAppearance.SelectedBackColor = System.Drawing.Color.DeepSkyBlue;
             this.cbbSuKien.ItemsAppearance.SelectedForeColor = System.Drawing.Color.Black;
-            this.cbbSuKien.Location = new System.Drawing.Point(221, 246);
+            this.cbbSuKien.Location = new System.Drawing.Point(159, 254);
             this.cbbSuKien.Name = "cbbSuKien";
             this.cbbSuKien.Size = new System.Drawing.Size(245, 36);
             this.cbbSuKien.TabIndex = 84;
-            // 
-            // txtNoiDung
-            // 
-            this.txtNoiDung.BackColor = System.Drawing.Color.Transparent;
-            this.txtNoiDung.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNoiDung.ImageRotate = 0F;
-            this.txtNoiDung.Location = new System.Drawing.Point(57, 338);
-            this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(666, 142);
-            this.txtNoiDung.TabIndex = 85;
-            this.txtNoiDung.TabStop = false;
             // 
             // btnGui
             // 
@@ -280,6 +261,7 @@
             this.btnGui.Size = new System.Drawing.Size(134, 45);
             this.btnGui.TabIndex = 86;
             this.btnGui.Text = "Gửi";
+            this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
             // 
             // btnExit
             // 
@@ -299,18 +281,94 @@
             this.btnExit.TabIndex = 87;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // DTPTimeStart
+            // 
+            this.DTPTimeStart.BackColor = System.Drawing.Color.White;
+            this.DTPTimeStart.BorderColor = System.Drawing.Color.Silver;
+            this.DTPTimeStart.BorderRadius = 1;
+            this.DTPTimeStart.Color = System.Drawing.Color.Silver;
+            this.DTPTimeStart.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.DTPTimeStart.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
+            this.DTPTimeStart.DisabledColor = System.Drawing.Color.Gray;
+            this.DTPTimeStart.DisplayWeekNumbers = false;
+            this.DTPTimeStart.DPHeight = 0;
+            this.DTPTimeStart.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.DTPTimeStart.FillDatePicker = false;
+            this.DTPTimeStart.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DTPTimeStart.ForeColor = System.Drawing.Color.Black;
+            this.DTPTimeStart.Icon = ((System.Drawing.Image)(resources.GetObject("DTPTimeStart.Icon")));
+            this.DTPTimeStart.IconColor = System.Drawing.Color.Gray;
+            this.DTPTimeStart.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
+            this.DTPTimeStart.LeftTextMargin = 5;
+            this.DTPTimeStart.Location = new System.Drawing.Point(457, 149);
+            this.DTPTimeStart.MinimumSize = new System.Drawing.Size(4, 32);
+            this.DTPTimeStart.Name = "DTPTimeStart";
+            this.DTPTimeStart.Size = new System.Drawing.Size(220, 32);
+            this.DTPTimeStart.TabIndex = 88;
+            // 
+            // DTPTimeEnd
+            // 
+            this.DTPTimeEnd.BackColor = System.Drawing.Color.White;
+            this.DTPTimeEnd.BorderColor = System.Drawing.Color.Silver;
+            this.DTPTimeEnd.BorderRadius = 1;
+            this.DTPTimeEnd.Color = System.Drawing.Color.Silver;
+            this.DTPTimeEnd.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.DTPTimeEnd.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
+            this.DTPTimeEnd.DisabledColor = System.Drawing.Color.Gray;
+            this.DTPTimeEnd.DisplayWeekNumbers = false;
+            this.DTPTimeEnd.DPHeight = 0;
+            this.DTPTimeEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.DTPTimeEnd.FillDatePicker = false;
+            this.DTPTimeEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DTPTimeEnd.ForeColor = System.Drawing.Color.Black;
+            this.DTPTimeEnd.Icon = ((System.Drawing.Image)(resources.GetObject("DTPTimeEnd.Icon")));
+            this.DTPTimeEnd.IconColor = System.Drawing.Color.Gray;
+            this.DTPTimeEnd.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
+            this.DTPTimeEnd.LeftTextMargin = 5;
+            this.DTPTimeEnd.Location = new System.Drawing.Point(457, 200);
+            this.DTPTimeEnd.MinimumSize = new System.Drawing.Size(4, 32);
+            this.DTPTimeEnd.Name = "DTPTimeEnd";
+            this.DTPTimeEnd.Size = new System.Drawing.Size(220, 32);
+            this.DTPTimeEnd.TabIndex = 89;
+            // 
+            // txtNoiDung
+            // 
+            this.txtNoiDung.Animated = true;
+            this.txtNoiDung.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNoiDung.BorderColor = System.Drawing.Color.Black;
+            this.txtNoiDung.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNoiDung.DefaultText = "";
+            this.txtNoiDung.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNoiDung.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNoiDung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNoiDung.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNoiDung.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNoiDung.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNoiDung.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNoiDung.Location = new System.Drawing.Point(57, 351);
+            this.txtNoiDung.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNoiDung.Multiline = true;
+            this.txtNoiDung.Name = "txtNoiDung";
+            this.txtNoiDung.PasswordChar = '\0';
+            this.txtNoiDung.PlaceholderText = "";
+            this.txtNoiDung.SelectedText = "";
+            this.txtNoiDung.Size = new System.Drawing.Size(666, 139);
+            this.txtNoiDung.TabIndex = 90;
+            // 
             // FLichHen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 580);
+            this.Controls.Add(this.txtNoiDung);
+            this.Controls.Add(this.DTPTimeEnd);
+            this.Controls.Add(this.DTPTimeStart);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnGui);
             this.Controls.Add(this.cbbSuKien);
             this.Controls.Add(this.ThoiGianKetThuc);
             this.Controls.Add(this.ThoiGianBatDau);
             this.Controls.Add(this.txtTieuDe);
-            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -321,13 +379,11 @@
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.txtNoiDung);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FLichHen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FLichHen";
             this.Load += new System.EventHandler(this.FLichHen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,13 +401,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2TextBox txtTieuDe;
         private Bunifu.UI.WinForms.BunifuDatePicker ThoiGianBatDau;
         private Bunifu.UI.WinForms.BunifuDatePicker ThoiGianKetThuc;
         private Guna.UI2.WinForms.Guna2ComboBox cbbSuKien;
-        private Guna.UI2.WinForms.Guna2PictureBox txtNoiDung;
         private Guna.UI2.WinForms.Guna2Button btnGui;
         private Guna.UI2.WinForms.Guna2Button btnExit;
+        private Bunifu.UI.WinForms.BunifuDatePicker DTPTimeStart;
+        private Bunifu.UI.WinForms.BunifuDatePicker DTPTimeEnd;
+        private Guna.UI2.WinForms.Guna2TextBox txtNoiDung;
     }
 }

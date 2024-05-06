@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDao;
+using Winform_Project.ClassDoiTuong;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
@@ -16,6 +18,7 @@ namespace Winform_Project
     {
         int Thang, Nam;
         public static int Ngay;
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         public uc_Lich_Thu_Ngay()
         {
             InitializeComponent();
@@ -42,12 +45,47 @@ namespace Winform_Project
                 ucNgay.btnNgay.Text = "";
                 fLoTrungTam.Controls.Add(ucNgay);
             }
+            DataTable dtLich;
+            List<Lich> listLich = new List<Lich>(); 
+            if (FGiangVien_Controls.role == 1)
+            {
+                dtLich = conNguoiDao.LayThongTinLichHen(FDangNhap.SinhVienAccount.Masonhom);
+            }
+            else
+            {
+                dtLich = conNguoiDao.LayThongTinLichHen(FGiangVien_Controls.maSoNhom);
+            }
+            for (int i = 0; i < dtLich.Rows.Count; i++)
+            {
+                Lich lich = new Lich(dtLich.Rows[i]["TieuDe"].ToString(),
+                                dtLich.Rows[i]["NoiDung"].ToString(),
+                                Convert.ToDateTime(dtLich.Rows[i]["ThoiGianBatDau"]),
+                                Convert.ToDateTime(dtLich.Rows[i]["ThoiGianKetThuc"]),
+                                dtLich.Rows[i]["SuKien"].ToString(),
+                                dtLich.Rows[i]["MaSoNhom"].ToString()
+                                );
+                listLich.Add(lich);
+            }
             for(int i = 1; i <= tongNgayTrongThang; i++)
             {
                 uc_Lich_Ngay uc_Lich_Ngay = new uc_Lich_Ngay();
                 uc_Lich_Ngay.btnNgay.Text = i.ToString();
                 if (i == DateTime.Now.Day)
                     uc_Lich_Ngay.btnNgay.ForeColor = Color.Blue;
+                foreach(var item in listLich)
+                {
+                    if(item.ThoiGianBatDau.Day == i) //Check ngày nào đã được hẹn -> Tô màu cho ngày đó theo sự kiện
+                    {
+                        if (item.SuKien == "Online meeting")
+                            uc_Lich_Ngay.btnNgay.FillColor = Color.PaleTurquoise;
+                        else if (item.SuKien == "Offline meeting")
+                            uc_Lich_Ngay.btnNgay.FillColor = Color.PaleVioletRed;
+                        else
+                            uc_Lich_Ngay.btnNgay.FillColor = Color.Plum;
+                        uc_Lich_Ngay.btnNgay.FillColor = Color.LightBlue;
+
+                    }
+                }
                 uc_Lich_Ngay.btnNgay.Click += ucNgay_Click;
                 fLoTrungTam.Controls.Add(uc_Lich_Ngay);
 

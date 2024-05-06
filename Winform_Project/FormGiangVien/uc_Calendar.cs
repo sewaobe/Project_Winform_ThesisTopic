@@ -45,12 +45,13 @@ namespace Winform_Project.FormGiangVien
         }
         private void LayThang(object sender, EventArgs e)
         {
+
             Guna2Button btn = sender as Guna2Button;
             Thang = Convert.ToInt32(btn.Tag.ToString());
             FGiangVien_Calendar_Load(sender, e);
         }
 
-       
+        
         private void Load_UC()
         {
             fLoTrungTamThang.Controls.Clear();

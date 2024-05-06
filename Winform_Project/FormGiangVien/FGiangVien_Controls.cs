@@ -21,6 +21,7 @@ namespace Winform_Project.FormGiangVien
         ConNguoiDao conNguoiDao = new ConNguoiDao();
         public static string maSoNhom, maDeTai;
         public static int flag_NhiemVu = 0, flag_BaoCao = 0, flag_TienDo = 0, flag_Lich = 0;
+        public static int role = 0;
         public FGiangVien_Controls()
         {
             InitializeComponent();

@@ -54,5 +54,10 @@ namespace Winform_Project.ClassDao
             string sqlStr = string.Format($"SELECT * FROM SinhVien Where MaSoNhom = '{maNhom}'");
             return db.Load(sqlStr);
         }
+        public DataTable LayThongTinLichHen(string maNhom)
+        {
+            string sqlStr = string.Format($"SELECT * FROM Lich WHERE MaSoNhom = '{maNhom}'");
+            return db.Load(sqlStr);
+        }
     }
 }

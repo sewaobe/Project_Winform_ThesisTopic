@@ -38,6 +38,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lblThangNam = new System.Windows.Forms.Label();
+            this.btnThayDoi = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
@@ -127,11 +128,30 @@
             this.lblThangNam.TabIndex = 7;
             this.lblThangNam.Text = "Thứ bảy";
             // 
+            // btnThayDoi
+            // 
+            this.btnThayDoi.AutoRoundedCorners = true;
+            this.btnThayDoi.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoi.BorderRadius = 6;
+            this.btnThayDoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoi.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoi.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoi.Location = new System.Drawing.Point(505, 3);
+            this.btnThayDoi.Name = "btnThayDoi";
+            this.btnThayDoi.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoi.TabIndex = 19;
+            this.btnThayDoi.Visible = false;
+            // 
             // uc_Lich_Thu_Ngay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnThayDoi);
             this.Controls.Add(this.lblThangNam);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -162,5 +182,6 @@
         private System.Windows.Forms.Label label7;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label lblThangNam;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoi;
     }
 }

@@ -37,6 +37,7 @@
             this.btnThayDoiTienDo = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiNhiemVu = new Guna.UI2.WinForms.Guna2Button();
             this.btnLich = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiLich = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // btnNhanXet
@@ -174,12 +175,31 @@
             this.btnLich.Text = "Lịch";
             this.btnLich.Click += new System.EventHandler(this.btnLich_Click);
             // 
+            // btnThayDoiLich
+            // 
+            this.btnThayDoiLich.AutoRoundedCorners = true;
+            this.btnThayDoiLich.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiLich.BorderRadius = 6;
+            this.btnThayDoiLich.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiLich.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiLich.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiLich.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiLich.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiLich.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiLich.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiLich.Location = new System.Drawing.Point(829, 55);
+            this.btnThayDoiLich.Name = "btnThayDoiLich";
+            this.btnThayDoiLich.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiLich.TabIndex = 20;
+            this.btnThayDoiLich.Visible = false;
+            // 
             // FSinhVien_Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1440, 862);
+            this.Controls.Add(this.btnThayDoiLich);
             this.Controls.Add(this.btnLich);
             this.Controls.Add(this.btnThayDoiNhiemVu);
             this.Controls.Add(this.btnThayDoiTienDo);
@@ -208,5 +228,6 @@
         public Guna.UI2.WinForms.Guna2Button btnThayDoiTienDo;
         public Guna.UI2.WinForms.Guna2Button btnThayDoiNhiemVu;
         public Guna.UI2.WinForms.Guna2Button btnLich;
+        public Guna.UI2.WinForms.Guna2Button btnThayDoiLich;
     }
 }
