@@ -104,15 +104,25 @@ namespace Winform_Project.ClassDao
                 db.ThucThi(sqlStr);
             }
         }
-        public bool kiemtraTrangThai(SinhVien sv)
+        public int kiemtraTrangThai(SinhVien sv)
         {
             string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV={0}", sv.Mssv);
             DataTable dt = LoadData(sqlStr);
+
             if (dt.Rows[0]["MaSoNhom"].ToString() == "")
             {
-                return false;
+                return 2;
             }
-            return true;
+            string sqlStr1 = string.Format("SELECT * FROM ThongTinNhomDangKy WHERE MaSoNhom ={0}", dt.Rows[0]["MaSoNhom"].ToString());
+            DataTable dtNhom = db.Load(sqlStr1);
+            if (dtNhom.Rows.Count > 0)
+            {
+                string sqlStr2 = string.Format("SELECT * FROM ThongTinDeTai WHERE MaDeTai = {0}", dtNhom.Rows[0]["MaDeTai"].ToString());
+                DataTable dtDeTai = db.Load(sqlStr2);
+                if (dtDeTai.Rows[0]["TrangThai"].ToString() == "Chua duyet")
+                    return 3;
+            }
+            return 1;
         }
     }
 }

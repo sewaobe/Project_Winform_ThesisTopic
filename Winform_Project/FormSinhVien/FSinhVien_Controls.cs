@@ -19,7 +19,7 @@ namespace Winform_Project.FormSinhVien
     {
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
-        public static int flag_NhiemVu = 0, flag_NhanXet = 0, flag_TienDo = 0, flag_Lich = 0;
+        public static int flag_NhiemVu = 0, flag_NhanXet = 0, flag_TienDo = 0, flag_Lich = 0, flag_TroChuyen = 0;
 
         public FSinhVien_Controls()
         {
@@ -140,6 +140,17 @@ namespace Winform_Project.FormSinhVien
             chart.Show();
         }
 
+        private void btnTroChuyen_Click(object sender, EventArgs e)
+        {
+            btnThayDoiOff(FSinhVien_Controls.flag_TroChuyen, btnThayDoiTroChuyen);
+
+            progress.Location = new Point(btnTroChuyen.Location.X, btnNhanXet.Location.Y + 40);
+
+            fLoTrungTam.Controls.Clear();
+            ucChat_Messages ucChat_Messages = new ucChat_Messages();
+            fLoTrungTam.Controls.Add(ucChat_Messages);
+        }
+
         private void btnLich_Click(object sender, EventArgs e)
         {
             btnThayDoiOff(FSinhVien_Controls.flag_Lich, btnThayDoiLich);
@@ -159,6 +170,7 @@ namespace Winform_Project.FormSinhVien
             btnThayDoiOn(FSinhVien_Controls.flag_TienDo, btnThayDoiTienDo);
             btnThayDoiOn(FSinhVien_Controls.flag_NhanXet, btnThayDoiNhanXet);
             btnThayDoiOn(FSinhVien_Controls.flag_Lich, btnThayDoiLich);
+            btnThayDoiOn(FSinhVien_Controls.flag_TroChuyen, btnThayDoiTroChuyen);
         }
 
         private void btnNhiemVu_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
 
 namespace Winform_Project.uc_SV
@@ -14,6 +15,7 @@ namespace Winform_Project.uc_SV
     public partial class uc_SV_TongKet_DanhGia : UserControl
     {
         SinhVien sinhVien;
+        GiangVienDao gvDao = new GiangVienDao();    
         public uc_SV_TongKet_DanhGia()
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace Winform_Project.uc_SV
             lblMSSV.Text = sv.Mssv;
             lblKhoa.Text = sv.Khoa;
             lblNganh.Text = sv.Nganh;
+            
             picEdit.MouseHover += picHover;
             picEdit.MouseLeave += picLeave;
         }
@@ -42,8 +45,14 @@ namespace Winform_Project.uc_SV
         {
             lblDiem.Text = progress.Value.ToString();
             lblDiem.Visible = true;
-            lblDiem.Location = new Point(progress.Location.X + progress.Value * 5 / 3, progress.Location.Y - 20);
+            lblDiem.Location = new Point(progress.Location.X + progress.Value * 4 / 3, progress.Location.Y - 20);
 
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            SinhVien sv = new SinhVien(lblMSSV.Text, (progress.Value/10).ToString());
+            gvDao.DanhGiaSinhVien(sv);
         }
     }
 }

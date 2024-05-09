@@ -16,5 +16,20 @@ namespace Winform_Project.FormGiangVien
         {
             InitializeComponent();
         }
+
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DTPthoiGian_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

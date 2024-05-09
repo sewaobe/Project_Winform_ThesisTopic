@@ -73,7 +73,7 @@ namespace Winform_Project
         private void FGiangVien_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);
-            DataTable dtDeTai = gvDao.LoadData("SELECT * FROM ThongTinDeTai");
+            DataTable dtDeTai = gvDao.LoadData($"SELECT * FROM ThongTinDeTai WHERE TenGiangVien = '{FDangNhap.giangVienAccount.Ten}'");
             List<LuanVan> lv_list = new List<LuanVan>();
             for(int i = 0; i < dtDeTai.Rows.Count; i++)
             {
@@ -163,7 +163,7 @@ namespace Winform_Project
 
         private void btnThongBao_Click(object sender, EventArgs e)
         {
-            container(new FGiangVien_SupportTopic());
+            container(new FGiangVien_Notify());
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)

@@ -13,11 +13,16 @@ namespace Winform_Project.ClassDoiTuong
         private string nganh;
         private string mssv;
         private string masonhom;
+        private string diem;
 
         public SinhVien()
         {
         }
-
+        public SinhVien(string mssv, string diem)
+        {
+            Mssv = mssv;
+            Diem = diem;
+        }
         public SinhVien(string ten, string gioiTinh, DateTime ngaySinh, string sdt, string khoa, string nganh, string mssv,string masonhom) : base(ten, gioiTinh, ngaySinh, sdt)
         {
             this.Mssv = mssv;   
@@ -30,5 +35,6 @@ namespace Winform_Project.ClassDoiTuong
         public string Nganh { get => nganh; set => nganh = value; }
         public string Mssv { get => mssv; set => mssv = value; }
         public string Masonhom { get => masonhom; set => masonhom = value; }
+        public string Diem { get => diem; set => diem = value; }
     }
 }

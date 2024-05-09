@@ -11,10 +11,11 @@ namespace Winform_Project.ClassDoiTuong
         private string email;
         private string facebook;
 
+        
         public GiangVien()
         {
         }
-
+        
         public GiangVien(string ten, string gioiTinh, DateTime ngaySinh, string sdt, string email, string facebook) : base(ten, gioiTinh, ngaySinh, sdt)
         {
             this.Email = email;

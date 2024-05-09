@@ -23,10 +23,15 @@ namespace Winform_Project.ClassDoiTuong
         private string tenGiangVien;
         private string congNghe;
         private string trangThai;
+        private string diem;
         public LuanVan()
         {
         }
-
+        public LuanVan(string maDeTai, string diem)
+        {
+            MaDeTai = maDeTai;
+            Diem = diem;
+        }
         public LuanVan(string maDeTai, string tenDeTai, string theLoai, string soLuong, string moTa, string chucNang, string yeuCau, string congNghe, string khoa, string nganh,string hocKy, string tenGiangVien, string trangThai)
         {
             this.MaDeTai = maDeTai;
@@ -58,5 +63,6 @@ namespace Winform_Project.ClassDoiTuong
         public string CongNghe { get => congNghe; set => congNghe = value; }
         public string HocKy { get => hocKy; set => hocKy = value; }
         public string TrangThai { get => trangThai; set => trangThai = value; }
+        public string Diem { get => diem; set => diem = value; }
     }
 }

@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSinhVien));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDangKyDeTai = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLienHe = new Guna.UI2.WinForms.Guna2Button();
             this.btnThongBao = new Guna.UI2.WinForms.Guna2Button();
             this.btnTienDo = new Guna.UI2.WinForms.Guna2Button();
             this.btnThongTinCaNhan = new Guna.UI2.WinForms.Guna2Button();
@@ -59,7 +58,6 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.Window;
             this.guna2Panel1.Controls.Add(this.btnDangKyDeTai);
-            this.guna2Panel1.Controls.Add(this.btnLienHe);
             this.guna2Panel1.Controls.Add(this.btnThongBao);
             this.guna2Panel1.Controls.Add(this.btnTienDo);
             this.guna2Panel1.Controls.Add(this.btnThongTinCaNhan);
@@ -110,37 +108,6 @@
             this.btnDangKyDeTai.CheckedChanged += new System.EventHandler(this.btnThongTinCaNhan_CheckedChanged);
             this.btnDangKyDeTai.Click += new System.EventHandler(this.btnDangKyDeTai_Click_1);
             // 
-            // btnLienHe
-            // 
-            this.btnLienHe.BackColor = System.Drawing.Color.Transparent;
-            this.btnLienHe.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(149)))), ((int)(((byte)(150)))));
-            this.btnLienHe.BorderRadius = 20;
-            this.btnLienHe.BorderThickness = 1;
-            this.btnLienHe.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnLienHe.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.btnLienHe.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnLienHe.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.btnLienHe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLienHe.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLienHe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLienHe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLienHe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(149)))), ((int)(((byte)(150)))));
-            this.btnLienHe.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLienHe.ForeColor = System.Drawing.Color.Black;
-            this.btnLienHe.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(175)))), ((int)(((byte)(153)))));
-            this.btnLienHe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(221)))), ((int)(((byte)(207)))));
-            this.btnLienHe.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnLienHe.Image = ((System.Drawing.Image)(resources.GetObject("btnLienHe.Image")));
-            this.btnLienHe.ImageSize = new System.Drawing.Size(38, 38);
-            this.btnLienHe.Location = new System.Drawing.Point(48, 686);
-            this.btnLienHe.Name = "btnLienHe";
-            this.btnLienHe.Size = new System.Drawing.Size(81, 73);
-            this.btnLienHe.TabIndex = 17;
-            this.btnLienHe.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLienHe.UseTransparentBackground = true;
-            this.btnLienHe.CheckedChanged += new System.EventHandler(this.btnThongTinCaNhan_CheckedChanged);
-            this.btnLienHe.Click += new System.EventHandler(this.btnLienHe_Click);
-            // 
             // btnThongBao
             // 
             this.btnThongBao.BackColor = System.Drawing.Color.Transparent;
@@ -150,7 +117,7 @@
             this.btnThongBao.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnThongBao.CheckedState.BorderColor = System.Drawing.Color.White;
             this.btnThongBao.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnThongBao.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.btnThongBao.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.btnThongBao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnThongBao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnThongBao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -181,7 +148,7 @@
             this.btnTienDo.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnTienDo.CheckedState.BorderColor = System.Drawing.Color.White;
             this.btnTienDo.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnTienDo.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.btnTienDo.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.btnTienDo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnTienDo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnTienDo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -212,7 +179,7 @@
             this.btnThongTinCaNhan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnThongTinCaNhan.CheckedState.BorderColor = System.Drawing.Color.White;
             this.btnThongTinCaNhan.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnThongTinCaNhan.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.btnThongTinCaNhan.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.btnThongTinCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnThongTinCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnThongTinCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -243,7 +210,7 @@
             this.btnQuanLyDeTai.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnQuanLyDeTai.CheckedState.BorderColor = System.Drawing.Color.White;
             this.btnQuanLyDeTai.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnQuanLyDeTai.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.btnQuanLyDeTai.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.btnQuanLyDeTai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyDeTai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyDeTai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -289,32 +256,35 @@
             // lblChucVu
             // 
             this.lblChucVu.AutoSize = true;
-            this.lblChucVu.Location = new System.Drawing.Point(63, 214);
+            this.lblChucVu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(168)))), ((int)(((byte)(248)))));
+            this.lblChucVu.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucVu.Location = new System.Drawing.Point(47, 216);
             this.lblChucVu.Name = "lblChucVu";
-            this.lblChucVu.Size = new System.Drawing.Size(66, 20);
+            this.lblChucVu.Size = new System.Drawing.Size(99, 28);
             this.lblChucVu.TabIndex = 9;
-            this.lblChucVu.Text = "Chức vụ";
-            this.lblChucVu.Visible = false;
+            this.lblChucVu.Text = "Sinh vien";
             // 
             // lblMSSV
             // 
             this.lblMSSV.AutoSize = true;
-            this.lblMSSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMSSV.Location = new System.Drawing.Point(66, 175);
+            this.lblMSSV.BackColor = System.Drawing.Color.Transparent;
+            this.lblMSSV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMSSV.Location = new System.Drawing.Point(48, 176);
             this.lblMSSV.Name = "lblMSSV";
-            this.lblMSSV.Size = new System.Drawing.Size(50, 17);
+            this.lblMSSV.Size = new System.Drawing.Size(100, 28);
             this.lblMSSV.TabIndex = 8;
-            this.lblMSSV.Text = "MSSV";
+            this.lblMSSV.Text = "22110285";
             // 
             // lblTen
             // 
             this.lblTen.AutoSize = true;
-            this.lblTen.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTen.Location = new System.Drawing.Point(35, 136);
+            this.lblTen.BackColor = System.Drawing.Color.Transparent;
+            this.lblTen.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTen.Location = new System.Drawing.Point(70, 134);
             this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(119, 23);
+            this.lblTen.Size = new System.Drawing.Size(46, 28);
             this.lblTen.TabIndex = 0;
-            this.lblTen.Text = "Tên sinh viên";
+            this.lblTen.Text = "Bao";
             // 
             // guna2PictureBox1
             // 
@@ -418,7 +388,6 @@
         public Guna.UI2.WinForms.Guna2Button btnDangKyDeTai;
         public Guna.UI2.WinForms.Guna2Button btnTienDo;
         public Guna.UI2.WinForms.Guna2Button btnThongBao;
-        public Guna.UI2.WinForms.Guna2Button btnLienHe;
         private Guna.UI2.WinForms.Guna2PictureBox picChonBtn;
     }
 }

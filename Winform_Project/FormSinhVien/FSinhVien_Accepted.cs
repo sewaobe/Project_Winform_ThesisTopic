@@ -85,16 +85,17 @@ namespace Winform_Project.FormSinhVien
             DataTable dtSinhVien = conNguoiDao.LayThongTinSinhVien(FDangNhap.SinhVienAccount.Masonhom);
             for(int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                SinhVien sv = new SinhVien(dtSinhVien.Rows[0]["HoTen"].ToString(), 
-                                           dtSinhVien.Rows[0]["GioiTinh"].ToString(), 
-                                           Convert.ToDateTime(dtSinhVien.Rows[0]["NgaySinh"]), 
-                                           dtSinhVien.Rows[0]["SDT"].ToString(), 
-                                           dtSinhVien.Rows[0]["Khoa"].ToString(), 
-                                           dtSinhVien.Rows[0]["Nganh"].ToString(), 
-                                           dtSinhVien.Rows[0]["MSSV"].ToString(), 
-                                           dtSinhVien.Rows[0]["MaSoNhom"].ToString());
+                SinhVien sv = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(), 
+                                           dtSinhVien.Rows[i]["GioiTinh"].ToString(), 
+                                           Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]), 
+                                           dtSinhVien.Rows[i]["SDT"].ToString(), 
+                                           dtSinhVien.Rows[i]["Khoa"].ToString(), 
+                                           dtSinhVien.Rows[i]["Nganh"].ToString(), 
+                                           dtSinhVien.Rows[i]["MSSV"].ToString(), 
+                                           dtSinhVien.Rows[i]["MaSoNhom"].ToString());
                 listSinhVien.Add(sv);
             }
+            
             FSinhVien_Thesis_Detail fSinhVien_Thesis_Detail = new FSinhVien_Thesis_Detail(uc.luanvan, listSinhVien);
             fSinhVien_Thesis_Detail.Dock = DockStyle.Fill;
             FSinhVien.FSinhVien.panelTrungTam.Controls.Clear();

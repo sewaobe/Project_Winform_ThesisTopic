@@ -162,7 +162,7 @@ namespace Winform_Project.FormSinhVien
         {
             this.Hide();
         }
-        private void container(object form)
+        public static void container(object form)
         {
             if (FSinhVien.FSinhVien.panelTrungTam.Controls.Count > 0) { FSinhVien.FSinhVien.panelTrungTam.Controls.Clear(); }
             try

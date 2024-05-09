@@ -159,6 +159,7 @@
             this.btnXacNhan.Size = new System.Drawing.Size(133, 50);
             this.btnXacNhan.TabIndex = 14;
             this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // label6
             // 
@@ -329,14 +330,14 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label lblKetQua;
-        private Guna.UI2.WinForms.Guna2Button btnXacNhan;
         public System.Windows.Forms.Label label6;
-        private Bunifu.UI.WinForms.BunifuHSlider progress;
         public System.Windows.Forms.Label lblGioiTinh;
         public System.Windows.Forms.Label lblKhoa;
         public System.Windows.Forms.Label lblNganh;
         public System.Windows.Forms.Label lblDiem;
         public Guna.UI2.WinForms.Guna2PictureBox picEdit;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        public Guna.UI2.WinForms.Guna2Button btnXacNhan;
+        public Bunifu.UI.WinForms.BunifuHSlider progress;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

@@ -209,6 +209,7 @@
             this.btnTroChuyen.Size = new System.Drawing.Size(180, 45);
             this.btnTroChuyen.TabIndex = 21;
             this.btnTroChuyen.Text = "Trò chuyện";
+            this.btnTroChuyen.Click += new System.EventHandler(this.btnTroChuyen_Click);
             // 
             // btnThayDoiTroChuyen
             // 

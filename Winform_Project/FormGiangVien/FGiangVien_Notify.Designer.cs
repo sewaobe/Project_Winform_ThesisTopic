@@ -49,10 +49,9 @@
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2Button1.Location = new System.Drawing.Point(62, 62);
             this.guna2Button1.Name = "guna2Button1";
@@ -67,10 +66,9 @@
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.Black;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
             this.guna2Button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.guna2Button2.Location = new System.Drawing.Point(248, 62);
@@ -78,7 +76,6 @@
             this.guna2Button2.Size = new System.Drawing.Size(180, 45);
             this.guna2Button2.TabIndex = 1;
             this.guna2Button2.Text = "Chưa xem";
-            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // progress
             // 
@@ -106,6 +103,7 @@
             this.DTPthoiGian.DisabledColor = System.Drawing.Color.Gray;
             this.DTPthoiGian.DisplayWeekNumbers = false;
             this.DTPthoiGian.DPHeight = 0;
+            this.DTPthoiGian.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.DTPthoiGian.FillDatePicker = false;
             this.DTPthoiGian.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DTPthoiGian.ForeColor = System.Drawing.Color.Black;
@@ -113,22 +111,24 @@
             this.DTPthoiGian.IconColor = System.Drawing.Color.Gray;
             this.DTPthoiGian.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.DTPthoiGian.LeftTextMargin = 5;
-            this.DTPthoiGian.Location = new System.Drawing.Point(1001, 121);
-            this.DTPthoiGian.MinimumSize = new System.Drawing.Size(0, 32);
+            this.DTPthoiGian.Location = new System.Drawing.Point(974, 113);
+            this.DTPthoiGian.MinimumSize = new System.Drawing.Size(4, 32);
             this.DTPthoiGian.Name = "DTPthoiGian";
-            this.DTPthoiGian.Size = new System.Drawing.Size(228, 32);
+            this.DTPthoiGian.Size = new System.Drawing.Size(255, 32);
             this.DTPthoiGian.TabIndex = 8;
+            this.DTPthoiGian.ValueChanged += new System.EventHandler(this.DTPthoiGian_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(891, 125);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(860, 119);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 28);
+            this.label1.Size = new System.Drawing.Size(102, 28);
             this.label1.TabIndex = 9;
             this.label1.Text = "Thời gian:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2Button3
             // 
@@ -162,13 +162,14 @@
             // 
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(861, 125);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(828, 113);
             this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(1);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(31, 34);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox2.TabIndex = 12;
             this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox2_Click);
             // 
             // FGiangVien_Notify
             // 

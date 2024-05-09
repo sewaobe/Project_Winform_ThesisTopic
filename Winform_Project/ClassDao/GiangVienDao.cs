@@ -17,6 +17,16 @@ namespace Winform_Project.ClassDao
     {
         DBConnection db = new DBConnection();
         public static byte[] buffer_s;
+        public void DanhGiaSinhVien(SinhVien sv)
+        {
+            string sqlStr = string.Format($"UPDATE SinhVien Set Diem = '{sv.Diem}' WHERE MSSV = '{sv.Mssv}'");
+            db.ThucThi(sqlStr);
+        }
+        public void DanhGiaLuanVan(LuanVan lv)
+        {
+            string sqlStr = string.Format($"UPDATE ThongTinDeTai Set Diem ='{lv.Diem}' WHERE MaDeTai = '{lv.MaDeTai}'");
+            db.ThucThi(sqlStr);
+        }
         public void DatLich(Lich lich)
         {
             string sqlStr = string.Format("INSERT INTO Lich(TieuDe, NoiDung, ThoiGianBatDau, ThoiGianKetThuc, SuKien, MaSoNhom)" +
@@ -24,40 +34,45 @@ namespace Winform_Project.ClassDao
             db.ThucThi(sqlStr);
         }
         public GiangVienDao() { }
+
+        //New
         public List<LuanVan> ChuyenDoiDuLieuSangLuanVan(DataTable dtDeTai)
         {
             List<LuanVan> lv_list = new List<LuanVan>();
             for (int i = 0; i < dtDeTai.Rows.Count; i++)
             {
-                string MaDeTai, TenDeTai, SoLuong, MoTa, YeuCau, ChucNang, TheLoai, CongNghe, Nganh, Khoa, HocKy, TenGiangVien, TrangThai;
+                if (dtDeTai.Rows[i]["TenGiangVien"].ToString() == FDangNhap.giangVienAccount.Ten)
+                {
+                    string MaDeTai, TenDeTai, SoLuong, MoTa, YeuCau, ChucNang, TheLoai, CongNghe, Nganh, Khoa, HocKy, TenGiangVien, TrangThai;
 
-                MaDeTai = dtDeTai.Rows[i]["MaDeTai"].ToString();
-                TenDeTai = dtDeTai.Rows[i]["TenDeTai"].ToString();
-                SoLuong = dtDeTai.Rows[i]["SoLuong"].ToString();
-                MoTa = dtDeTai.Rows[i]["MoTa"].ToString();
-                YeuCau = dtDeTai.Rows[i]["YeuCau"].ToString();
-                ChucNang = dtDeTai.Rows[i]["ChucNang"].ToString();
-                TheLoai = dtDeTai.Rows[i]["TheLoai"].ToString();
-                CongNghe = dtDeTai.Rows[i]["CongNghe"].ToString();
-                Nganh = dtDeTai.Rows[i]["Nganh"].ToString();
-                Khoa = dtDeTai.Rows[i]["Khoa"].ToString();
-                HocKy = dtDeTai.Rows[i]["HocKy"].ToString();
-                TenGiangVien = dtDeTai.Rows[i]["TenGiangVien"].ToString();
-                TrangThai = dtDeTai.Rows[i]["TrangThai"].ToString();
-                LuanVan lv = new LuanVan(MaDeTai,
-                                         TenDeTai,
-                                         TheLoai,
-                                         SoLuong,
-                                         MoTa,
-                                         ChucNang,
-                                         YeuCau,
-                                         CongNghe,
-                                         Khoa,
-                                         Nganh,
-                                         HocKy,
-                                         TenGiangVien,
-                                         TrangThai);
-                lv_list.Add(lv);
+                    MaDeTai = dtDeTai.Rows[i]["MaDeTai"].ToString();
+                    TenDeTai = dtDeTai.Rows[i]["TenDeTai"].ToString();
+                    SoLuong = dtDeTai.Rows[i]["SoLuong"].ToString();
+                    MoTa = dtDeTai.Rows[i]["MoTa"].ToString();
+                    YeuCau = dtDeTai.Rows[i]["YeuCau"].ToString();
+                    ChucNang = dtDeTai.Rows[i]["ChucNang"].ToString();
+                    TheLoai = dtDeTai.Rows[i]["TheLoai"].ToString();
+                    CongNghe = dtDeTai.Rows[i]["CongNghe"].ToString();
+                    Nganh = dtDeTai.Rows[i]["Nganh"].ToString();
+                    Khoa = dtDeTai.Rows[i]["Khoa"].ToString();
+                    HocKy = dtDeTai.Rows[i]["HocKy"].ToString();
+                    TenGiangVien = dtDeTai.Rows[i]["TenGiangVien"].ToString();
+                    TrangThai = dtDeTai.Rows[i]["TrangThai"].ToString();
+                    LuanVan lv = new LuanVan(MaDeTai,
+                                             TenDeTai,
+                                             TheLoai,
+                                             SoLuong,
+                                             MoTa,
+                                             ChucNang,
+                                             YeuCau,
+                                             CongNghe,
+                                             Khoa,
+                                             Nganh,
+                                             HocKy,
+                                             TenGiangVien,
+                                             TrangThai);
+                    lv_list.Add(lv);
+                }
             }
             return lv_list is null ? null : lv_list;
         }
@@ -200,6 +215,21 @@ namespace Winform_Project.ClassDao
             string sqlStr2 = string.Format("UPDATE ThongTinNhomDangKy SET  TrangThai = 'Da duyet' Where  MaSoNhom='{0}'",  MSN);
             db.ThucThi(sqlStr2);
 
+        }
+        //New
+        public void KhongDuyetDeTai(string MSDT, string MSN)
+        {
+            string sqlStr1 = string.Format("UPDATE ThongTinDeTai SET TrangThai = 'Chua dang ki' Where MaDeTai = '{0}'", MSDT);
+            db.ThucThi(sqlStr1);
+            string sqlStr2 = string.Format("SELECT * FROM SinhVien Where  MaSoNhom='{0}'", MSN);
+            DataTable dtSinhVien = db.Load(sqlStr2);
+            for(int i = 0; i < dtSinhVien.Rows.Count; i++)
+            {
+                string sqlStr3 = string.Format("UPDATE SinhVien SET  MaSoNhom = NULL Where  MSSV='{0}'", dtSinhVien.Rows[i]["MSSV"].ToString()); 
+                db.ThucThi(sqlStr3);
+            }
+            string sqlStr4 = string.Format("DELETE From ThongTinNhomDangKy WHERE MaSoNhom ='{0}'", MSN);
+            db.ThucThi(sqlStr4);
         }
     }
 }

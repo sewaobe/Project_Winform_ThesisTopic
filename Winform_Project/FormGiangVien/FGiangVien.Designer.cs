@@ -43,6 +43,9 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.picChonBtn = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel_container = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.cbbHocKy = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -54,9 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.guna2ShadowForm2 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -343,6 +343,36 @@
             this.guna2Panel_container.TabIndex = 2;
             this.guna2Panel_container.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel_container_Paint);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(931, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 21);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Mời bạn chọn học kỳ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(505, 146);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Mời bạn chọn ngành";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(58, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 21);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Mời bạn chọn khoa";
+            // 
             // txtTimKiem
             // 
             this.txtTimKiem.AutoScroll = true;
@@ -466,9 +496,9 @@
             this.fLoTrungTam.AutoScroll = true;
             this.fLoTrungTam.BackColor = System.Drawing.SystemColors.Control;
             this.fLoTrungTam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fLoTrungTam.Location = new System.Drawing.Point(119, 304);
+            this.fLoTrungTam.Location = new System.Drawing.Point(78, 291);
             this.fLoTrungTam.Name = "fLoTrungTam";
-            this.fLoTrungTam.Size = new System.Drawing.Size(1020, 572);
+            this.fLoTrungTam.Size = new System.Drawing.Size(1050, 572);
             this.fLoTrungTam.TabIndex = 6;
             this.fLoTrungTam.Paint += new System.Windows.Forms.PaintEventHandler(this.fLoTrungTam_Paint);
             // 
@@ -513,36 +543,6 @@
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.1D;
             this.guna2DragControl1.TargetControl = this.guna2Panel1;
             this.guna2DragControl1.UseTransparentDrag = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 21);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Mời bạn chọn khoa";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(505, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 21);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Mời bạn chọn ngành";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(931, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 21);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Mời bạn chọn học kỳ";
             // 
             // guna2ShadowForm2
             // 

@@ -11,8 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
+using Winform_Project.FormGiangVien;
+using Winform_Project.FormSinhVien;
 using Winform_Project.uc_SV;
-
 namespace Winform_Project.FSinhVien
 {
     public partial class FSinhVien_Reg_Done : Form
@@ -21,7 +22,9 @@ namespace Winform_Project.FSinhVien
         LuanVan luanvan = new LuanVan();
         SinhVienDao svDao = new SinhVienDao();
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
-        
+        public static FlowLayoutPanel fLoHienThiSinhVien;
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
+
         public FSinhVien_Reg_Done( LuanVan lv)
         {
             InitializeComponent();
@@ -31,16 +34,16 @@ namespace Winform_Project.FSinhVien
             txtCongNghe.Text = lv.CongNghe;
             txtMaDeTai.Text = lv.MaDeTai;
             txtTenDeTai.Text = lv.TenDeTai;
+            fLoHienThiSinhVien = flowThongTinSV;
         }
 
         private void FSinhVien_Reg_Done_Load(object sender, EventArgs e)
         {
             flowThongTinSV.Controls.Clear();
-            string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV LIKE '{0}%'", txtMSSV.Text);
-            DataTable dtSinhVien = svDao.LoadData(sqlStr);
+            DataTable dtSinhVien = conNguoiDao.TimThongTinSinhVien("");
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                if (dtSinhVien.Rows[i]["MaSoNhom"].ToString() == "")
+                if (dtSinhVien.Rows[i]["MSSV"].ToString() == FDangNhap.SinhVienAccount.Mssv)
                 {
                     SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
                         dtSinhVien.Rows[i]["GioiTinh"].ToString(),
@@ -52,9 +55,9 @@ namespace Winform_Project.FSinhVien
                         txtIDnhom.Text
                                                         );
                     uc_SV_ThongTin uc_SV_ThongTin = new uc_SV_ThongTin(sinhvien);
-                    uc_SV_ThongTin.btnThemSinhVien.Click += btnThemSV_Click;
+                    uc_SV_ThongTin.btnThemSinhVien.Image = Properties.Resources.check;
                     flowThongTinSV.Controls.Add(uc_SV_ThongTin);
-                    uc_SV_ThongTin.Show();
+                    break;
                 }
             }
         }
@@ -74,39 +77,34 @@ namespace Winform_Project.FSinhVien
 
         }
 
-        private void btnThemSV_Click(object sender, EventArgs e)
-        {
-            Guna2CirclePictureBox btn = (Guna2CirclePictureBox)sender;
-            uc_SV_ThongTin uc = btn.Parent as uc_SV_ThongTin;
-            
-            svDao.themSinhVien(uc.sv,txtMaDeTai.Text);
-            FSinhVien_Reg_Done_Load(sender, e);
-        }
+        
 
-        private void txtMSSV_TextChanged(object sender, EventArgs e)
-        {
-            FSinhVien_Reg_Done_Load(sender, e);
-        }
-
+        
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             if(cbXacNhan.Checked == true)
             {
-                svDao.DangKy(SinhVienAccount, txtIDnhom.Text, txtMaDeTai.Text);
-                FDangNhap fDangNhap = new FDangNhap();
-                fDangNhap.layThongTinSinhVien(SinhVienAccount.Mssv);
-                this.Hide();
+                foreach(uc_SV_ThongTin uc in fLoHienThiSinhVien.Controls.OfType<uc_SV_ThongTin>())
+                {
+                    svDao.DangKy(uc.sv, txtIDnhom.Text, txtMaDeTai.Text);
+                }
+               
             }    
-        }
-
-        private void flowThongTinSV_Paint()
-        {
-            
         }
 
         private void txtIDnhom_TextChanged(object sender, EventArgs e)
         {
-            FSinhVien_Reg_Done_Load(sender, e);
+        }
+
+        private void btnThemSinhVien_Click(object sender, EventArgs e)
+        {
+            FGiangVien_Support_Add_SinhVien fGiangVien_Support_Add_SinhVien = new FGiangVien_Support_Add_SinhVien();
+            fGiangVien_Support_Add_SinhVien.Show();
+        }
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            FSinhVien_Thesis_Detail.container(new FSinhVien_Reg());
         }
     }
 }

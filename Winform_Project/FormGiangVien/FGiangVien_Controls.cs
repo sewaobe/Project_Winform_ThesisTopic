@@ -20,7 +20,7 @@ namespace Winform_Project.FormGiangVien
         GiangVienDao gvDao = new GiangVienDao();
         ConNguoiDao conNguoiDao = new ConNguoiDao();
         public static string maSoNhom, maDeTai;
-        public static int flag_NhiemVu = 0, flag_BaoCao = 0, flag_TienDo = 0, flag_Lich = 0;
+        public static int flag_NhiemVu = 0, flag_BaoCao = 0, flag_TienDo = 0, flag_Lich = 0, flag_TroChuyen = 0;
         public static int role = 0;
         public FGiangVien_Controls()
         {
@@ -250,13 +250,60 @@ namespace Winform_Project.FormGiangVien
                                            dtSinhVien.Rows[i]["Nganh"].ToString(),
                                            dtSinhVien.Rows[i]["MSSV"].ToString(),
                                            dtSinhVien.Rows[i]["MaSoNhom"].ToString());
+                
                 uc_SV_TongKet uc_SV_TongKet = new uc_SV_TongKet(sv);
                 uc_SV_TongKet_DanhGia uc_SV_TongKet_DanhGia = new uc_SV_TongKet_DanhGia(sv);
+                if (dtSinhVien.Rows[i]["Diem"].ToString() != "")
+                {
+                    string ketQua;
+                    int diem = int.Parse(dtSinhVien.Rows[i]["Diem"].ToString());
+                    if (diem < 5)
+                        ketQua = "D";
+                    else if (diem >= 5 && diem < 6.5)
+                        ketQua = "C";
+                    else if (diem >= 6.5 && diem < 8)
+                        ketQua = "B";
+                    else if (diem >= 8 && diem < 9)
+                        ketQua = "A";
+                    else
+                        ketQua = "A+";
+                    uc_SV_TongKet.lblKetQua.Text = ketQua;
+                    uc_SV_TongKet.progress.Value = diem * 10;
+                    uc_SV_TongKet_DanhGia.progress.Value = diem * 10;
+                    uc_SV_TongKet_DanhGia.lblKetQua.Text = ketQua;
+                    uc_SV_TongKet_DanhGia.btnXacNhan.Text = "Đã xác nhận";
+                    uc_SV_TongKet_DanhGia.btnXacNhan.Enabled = false;
+                    uc_SV_TongKet_DanhGia.progress.AllowCursorChanges = false;
+                }
                 uc_GV_TongKet.fLo_UC_SV_TongKet.Controls.Add(uc_SV_TongKet);
                 uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Add(uc_SV_TongKet_DanhGia);
             }
             fLoTrungTam.Controls.Clear();
+            uc_GV_TongKet.btnTongKetDeTai.Click += TongKetDeTai;
             fLoTrungTam.Controls.Add(uc_GV_TongKet);
+        }
+        private void TongKetDeTai(object sender, EventArgs e)
+        {
+            Guna2Button btn = sender as Guna2Button;
+            uc_GV_TongKet uc_GV_TongKet = btn.Parent as uc_GV_TongKet;
+            double diemTrungBinh, tongDiem = 0, soNguoi = 0;
+
+            foreach(uc_SV_TongKet uc_SV_TongKet in uc_GV_TongKet.fLo_UC_SV_TongKet.Controls.OfType<uc_SV_TongKet>())
+            {
+                tongDiem += Math.Round(double.Parse((uc_SV_TongKet.progress.Value / 10).ToString()),2);
+                soNguoi += 1;
+            }
+            diemTrungBinh = Math.Round(tongDiem / soNguoi,2);
+        }
+        private void btnTroChuyen_Click(object sender, EventArgs e)
+        {
+            btnThayDoiOFF(btnThayDoiTroChuyen, FGiangVien_Controls.flag_TroChuyen);
+
+            progress.Location = new Point(btnTroChuyen.Location.X, btnChiTiet.Location.Y + 30);
+
+            ucChat_Messages ucChat_Messages = new ucChat_Messages();
+            fLoTrungTam.Controls.Clear();
+            fLoTrungTam.Controls.Add(ucChat_Messages);
         }
 
         private void btnThayDoiOFF(Guna2Button btn, int flag)
@@ -272,6 +319,7 @@ namespace Winform_Project.FormGiangVien
             btnThayDoiON(btnThayDoiBaoCao, flag_BaoCao);
             btnThayDoiON(btnThayDoiTienDo, flag_TienDo);
             btnThayDoiON(btnThayDoiLich, flag_Lich);
+            btnThayDoiON(btnThayDoiTroChuyen, flag_TroChuyen);
 
         }
 

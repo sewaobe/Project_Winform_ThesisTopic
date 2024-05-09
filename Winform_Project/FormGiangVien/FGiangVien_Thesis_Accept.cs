@@ -161,7 +161,9 @@ namespace Winform_Project.FormGiangVien
         }
         private void btnTuChoiClick(object sender, EventArgs e)
         {
-            
+            Guna2Button btn = (Guna2Button)sender;
+            string[] maSo = btn.Tag.ToString().Split(',');
+            gvDao.KhongDuyetDeTai(maSo[1], maSo[0]);
         }
         private void FGiangVien_Thesis_Accept_Load(object sender, EventArgs e)
         {

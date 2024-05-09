@@ -83,7 +83,11 @@ namespace Winform_Project.FSinhVien
             Guna2Button btn = sender as Guna2Button;
             uc_SV_DeTai uc = btn.Parent as uc_SV_DeTai;
             FSinhVien_Reg_Done fSinhVien_Reg_Done = new FSinhVien_Reg_Done(uc.luanvan);
+            /*this.Hide();
+
             fSinhVien_Reg_Done.ShowDialog();
+            this.Show();*/
+            FSinhVien_Thesis_Detail.container(fSinhVien_Reg_Done);
         }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
@@ -92,11 +96,9 @@ namespace Winform_Project.FSinhVien
             //    MessageBox.Show("Mời bạn nhập đủ thông tin Khoa/Ngành/Năm/Kì của đề tài!!!!");
             //    return;
             //}
+            FSinhVien_Reg_New fSinhVien_Reg_New = new FSinhVien_Reg_New("2");
+            FSinhVien_Thesis_Detail.container(fSinhVien_Reg_New);
 
-            FSinhVien_Reg_New fSinhVien_Reg_New = new FSinhVien_Reg_New("hoc ki 2");
-            this.Hide();
-            fSinhVien_Reg_New.ShowDialog();
-            this.Show();
         }
 
 

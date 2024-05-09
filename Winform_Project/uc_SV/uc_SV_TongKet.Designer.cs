@@ -228,11 +228,11 @@
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar progress;
         public System.Windows.Forms.Label lblTongDeTaiDuocGiao;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label lblTongDeTaiDaHoanThanh;
         public System.Windows.Forms.Label lblKetQua;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        public Guna.UI2.WinForms.Guna2CircleProgressBar progress;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

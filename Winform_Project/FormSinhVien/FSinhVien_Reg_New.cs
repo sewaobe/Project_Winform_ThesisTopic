@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
 using Winform_Project.ClassDoiTuong;
+using Winform_Project.FormGiangVien;
+using Winform_Project.FSinhVien;
 using Winform_Project.uc_SV;
 
 namespace Winform_Project.FormSinhVien
@@ -19,6 +21,7 @@ namespace Winform_Project.FormSinhVien
         SinhVienDao svDao = new SinhVienDao();
         SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
         private string namHoc, hocKi;
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         public FSinhVien_Reg_New(string HocKi)
         {
             InitializeComponent();
@@ -37,11 +40,10 @@ namespace Winform_Project.FormSinhVien
         private void FSinhVien_Reg_New_Load(object sender, EventArgs e)
         {
             flowThongTinSV.Controls.Clear();
-            string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV LIKE '{0}%'", txtMSSV.Text);
-            DataTable dtSinhVien = svDao.LoadData(sqlStr);
+            DataTable dtSinhVien = conNguoiDao.TimThongTinSinhVien("");
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                if (dtSinhVien.Rows[i]["MaSoNhom"].ToString() == "")
+                if (dtSinhVien.Rows[i]["MSSV"].ToString() == FDangNhap.SinhVienAccount.Mssv)
                 {
                     SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
                         dtSinhVien.Rows[i]["GioiTinh"].ToString(),
@@ -53,50 +55,50 @@ namespace Winform_Project.FormSinhVien
                         txtIDnhom.Text
                                                         );
                     uc_SV_ThongTin uc_SV_ThongTin = new uc_SV_ThongTin(sinhvien);
-                    uc_SV_ThongTin.btnThemSinhVien.Click += btnThemSV_Click;
+                    uc_SV_ThongTin.btnThemSinhVien.Image = Properties.Resources.check;
                     flowThongTinSV.Controls.Add(uc_SV_ThongTin);
-                    uc_SV_ThongTin.Show();
+                    break;
                 }
             }
+            FSinhVien_Reg_Done.fLoHienThiSinhVien = flowThongTinSV;
         }
 
-        private void txtMSSV_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtMSSV.Text != "")
-            //{
-            //    if (svDao.LayThongTinSinhVien(txtMSSV.Text) != null)
-            //        lblHoTenSV.Text = svDao.LayThongTinSinhVien(txtMSSV.Text).Ten;
-            //    else
-            //        lblHoTenSV.Text = "không tim thấy sinh viên cần tìm";
-            //}
-            //lblHoTenSV.Visible = true;
-            FSinhVien_Reg_New_Load(sender, e);
+       
 
-        }
-
-        private void btnThemSV_Click(object sender, EventArgs e)
-        {
-            Guna2CirclePictureBox btn = (Guna2CirclePictureBox)sender;
-            uc_SV_ThongTin uc = btn.Parent as uc_SV_ThongTin;
-
-            
-            svDao.themSinhVien(uc.sv, txtMaDeTai.Text);
-            FSinhVien_Reg_New_Load(sender, e);
-        }
+      
         private LuanVan LoadData()
         {
            
-            return new LuanVan(txtMaDeTai.Text, txtTenDeTai.Text, txtTheLoai.Text,"5", txtMoTa.Text, txtChucNang.Text, "abc", SinhVienAccount.Khoa, SinhVienAccount.Nganh, cbbGVHD1.Text,txtCongNghe.Text,hocKi,"Chua duyet");
+            return new LuanVan(txtMaDeTai.Text, txtTenDeTai.Text, txtTheLoai.Text,
+                                flowThongTinSV.Controls.Count.ToString(), txtMoTa.Text, 
+                                txtChucNang.Text, "NULL",txtCongNghe.Text, SinhVienAccount.Khoa, 
+                                SinhVienAccount.Nganh,hocKi, cbbGVHD1.Text, "Chua duyet");
         }
+
+        private void btnThemSinhVien_Click(object sender, EventArgs e)
+        {
+            FGiangVien_Support_Add_SinhVien fGiangVien_Support_Add_SinhVien = new FGiangVien_Support_Add_SinhVien();
+            fGiangVien_Support_Add_SinhVien.Show();
+        }
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            FSinhVien_Thesis_Detail.container(new FSinhVien_Reg());
+
+        }
+
         private void btnDangKy_Click_1(object sender, EventArgs e)
         {
+            LuanVan lv = LoadData();
             if (cbXacNhan.Checked == true)
             {
-                LuanVan lv = LoadData();
-                svDao.DangKy(SinhVienAccount, txtIDnhom.Text, txtMaDeTai.Text);
-                FDangNhap fDangNhap = new FDangNhap();
-                fDangNhap.layThongTinSinhVien(SinhVienAccount.Mssv);
                 svDao.DeXuatDeTai(lv);
+
+                foreach (uc_SV_ThongTin uc in flowThongTinSV.Controls.OfType<uc_SV_ThongTin>())
+                {
+                    svDao.DangKy(uc.sv, txtIDnhom.Text, txtMaDeTai.Text);
+                }
+
             }
         }
     }

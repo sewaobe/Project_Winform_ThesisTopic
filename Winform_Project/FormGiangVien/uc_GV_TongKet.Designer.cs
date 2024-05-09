@@ -35,7 +35,7 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTongKetDeTai = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -99,22 +99,22 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Xác nhận hoàn tất đề tài ";
             // 
-            // guna2Button1
+            // btnTongKetDeTai
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.guna2Button1.BorderRadius = 18;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(708, 530);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "Xác nhận";
+            this.btnTongKetDeTai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnTongKetDeTai.BorderRadius = 18;
+            this.btnTongKetDeTai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTongKetDeTai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTongKetDeTai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTongKetDeTai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTongKetDeTai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnTongKetDeTai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTongKetDeTai.ForeColor = System.Drawing.Color.Black;
+            this.btnTongKetDeTai.Location = new System.Drawing.Point(708, 530);
+            this.btnTongKetDeTai.Name = "btnTongKetDeTai";
+            this.btnTongKetDeTai.Size = new System.Drawing.Size(180, 45);
+            this.btnTongKetDeTai.TabIndex = 5;
+            this.btnTongKetDeTai.Text = "Xác nhận";
             // 
             // guna2PictureBox3
             // 
@@ -133,7 +133,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2PictureBox3);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnTongKetDeTai);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2PictureBox2);
             this.Controls.Add(this.guna2Panel1);
@@ -154,11 +154,11 @@
 
         public System.Windows.Forms.FlowLayoutPanel fLo_UC_SV_TongKet;
         public System.Windows.Forms.FlowLayoutPanel fLo_UC_SV_TongKet_DanhGia;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2Button btnTongKetDeTai;
+        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
     }
 }

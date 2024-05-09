@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +18,15 @@ namespace Winform_Project.ClassDao
     {
         
         DBConnection db = new DBConnection();
-        
+        public static int conNguoi = 0;
         public ConNguoiDao()
         {
+        }
+        //New
+        public DataTable TimThongTinSinhVien(string mssv)
+        {
+            string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV LIKE '{0}%'", mssv);
+            return db.Load(sqlStr);
         }
         public DataTable XacNhanDangNhap(TaiKhoanDangNhap tk)
         {
@@ -59,6 +67,45 @@ namespace Winform_Project.ClassDao
             string sqlStr = string.Format($"SELECT * FROM Lich WHERE MaSoNhom = '{maNhom}'");
             return db.Load(sqlStr);
         }
-            
+        public DataTable LayThongTinChat(string nguoiNhan, string nguoiGui)
+        {
+            string sqlStr = string.Format($"SELECT * FROM Messenger WHERE (NguoiNhan = '{nguoiNhan}' AND NguoiGui = '{nguoiGui}') OR (NguoiNhan = '{nguoiGui}' AND NguoiGui = '{nguoiNhan}')");
+            return db.Load(sqlStr);
+        }
+        public void GuiTinNhan(TinNhan tn)
+        {
+            using (Stream stream = File.OpenRead(tn.Noidungdacbiet))
+            {
+                byte[] buffer = new byte[stream.Length];
+                stream.Read(buffer, 0, buffer.Length);
+
+                string extn = new FileInfo(tn.Noidungdacbiet).Extension;
+
+                string sqlStr = string.Format($"INSERT INTO Messenger(NguoiGui, NguoiNhan, NoiDung, NoiDungDacBiet, ThoiGianGui)" +
+                                            $" Values('{tn.Nguoigui}', '{tn.Nguoinhan}', '{tn.Noidung}',@File,'{tn.Thoigiangui}' )");
+                SinhVienDao.buffer_s = buffer;
+                db.ThucThi(sqlStr);
+            }
+        }
+        //New
+        public void MoTinNhanDacBiet(TinNhan tn)
+        {
+            string sqlStr = string.Format($"SELECT * FROM Messenger WHERE ThoiGianGui = '{tn.Thoigiangui}'");
+            DataTable dtTinNhan = db.Load(sqlStr);
+            if (dtTinNhan.Rows.Count > 0)
+            {
+                var file = (byte[])(dtTinNhan.Rows[0]["NoiDungDacBiet"]);
+                File.WriteAllBytes(tn.Noidung, file);
+                System.Diagnostics.Process.Start(tn.Noidung);
+            }
+        }
+        public DataTable LayThongTinTatCaSinhVien()
+        {
+            string sqlStr = string.Format($"SELECT * FROM SinhVien");
+            return db.Load(sqlStr);
+        }
+
+
+
     }
 }

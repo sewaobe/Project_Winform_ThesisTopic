@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Winform_Project.ClassDoiTuong
 {
-    internal class TinNhan
+    public class TinNhan
     {
         private string nguoigui;
         private string nguoinhan;
@@ -14,12 +14,13 @@ namespace Winform_Project.ClassDoiTuong
         private string noidungdacbiet;
         private DateTime thoigiangui;
 
-        public TinNhan(string nguoigui, string nguoinhan, string noidung, DateTime thoigiangui)
+        public TinNhan(string nguoigui, string nguoinhan, string noidung,string noiDungDacBiet, DateTime thoigiangui)
         {
             this.nguoigui = nguoigui;
             this.nguoinhan = nguoinhan;
             this.noidung = noidung;
             this.thoigiangui = thoigiangui;
+            Noidungdacbiet = noiDungDacBiet;
         }
 
         public string Nguoigui { get => nguoigui; set => nguoigui = value; }

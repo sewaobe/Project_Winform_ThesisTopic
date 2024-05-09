@@ -25,24 +25,33 @@ namespace Winform_Project.FSinhVien
             InitializeComponent();
             lblTen.Text = SinhVienAccount.Ten;
             lblMSSV.Text = SinhVienAccount.Mssv;
-            if (svDao.kiemtraTrangThai(SinhVienAccount) == true)
+            lblChucVu.Text = "Sinh viên";
+            if (svDao.kiemtraTrangThai(SinhVienAccount) == 1)
             {
-                btnLienHe.Enabled=true;
-                btnThongBao.Enabled=true;
-                btnTienDo.Enabled=true;
-                btnDangKyDeTai.Enabled=false;
+                btnDangKyDeTai.Enabled = false;
+                btnThongBao.Enabled = true;
+                btnTienDo.Enabled = true;
                 btnTienDo.Checked = true;
                 movePicChonBtn(btnTienDo);
                 container(new FSinhVien_Controls());
 
             }
-            else
+            else if (svDao.kiemtraTrangThai(SinhVienAccount) == 2)
             {
-                btnLienHe.Enabled = false;
                 btnThongBao.Enabled = false;
                 btnTienDo.Enabled = false;
                 btnDangKyDeTai.Enabled = true;
                 container(new FSinhVien_Reg());
+            }
+            else
+            {
+                btnQuanLyDeTai.Checked = true;
+                movePicChonBtn(btnQuanLyDeTai);
+                btnDangKyDeTai.Enabled = false; 
+                btnThongBao.Enabled = false;
+                btnTienDo.Enabled = false; 
+                container(new FSinhVien_Accepted());
+
             }
             panelTrungTam = guna2Panel_container;
         }
@@ -124,11 +133,7 @@ namespace Winform_Project.FSinhVien
 
         }
 
-        private void btnLienHe_Click(object sender, EventArgs e)
-        {
-            container(new FSinhVien_ContactGV());
-
-        }
+        
         private void movePicChonBtn(object sender)
         {
             Guna2Button btn = sender as Guna2Button;

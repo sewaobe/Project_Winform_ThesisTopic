@@ -92,9 +92,9 @@
             this.fLoTrungTam.AutoScroll = true;
             this.fLoTrungTam.BackColor = System.Drawing.SystemColors.Control;
             this.fLoTrungTam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fLoTrungTam.Location = new System.Drawing.Point(123, 307);
+            this.fLoTrungTam.Location = new System.Drawing.Point(90, 307);
             this.fLoTrungTam.Name = "fLoTrungTam";
-            this.fLoTrungTam.Size = new System.Drawing.Size(1020, 572);
+            this.fLoTrungTam.Size = new System.Drawing.Size(1050, 572);
             this.fLoTrungTam.TabIndex = 13;
             // 
             // guna2Panel4

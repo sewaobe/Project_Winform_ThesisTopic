@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -120,11 +135,11 @@
     <Compile Include="FormGiangVien\uc_GV_TongKet.Designer.cs">
       <DependentUpon>uc_GV_TongKet.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSinhVien\FChat_Messages.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FormSinhVien\ucChat_Messages.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormSinhVien\FChat_Messages.Designer.cs">
-      <DependentUpon>FChat_Messages.cs</DependentUpon>
+    <Compile Include="FormSinhVien\ucChat_Messages.Designer.cs">
+      <DependentUpon>ucChat_Messages.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien_Accepted.cs">
       <SubType>Form</SubType>
@@ -149,12 +164,6 @@
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien.Designer.cs">
       <DependentUpon>FSinhVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_ContactGV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_ContactGV.Designer.cs">
-      <DependentUpon>FSinhVien_ContactGV.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSinhVien\FSinhVien_login.cs">
       <SubType>Form</SubType>
@@ -399,6 +408,18 @@
     <Compile Include="uc_SV\uc_SV_TongKet_DanhGia.Designer.cs">
       <DependentUpon>uc_SV_TongKet_DanhGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="uc_TinNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_TinNhan.Designer.cs">
+      <DependentUpon>uc_TinNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_TinNhan_DacBiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_TinNhan_DacBiet.Designer.cs">
+      <DependentUpon>uc_TinNhan_DacBiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="uc_Toast_Notice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -468,8 +489,8 @@
     <EmbeddedResource Include="FormGiangVien\uc_GV_TongKet.resx">
       <DependentUpon>uc_GV_TongKet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSinhVien\FChat_Messages.resx">
-      <DependentUpon>FChat_Messages.cs</DependentUpon>
+    <EmbeddedResource Include="FormSinhVien\ucChat_Messages.resx">
+      <DependentUpon>ucChat_Messages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien_Accepted.resx">
       <DependentUpon>FSinhVien_Accepted.cs</DependentUpon>
@@ -482,9 +503,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien.resx">
       <DependentUpon>FSinhVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSinhVien\FSinhVien_ContactGV.resx">
-      <DependentUpon>FSinhVien_ContactGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien_login.resx">
       <DependentUpon>FSinhVien_login.cs</DependentUpon>
@@ -578,6 +596,12 @@
     <EmbeddedResource Include="uc_SV\uc_SV_TongKet_DanhGia.resx">
       <DependentUpon>uc_SV_TongKet_DanhGia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="uc_TinNhan.resx">
+      <DependentUpon>uc_TinNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_TinNhan_DacBiet.resx">
+      <DependentUpon>uc_TinNhan_DacBiet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uc_Toast_Notice.resx">
       <DependentUpon>uc_Toast_Notice.cs</DependentUpon>
     </EmbeddedResource>
@@ -605,10 +629,29 @@
   <ItemGroup>
     <Content Include="Resourcess\email.png" />
     <Content Include="Resourcess\letter.png" />
+    <None Include="Resources\word %281%29.png" />
+    <None Include="Resources\picture.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\control.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\paper-plane.png" />
+    <None Include="Resources\teacher.png" />
     <None Include="Resources\letter.png" />
     <None Include="Resources\letter %281%29.png" />
     <None Include="Resources\remove.png" />
     <None Include="Resources\accept %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
