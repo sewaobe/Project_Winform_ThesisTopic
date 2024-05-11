@@ -56,6 +56,7 @@ namespace Winform_Project.FormGiangVien
                 }
                 //Hien de tai
                 ucDeTai uc = new ucDeTai(lv);
+                uc.lblDiem.Visible = false;
                 uc.btnChiTiet.Visible = false;
                 uc.Click += test_Click;
                 fLoTrungTam.Controls.Add(uc);
@@ -86,7 +87,7 @@ namespace Winform_Project.FormGiangVien
                     pic.Margin = new Padding(40, 30, 0, 0); 
                     fLoTrungTam.Controls.Add(pic);
                 }
-                else
+                else if(trangThai == "Chua duyet")
                 {
                     Guna2Button btnDY = taoNut(lv, btnDongY);
                     btnDY.Margin = new Padding(20, 30, 0, 0);
@@ -99,6 +100,13 @@ namespace Winform_Project.FormGiangVien
                     fLoTrungTam.Controls.Add(btnDY);
                     fLoTrungTam.Controls.Add(btnTC);
                 }
+                else
+                {
+                    DataTable dt = gvDao.LayThongTinDeTai(lv.MaDeTai);
+                    uc.lblDiem.Text = dt.Rows[0]["Diem"].ToString();
+                    uc.lblDiem.Visible = true;
+                    uc.lblDiemCap.Visible = true;
+                }
                 
             }
             
@@ -106,7 +114,7 @@ namespace Winform_Project.FormGiangVien
         private void test_Click(object sender, EventArgs e)
         {
             ucDeTai ucDeTai = (ucDeTai)sender;
-            DataTable dt = gvDao.LoadData($"Select * FROM ThongTinNhomDangKy Where MaDeTai = '{ucDeTai.lblMaDeTai.Text}'");
+            DataTable dt = gvDao.LayThongTinNhomDangKyTheoMDT(ucDeTai.lblMaDeTai.Text);
             if (dt.Rows.Count > 0)
             {
                 FGiangVien_Controls fGiangVien_Controls = new FGiangVien_Controls(ucDeTai.lv.MaDeTai, dt.Rows[0]["MaSoNhom"].ToString());
@@ -117,6 +125,9 @@ namespace Winform_Project.FormGiangVien
                     fGiangVien_Controls.btnLich.Visible = false;
                     fGiangVien_Controls.btnNhiemVu.Visible = false;
                     fGiangVien_Controls.btnTienDo.Visible = false;
+                    fGiangVien_Controls.btnTroChuyen.Visible = false;
+                    fGiangVien_Controls.btnTongKet.Visible = false;
+                    
                 }
                 fGiangVien_Controls.ShowDialog();
             }
@@ -196,6 +207,13 @@ namespace Winform_Project.FormGiangVien
             progress.Location = new Point(btnCho.Location.X, btnCho.Location.Y + 35);
             fLoTrungTam.Controls.Clear();
             Load_fLo("Chua duyet");
-        }        
+        }
+
+        private void btnDaHoanThanh_Click(object sender, EventArgs e)
+        {
+            progress.Location = new Point(btnDaHoanThanh.Location.X, btnCho.Location.Y + 35);
+            fLoTrungTam.Controls.Clear();
+            Load_fLo("Da hoan thanh");
+        }
     }
 }

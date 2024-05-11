@@ -119,13 +119,13 @@
             // 
             chartArea2.Name = "ChartArea1";
             this.chartThongKeChatLuong.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.chartThongKeChatLuong.Legends.Add(legend2);
             this.chartThongKeChatLuong.Location = new System.Drawing.Point(29, 514);
             this.chartThongKeChatLuong.Name = "chartThongKeChatLuong";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.IsValueShownAsLabel = true;
             series2.IsXValueIndexed = true;
             series2.Legend = "Legend1";
             series2.Name = "chartLine";
@@ -182,7 +182,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(843, 848);
+            this.label5.Location = new System.Drawing.Point(823, 845);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(280, 25);
             this.label5.TabIndex = 21;
@@ -274,6 +274,7 @@
             this.chartThongKeSoLuongSinhVienDangKy.Name = "chartThongKeSoLuongSinhVienDangKy";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.IsValueShownAsLabel = true;
             series1.IsXValueIndexed = true;
             series1.Legend = "Legend1";
             series1.Name = "chartLine";

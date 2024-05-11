@@ -31,7 +31,6 @@ namespace Winform_Project.FormGiangVien
             InitializeComponent();
             maSoNhom = MSN;
             maDeTai = MDT;
-            MessageBox.Show(maSoNhom + maDeTai);
         }
         private void HienThiThongTinChiTiet()
         {
@@ -256,25 +255,29 @@ namespace Winform_Project.FormGiangVien
                 if (dtSinhVien.Rows[i]["Diem"].ToString() != "")
                 {
                     string ketQua;
-                    int diem = int.Parse(dtSinhVien.Rows[i]["Diem"].ToString());
-                    if (diem < 5)
-                        ketQua = "D";
-                    else if (diem >= 5 && diem < 6.5)
-                        ketQua = "C";
-                    else if (diem >= 6.5 && diem < 8)
-                        ketQua = "B";
-                    else if (diem >= 8 && diem < 9)
-                        ketQua = "A";
-                    else
-                        ketQua = "A+";
-                    uc_SV_TongKet.lblKetQua.Text = ketQua;
-                    uc_SV_TongKet.progress.Value = diem * 10;
-                    uc_SV_TongKet_DanhGia.progress.Value = diem * 10;
-                    uc_SV_TongKet_DanhGia.lblKetQua.Text = ketQua;
-                    uc_SV_TongKet_DanhGia.btnXacNhan.Text = "Đã xác nhận";
-                    uc_SV_TongKet_DanhGia.btnXacNhan.Enabled = false;
-                    uc_SV_TongKet_DanhGia.progress.AllowCursorChanges = false;
+                    int diem = 0;
+                    if (int.TryParse(dtSinhVien.Rows[i]["Diem"].ToString(), out diem))
+                    {
+                        if (diem < 5)
+                            ketQua = "D";
+                        else if (diem >= 5 && diem < 6.5)
+                            ketQua = "C";
+                        else if (diem >= 6.5 && diem < 8)
+                            ketQua = "B";
+                        else if (diem >= 8 && diem < 9)
+                            ketQua = "A";
+                        else
+                            ketQua = "A+";
+                        uc_SV_TongKet.lblKetQua.Text = ketQua;
+                        uc_SV_TongKet.progress.Value = diem * 10;
+                        uc_SV_TongKet_DanhGia.progress.Value = diem * 10;
+                        uc_SV_TongKet_DanhGia.lblKetQua.Text = ketQua;
+                        uc_SV_TongKet_DanhGia.btnXacNhan.Text = "Đã xác nhận";
+                        uc_SV_TongKet_DanhGia.btnXacNhan.Enabled = false;
+                        uc_SV_TongKet_DanhGia.progress.AllowCursorChanges = false;
+                    }
                 }
+                uc_SV_TongKet.pic.Click += Load_UC_DanhGia;
                 uc_GV_TongKet.fLo_UC_SV_TongKet.Controls.Add(uc_SV_TongKet);
                 uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Add(uc_SV_TongKet_DanhGia);
             }
@@ -282,9 +285,24 @@ namespace Winform_Project.FormGiangVien
             uc_GV_TongKet.btnTongKetDeTai.Click += TongKetDeTai;
             fLoTrungTam.Controls.Add(uc_GV_TongKet);
         }
+        private void Load_UC_DanhGia(object sender, EventArgs e)
+        {
+
+
+            Guna2PictureBox guna2PictureBox = sender as Guna2PictureBox;
+            uc_SV_TongKet uc = guna2PictureBox.Parent as uc_SV_TongKet;
+            FlowLayoutPanel fLo = uc.Parent as FlowLayoutPanel;
+            uc_GV_TongKet uc_GV_TongKet = fLo.Parent as uc_GV_TongKet;
+            uc_SV_TongKet_DanhGia uc_SV_TongKet_DanhGia = new uc_SV_TongKet_DanhGia(uc.sinhVien);
+            uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Clear();
+            uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Add(uc_SV_TongKet_DanhGia);
+
+
+        }
         private void TongKetDeTai(object sender, EventArgs e)
         {
             Guna2Button btn = sender as Guna2Button;
+            btn.Text = "Đã xác nhận";
             uc_GV_TongKet uc_GV_TongKet = btn.Parent as uc_GV_TongKet;
             double diemTrungBinh, tongDiem = 0, soNguoi = 0;
 
@@ -294,6 +312,7 @@ namespace Winform_Project.FormGiangVien
                 soNguoi += 1;
             }
             diemTrungBinh = Math.Round(tongDiem / soNguoi,2);
+            gvDao.CapNhatDiemChoDeTai(FGiangVien_Controls.maDeTai, diemTrungBinh.ToString());
         }
         private void btnTroChuyen_Click(object sender, EventArgs e)
         {

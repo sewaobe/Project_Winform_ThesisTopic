@@ -190,7 +190,7 @@
             this.Controls.Add(this.chartTrangThaiNhiemVu);
             this.Controls.Add(this.guna2PictureBox3);
             this.Name = "ucFGiangVien_Progress";
-            this.Size = new System.Drawing.Size(1370, 744);
+            this.Size = new System.Drawing.Size(1344, 744);
             this.Load += new System.EventHandler(this.ucFGiangVien_Progress_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartTrangThaiNhiemVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

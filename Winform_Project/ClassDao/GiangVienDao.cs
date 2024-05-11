@@ -34,7 +34,24 @@ namespace Winform_Project.ClassDao
             db.ThucThi(sqlStr);
         }
         public GiangVienDao() { }
-
+        //New 
+        public void CapNhatDiemChoDeTai(string MDT, string diem)
+        {
+            string sqlStr = string.Format("UPDATE ThongTinDeTai Set Diem = '{0}', TrangThai = 'Da hoan thanh' WHERE MaDeTai = '{1}'", diem, MDT);
+            db.ThucThi(sqlStr);
+        }
+        //New
+        public DataTable LayThongTinNhomDangKyTheoMDT(string MDT)
+        {
+            string sqlStr = string.Format($"Select * FROM ThongTinNhomDangKy Where MaDeTai = '{MDT}'");
+            return db.Load(sqlStr);
+        }
+        //New
+        public DataTable LayThongTinDeTaiTheoTenGiangVien()
+        {
+            string sqlStr = string.Format($"SELECT * FROM ThongTinDeTai WHERE TenGiangVien = '{FDangNhap.giangVienAccount.Ten}'");
+            return db.Load(sqlStr);
+        }
         //New
         public List<LuanVan> ChuyenDoiDuLieuSangLuanVan(DataTable dtDeTai)
         {

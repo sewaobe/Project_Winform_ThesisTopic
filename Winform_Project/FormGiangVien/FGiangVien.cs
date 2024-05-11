@@ -73,50 +73,7 @@ namespace Winform_Project
         private void FGiangVien_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);
-            DataTable dtDeTai = gvDao.LoadData($"SELECT * FROM ThongTinDeTai WHERE TenGiangVien = '{FDangNhap.giangVienAccount.Ten}'");
-            List<LuanVan> lv_list = new List<LuanVan>();
-            for(int i = 0; i < dtDeTai.Rows.Count; i++)
-            {
-                string MaDeTai, TenDeTai, SoLuong, MoTa, YeuCau, ChucNang, TheLoai, CongNghe, Nganh, Khoa, HocKy, TenGiangVien, TrangThai;
-
-                MaDeTai = dtDeTai.Rows[i]["MaDeTai"].ToString();
-                TenDeTai = dtDeTai.Rows[i]["TenDeTai"].ToString();
-                SoLuong = dtDeTai.Rows[i]["SoLuong"].ToString();
-                MoTa = dtDeTai.Rows[i]["MoTa"].ToString();
-                YeuCau = dtDeTai.Rows[i]["YeuCau"].ToString();
-                ChucNang = dtDeTai.Rows[i]["ChucNang"].ToString();
-                TheLoai = dtDeTai.Rows[i]["TheLoai"].ToString();
-                CongNghe = dtDeTai.Rows[i]["CongNghe"].ToString();
-                Nganh = dtDeTai.Rows[i]["Nganh"].ToString();
-                Khoa = dtDeTai.Rows[i]["Khoa"].ToString();
-                HocKy = dtDeTai.Rows[i]["HocKy"].ToString();
-                TenGiangVien = dtDeTai.Rows[i]["TenGiangVien"].ToString();
-                TrangThai = dtDeTai.Rows[i]["TrangThai"].ToString();
-                LuanVan lv = new LuanVan(MaDeTai,
-                                         TenDeTai,
-                                         TheLoai,
-                                         SoLuong,
-                                         MoTa,
-                                         ChucNang,
-                                         YeuCau,
-                                         CongNghe,
-                                         Khoa,
-                                         Nganh,
-                                         HocKy,
-                                         TenGiangVien,
-                                         TrangThai);
-                lv_list.Add(lv);
-            }
-            int pos_current_X = -100;
-            int pos_current_Y = 0;
-            foreach (LuanVan lv in lv_list)
-            {
-                ucDeTai uc = new ucDeTai(lv);
-                uc.Location = new Point(pos_current_X, pos_current_Y);
-                pos_current_X += 100;
-                uc.btnChiTiet.Click += HienThi;
-                fLoTrungTam.Controls.Add(uc);
-            }
+            container(new FGiangVien_ThesisTopics_Main());
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)

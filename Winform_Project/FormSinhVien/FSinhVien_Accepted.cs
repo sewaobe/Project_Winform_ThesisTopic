@@ -36,6 +36,7 @@ namespace Winform_Project.FormSinhVien
                     break;
                 for(int j = 0;j < dtNhomDangKy.Rows.Count; j++)
                 {
+
                     //Tìm đề tài mà nhóm đăng kí
                     if (dtDeTai.Rows[i]["MaDeTai"].ToString() == dtNhomDangKy.Rows[j]["MaDeTai"].ToString() && dtNhomDangKy.Rows[j]["MaSoNhom"].ToString() == FDangNhap.SinhVienAccount.Masonhom)
                     {
@@ -121,6 +122,19 @@ namespace Winform_Project.FormSinhVien
         {
             Load_Flo("Da duyet");
 
+        }
+
+        private void btnDaHoanThanh_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void btnDaHoanThanh_Click_1(object sender, EventArgs e)
+        {
+            fLoTrungTam.Controls.Clear();
+            progress.Location = new Point(btnDaHoanThanh.Location.X, btnDuyet.Location.Y + 35);
+            Load_Flo("Da hoan thanh");
         }
     }
 }

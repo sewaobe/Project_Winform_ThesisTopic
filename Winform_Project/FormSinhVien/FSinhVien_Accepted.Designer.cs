@@ -34,6 +34,7 @@
             this.progress = new Guna.UI2.WinForms.Guna2Panel();
             this.btnThayDoiCho = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiDuyet = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDaHoanThanh = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // fLoTrungTam
@@ -124,6 +125,23 @@
             this.btnThayDoiDuyet.TabIndex = 15;
             this.btnThayDoiDuyet.Visible = false;
             // 
+            // btnDaHoanThanh
+            // 
+            this.btnDaHoanThanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDaHoanThanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDaHoanThanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDaHoanThanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDaHoanThanh.FillColor = System.Drawing.Color.White;
+            this.btnDaHoanThanh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDaHoanThanh.ForeColor = System.Drawing.Color.Black;
+            this.btnDaHoanThanh.HoverState.BorderColor = System.Drawing.Color.Lime;
+            this.btnDaHoanThanh.Location = new System.Drawing.Point(431, 91);
+            this.btnDaHoanThanh.Name = "btnDaHoanThanh";
+            this.btnDaHoanThanh.Size = new System.Drawing.Size(160, 61);
+            this.btnDaHoanThanh.TabIndex = 17;
+            this.btnDaHoanThanh.Text = "Đã hoàn thành";
+            this.btnDaHoanThanh.Click += new System.EventHandler(this.btnDaHoanThanh_Click_1);
+            // 
             // FSinhVien_Accepted
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -136,6 +154,7 @@
             this.Controls.Add(this.fLoTrungTam);
             this.Controls.Add(this.btnCho);
             this.Controls.Add(this.btnDuyet);
+            this.Controls.Add(this.btnDaHoanThanh);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FSinhVien_Accepted";
             this.Text = "FSinhVien_Accepted";
@@ -152,5 +171,6 @@
         private Guna.UI2.WinForms.Guna2Panel progress;
         private Guna.UI2.WinForms.Guna2Button btnThayDoiCho;
         private Guna.UI2.WinForms.Guna2Button btnThayDoiDuyet;
+        private Guna.UI2.WinForms.Guna2Button btnDaHoanThanh;
     }
 }

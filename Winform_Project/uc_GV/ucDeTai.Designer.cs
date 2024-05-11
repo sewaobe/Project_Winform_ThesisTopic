@@ -38,6 +38,8 @@
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnYeuThich = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblDiem = new System.Windows.Forms.Label();
+            this.lblDiemCap = new System.Windows.Forms.Label();
             this.fLoCongNghe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnYeuThich)).BeginInit();
             this.SuspendLayout();
@@ -149,12 +151,36 @@
             this.btnYeuThich.TabIndex = 9;
             this.btnYeuThich.TabStop = false;
             // 
+            // lblDiem
+            // 
+            this.lblDiem.AutoSize = true;
+            this.lblDiem.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiem.Location = new System.Drawing.Point(822, 128);
+            this.lblDiem.Name = "lblDiem";
+            this.lblDiem.Size = new System.Drawing.Size(65, 34);
+            this.lblDiem.TabIndex = 10;
+            this.lblDiem.Text = "9.6";
+            this.lblDiem.Visible = false;
+            // 
+            // lblDiemCap
+            // 
+            this.lblDiemCap.AutoSize = true;
+            this.lblDiemCap.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiemCap.Location = new System.Drawing.Point(746, 138);
+            this.lblDiemCap.Name = "lblDiemCap";
+            this.lblDiemCap.Size = new System.Drawing.Size(69, 22);
+            this.lblDiemCap.TabIndex = 11;
+            this.lblDiemCap.Text = "Điểm:";
+            this.lblDiemCap.Visible = false;
+            // 
             // ucDeTai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.lblDiemCap);
+            this.Controls.Add(this.lblDiem);
             this.Controls.Add(this.btnYeuThich);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.lblTrangThai);
@@ -181,6 +207,8 @@
         public System.Windows.Forms.Label lblMaDeTai;
         public System.Windows.Forms.Label lblTrangThai;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox btnYeuThich;
+        public System.Windows.Forms.Label lblDiem;
+        public Guna.UI2.WinForms.Guna2CirclePictureBox btnYeuThich;
+        public System.Windows.Forms.Label lblDiemCap;
     }
 }

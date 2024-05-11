@@ -96,7 +96,7 @@ namespace Winform_Project.FSinhVien
             //    MessageBox.Show("Mời bạn nhập đủ thông tin Khoa/Ngành/Năm/Kì của đề tài!!!!");
             //    return;
             //}
-            FSinhVien_Reg_New fSinhVien_Reg_New = new FSinhVien_Reg_New("2");
+            FSinhVien_Reg_New fSinhVien_Reg_New = new FSinhVien_Reg_New("Ky 2");
             FSinhVien_Thesis_Detail.container(fSinhVien_Reg_New);
 
         }

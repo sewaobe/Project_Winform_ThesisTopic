@@ -47,6 +47,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.deTaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChonBtn)).BeginInit();
@@ -348,6 +349,10 @@
             // 
             this.deTaiBindingSource.DataMember = "DeTai\r\n";
             // 
+            // guna2ShadowForm1
+            // 
+            this.guna2ShadowForm1.TargetForm = this;
+            // 
             // FSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -389,5 +394,6 @@
         public Guna.UI2.WinForms.Guna2Button btnTienDo;
         public Guna.UI2.WinForms.Guna2Button btnThongBao;
         private Guna.UI2.WinForms.Guna2PictureBox picChonBtn;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

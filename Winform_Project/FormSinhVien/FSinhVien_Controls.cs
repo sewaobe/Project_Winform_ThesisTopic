@@ -92,7 +92,6 @@ namespace Winform_Project.FormSinhVien
         {
             var uc = sender as ucBaoCao;
             BaoCao bc = uc.baoCao;
-            MessageBox.Show(bc.NhanXet);
             FGiangVien_Progress_Check fGiangVien_Progress_Check = new FGiangVien_Progress_Check();
             fGiangVien_Progress_Check.txtNhanXet.Text = bc.NhanXet;
             fGiangVien_Progress_Check.txtTieuDe.Text = bc.TieuDe;

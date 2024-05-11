@@ -40,9 +40,9 @@
             this.lblTongDeTaiDaHoanThanh = new System.Windows.Forms.Label();
             this.lblKetQua = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pic = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMSSV
@@ -180,19 +180,19 @@
             this.guna2PictureBox1.TabIndex = 5;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // guna2PictureBox2
+            // pic
             // 
-            this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.BorderRadius = 10;
-            this.guna2PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Color = System.Drawing.Color.IndianRed;
-            this.guna2PictureBox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.guna2PictureBox2.Size = new System.Drawing.Size(927, 141);
-            this.guna2PictureBox2.TabIndex = 16;
-            this.guna2PictureBox2.TabStop = false;
+            this.pic.BackColor = System.Drawing.Color.Transparent;
+            this.pic.BorderRadius = 10;
+            this.pic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic.ImageRotate = 0F;
+            this.pic.Location = new System.Drawing.Point(0, 0);
+            this.pic.Name = "pic";
+            this.pic.ShadowDecoration.Color = System.Drawing.Color.IndianRed;
+            this.pic.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.pic.Size = new System.Drawing.Size(927, 141);
+            this.pic.TabIndex = 16;
+            this.pic.TabStop = false;
             // 
             // uc_SV_TongKet
             // 
@@ -210,11 +210,12 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.lblMSSV);
             this.Controls.Add(this.lblTen);
-            this.Controls.Add(this.guna2PictureBox2);
+            this.Controls.Add(this.pic);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "uc_SV_TongKet";
             this.Size = new System.Drawing.Size(927, 141);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,6 +234,6 @@
         public System.Windows.Forms.Label lblTongDeTaiDaHoanThanh;
         public System.Windows.Forms.Label lblKetQua;
         public Guna.UI2.WinForms.Guna2CircleProgressBar progress;
-        public Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        public Guna.UI2.WinForms.Guna2PictureBox pic;
     }
 }

@@ -48,20 +48,32 @@ namespace Winform_Project.ClassDoiTuong
             this.HocKy = hocKy;
             this.TrangThai = trangThai;
         }
-        [Required]
-        [Range(minimum:1,maximum:3,ErrorMessage ="123")]
+        [Required, RegularExpression(@"^\d+$", ErrorMessage = "Chỉ được nhập chữ số.")]
+        [Range(minimum: 1, maximum: 100, ErrorMessage = "Số lượng chỉ từ 1 đến 100")]
         public string MaDeTai { get => maDeTai; set => maDeTai = value; }
+        [Required, RegularExpression(@"^(?=.*[a-zA-Z])[a-zA-Z\d\s]+$", ErrorMessage = "Chỉ được nhập chữ cái và số.")]
         public string TenDeTai { get => tenDeTai; set => tenDeTai = value; }
+        [Required, RegularExpression(@"^(?=.*[a-zA-Z])[a-zA-Z\d\s]+$", ErrorMessage = "Chỉ được nhập chữ cái và số.")]
         public string TheLoai { get => theLoai; set => theLoai = value; }
+        [Required, RegularExpression(@"^\d+$", ErrorMessage = "Chỉ được nhập chữ số.")]
+        [Range(minimum: 1, maximum: 4, ErrorMessage = "Số lượng chỉ từ 1 đến 4")]
         public string SoLuong { get => soLuong; set => soLuong = value; }
+        [Required, RegularExpression(@"^(?=.*[a-zA-Z])[a-zA-Z\d\s\p{P}]+$", ErrorMessage = "Chỉ được nhập chữ cái, số và dấu câu.")]
         public string MoTa { get => moTa; set => moTa = value; }
+        [Required, RegularExpression(@"^(?=.*[a-zA-Z])[a-zA-Z\d\s\p{P}]+$", ErrorMessage = "Chỉ được nhập chữ cái, số và dấu câu.")]
         public string ChucNang { get => chucNang; set => chucNang = value; }
+        [Required, RegularExpression(@"^(?=.*[a-zA-Z])[a-zA-Z\d\s\p{P}]+$", ErrorMessage = "Chỉ được nhập chữ cái, số và dấu câu.")]
         public string YeuCau { get => yeuCau; set => yeuCau = value; }
+        [Required, RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Chỉ được nhập chữ cái.")]
         public string Khoa { get => khoa; set => khoa = value; }
+        [Required, RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Chỉ được nhập chữ cái.")]
         public string Nganh { get => nganh; set => nganh = value; }
+        [Required, RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Chỉ được nhập chữ cái.")]
         public string TenGiangVien { get => tenGiangVien; set => tenGiangVien = value; }
+        [Required, RegularExpression(@"^[a-zA-Z.,?!'""-]+$", ErrorMessage = "Chỉ được nhập chữ cái và dấu câu.")]
         public string CongNghe { get => congNghe; set => congNghe = value; }
         public string HocKy { get => hocKy; set => hocKy = value; }
+        [Required, RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Chỉ được nhập chữ cái.")]
         public string TrangThai { get => trangThai; set => trangThai = value; }
         public string Diem { get => diem; set => diem = value; }
     }

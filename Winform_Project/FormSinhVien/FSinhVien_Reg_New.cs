@@ -92,11 +92,31 @@ namespace Winform_Project.FormSinhVien
             LuanVan lv = LoadData();
             if (cbXacNhan.Checked == true)
             {
-                svDao.DeXuatDeTai(lv);
-
-                foreach (uc_SV_ThongTin uc in flowThongTinSV.Controls.OfType<uc_SV_ThongTin>())
+                
+                if (conNguoiDao.Validation(this, lv))
                 {
-                    svDao.DangKy(uc.sv, txtIDnhom.Text, txtMaDeTai.Text);
+                    int n = 0;
+                    if (int.TryParse(txtIDnhom.Text, out n) == false)
+                    {
+                        ErrorProvider errorProvider = new ErrorProvider();
+                        errorProvider.SetError(txtIDnhom, "Vui lòng nhập số !!");
+                        uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thông tin đề tài không hợp lệ", "Thất bại");
+                        uc_Toast_Notice.Show();
+                    }
+                    else
+                    {
+                        svDao.DeXuatDeTai(lv);
+                        FDangNhap.SinhVienAccount.Masonhom = txtIDnhom.Text;
+                        foreach (uc_SV_ThongTin uc in flowThongTinSV.Controls.OfType<uc_SV_ThongTin>())
+                        {
+                            svDao.DangKy(uc.sv, txtIDnhom.Text, txtMaDeTai.Text);
+                        }
+                    }
+                }
+                else
+                {
+                    uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thông tin đề tài không hợp lệ", "Thất bại");
+                    uc_Toast_Notice.Show();
                 }
 
             }

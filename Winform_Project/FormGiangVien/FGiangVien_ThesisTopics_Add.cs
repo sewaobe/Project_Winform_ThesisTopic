@@ -18,6 +18,7 @@ namespace Winform_Project.FormGiangVien
     public partial class FGiangVien_ThesisTopics_Add : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
         private string khoa, nganh, tenGiangVien, namHoc, hocKi;
         public FGiangVien_ThesisTopics_Add(string Khoa, string Nganh, string TenGiangVien, string HocKi)
         {
@@ -36,7 +37,7 @@ namespace Winform_Project.FormGiangVien
         private LuanVan LoadData()
         {
             return new LuanVan(txtMaDeTai.Text, 
-                               txtTen.Text, 
+                               txtTenDeTai.Text, 
                                txtTheLoai.Text, 
                                txtSoLuong.Text, 
                                txtMoTa.Text, 
@@ -54,7 +55,7 @@ namespace Winform_Project.FormGiangVien
         {
             this.Hide();
         }
-        private void Validation(object sender)
+       /* private void Validation(object sender)
         {
             var validacao = new List<ValidationResult>();
             var contexto = new ValidationContext(sender, null, null);
@@ -75,12 +76,17 @@ namespace Winform_Project.FormGiangVien
                 }
                 
             }
-        }
+        }*/
         private void btnThem_Click(object sender, EventArgs e)
         {
             LuanVan lv = LoadData();
-            Validation(lv);
-            gvDao.Them(lv);
+            if(conNguoiDao.Validation(this,lv)==true)
+                gvDao.Them(lv);
+            else
+            {
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thông tin đề tài chưa hợp lệ!!!!", "Thất bại");
+                uc_Toast_Notice.Show();
+            }
         }
     }
 }

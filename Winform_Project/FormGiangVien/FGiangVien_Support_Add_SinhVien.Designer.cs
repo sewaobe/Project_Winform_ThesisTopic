@@ -36,6 +36,7 @@
             // 
             // fLoTrungTam
             // 
+            this.fLoTrungTam.AutoScroll = true;
             this.fLoTrungTam.Location = new System.Drawing.Point(51, 81);
             this.fLoTrungTam.Name = "fLoTrungTam";
             this.fLoTrungTam.Size = new System.Drawing.Size(570, 357);

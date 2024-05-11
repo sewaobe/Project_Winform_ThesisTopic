@@ -66,6 +66,7 @@
             // TinNhanDacBiet
             // 
             this.TinNhanDacBiet.BorderRadius = 15;
+            this.TinNhanDacBiet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TinNhanDacBiet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TinNhanDacBiet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(149)))), ((int)(((byte)(150)))));
             this.TinNhanDacBiet.ImageRotate = 0F;

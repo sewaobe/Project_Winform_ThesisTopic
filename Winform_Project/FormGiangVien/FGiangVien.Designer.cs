@@ -58,6 +58,7 @@
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowForm2 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.guna2ShadowForm3 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChonBtn)).BeginInit();
@@ -548,6 +549,10 @@
             // 
             this.guna2ShadowForm2.TargetForm = this;
             // 
+            // guna2ShadowForm3
+            // 
+            this.guna2ShadowForm3.TargetForm = this;
+            // 
             // FGiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -604,5 +609,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm2;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm3;
     }
 }

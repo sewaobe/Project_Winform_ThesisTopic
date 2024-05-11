@@ -375,7 +375,7 @@
             this.flowThongTinSV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowThongTinSV.Location = new System.Drawing.Point(56, 733);
             this.flowThongTinSV.Name = "flowThongTinSV";
-            this.flowThongTinSV.Size = new System.Drawing.Size(562, 272);
+            this.flowThongTinSV.Size = new System.Drawing.Size(580, 198);
             this.flowThongTinSV.TabIndex = 77;
             // 
             // btnThemSinhVien

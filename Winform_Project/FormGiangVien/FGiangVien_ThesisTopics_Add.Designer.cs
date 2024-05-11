@@ -31,7 +31,7 @@
             this.txtMoTa = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblMoTa = new System.Windows.Forms.Label();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
-            this.txtTen = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTenDeTai = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblTenDeTai = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMaDeTai = new System.Windows.Forms.Label();
@@ -105,28 +105,28 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // txtTen
+            // txtTenDeTai
             // 
-            this.txtTen.BorderColor = System.Drawing.Color.Black;
-            this.txtTen.BorderRadius = 5;
-            this.txtTen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTen.DefaultText = "";
-            this.txtTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTen.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
-            this.txtTen.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
-            this.txtTen.Location = new System.Drawing.Point(44, 181);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txtTen.Multiline = true;
-            this.txtTen.Name = "txtTen";
-            this.txtTen.PasswordChar = '\0';
-            this.txtTen.PlaceholderText = "";
-            this.txtTen.SelectedText = "";
-            this.txtTen.Size = new System.Drawing.Size(883, 77);
-            this.txtTen.TabIndex = 27;
+            this.txtTenDeTai.BorderColor = System.Drawing.Color.Black;
+            this.txtTenDeTai.BorderRadius = 5;
+            this.txtTenDeTai.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTenDeTai.DefaultText = "";
+            this.txtTenDeTai.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTenDeTai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTenDeTai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenDeTai.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenDeTai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
+            this.txtTenDeTai.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTenDeTai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(208)))), ((int)(((byte)(194)))));
+            this.txtTenDeTai.Location = new System.Drawing.Point(44, 181);
+            this.txtTenDeTai.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtTenDeTai.Multiline = true;
+            this.txtTenDeTai.Name = "txtTenDeTai";
+            this.txtTenDeTai.PasswordChar = '\0';
+            this.txtTenDeTai.PlaceholderText = "";
+            this.txtTenDeTai.SelectedText = "";
+            this.txtTenDeTai.Size = new System.Drawing.Size(883, 77);
+            this.txtTenDeTai.TabIndex = 27;
             // 
             // lblTenDeTai
             // 
@@ -420,7 +420,7 @@
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtMoTa);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.txtTen);
+            this.Controls.Add(this.txtTenDeTai);
             this.Controls.Add(this.txtMaDeTai);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2Panel1);
@@ -441,7 +441,7 @@
         public Guna.UI2.WinForms.Guna2TextBox txtMoTa;
         public System.Windows.Forms.Label lblMoTa;
         public Guna.UI2.WinForms.Guna2Button btnThem;
-        public Guna.UI2.WinForms.Guna2TextBox txtTen;
+        public Guna.UI2.WinForms.Guna2TextBox txtTenDeTai;
         public System.Windows.Forms.Label lblTenDeTai;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label lblMaDeTai;

@@ -33,8 +33,10 @@ namespace Winform_Project
                 lblTrangThai.ForeColor = Color.Olive;
             else if (lblTrangThai.Text == "Chua dang ki")
                 lblTrangThai.ForeColor = Color.Red;
-            else
+            else if (lblTrangThai.Text == "Da duyet")
                 lblTrangThai.ForeColor = Color.Blue;
+            else
+                lblTrangThai.ForeColor = Color.LimeGreen;
             string[] cong_nghe = lv.CongNghe.Split(',');
             btnCongNghe.Text = cong_nghe[0];
             int x_location = btnCongNghe.Location.X;

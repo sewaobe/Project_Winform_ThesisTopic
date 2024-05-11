@@ -15,7 +15,7 @@ namespace Winform_Project.uc_SV
 {
     public partial class uc_SV_TongKet : UserControl
     {
-        SinhVien sinhVien;
+        public SinhVien sinhVien;
         GiangVienDao gvDao = new GiangVienDao();    
         public uc_SV_TongKet()
         {

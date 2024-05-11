@@ -82,9 +82,7 @@ namespace Winform_Project
             if (dtSinhVien.Rows.Count == 0)
                 diemTb = 0;
             else
-
                 diemTb = soLuongDangKi / dtSinhVien.Rows.Count;
-
             return Math.Round(diemTb, 2);
 
         }
@@ -167,7 +165,7 @@ namespace Winform_Project
                 lblSoLuongLuanVanHoanThanh.Text = deTaiHoanThanh.ToString();
                 progressLuanVanHoanThanh.Value = deTaiHoanThanh * 100 / dtTongDeTaiDaDangKy.Rows.Count;
                 lblSoLuongLuanVanDiemTrungBinh.Text = diemTb.ToString();
-                progressLuanVanDiemTrungBinh.Value = int.Parse(Math.Round((diemTb * 10), 2).ToString());
+                progressLuanVanDiemTrungBinh.Value = int.Parse((Math.Round((diemTb),1)*10).ToString());
             }
         }
         private void Load_Chart_Line()

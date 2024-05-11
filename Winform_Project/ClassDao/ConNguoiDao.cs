@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -19,6 +21,7 @@ namespace Winform_Project.ClassDao
         
         DBConnection db = new DBConnection();
         public static int conNguoi = 0;
+        private ErrorProvider errorProvider = new ErrorProvider();
         public ConNguoiDao()
         {
         }
@@ -26,6 +29,12 @@ namespace Winform_Project.ClassDao
         public DataTable TimThongTinSinhVien(string mssv)
         {
             string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV LIKE '{0}%'", mssv);
+            return db.Load(sqlStr);
+        }
+        //New
+        public DataTable LayThongTinTatCaDeTai()
+        {
+            string sqlStr = string.Format("SELECT * FROM ThongTinDeTai");
             return db.Load(sqlStr);
         }
         public DataTable XacNhanDangNhap(TaiKhoanDangNhap tk)
@@ -104,8 +113,40 @@ namespace Winform_Project.ClassDao
             string sqlStr = string.Format($"SELECT * FROM SinhVien");
             return db.Load(sqlStr);
         }
+        //New
+        public bool Validation(Form sender, LuanVan lv)
+        {
+            errorProvider.Clear();
+            var validacao = new List<ValidationResult>();
+            var contexto = new ValidationContext(lv, null, null);
+            var controlErrors = new Dictionary<Control, List<string>>();
+            Validator.TryValidateObject(lv, contexto, validacao, true);
+            foreach (var erro in validacao)
+            {
 
+                foreach (Guna2TextBox txt in sender.Controls.OfType<Guna2TextBox>())
+                {
+                    {
+                        if (txt.Name.ToLower().Contains(erro.MemberNames.FirstOrDefault().ToLower()))
+                        {
+                            if (!controlErrors.ContainsKey(txt))
+                            {
+                                controlErrors[txt] = new List<string>();
+                            }
+                            controlErrors[txt].Add(erro.ErrorMessage);
+                        }
+                    }
+                }
 
+            }
+            int flag = 0;
+            foreach (var controlError in controlErrors)
+            {
+                errorProvider.SetError(controlError.Key, string.Join("\n", controlError.Value));
+                flag = 1;
+            }
+            return flag == 1? false:true;
+        }
 
     }
 }

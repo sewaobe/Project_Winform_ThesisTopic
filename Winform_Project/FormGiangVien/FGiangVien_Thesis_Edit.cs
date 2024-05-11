@@ -15,6 +15,7 @@ namespace Winform_Project.FormGiangVien
     public partial class FGiangVien_Thesis_Edit : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();    
         LuanVan lv;
         public FGiangVien_Thesis_Edit()
         {
@@ -27,7 +28,7 @@ namespace Winform_Project.FormGiangVien
                 InitializeComponent();
                 this.lv = lv;
                 txtMaDeTai.Text = lv.MaDeTai;
-                txtTen.Text = lv.TenDeTai;
+                txtTenDeTai.Text = lv.TenDeTai;
                 txtSoLuong.Text = lv.SoLuong;
                 txtChucNang.Text = lv.ChucNang;
                 txtMoTa.Text = lv.MoTa;
@@ -51,7 +52,7 @@ namespace Winform_Project.FormGiangVien
         private LuanVan LoadData()
         {
             return new LuanVan(txtMaDeTai.Text,
-                              txtTen.Text,
+                              txtTenDeTai.Text,
                               txtTheLoai.Text,
                               txtSoLuong.Text,
                               txtMoTa.Text,
@@ -69,7 +70,13 @@ namespace Winform_Project.FormGiangVien
         private void btnSua_Click(object sender, EventArgs e)
         {
             LuanVan lv = LoadData();
-            gvDao.Sua(lv);
+            if(conNguoiDao.Validation(this,lv))
+                gvDao.Sua(lv);
+            else
+            {
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thông tin đề tài chỉnh sửa không hợp lẹ", "Thất bại");
+                uc_Toast_Notice.Show();
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

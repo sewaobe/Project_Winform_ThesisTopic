@@ -44,6 +44,8 @@
             this.progress = new Guna.UI2.WinForms.Guna2Panel();
             this.btnThayDoiDuyet = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiCho = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDaHoanThanh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThayDoiHoanThanh = new Guna.UI2.WinForms.Guna2Button();
             this.fGiangVienThesisAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deTaiBindingSource)).BeginInit();
@@ -259,6 +261,41 @@
             this.btnThayDoiCho.TabIndex = 14;
             this.btnThayDoiCho.Visible = false;
             // 
+            // btnDaHoanThanh
+            // 
+            this.btnDaHoanThanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDaHoanThanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDaHoanThanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDaHoanThanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDaHoanThanh.FillColor = System.Drawing.Color.White;
+            this.btnDaHoanThanh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDaHoanThanh.ForeColor = System.Drawing.Color.Black;
+            this.btnDaHoanThanh.HoverState.BorderColor = System.Drawing.Color.Lime;
+            this.btnDaHoanThanh.Location = new System.Drawing.Point(393, 120);
+            this.btnDaHoanThanh.Name = "btnDaHoanThanh";
+            this.btnDaHoanThanh.Size = new System.Drawing.Size(160, 61);
+            this.btnDaHoanThanh.TabIndex = 15;
+            this.btnDaHoanThanh.Text = "Đã hoàn thành";
+            this.btnDaHoanThanh.Click += new System.EventHandler(this.btnDaHoanThanh_Click);
+            // 
+            // btnThayDoiHoanThanh
+            // 
+            this.btnThayDoiHoanThanh.AutoRoundedCorners = true;
+            this.btnThayDoiHoanThanh.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiHoanThanh.BorderRadius = 6;
+            this.btnThayDoiHoanThanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiHoanThanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThayDoiHoanThanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThayDoiHoanThanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThayDoiHoanThanh.FillColor = System.Drawing.Color.Crimson;
+            this.btnThayDoiHoanThanh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThayDoiHoanThanh.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiHoanThanh.Location = new System.Drawing.Point(538, 120);
+            this.btnThayDoiHoanThanh.Name = "btnThayDoiHoanThanh";
+            this.btnThayDoiHoanThanh.Size = new System.Drawing.Size(15, 15);
+            this.btnThayDoiHoanThanh.TabIndex = 16;
+            this.btnThayDoiHoanThanh.Visible = false;
+            // 
             // fGiangVienThesisAcceptBindingSource
             // 
             this.fGiangVienThesisAcceptBindingSource.DataSource = typeof(Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept);
@@ -269,6 +306,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1232, 769);
+            this.Controls.Add(this.btnThayDoiHoanThanh);
             this.Controls.Add(this.btnThayDoiCho);
             this.Controls.Add(this.btnThayDoiDuyet);
             this.Controls.Add(this.progress);
@@ -279,6 +317,7 @@
             this.Controls.Add(this.fLoTrungTam);
             this.Controls.Add(this.btnCho);
             this.Controls.Add(this.btnDuyet);
+            this.Controls.Add(this.btnDaHoanThanh);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FGiangVien_Thesis_Accept";
             this.Text = "FGiangVien_Thesis_Accept";
@@ -311,5 +350,7 @@
         private Guna.UI2.WinForms.Guna2Button headerOparetor;
         private Guna.UI2.WinForms.Guna2Button btnThayDoiDuyet;
         private Guna.UI2.WinForms.Guna2Button btnThayDoiCho;
+        private Guna.UI2.WinForms.Guna2Button btnDaHoanThanh;
+        private Guna.UI2.WinForms.Guna2Button btnThayDoiHoanThanh;
     }
 }
