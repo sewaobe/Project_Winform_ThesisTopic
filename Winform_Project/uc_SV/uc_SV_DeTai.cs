@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FSinhVien;
 
 namespace Winform_Project
 {
     public partial class uc_SV_DeTai : UserControl
     {
-        public LuanVan luanvan;
-        public uc_SV_DeTai(LuanVan lv)
+        public ThongTinDeTaii luanvan;
+        public uc_SV_DeTai(ThongTinDeTaii lv)
         {
             InitializeComponent();
             this.luanvan = lv;

@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 using Winform_Project.FormSinhVien;
 using Winform_Project.uc_SV;
@@ -19,13 +19,13 @@ namespace Winform_Project.FSinhVien
     public partial class FSinhVien_Reg_Done : Form
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.ConnStr);
-        LuanVan luanvan = new LuanVan();
+        ThongTinDeTaii luanvan = new ThongTinDeTaii();
         SinhVienDao svDao = new SinhVienDao();
-        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienn SinhVienAccount = FDangNhap.SinhVienAccount;
         public static FlowLayoutPanel fLoHienThiSinhVien;
         ConNguoiDao conNguoiDao = new ConNguoiDao();
 
-        public FSinhVien_Reg_Done( LuanVan lv)
+        public FSinhVien_Reg_Done( ThongTinDeTaii lv)
         {
             InitializeComponent();
             luanvan = lv;
@@ -43,17 +43,19 @@ namespace Winform_Project.FSinhVien
             DataTable dtSinhVien = conNguoiDao.TimThongTinSinhVien("");
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                if (dtSinhVien.Rows[i]["MSSV"].ToString() == FDangNhap.SinhVienAccount.Mssv)
+                if (dtSinhVien.Rows[i]["MSSV"].ToString() == FDangNhap.SinhVienAccount.MSSV)
                 {
-                    SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
-                        dtSinhVien.Rows[i]["GioiTinh"].ToString(),
-                        Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
-                        dtSinhVien.Rows[i]["SDT"].ToString(),
-                        dtSinhVien.Rows[i]["Khoa"].ToString(),
-                        dtSinhVien.Rows[i]["Nganh"].ToString(),
-                        dtSinhVien.Rows[i]["MSSV"].ToString(),
-                        txtIDnhom.Text
-                                                        );
+                    SinhVienn sinhvien = new SinhVienn
+                    {
+                        HoTen = dtSinhVien.Rows[i]["HoTen"].ToString(),
+                        GioiTinh = dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                        NgaySinh = Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                        SDT = dtSinhVien.Rows[i]["SDT"].ToString(),
+                        Khoa = dtSinhVien.Rows[i]["Khoa"].ToString(),
+                        Nganh = dtSinhVien.Rows[i]["Nganh"].ToString(),
+                        MSSV = dtSinhVien.Rows[i]["MSSV"].ToString(),
+                        MaSoNhom = txtIDnhom.Text
+                    };
                     uc_SV_ThongTin uc_SV_ThongTin = new uc_SV_ThongTin(sinhvien);
                     uc_SV_ThongTin.btnThemSinhVien.Image = Properties.Resources.check;
                     flowThongTinSV.Controls.Add(uc_SV_ThongTin);

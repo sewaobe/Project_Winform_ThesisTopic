@@ -8,29 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormSinhVien;
 
 namespace Winform_Project
 {
     public partial class uc_SV_ThongBao : UserControl
     {
-        ThongBao thongbao = new ThongBao();
+        ThongBaoo thongbao = new ThongBaoo();
         ConNguoiDao conNguoiDao = new ConNguoiDao();
-        public uc_SV_ThongBao(ThongBao tb)
+        public uc_SV_ThongBao(ThongBaoo tb)
         {
             InitializeComponent();
             thongbao = tb;
-            lblTieuDe.Text = tb.Tieude;
-            lblNguoiGui.Text = tb.Tengiangvien;
-            lblThoiGianGui.Text = tb.Thoigiangui.Day.ToString() + "/" + tb.Thoigiangui.Month.ToString() + "/" + tb.Thoigiangui.Year.ToString();
-
-            
+            lblTieuDe.Text = tb.TieuDe;
+            lblNguoiGui.Text = tb.TenGiangVien;
+            lblThoiGianGui.Text = tb.ThoiGianGui;
         }
 
         private void uc_SV_ThongBao_Load(object sender, EventArgs e)
         {
-            if (thongbao.Trangthai == "Da Doc")
+            if (thongbao.TrangThai == "Da Doc")
             {
                 pic.Image = Properties.Resources.letter_open;
             }
@@ -44,10 +42,10 @@ namespace Winform_Project
         {
             conNguoiDao.docThongBao(thongbao);
             FSinhVien_Support_View fSinhVien_Support_View = new FSinhVien_Support_View();
-            thongbao.Trangthai = "Da Doc";
+            thongbao.TrangThai = "Da Doc";
             uc_SV_ThongBao_Load(sender, e);
-            fSinhVien_Support_View.Text=thongbao.Tieude;
-            fSinhVien_Support_View.txtNoiDung.Text = thongbao.Noidung;
+            fSinhVien_Support_View.Text=thongbao.TieuDe;
+            fSinhVien_Support_View.txtNoiDung.Text = thongbao.NoiDung;
 /*            fSinhVien_Support_View.lblThoiGianKetThuc.Text="Thời gian kết thúc: " + thongbao.Thoigianketthuc.ToString();
 */            fSinhVien_Support_View.Show();
         }

@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.FormSinhVien
 {
     public partial class FSinhVien_login : Form
     {
-        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienn SinhVienAccount = FDangNhap.SinhVienAccount;
         public FSinhVien_login()
         {
             InitializeComponent();
@@ -45,11 +45,11 @@ namespace Winform_Project.FormSinhVien
 
         private void FSinhVien_login_Load(object sender, EventArgs e)
         {
-            txtMSSV.Text = SinhVienAccount.Mssv;
-            txtTen.Text = SinhVienAccount.Ten;
+            txtMSSV.Text = SinhVienAccount.MSSV;
+            txtTen.Text = SinhVienAccount.HoTen;
             cbbGioiTinh.Text = SinhVienAccount.GioiTinh;
-            DTPngaysinh.Value = SinhVienAccount.NgaySinh;
-            txtSDT.Text = SinhVienAccount.Sdt;
+            DTPngaysinh.Value = Convert.ToDateTime(SinhVienAccount.NgaySinh);
+            txtSDT.Text = SinhVienAccount.SDT;
             txtEmail.Text = "không có";
             cbbKhoa.Text = SinhVienAccount.Khoa;
             cbbNganh.Text = SinhVienAccount.Nganh;

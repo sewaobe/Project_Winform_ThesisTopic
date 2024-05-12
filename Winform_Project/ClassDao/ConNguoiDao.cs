@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.Model;
 
 
@@ -19,102 +20,182 @@ namespace Winform_Project.ClassDao
     internal class ConNguoiDao
     {
         
-        DBConnection db = new DBConnection();
+        DatabaseContext dbContext = new DatabaseContext();
         public static int conNguoi = 0;
         private ErrorProvider errorProvider = new ErrorProvider();
+        ToastMessage ToastMessage = new ToastMessage();
+
+        static DataTable ToDataTable<T>(List<T> items)
+        {
+            DataTable dataTable = new DataTable(typeof(T).Name);
+
+            // Lấy tất cả các thuộc tính public của đối tượng
+            System.Reflection.PropertyInfo[] Props = typeof(T).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+
+            // Tạo các cột trong DataTable dựa trên tên của các thuộc tính
+            foreach (System.Reflection.PropertyInfo prop in Props)
+            {
+                dataTable.Columns.Add(prop.Name);
+            }
+
+            // Thêm dữ liệu vào DataTable từ danh sách đối tượng
+            foreach (T item in items)
+            {
+                object[] values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    // Lấy giá trị của thuộc tính tương ứng của đối tượng
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+
+            return dataTable;
+        }
+
+        //Tạo toast-Message cho UI
+        public void TaoToastMessage(int flag)
+        {
+            if (flag == 1)
+            {
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi thành công", "Thành công");
+                uc_Toast_Notice.Show();
+            }
+            else
+            {
+                uc_Toast_Notice uc_Toast_Notice = new uc_Toast_Notice("Thực thi thất bại", "Thất bại");
+                uc_Toast_Notice.Show();
+            }
+        }
         public ConNguoiDao()
         {
         }
         //New
         public DataTable TimThongTinSinhVien(string mssv)
         {
-            string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV LIKE '{0}%'", mssv);
-            return db.Load(sqlStr);
+            var query = (from p in dbContext.SinhVienns
+                         where p.MSSV.Contains(mssv)
+                         select p).ToList();
+
+            return ToDataTable<SinhVienn>(query);   
         }
         //New
         public DataTable LayThongTinTatCaDeTai()
         {
-            string sqlStr = string.Format("SELECT * FROM ThongTinDeTai");
-            return db.Load(sqlStr);
+            var query = dbContext.ThongTinDeTaiis.ToList();
+            return ToDataTable<ThongTinDeTaii>(query);
         }
-        public DataTable XacNhanDangNhap(TaiKhoanDangNhap tk)
+        public DataTable XacNhanDangNhap(ThongTinDangNhapp tk)
         {
-            string sqlStr = string.Format("SELECT * FROM ThongTinDangNhap WHERE TenDangNhap='{0}' AND MatKhau='{1}'", tk.TenDangNhap, tk.MatKhau);
-            return db.Load(sqlStr);
+            var query = (from p in dbContext.ThongTinDangNhapps
+                        where p.TenDangNhap == tk.TenDangNhap && p.MatKhau == tk.MatKhau
+                        select p).ToList();
+
+            return ToDataTable<ThongTinDangNhapp>(query);
         }
-        public DataTable LoadData(string sqlStr)
+        
+        public void docThongBao(ThongBaoo tb)
         {
-            return db.Load(sqlStr);
-        }
-        public void Them(string sqlStr)
-        {
-            string sql = sqlStr;
-        }
-        public void docThongBao(ThongBao tb)
-        {
-            string sqlStr = string.Format("UPDATE ThongBao SET TrangThai='Da Doc' Where TieuDe='{0}'",
-                                            tb.Tieude);
-            db.ThucThi(sqlStr);
+            var query = (from p in dbContext.ThongBaoos
+                        where p.TieuDe == tb.TieuDe
+                        select p).SingleOrDefault();
+
+            query.TrangThai = "Da doc";
+            ToastMessage.Check(dbContext.SaveChanges());
         }
         public DataTable LayThongTinDeTaiDangCapNhat(string trangThai)
         {
-            string sqlStr = string.Format($"SELECT * FROM ThongTinDeTai WHERE TrangThai = '{trangThai}'");
-            return db.Load(sqlStr);
+            var query = (from p in dbContext.ThongTinDeTaiis
+                         where p.TrangThai == trangThai
+                         select p).ToList();
+            return ToDataTable<ThongTinDeTaii>(query);
         }
         public DataTable LayThongTinTatCaNhomDangKy()
         {
-            string sqlStr = string.Format("SELECT * FROM ThongTinNhomDangKy");
-            return db.Load(sqlStr);
+            
+
+            var query = dbContext.ThongTinNhomDangKyies.ToList();
+            return ToDataTable<ThongTinNhomDangKyy>(query);
         }
         public DataTable LayThongTinSinhVien(string maNhom)
         {
-            string sqlStr = string.Format($"SELECT * FROM SinhVien Where MaSoNhom = '{maNhom}'");
-            return db.Load(sqlStr);
+            var query = (from p in dbContext.SinhVienns
+                         where p.MaSoNhom == maNhom
+                         select p).ToList();
+
+            return ToDataTable<SinhVienn>(query);
         }
         public DataTable LayThongTinLichHen(string maNhom)
         {
-            string sqlStr = string.Format($"SELECT * FROM Lich WHERE MaSoNhom = '{maNhom}'");
-            return db.Load(sqlStr);
+            var query = (from p in dbContext.Lichhs
+                         where p.MaSoNhom == maNhom
+                         select p).ToList();
+
+            return ToDataTable<Lichh>(query);
         }
         public DataTable LayThongTinChat(string nguoiNhan, string nguoiGui)
         {
-            string sqlStr = string.Format($"SELECT * FROM Messenger WHERE (NguoiNhan = '{nguoiNhan}' AND NguoiGui = '{nguoiGui}') OR (NguoiNhan = '{nguoiGui}' AND NguoiGui = '{nguoiNhan}')");
-            return db.Load(sqlStr);
+            var query = (from p in dbContext.Messengerrs
+                         where (p.NguoiNhan == nguoiNhan && p.NguoiGui == nguoiGui) || (p.NguoiGui == nguoiNhan && p.NguoiNhan == nguoiGui)
+                         select p).ToList();
+
+            return ToDataTable<Messengerr>(query);
         }
-        public void GuiTinNhan(TinNhan tn)
+        public void GuiTinNhan(Messengerr tn)
         {
-            using (Stream stream = File.OpenRead(tn.Noidungdacbiet))
+                var insert = new Messengerr
+                {
+                    NguoiGui = tn.NguoiGui,
+                    NguoiNhan = tn.NguoiNhan,
+                    NoiDung = tn.NoiDung,
+                    ThoiGianGui = tn.ThoiGianGui,
+                };
+                dbContext.Messengerrs.Add(insert);
+                ToastMessage.Check(dbContext.SaveChanges());
+            
+        }
+        public void GuiTinNhanDacBiet(Messengerr tn)
+        {
+            using (Stream stream = File.OpenRead(tn.NoiDung))
             {
                 byte[] buffer = new byte[stream.Length];
                 stream.Read(buffer, 0, buffer.Length);
 
-                string extn = new FileInfo(tn.Noidungdacbiet).Extension;
-
-                string sqlStr = string.Format($"INSERT INTO Messenger(NguoiGui, NguoiNhan, NoiDung, NoiDungDacBiet, ThoiGianGui)" +
-                                            $" Values('{tn.Nguoigui}', '{tn.Nguoinhan}', '{tn.Noidung}',@File,'{tn.Thoigiangui}' )");
-                SinhVienDao.buffer_s = buffer;
-                db.ThucThi(sqlStr);
+                string extn = new FileInfo(tn.NoiDung).Extension;
+               
+                var insert = new Messengerr
+                {
+                    NguoiGui = tn.NguoiGui,
+                    NguoiNhan = tn.NguoiNhan,
+                    NoiDung = tn.NoiDung,
+                    NoiDungDacBiet = buffer,
+                    ThoiGianGui = tn.ThoiGianGui,
+                };
+                dbContext.Messengerrs.Add(insert);
+                ToastMessage.Check(dbContext.SaveChanges());
             }
         }
         //New
-        public void MoTinNhanDacBiet(TinNhan tn)
+        public void MoTinNhanDacBiet(Messengerr tn)
         {
-            string sqlStr = string.Format($"SELECT * FROM Messenger WHERE ThoiGianGui = '{tn.Thoigiangui}'");
-            DataTable dtTinNhan = db.Load(sqlStr);
-            if (dtTinNhan.Rows.Count > 0)
+            var test = dbContext.Messengerrs.ToList();
+            foreach(var item in test)
             {
-                var file = (byte[])(dtTinNhan.Rows[0]["NoiDungDacBiet"]);
-                File.WriteAllBytes(tn.Noidung, file);
-                System.Diagnostics.Process.Start(tn.Noidung);
+                if (item.ThoiGianGui.ToString() == tn.ThoiGianGui.ToString())
+                {
+                    File.WriteAllBytes(tn.NoiDung, item.NoiDungDacBiet);
+                    System.Diagnostics.Process.Start(tn.NoiDung);
+                }
             }
         }
         public DataTable LayThongTinTatCaSinhVien()
         {
-            string sqlStr = string.Format($"SELECT * FROM SinhVien");
-            return db.Load(sqlStr);
+            var query = dbContext.SinhVienns.ToList();
+
+            return ToDataTable<SinhVienn>(query);
         }
         //New
-        public bool Validation(Form sender, LuanVan lv)
+        public bool Validation(Form sender, ThongTinDeTaii lv)
         {
             errorProvider.Clear();
             var validacao = new List<ValidationResult>();

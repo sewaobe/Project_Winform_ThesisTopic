@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.FormGiangVien
 {
     public partial class FGiangVien_Progress_Check : Form
     {
-        BaoCao baoCao;
+        BaoCaoo baoCao;
         GiangVienDao gvDao = new GiangVienDao();
-        public FGiangVien_Progress_Check(BaoCao bc)
+        public FGiangVien_Progress_Check(BaoCaoo bc)
         {
             InitializeComponent();
             txtTieuDe.Text = bc.TieuDe;
@@ -32,13 +32,13 @@ namespace Winform_Project.FormGiangVien
 
         private void btnGui_Click(object sender, EventArgs e)
         {
-            BaoCao bc = new BaoCao(txtTieuDe.Text, 
-                                   DateTime.Now.ToString(),
-                                   baoCao.File,
-                                   txtNhanXet.Text,
-                                   progress.Value.ToString(),
-                                   baoCao.MaSoNhom,
-                                   "Da duyet");
+            BaoCaoo bc = new BaoCaoo{TieuDe = txtTieuDe.Text,
+                                   ThoiGianGui = DateTime.Now.ToString(),
+                                   FileBaoCao = baoCao.FileBaoCao,
+                                   NhanXet = txtNhanXet.Text,
+                                   TienDo = progress.Value.ToString(),
+                                   MaSoNhom = baoCao.MaSoNhom,
+                                   TrangThai = "Da duyet"};
             gvDao.NhanXetBaoCao(bc);
         }
 

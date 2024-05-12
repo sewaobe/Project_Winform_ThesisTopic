@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormSinhVien;
 using Winform_Project.uc_SV;
 
@@ -35,32 +35,32 @@ namespace Winform_Project.FormGiangVien
         private void HienThiThongTinChiTiet()
         {
             DataTable dtLuanVan = gvDao.LayThongTinDeTai(maDeTai);
-            LuanVan lv = new LuanVan(dtLuanVan.Rows[0]["MaDeTai"].ToString(),
-                                     dtLuanVan.Rows[0]["TenDeTai"].ToString(),
-                                     dtLuanVan.Rows[0]["TheLoai"].ToString(),
-                                     dtLuanVan.Rows[0]["SoLuong"].ToString(),
-                                     dtLuanVan.Rows[0]["MoTa"].ToString(),
-                                     dtLuanVan.Rows[0]["ChucNang"].ToString(),
-                                     dtLuanVan.Rows[0]["YeuCau"].ToString(),
-                                     dtLuanVan.Rows[0]["CongNghe"].ToString(),
-                                     dtLuanVan.Rows[0]["Khoa"].ToString(),
-                                     dtLuanVan.Rows[0]["Nganh"].ToString(),
-                                     dtLuanVan.Rows[0]["HocKy"].ToString(),
-                                     dtLuanVan.Rows[0]["TenGiangVien"].ToString(),
-                                     dtLuanVan.Rows[0]["TrangThai"].ToString());
+            ThongTinDeTaii lv = new ThongTinDeTaii{ MaDeTai = dtLuanVan.Rows[0]["MaDeTai"].ToString(),
+                                     TenDeTai = dtLuanVan.Rows[0]["TenDeTai"].ToString(),
+                                     TheLoai = dtLuanVan.Rows[0]["TheLoai"].ToString(),
+                                     SoLuong = dtLuanVan.Rows[0]["SoLuong"].ToString(),
+                                     MoTa = dtLuanVan.Rows[0]["MoTa"].ToString(),
+                                     ChucNang = dtLuanVan.Rows[0]["ChucNang"].ToString(),
+                                     YeuCau = dtLuanVan.Rows[0]["YeuCau"].ToString(),
+                                     CongNghe = dtLuanVan.Rows[0]["CongNghe"].ToString(),
+                                     Khoa = dtLuanVan.Rows[0]["Khoa"].ToString(),
+                                     Nganh = dtLuanVan.Rows[0]["Nganh"].ToString(),
+                                     HocKy = dtLuanVan.Rows[0]["HocKy"].ToString(),
+                                     TenGiangVien = dtLuanVan.Rows[0]["TenGiangVien"].ToString(),
+                                     TrangThai = dtLuanVan.Rows[0]["TrangThai"].ToString() };
             DataTable dtNhomSinhVien = conNguoiDao.LayThongTinSinhVien(maSoNhom);
-            List<SinhVien> listSinhVien = new List<SinhVien>();
+            List<SinhVienn> listSinhVien = new List<SinhVienn>();
 
             for (int i = 0; i < dtNhomSinhVien.Rows.Count; i++)
             {
-                SinhVien sv = new SinhVien(dtNhomSinhVien.Rows[i]["HoTen"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["GioiTinh"].ToString(),
-                                           Convert.ToDateTime(dtNhomSinhVien.Rows[i]["NgaySinh"]),
-                                           dtNhomSinhVien.Rows[i]["SDT"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["Khoa"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["Nganh"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["MSSV"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["MaSoNhom"].ToString());
+                SinhVienn sv = new SinhVienn{HoTen = dtNhomSinhVien.Rows[i]["HoTen"].ToString(),
+                                           GioiTinh = dtNhomSinhVien.Rows[i]["GioiTinh"].ToString(),
+                                           NgaySinh = Convert.ToDateTime(dtNhomSinhVien.Rows[i]["NgaySinh"]),
+                                           SDT = dtNhomSinhVien.Rows[i]["SDT"].ToString(),
+                                           Khoa = dtNhomSinhVien.Rows[i]["Khoa"].ToString(),
+                                           Nganh = dtNhomSinhVien.Rows[i]["Nganh"].ToString(),
+                                           MSSV = dtNhomSinhVien.Rows[i]["MSSV"].ToString(),
+                                           MaSoNhom = dtNhomSinhVien.Rows[i]["MaSoNhom"].ToString() };
                 listSinhVien.Add(sv);
             }
             ucChiTietDeTai uc = new ucChiTietDeTai(lv, listSinhVien);
@@ -156,8 +156,11 @@ namespace Winform_Project.FormGiangVien
         }
         private void btnNVTao_Click(object sender, EventArgs e)
         {
+            Guna2Button btn = sender as Guna2Button;
+            ucFGiangVien_Suppost uc = btn.Parent as ucFGiangVien_Suppost;
             FGiangVien_SupportTopic_Add fGiangVien_SupportTopic_Add = new FGiangVien_SupportTopic_Add();
             fGiangVien_SupportTopic_Add.ShowDialog();
+            ucFGiangVien_Support_Load(uc, e);
         }
         private void btnTienDo_Click(object sender, EventArgs e)
         {
@@ -168,20 +171,45 @@ namespace Winform_Project.FormGiangVien
             ucFGiangVien_Progress uc = new ucFGiangVien_Progress();
             fLoTrungTam.Controls.Add(uc);
         }
+        private void Load_BaoCao(List<BaoCaoo> list)
+        {
+              foreach(BaoCaoo bc in list)
+            {
+                ucBaoCao ucBaoCao = new ucBaoCao(bc);
+                ucBaoCao.Click += Open_File_BaoCao;
 
+                if (bc.TrangThai != "Dang cho")
+                {
+                    ucBaoCao.btnDanhGia.Visible = false;
+                    ucBaoCao.btnXoa.Visible = false;
+                }
+                else
+                {
+                    ucBaoCao.btnDanhGia.Click += btnDanhGiaBaoCao_Click;
+                    ucBaoCao.btnXoa.Click += btnXoaBaoCao_Click;
+                }
+                fLoTrungTam.Controls.Add(ucBaoCao);
+            }
+        }
         private void btnHoTro_Click(object sender, EventArgs e)
         {
             btnThayDoiOFF(btnThayDoiBaoCao, FGiangVien_Controls.flag_BaoCao);
             fLoTrungTam.Controls.Clear();
             progress.Location = new Point(btnBaoCao.Location.X, btnChiTiet.Location.Y + 30);
             DataTable dt = gvDao.LayThongTinBaoCao(maSoNhom);
-            List<BaoCao> list = new List<BaoCao>();
+            List<BaoCaoo> list = new List<BaoCaoo>();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                BaoCao bc = new BaoCao(dt.Rows[i]["TieuDe"].ToString(), dt.Rows[i]["ThoiGianGui"].ToString(), dt.Rows[i]["FileBaoCao"].ToString(), dt.Rows[i]["TrangThai"].ToString(), dt.Rows[i]["MaSoNhom"].ToString());
+                string File = dt.Rows[i]["FileBaoCao"].ToString();
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(File);
+                BaoCaoo bc = new BaoCaoo{TieuDe = dt.Rows[i]["TieuDe"].ToString(), 
+                                         ThoiGianGui = dt.Rows[i]["ThoiGianGui"].ToString(),
+                                         FileBaoCao = data,
+                                         TrangThai = dt.Rows[i]["TrangThai"].ToString(),
+                                         MaSoNhom = dt.Rows[i]["MaSoNhom"].ToString()};
                 list.Add(bc);
             }
-            foreach(BaoCao bc in list)
+            foreach(BaoCaoo bc in list)
             {
                 ucBaoCao ucBaoCao = new ucBaoCao(bc);
                 ucBaoCao.Click += Open_File_BaoCao;
@@ -210,11 +238,16 @@ namespace Winform_Project.FormGiangVien
             //Xoa bao cao -> Gui thong bao toi sinh vien (bao cao lan x da khong duoc duyet)
             Guna2Button btn = sender as Guna2Button;
             ucBaoCao ucBaoCao = btn.Parent as ucBaoCao;
-            ThongBao tb = new ThongBao(maSoNhom, FDangNhap.giangVienAccount.Ten, "Duyet de tai", $"{ucBaoCao.lblTieuDe.Text} khong duoc duyet!!!","Chua doc", DateTime.Now);
+            ThongBaoo tb = new ThongBaoo {MaSoNhom = maSoNhom, 
+                                          TenGiangVien = FDangNhap.giangVienAccount.HoTen,
+                                          TieuDe = "Khong duyet bao cao", 
+                                          NoiDung = $"{ucBaoCao.lblTieuDe.Text} khong duoc duyet!!!", 
+                                          TrangThai = "Chua doc", 
+                                          ThoiGianGui = DateTime.Now.ToString() };
             gvDao.ThongBaoToiSinhVien(tb);
             ucBaoCao.baoCao.TrangThai = "Khong duyet";
             gvDao.NhanXetBaoCao(ucBaoCao.baoCao);
-
+            btnHoTro_Click(btnBaoCao, e);
         }
         private void btnDanhGiaBaoCao_Click(object sender, EventArgs e)
         {
@@ -223,9 +256,17 @@ namespace Winform_Project.FormGiangVien
             ucBaoCao ucBaoCao = btn.Parent as ucBaoCao;
             FGiangVien_Progress_Check fGiangVien_Progress_Check = new FGiangVien_Progress_Check(ucBaoCao.baoCao);
             fGiangVien_Progress_Check.ShowDialog();
-            ThongBao tb = new ThongBao(maSoNhom, FDangNhap.giangVienAccount.Ten, "Duyet de tai", $"{ucBaoCao.lblTieuDe.Text} da duoc duyet!!!", "Chua doc", DateTime.Now);
+            ThongBaoo tb = new ThongBaoo
+            {
+                MaSoNhom = maSoNhom,
+                TenGiangVien = FDangNhap.giangVienAccount.HoTen,
+                TieuDe = "Duyet bao cao",
+                NoiDung = $"{ucBaoCao.lblTieuDe.Text} da duoc duyet!!!",
+                TrangThai = "Chua doc",
+                ThoiGianGui = DateTime.Now.ToString()
+            };
             gvDao.ThongBaoToiSinhVien(tb);
-
+            btnHoTro_Click(btnBaoCao, e);
 
         }
         private void btnThayDoiON(Guna2Button btn, int flag)
@@ -241,14 +282,14 @@ namespace Winform_Project.FormGiangVien
             DataTable dtSinhVien = conNguoiDao.LayThongTinSinhVien(maSoNhom);
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                SinhVien sv = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
-                                           dtSinhVien.Rows[i]["GioiTinh"].ToString(),
-                                           Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
-                                           dtSinhVien.Rows[i]["SDT"].ToString(),
-                                           dtSinhVien.Rows[i]["Khoa"].ToString(),
-                                           dtSinhVien.Rows[i]["Nganh"].ToString(),
-                                           dtSinhVien.Rows[i]["MSSV"].ToString(),
-                                           dtSinhVien.Rows[i]["MaSoNhom"].ToString());
+                SinhVienn sv = new SinhVienn{HoTen = dtSinhVien.Rows[i]["HoTen"].ToString(),
+                                           GioiTinh = dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                                           NgaySinh = Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                                           SDT = dtSinhVien.Rows[i]["SDT"].ToString(),
+                                           Khoa = dtSinhVien.Rows[i]["Khoa"].ToString(),
+                                           Nganh = dtSinhVien.Rows[i]["Nganh"].ToString(),
+                                           MSSV = dtSinhVien.Rows[i]["MSSV"].ToString(),
+                                           MaSoNhom = dtSinhVien.Rows[i]["MaSoNhom"].ToString() };
                 
                 uc_SV_TongKet uc_SV_TongKet = new uc_SV_TongKet(sv);
                 uc_SV_TongKet_DanhGia uc_SV_TongKet_DanhGia = new uc_SV_TongKet_DanhGia(sv);
@@ -350,6 +391,7 @@ namespace Winform_Project.FormGiangVien
             progress.Location = new Point(btnLich.Location.X, btnChiTiet.Location.Y + 30);
             uc_Calendar uc_Calendar = new uc_Calendar();
             fLoTrungTam.Controls.Add(uc_Calendar);
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)

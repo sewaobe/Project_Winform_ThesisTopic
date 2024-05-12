@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.Model;
 
 namespace Winform_Project.FormGiangVien
@@ -36,7 +36,7 @@ namespace Winform_Project.FormGiangVien
             DataTable dtDeTai = conNguoiDao.LayThongTinDeTaiDangCapNhat(trangThai);
 
             DataTable dtNhom = conNguoiDao.LayThongTinTatCaNhomDangKy();
-            List<LuanVan> lv_list = gvDao.ChuyenDoiDuLieuSangLuanVan(dtDeTai);
+            List<ThongTinDeTaii> lv_list = gvDao.ChuyenDoiDuLieuSangLuanVan(dtDeTai);
             
             Guna2Button hdDeTai = headerDeTai;
             Guna2Button hdOparetor = headerOparetor;
@@ -44,7 +44,7 @@ namespace Winform_Project.FormGiangVien
             fLoTrungTam.Controls.Add(hdDeTai);
             fLoTrungTam.Controls.Add(hdOparetor);
             
-            foreach (LuanVan lv in lv_list)
+            foreach (ThongTinDeTaii lv in lv_list)
             {
                 string sql = $"MaDeTai = '{lv.MaDeTai}'";
                 //Lay MSN 
@@ -150,7 +150,7 @@ namespace Winform_Project.FormGiangVien
             FGiangVien_Controls fGiangVien_Controls = new FGiangVien_Controls(maSo[0], maSo[1]);
             fGiangVien_Controls.ShowDialog();
         }
-        private Guna2Button taoNut(LuanVan lv, Guna2Button btnType)
+        private Guna2Button taoNut(ThongTinDeTaii lv, Guna2Button btnType)
         {
             Guna2Button btn = new Guna2Button();
             btn.FillColor = btnType.FillColor;

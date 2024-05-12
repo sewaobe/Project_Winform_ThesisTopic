@@ -9,8 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
+using Winform_Project.FormGiangVien;
 using Winform_Project.FSinhVien;
+using Winform_Project.uc_SV;
 
 namespace Winform_Project.FormSinhVien
 {
@@ -38,38 +40,28 @@ namespace Winform_Project.FormSinhVien
                 {
 
                     //Tìm đề tài mà nhóm đăng kí
-                    if (dtDeTai.Rows[i]["MaDeTai"].ToString() == dtNhomDangKy.Rows[j]["MaDeTai"].ToString() && dtNhomDangKy.Rows[j]["MaSoNhom"].ToString() == FDangNhap.SinhVienAccount.Masonhom)
+                    if (dtDeTai.Rows[i]["MaDeTai"].ToString() == dtNhomDangKy.Rows[j]["MaDeTai"].ToString() && dtNhomDangKy.Rows[j]["MaSoNhom"].ToString() == FDangNhap.SinhVienAccount.MaSoNhom)
                     {
-                        string MaDeTai, TenDeTai, SoLuong, MoTa, YeuCau, ChucNang, TheLoai, CongNghe, Nganh, Khoa, HocKy, TenGiangVien, TrangThai;
-
-                        MaDeTai = dtDeTai.Rows[i]["MaDeTai"].ToString();
-                        TenDeTai = dtDeTai.Rows[i]["TenDeTai"].ToString();
-                        SoLuong = dtDeTai.Rows[i]["SoLuong"].ToString();
-                        MoTa = dtDeTai.Rows[i]["MoTa"].ToString();
-                        YeuCau = dtDeTai.Rows[i]["YeuCau"].ToString();
-                        ChucNang = dtDeTai.Rows[i]["ChucNang"].ToString();
-                        TheLoai = dtDeTai.Rows[i]["TheLoai"].ToString();
-                        CongNghe = dtDeTai.Rows[i]["CongNghe"].ToString();
-                        Nganh = dtDeTai.Rows[i]["Nganh"].ToString();
-                        Khoa = dtDeTai.Rows[i]["Khoa"].ToString();
-                        HocKy = dtDeTai.Rows[i]["HocKy"].ToString();
-                        TenGiangVien = dtDeTai.Rows[i]["TenGiangVien"].ToString();
-                        TrangThai = dtDeTai.Rows[i]["TrangThai"].ToString();
-                        LuanVan lv = new LuanVan(MaDeTai,
-                                         TenDeTai,
-                                         TheLoai,
-                                         SoLuong,
-                                         MoTa,
-                                         ChucNang,
-                                         YeuCau,
-                                         CongNghe,
-                                         Khoa,
-                                         Nganh,
-                                         HocKy,
-                                         TenGiangVien,
-                                         TrangThai);
+                        
+                        ThongTinDeTaii lv = new ThongTinDeTaii 
+                        { 
+                            MaDeTai = dtDeTai.Rows[i]["MaDeTai"].ToString(),
+                        TenDeTai = dtDeTai.Rows[i]["TenDeTai"].ToString(),
+                        SoLuong = dtDeTai.Rows[i]["SoLuong"].ToString(),
+                        MoTa = dtDeTai.Rows[i]["MoTa"].ToString(),
+                        YeuCau = dtDeTai.Rows[i]["YeuCau"].ToString(),
+                        ChucNang = dtDeTai.Rows[i]["ChucNang"].ToString(),
+                        TheLoai = dtDeTai.Rows[i]["TheLoai"].ToString(),
+                        CongNghe = dtDeTai.Rows[i]["CongNghe"].ToString(),
+                        Nganh = dtDeTai.Rows[i]["Nganh"].ToString(),
+                        Khoa = dtDeTai.Rows[i]["Khoa"].ToString(),
+                        HocKy = dtDeTai.Rows[i]["HocKy"].ToString(),
+                        TenGiangVien = dtDeTai.Rows[i]["TenGiangVien"].ToString(),
+                        TrangThai = dtDeTai.Rows[i]["TrangThai"].ToString()
+                    };
                         uc_SV_DeTai uc = new uc_SV_DeTai(lv);
                         uc.btnChiTiet.Click += btnChiTiet_Click;
+
                         fLoTrungTam.Controls.Add(uc);
                         flag = 1;
                         break;
@@ -78,22 +70,23 @@ namespace Winform_Project.FormSinhVien
             }
 
         }
+        
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
             Guna2Button btn = sender as Guna2Button;
             uc_SV_DeTai uc = btn.Parent as uc_SV_DeTai;
-            List<SinhVien> listSinhVien = new List<SinhVien>();
-            DataTable dtSinhVien = conNguoiDao.LayThongTinSinhVien(FDangNhap.SinhVienAccount.Masonhom);
+            List<SinhVienn> listSinhVien = new List<SinhVienn>();
+            DataTable dtSinhVien = conNguoiDao.LayThongTinSinhVien(FDangNhap.SinhVienAccount.MaSoNhom);
             for(int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                SinhVien sv = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(), 
-                                           dtSinhVien.Rows[i]["GioiTinh"].ToString(), 
-                                           Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]), 
-                                           dtSinhVien.Rows[i]["SDT"].ToString(), 
-                                           dtSinhVien.Rows[i]["Khoa"].ToString(), 
-                                           dtSinhVien.Rows[i]["Nganh"].ToString(), 
-                                           dtSinhVien.Rows[i]["MSSV"].ToString(), 
-                                           dtSinhVien.Rows[i]["MaSoNhom"].ToString());
+                SinhVienn sv = new SinhVienn{HoTen = dtSinhVien.Rows[i]["HoTen"].ToString(),
+                                           GioiTinh = dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                                           NgaySinh = Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                                           SDT = dtSinhVien.Rows[i]["SDT"].ToString(),
+                                           Khoa = dtSinhVien.Rows[i]["Khoa"].ToString(),
+                                           Nganh = dtSinhVien.Rows[i]["Nganh"].ToString(),
+                                           MSSV = dtSinhVien.Rows[i]["MSSV"].ToString(),
+                                           MaSoNhom  = dtSinhVien.Rows[i]["MaSoNhom"].ToString()};
                 listSinhVien.Add(sv);
             }
             
@@ -136,5 +129,7 @@ namespace Winform_Project.FormSinhVien
             progress.Location = new Point(btnDaHoanThanh.Location.X, btnDuyet.Location.Y + 35);
             Load_Flo("Da hoan thanh");
         }
+
+       
     }
 }

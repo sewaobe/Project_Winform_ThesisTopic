@@ -8,23 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project
 {
     public partial class ucBaoCao : UserControl
     {
-        public BaoCao baoCao;
+        public BaoCaoo baoCao;
         public ucBaoCao()
         {
             InitializeComponent();
         }
-        public ucBaoCao(BaoCao bc)
+        public ucBaoCao(BaoCaoo bc)
         {
             InitializeComponent();
-            lblTieuDe.Text = bc.TieuDe.Substring(0,bc.TieuDe.IndexOf("."));
+            int indexS = bc.TieuDe.LastIndexOf("\\") + 1;
+            int indexE = bc.TieuDe.LastIndexOf(".") - indexS;
+            lblTieuDe.Text = bc.TieuDe.Substring(indexS,indexE);
             lblThoiGianGui.Text = bc.ThoiGianGui;
-            lblFile.Text = bc.TieuDe;
+            lblFile.Text = bc.TieuDe.Substring(indexS,bc.TieuDe.Length-indexS);
             lblTrangThai.Text = bc.TrangThai;
 
             this.baoCao = bc;

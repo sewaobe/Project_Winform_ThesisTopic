@@ -8,20 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.FormGiangVien
 {
     public partial class FGiangVien_Thesis_Edit : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
-        ConNguoiDao conNguoiDao = new ConNguoiDao();    
-        LuanVan lv;
+        ConNguoiDao conNguoiDao = new ConNguoiDao();
+        ThongTinDeTaii lv;
         public FGiangVien_Thesis_Edit()
         {
             InitializeComponent();
         }
-        public FGiangVien_Thesis_Edit(LuanVan lv)
+        public FGiangVien_Thesis_Edit(ThongTinDeTaii lv)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Winform_Project.FormGiangVien
         {
             this.Hide();
         }
-        private LuanVan LoadData()
+        /*private LuanVan LoadData()
         {
             return new LuanVan(txtMaDeTai.Text,
                               txtTenDeTai.Text,
@@ -65,11 +65,32 @@ namespace Winform_Project.FormGiangVien
                               "Nguyen Van A",
                               lv.TrangThai
                               ) ;
+        }*/
+        private ThongTinDeTaii LoadData()
+        {
+            ThongTinDeTaii lvs = new ThongTinDeTaii
+            {
+                MaDeTai = txtMaDeTai.Text,
+                TenDeTai = txtTenDeTai.Text,
+                TheLoai = txtTheLoai.Text,
+                SoLuong = txtSoLuong.Text,
+                MoTa = txtMoTa.Text,
+                ChucNang = txtChucNang.Text,
+                YeuCau = txtYeuCau.Text,
+                CongNghe = cbbCongNghe.Text,
+                Khoa = cbbKhoa.Text,
+                Nganh = cbbNganh.Text,
+                HocKy = cbbHocKi.Text,
+                TenGiangVien = lv.TenGiangVien,
+                TrangThai = lv.TrangThai,
+            };
+            return lvs;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            LuanVan lv = LoadData();
+            ThongTinDeTaii lv = LoadData();
+            
             if(conNguoiDao.Validation(this,lv))
                 gvDao.Sua(lv);
             else
@@ -81,7 +102,7 @@ namespace Winform_Project.FormGiangVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            LuanVan lv = LoadData();
+            ThongTinDeTaii lv = LoadData();
             gvDao.Xoa(lv);
         }
     }

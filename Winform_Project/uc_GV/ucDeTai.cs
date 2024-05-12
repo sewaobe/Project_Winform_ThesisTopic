@@ -10,18 +10,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project
 {
     public partial class ucDeTai : UserControl
     {
-        public LuanVan lv;
+        public ThongTinDeTaii lv;
         public ucDeTai()
         {
             InitializeComponent();
         }
-        public ucDeTai(LuanVan lv)
+        public ucDeTai(ThongTinDeTaii lv)
         {
             InitializeComponent();
             this.lv = lv;

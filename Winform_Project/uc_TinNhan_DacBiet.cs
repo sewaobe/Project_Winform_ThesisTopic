@@ -8,25 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project
 {
     public partial class uc_TinNhan_DacBiet : UserControl
     {
         ConNguoiDao conNguoiDao = new ConNguoiDao();
-        public TinNhan tinNhan;
-        public uc_TinNhan_DacBiet(TinNhan tn)
+        public Messengerr tinNhan;
+        public uc_TinNhan_DacBiet(Messengerr tn)
         {
             InitializeComponent();
-            int index = tn.Noidung.IndexOf(".");
-            string type = tn.Noidung.Substring(index, tn.Noidung.Length - index);
+            int index = tn.NoiDung.LastIndexOf(".");
+            string type = tn.NoiDung.Substring(index, tn.NoiDung.Length - index);
             if (type == ".docx")
                 picFile.Image = Properties.Resources.words;
             else if (type == ".pdf")
                 picFile.Image = Properties.Resources.file;
-            lblNoiDung.Text = tn.Nguoigui + $" đã gửi 1 file {type}";
-            lblThoiGian.Text = tn.Thoigiangui.ToShortTimeString();
+            lblNoiDung.Text = tn.NguoiGui + $" đã gửi 1 file {type}";
+            lblThoiGian.Text = tn.ThoiGianGui.ToShortTimeString();
             this.tinNhan = tn;
         }
 

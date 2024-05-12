@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
@@ -46,10 +46,10 @@ namespace Winform_Project
                 fLoTrungTam.Controls.Add(ucNgay);
             }
             DataTable dtLich;
-            List<Lich> listLich = new List<Lich>(); 
+            List<Lichh> listLich = new List<Lichh>(); 
             if (FGiangVien_Controls.role == 1)
             {
-                dtLich = conNguoiDao.LayThongTinLichHen(FDangNhap.SinhVienAccount.Masonhom);
+                dtLich = conNguoiDao.LayThongTinLichHen(FDangNhap.SinhVienAccount.MaSoNhom);
             }
             else
             {
@@ -57,13 +57,13 @@ namespace Winform_Project
             }
             for (int i = 0; i < dtLich.Rows.Count; i++)
             {
-                Lich lich = new Lich(dtLich.Rows[i]["TieuDe"].ToString(),
-                                dtLich.Rows[i]["NoiDung"].ToString(),
-                                Convert.ToDateTime(dtLich.Rows[i]["ThoiGianBatDau"]),
-                                Convert.ToDateTime(dtLich.Rows[i]["ThoiGianKetThuc"]),
-                                dtLich.Rows[i]["SuKien"].ToString(),
-                                dtLich.Rows[i]["MaSoNhom"].ToString()
-                                );
+                Lichh lich = new Lichh{TieuDe = dtLich.Rows[i]["TieuDe"].ToString(),
+                                NoiDung = dtLich.Rows[i]["NoiDung"].ToString(),
+                                ThoiGianBatDau = Convert.ToDateTime(dtLich.Rows[i]["ThoiGianBatDau"]),
+                                ThoiGianKetThuc = Convert.ToDateTime(dtLich.Rows[i]["ThoiGianKetThuc"]),
+                                SuKien = dtLich.Rows[i]["SuKien"].ToString(),
+                                MaSoNhom = dtLich.Rows[i]["MaSoNhom"].ToString()
+                };
                 listLich.Add(lich);
             }
             for(int i = 1; i <= tongNgayTrongThang; i++)

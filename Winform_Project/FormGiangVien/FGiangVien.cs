@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
@@ -18,7 +18,7 @@ namespace Winform_Project
     public partial class FGiangVien : Form
     {
         GiangVienDao gvDao = new GiangVienDao();
-        GiangVien giangVienAccount = FDangNhap.giangVienAccount;
+        GiangVienn giangVienAccount = FDangNhap.giangVienAccount;
         Dictionary<string,string> tmp = new Dictionary<string, string>();
         string khoa, nganh, hocKy, tenGV;
 
@@ -26,7 +26,7 @@ namespace Winform_Project
         {
             InitializeComponent();
             lblChucVu.Text = "Giang vien";
-            lblTenGiangVien.Text = giangVienAccount.Ten;
+            lblTenGiangVien.Text = giangVienAccount.HoTen;
         }
         private void HienThi(object sender,  EventArgs e)
         {
@@ -88,17 +88,17 @@ namespace Winform_Project
 
         private void btnThongTinCaNhan_Click(object sender, EventArgs e)
         {
-            DataTable dt = gvDao.LoadData($"SELECT * FROM GiangVien WHERE HoTen = '{lblTenGiangVien.Text}'");
+            DataTable dt = gvDao.LayThongTinDeTaiTheoTenGiangVien();
             DateTime date = DateTime.Now;
-            
+
             if (dt.Rows.Count > 0)
             {
-                GiangVien giangVien = new GiangVien(dt.Rows[0]["HoTen"].ToString(),
-                                                dt.Rows[0]["GioiTinh"].ToString(),
-                                                date,
-                                                dt.Rows[0]["SDT"].ToString(),
-                                                dt.Rows[0]["Email"].ToString(),
-                                                dt.Rows[0]["Facebook"].ToString());
+                GiangVienn giangVien = new GiangVienn{HoTen = dt.Rows[0]["HoTen"].ToString(),
+                                                GioiTinh = dt.Rows[0]["GioiTinh"].ToString(),
+                                                NgaySinh = date,
+                                                SDT = dt.Rows[0]["SDT"].ToString(),
+                                                Email = dt.Rows[0]["Email"].ToString(),
+                                                FaceBook = dt.Rows[0]["Facebook"].ToString() };
                 container(new FGiangVien_Login(giangVien));
             }
 

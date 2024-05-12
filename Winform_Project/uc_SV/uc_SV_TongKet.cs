@@ -8,26 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project.uc_SV
 {
     public partial class uc_SV_TongKet : UserControl
     {
-        public SinhVien sinhVien;
+        public SinhVienn sinhVien;
         GiangVienDao gvDao = new GiangVienDao();    
         public uc_SV_TongKet()
         {
             InitializeComponent();
         }
-        public uc_SV_TongKet(SinhVien sv)
+        public uc_SV_TongKet(SinhVienn sv)
         {
             InitializeComponent();
 
             this.sinhVien = sv;
-            lblTen.Text = sv.Ten;
-            lblMSSV.Text = sv.Mssv;
+            lblTen.Text = sv.HoTen;
+            lblMSSV.Text = sv.MSSV;
             Load_Data(lblMSSV.Text);
         }
         private void Load_Data(string MSSV)

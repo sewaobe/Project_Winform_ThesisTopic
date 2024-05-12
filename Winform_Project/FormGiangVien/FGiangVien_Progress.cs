@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
 using Winform_Project.FormGiangVien;
 using Winform_Project.uc_GV;
 
@@ -33,7 +32,7 @@ namespace Winform_Project
             double diemTB = 0, diemTong = 0, soLuong = 0;
             for (int i = 0; i < dtDeTai.Rows.Count; i++)
             {
-                if (dtDeTai.Rows[i]["TenGiangVien"].ToString() == FDangNhap.giangVienAccount.Ten)
+                if (dtDeTai.Rows[i]["TenGiangVien"].ToString() == FDangNhap.giangVienAccount.HoTen)
                 {
                     if (dtDeTai.Rows[i]["HocKy"].ToString() == hocKy)
                     {
@@ -70,7 +69,7 @@ namespace Winform_Project
                     {
                         if (dtNhomDangKy.Rows[j]["MaDeTai"].ToString() == dtDeTai.Rows[i]["MaDeTai"].ToString())
                         {
-                            if (dtDeTai.Rows[i]["TenGiangVien"].ToString() == FDangNhap.giangVienAccount.Ten)
+                            if (dtDeTai.Rows[i]["TenGiangVien"].ToString() == FDangNhap.giangVienAccount.HoTen)
                             {
                                 soLuongDangKi += 1;
                             }

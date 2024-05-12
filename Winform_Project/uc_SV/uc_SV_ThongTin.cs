@@ -7,31 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.uc_SV
 {
     public partial class uc_SV_ThongTin : UserControl
     {
-        public SinhVien sv = new SinhVien();
+        public SinhVienn sv = new SinhVienn();
         public static int flag = 0;
         public uc_SV_ThongTin()
         {
             InitializeComponent();
         }
-        public uc_SV_ThongTin(GiangVien gv)
+        public uc_SV_ThongTin(GiangVienn gv)
         {
             InitializeComponent();
-            lblTen.Text = gv.Ten;
+            lblTen.Text = gv.HoTen;
             lblMSSV.Text = "Giảng viên";
             picAvatar.Image = Properties.Resources.teacher;
             btnThayDoiTroChuyen.Tag = flag;
         }
-        public uc_SV_ThongTin(SinhVien sinhvien)
+        public uc_SV_ThongTin(SinhVienn sinhvien)
         {
             InitializeComponent();
-            lblMSSV.Text = sinhvien.Mssv;
-            lblTen.Text = sinhvien.Ten;
+            lblMSSV.Text = sinhvien.MSSV;
+            lblTen.Text = sinhvien.HoTen;
             btnThayDoiTroChuyen.Tag = flag;
             this.sv = sinhvien;
         }

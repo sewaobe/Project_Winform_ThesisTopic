@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FSinhVien;
 using Winform_Project.uc_SV;
 
@@ -19,7 +19,7 @@ namespace Winform_Project.FormGiangVien
     {
         GiangVienDao gvDao = new GiangVienDao();
         ConNguoiDao conNguoiDao = new ConNguoiDao();
-        public static SinhVien sinhVien;
+        public static SinhVienn sinhVien;
         public FGiangVien_Support_Add_SinhVien()
         {
             InitializeComponent();
@@ -34,14 +34,14 @@ namespace Winform_Project.FormGiangVien
             DataTable dtNhomSinhVien = conNguoiDao.LayThongTinSinhVien(FGiangVien_Controls.maSoNhom);
             for (int i = 0; i < dtNhomSinhVien.Rows.Count; i++)
             {
-                SinhVien sv = new SinhVien(dtNhomSinhVien.Rows[i]["HoTen"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["GioiTinh"].ToString(),
-                                           Convert.ToDateTime(dtNhomSinhVien.Rows[i]["NgaySinh"]),
-                                           dtNhomSinhVien.Rows[i]["SDT"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["Khoa"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["Nganh"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["MSSV"].ToString(),
-                                           dtNhomSinhVien.Rows[i]["MaSoNhom"].ToString());
+                SinhVienn sv = new SinhVienn{ HoTen = dtNhomSinhVien.Rows[i]["HoTen"].ToString(),
+                                           GioiTinh = dtNhomSinhVien.Rows[i]["GioiTinh"].ToString(),
+                                           NgaySinh = Convert.ToDateTime(dtNhomSinhVien.Rows[i]["NgaySinh"]),
+                                           SDT = dtNhomSinhVien.Rows[i]["SDT"].ToString(),
+                                           Khoa = dtNhomSinhVien.Rows[i]["Khoa"].ToString(),
+                                           Nganh = dtNhomSinhVien.Rows[i]["Nganh"].ToString(),
+                                           MSSV = dtNhomSinhVien.Rows[i]["MSSV"].ToString(),
+                                           MaSoNhom = dtNhomSinhVien.Rows[i]["MaSoNhom"].ToString() };
                 uc_SV_ThongTin uc = new uc_SV_ThongTin(sv);
                 uc.btnThemSinhVien.Click += btnThemSinhVien_Click;
                 fLoTrungTam.Controls.Add(uc);
@@ -68,14 +68,17 @@ namespace Winform_Project.FormGiangVien
                
                     if (dtSinhVien.Rows[i]["MaSoNhom"].ToString() == "")
                     {
-                        SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
-                                                        dtSinhVien.Rows[i]["GioiTinh"].ToString(),
-                                                        Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
-                                                        dtSinhVien.Rows[i]["SDT"].ToString(),
-                                                        dtSinhVien.Rows[i]["Khoa"].ToString(),
-                                                        dtSinhVien.Rows[i]["Nganh"].ToString(),
-                                                        dtSinhVien.Rows[i]["MSSV"].ToString(),
-                                                        "");
+                    SinhVienn sinhvien = new SinhVienn
+                                                    {
+                                                        HoTen = dtSinhVien.Rows[i]["HoTen"].ToString(),
+                                                        GioiTinh = dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                                                        NgaySinh = Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                                                        SDT = dtSinhVien.Rows[i]["SDT"].ToString(),
+                                                        Khoa = dtSinhVien.Rows[i]["Khoa"].ToString(),
+                                                        Nganh = dtSinhVien.Rows[i]["Nganh"].ToString(),
+                                                        MSSV = dtSinhVien.Rows[i]["MSSV"].ToString(),
+                                                        MaSoNhom = "" 
+                                                    };
                         uc_SV_ThongTin uc_SV_ThongTin = new uc_SV_ThongTin(sinhvien);
                         uc_SV_ThongTin.btnThemSinhVien.Image = Properties.Resources.control;
                         uc_SV_ThongTin.picAvatar.Tag = 0;

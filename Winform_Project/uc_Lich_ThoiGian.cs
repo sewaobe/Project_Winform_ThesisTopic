@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
@@ -37,10 +37,10 @@ namespace Winform_Project
             fLoTrungTam.Controls.Clear();
             //Check thời gian nào đã có lịch hẹn
             DataTable dtLich;
-            List<Lich> listLich = new List<Lich>();
+            List<Lichh> listLich = new List<Lichh>();
             if (FGiangVien_Controls.role == 1)
             {
-                dtLich = conNguoiDao.LayThongTinLichHen(FDangNhap.SinhVienAccount.Masonhom);
+                dtLich = conNguoiDao.LayThongTinLichHen(FDangNhap.SinhVienAccount.MaSoNhom);
             }
             else
             {
@@ -48,13 +48,13 @@ namespace Winform_Project
             }
             for (int i = 0; i < dtLich.Rows.Count; i++)
             {
-                Lich lich = new Lich(dtLich.Rows[i]["TieuDe"].ToString(),
-                                dtLich.Rows[i]["NoiDung"].ToString(),
-                                Convert.ToDateTime(dtLich.Rows[i]["ThoiGianBatDau"]),
-                                Convert.ToDateTime(dtLich.Rows[i]["ThoiGianKetThuc"]),
-                                dtLich.Rows[i]["SuKien"].ToString(),
-                                dtLich.Rows[i]["MaSoNhom"].ToString()
-                                );
+                Lichh lich = new Lichh{TieuDe = dtLich.Rows[i]["TieuDe"].ToString(),
+                                NoiDung = dtLich.Rows[i]["NoiDung"].ToString(),
+                                ThoiGianBatDau = Convert.ToDateTime(dtLich.Rows[i]["ThoiGianBatDau"]),
+                                ThoiGianKetThuc = Convert.ToDateTime(dtLich.Rows[i]["ThoiGianKetThuc"]),
+                                SuKien = dtLich.Rows[i]["SuKien"].ToString(),
+                                MaSoNhom = dtLich.Rows[i]["MaSoNhom"].ToString()
+                };
                 listLich.Add(lich);
             }
             for (int i = 0; i <=23; i++)
@@ -73,7 +73,7 @@ namespace Winform_Project
             {
                 if (uc_Calendar.Thang == item.ThoiGianBatDau.Month && uc_Calendar.Nam == item.ThoiGianBatDau.Year && uc_Lich_Thu_Ngay.Ngay == item.ThoiGianBatDau.Day)
                 {
-                    int khoangCach = item.ThoiGianKetThuc.Hour - item.ThoiGianBatDau.Hour;
+                    int khoangCach = item.ThoiGianKetThuc.Value.Hour - item.ThoiGianBatDau.Hour;
                     while (khoangCach != 0)
                     {
                         khoangCach -= 1;
@@ -109,7 +109,7 @@ namespace Winform_Project
             else
             {
                 uc_Lich_Ngay uc = btn.Parent as uc_Lich_Ngay;
-                FLichHen fLichHen = new FLichHen(uc.Tag as Lich);
+                FLichHen fLichHen = new FLichHen(uc.Tag as Lichh);
                 fLichHen.Show();
             }
             
@@ -130,6 +130,7 @@ namespace Winform_Project
             {
                 FLichHen fLichHen = new FLichHen();
                 fLichHen.ShowDialog();
+                Load_UC_ThoiGian();
             }
             else
             {

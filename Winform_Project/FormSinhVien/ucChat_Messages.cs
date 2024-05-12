@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 using Winform_Project.uc_SV;
 
@@ -36,8 +36,8 @@ namespace Winform_Project.FormSinhVien
             string maSoNhom;
             if (FGiangVien_Controls.role == 1)
             {
-                dtSinhVien = conNguoiDao.LayThongTinSinhVien(FDangNhap.SinhVienAccount.Masonhom.ToString());
-                maSoNhom = FDangNhap.SinhVienAccount.Masonhom;
+                dtSinhVien = conNguoiDao.LayThongTinSinhVien(FDangNhap.SinhVienAccount.MaSoNhom.ToString());
+                maSoNhom = FDangNhap.SinhVienAccount.MaSoNhom;
             }
             else
             {
@@ -55,12 +55,12 @@ namespace Winform_Project.FormSinhVien
                     {
                         if (dtNhomDangKy.Rows[i]["MaDeTai"].ToString() == dtDeTai.Rows[j]["MaDeTai"].ToString())
                         {
-                            GiangVien gv = new GiangVien(dtDeTai.Rows[j]["TenGiangVien"].ToString(),
-                                                         "NULL",
-                                                         DateTime.Now,
-                                                         "NULL",
-                                                         "NULL",
-                                                         "NULL");
+                            GiangVienn gv = new GiangVienn{HoTen = dtDeTai.Rows[j]["TenGiangVien"].ToString(),
+                                                         GioiTinh = "NULL",
+                                                         NgaySinh = DateTime.Now,
+                                                         SDT = "NULL",
+                                                         Email = "NULL",
+                                                         FaceBook = "NULL" };
                             uc_SV_ThongTin uc = new uc_SV_ThongTin(gv);
                             uc.Click += uc_User_Click;
                             uc.btnThemSinhVien.Image = Properties.Resources.paper_plane;
@@ -77,18 +77,18 @@ namespace Winform_Project.FormSinhVien
             //Kiếm sinh viên trong nhóm -> Load sv lên khung chat
             for(int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                SinhVien sv = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
-                                           dtSinhVien.Rows[i]["GioiTinh"].ToString(),
-                                           Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"].ToString()),
-                                           dtSinhVien.Rows[i]["SDT"].ToString(),
-                                           dtSinhVien.Rows[i]["Khoa"].ToString(),
-                                           dtSinhVien.Rows[i]["Nganh"].ToString(),
-                                           dtSinhVien.Rows[i]["MSSV"].ToString(),
-                                           dtSinhVien.Rows[i]["MaSoNhom"].ToString());
+                SinhVienn sv = new SinhVienn{HoTen = dtSinhVien.Rows[i]["HoTen"].ToString(),
+                                           GioiTinh = dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                                           NgaySinh = Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"].ToString()),
+                                           SDT = dtSinhVien.Rows[i]["SDT"].ToString(),
+                                           Khoa = dtSinhVien.Rows[i]["Khoa"].ToString(),
+                                           Nganh = dtSinhVien.Rows[i]["Nganh"].ToString(),
+                                           MSSV = dtSinhVien.Rows[i]["MSSV"].ToString(),
+                                           MaSoNhom = dtSinhVien.Rows[i]["MaSoNhom"].ToString() };
                 uc_SV_ThongTin uc = new uc_SV_ThongTin(sv);
                 if (FGiangVien_Controls.role == 1)
                 {
-                    if (uc.lblMSSV.Text != FDangNhap.SinhVienAccount.Mssv)
+                    if (uc.lblMSSV.Text != FDangNhap.SinhVienAccount.MSSV)
                         if (int.Parse(uc.btnThayDoiTroChuyen.Tag.ToString()) == 1)
                             uc.btnThayDoiTroChuyen.Visible = true;
                 }
@@ -137,14 +137,18 @@ namespace Winform_Project.FormSinhVien
             OpenFileDialog open = new OpenFileDialog();
             if (open.ShowDialog() == DialogResult.OK)
             {
-                TinNhan tn;
+                Messengerr tn;
                 if (FGiangVien_Controls.role == 1)
                 {
-                    tn = new TinNhan(FDangNhap.SinhVienAccount.Mssv, uc_User_Chat.lblTen.Tag.ToString(), open.SafeFileName,open.FileName, DateTime.Now);
+                    tn = new Messengerr{
+                                         NguoiGui = FDangNhap.SinhVienAccount.MSSV, 
+                                         NguoiNhan = uc_User_Chat.lblTen.Tag.ToString(), 
+                                         NoiDung = open.FileName,
+                                         ThoiGianGui = DateTime.Now };
                     FGiangVien_Controls.flag_TroChuyen = 1;
                     foreach(uc_SV_ThongTin uc_SV_ThongTin in fLoDanhSachUser.Controls.OfType<uc_SV_ThongTin>())
                     {
-                        if(uc_SV_ThongTin.lblMSSV.Text == FDangNhap.SinhVienAccount.Mssv)
+                        if(uc_SV_ThongTin.lblMSSV.Text == FDangNhap.SinhVienAccount.MSSV)
                         {
                             uc_SV_ThongTin.flag = 1;
                         }
@@ -152,33 +156,43 @@ namespace Winform_Project.FormSinhVien
                 }
                 else
                 {
-                    tn = new TinNhan(FDangNhap.giangVienAccount.Ten, uc_User_Chat.lblTen.Tag.ToString(), open.SafeFileName, open.FileName, DateTime.Now);
+                    tn = new Messengerr
+                    {
+                        NguoiGui = FDangNhap.giangVienAccount.HoTen,
+                        NguoiNhan = uc_User_Chat.lblTen.Tag.ToString(),
+                        NoiDung = open.FileName,
+                        ThoiGianGui = DateTime.Now
+                    };
                     FSinhVien_Controls.flag_TroChuyen = 1;
                     foreach (uc_SV_ThongTin uc_SV_ThongTin in fLoDanhSachUser.Controls.OfType<uc_SV_ThongTin>())
                     {
-                        if (uc_SV_ThongTin.lblTen.Text == FDangNhap.giangVienAccount.Ten)
+                        if (uc_SV_ThongTin.lblTen.Text == FDangNhap.giangVienAccount.HoTen )
                         {
                             uc_SV_ThongTin.flag = 1;
                         }
                     }
                 }
-                conNguoiDao.GuiTinNhan(tn);
+                conNguoiDao.GuiTinNhanDacBiet(tn);
             }
-            
+            Load_Chat_With_User(uc_User_Chat);
         }
         //Btn gui tin nhan
         private void guiTinNhan(object sender, EventArgs e)
         {
             Guna2Button btn = sender as Guna2Button;
             uc_User_Chat uc_User_Chat = btn.Parent as uc_User_Chat;
-            TinNhan tn;
+            Messengerr tn;
             if(FGiangVien_Controls.role == 1)
             {
-                tn = new TinNhan(FDangNhap.SinhVienAccount.Mssv, uc_User_Chat.lblTen.Tag.ToString(), uc_User_Chat.txtNoiDung.Text, "C:\\Win\\Win (1)\\Winform_Project\\bin\\Debug\\qly_NV.txt", DateTime.Now);
+                tn = new Messengerr{
+                    NguoiGui = FDangNhap.SinhVienAccount.MSSV, 
+                    NguoiNhan = uc_User_Chat.lblTen.Tag.ToString(), 
+                    NoiDung = uc_User_Chat.txtNoiDung.Text, 
+                    ThoiGianGui = DateTime.Now };
                 FGiangVien_Controls.flag_TroChuyen = 1;
                 foreach (uc_SV_ThongTin uc_SV_ThongTin in fLoDanhSachUser.Controls.OfType<uc_SV_ThongTin>())
                 {
-                    if (uc_SV_ThongTin.lblMSSV.Text == FDangNhap.SinhVienAccount.Mssv)
+                    if (uc_SV_ThongTin.lblMSSV.Text == FDangNhap.SinhVienAccount.MSSV)
                     {
                         uc_SV_ThongTin.flag = 1;
                     }
@@ -186,56 +200,62 @@ namespace Winform_Project.FormSinhVien
             }
             else
             {
-                tn = new TinNhan(FDangNhap.giangVienAccount.Ten, uc_User_Chat.lblTen.Tag.ToString(), uc_User_Chat.txtNoiDung.Text, "C:\\Win\\Win (1)\\Winform_Project\\bin\\Debug\\qly_NV.txt", DateTime.Now);
-                FSinhVien_Controls.flag_TroChuyen = 1;
+                tn = new Messengerr
+                {
+                    NguoiGui = FDangNhap.giangVienAccount.HoTen,
+                    NguoiNhan = uc_User_Chat.lblTen.Tag.ToString(),
+                    NoiDung = uc_User_Chat.txtNoiDung.Text,
+                    ThoiGianGui = DateTime.Now
+                }; FSinhVien_Controls.flag_TroChuyen = 1;
                 foreach (uc_SV_ThongTin uc_SV_ThongTin in fLoDanhSachUser.Controls.OfType<uc_SV_ThongTin>())
                 {
-                    if (uc_SV_ThongTin.lblTen.Text == FDangNhap.giangVienAccount.Ten)
+                    if (uc_SV_ThongTin.lblTen.Text == FDangNhap.giangVienAccount.HoTen)
                     {
                         uc_SV_ThongTin.flag = 1;
                     }
                 }
             }
             conNguoiDao.GuiTinNhan(tn);
+            Load_Chat_With_User(uc_User_Chat);
+
         }
         //Load đoạn chat với user
         private void Load_Chat_With_User(uc_User_Chat uc_User_Chat)
         {
             uc_User_Chat.fLoTrungTam.Controls.Clear();
-
+            uc_User_Chat.txtNoiDung.Text = "";
             DataTable dtTinNhan = new DataTable();
 
             if (FGiangVien_Controls.role == 1)
-                dtTinNhan = conNguoiDao.LayThongTinChat(FDangNhap.SinhVienAccount.Mssv, uc_User_Chat.lblTen.Tag.ToString());
+                dtTinNhan = conNguoiDao.LayThongTinChat(FDangNhap.SinhVienAccount.MSSV, uc_User_Chat.lblTen.Tag.ToString());
             else
-                dtTinNhan = conNguoiDao.LayThongTinChat(FDangNhap.giangVienAccount.Ten, uc_User_Chat.lblTen.Tag.ToString());
+                dtTinNhan = conNguoiDao.LayThongTinChat(FDangNhap.giangVienAccount.HoTen, uc_User_Chat.lblTen.Tag.ToString());
 
             for (int i = 0; i < dtTinNhan.Rows.Count; i++)
             {
-                TinNhan tn = new TinNhan(dtTinNhan.Rows[i]["NguoiGui"].ToString(),
-                                         dtTinNhan.Rows[i]["NguoiNhan"].ToString(),
-                                         dtTinNhan.Rows[i]["NoiDung"].ToString(),
-                                         dtTinNhan.Rows[i]["NoiDungDacBiet"].ToString(),
-                                         Convert.ToDateTime(dtTinNhan.Rows[i]["ThoiGianGui"].ToString())
-                                         );
+                Messengerr tn = new Messengerr{NguoiGui = dtTinNhan.Rows[i]["NguoiGui"].ToString(),
+                                         NguoiNhan = dtTinNhan.Rows[i]["NguoiNhan"].ToString(),
+                                         NoiDung = dtTinNhan.Rows[i]["NoiDung"].ToString(),
+                                         ThoiGianGui = Convert.ToDateTime(dtTinNhan.Rows[i]["ThoiGianGui"].ToString())
+                };
 
                 string nguoiGui;
                 if (FGiangVien_Controls.role == 1)
                 {
-                    nguoiGui = FDangNhap.SinhVienAccount.Mssv.ToString();
+                    nguoiGui = FDangNhap.SinhVienAccount.MSSV.ToString();
                 }
                 else
                 {
-                    nguoiGui = FDangNhap.giangVienAccount.Ten;
+                    nguoiGui = FDangNhap.giangVienAccount.HoTen;
                 }
-                int index = tn.Noidung.IndexOf(".");
+                int index = tn.NoiDung.LastIndexOf(".");
                 string type = "";
-                if(index != -1)
-                    type = tn.Noidung.Substring(index, tn.Noidung.Length  - index);
+                if (index != -1)
+                    type = tn.NoiDung.Substring(index, tn.NoiDung.Length  - index);
                 if (type == ".png" || type == ".docx" || type == ".pdf")
                 {
                     uc_TinNhan_DacBiet uc_TinNhan_DacBiet = new uc_TinNhan_DacBiet(tn);
-                    thoiGianGui.SetToolTip(uc_TinNhan_DacBiet, tn.Thoigiangui.ToLongDateString().ToString());
+                    thoiGianGui.SetToolTip(uc_TinNhan_DacBiet, tn.ThoiGianGui.ToLongDateString().ToString());
                     uc_TinNhan_DacBiet.Margin = new Padding(80, 5, 50, 5);
                     uc_User_Chat.fLoTrungTam.Controls.Add(uc_TinNhan_DacBiet);
                 }
@@ -244,14 +264,14 @@ namespace Winform_Project.FormSinhVien
                     if (dtTinNhan.Rows[i]["NguoiGui"].ToString() == nguoiGui)
                     {
                         uc_TinNhan uc_TinNhan = new uc_TinNhan(tn);
-                        thoiGianGui.SetToolTip(uc_TinNhan, tn.Thoigiangui.ToLongDateString().ToString());
+                        thoiGianGui.SetToolTip(uc_TinNhan, tn.ThoiGianGui.ToLongDateString().ToString());
                         uc_TinNhan.Margin = new Padding(110, 5, 5, 2);
                         uc_User_Chat.fLoTrungTam.Controls.Add(uc_TinNhan);
                     }
                     else
                     {
                         uc_TinNhan uc_TinNhan = new uc_TinNhan(tn);
-                        thoiGianGui.SetToolTip(uc_TinNhan, tn.Thoigiangui.ToLongDateString().ToString());
+                        thoiGianGui.SetToolTip(uc_TinNhan, tn.ThoiGianGui.ToLongDateString().ToString());
                         uc_TinNhan.BackColor = Color.Gainsboro;
                         uc_User_Chat.fLoTrungTam.Controls.Add(uc_TinNhan);
                     }

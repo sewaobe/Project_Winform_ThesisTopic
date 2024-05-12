@@ -8,25 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.uc_SV
 {
     public partial class uc_SV_TongKet_DanhGia : UserControl
     {
-        SinhVien sinhVien;
+        SinhVienn sinhVien;
         GiangVienDao gvDao = new GiangVienDao();    
         public uc_SV_TongKet_DanhGia()
         {
             InitializeComponent();
         }
-        public uc_SV_TongKet_DanhGia(SinhVien sv)
+        public uc_SV_TongKet_DanhGia(SinhVienn sv)
         {
             InitializeComponent();
             this.sinhVien = sv;
-            lblTen.Text = sv.Ten;
+            lblTen.Text = sv.HoTen;
             lblGioiTinh.Text = sv.GioiTinh;
-            lblMSSV.Text = sv.Mssv;
+            lblMSSV.Text = sv.MSSV;
             lblKhoa.Text = sv.Khoa;
             lblNganh.Text = sv.Nganh;
             
@@ -51,7 +51,7 @@ namespace Winform_Project.uc_SV
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            SinhVien sv = new SinhVien(lblMSSV.Text, (progress.Value/10).ToString());
+            SinhVienn sv = new SinhVienn {MSSV =  lblMSSV.Text, Diem = (progress.Value / 10).ToString() };
             gvDao.DanhGiaSinhVien(sv);
         }
     }

@@ -86,13 +86,51 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassDao\SinhVienDao.cs" />
-    <Compile Include="ClassDoiTuong\BaoCao.cs" />
-    <Compile Include="ClassDoiTuong\GiangVien.cs" />
-    <Compile Include="ClassDoiTuong\Lich.cs" />
-    <Compile Include="ClassDoiTuong\NhiemVu.cs" />
-    <Compile Include="ClassDoiTuong\TaiKhoanDangNhap.cs" />
-    <Compile Include="ClassDoiTuong\ThongBao.cs" />
-    <Compile Include="ClassDoiTuong\TinNhan.cs" />
+    <Compile Include="EntityModel\BaoCaoo.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\DatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\DatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\DatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\GiangVienn.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Lichh.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Messengerr.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\NhiemVuu.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\SinhVienn.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ThongBaoo.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ThongTinDangNhapp.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ThongTinDeTaii.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ThongTinNhomDangKyy.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FLichHen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,12 +209,6 @@
     <Compile Include="FormSinhVien\FSinhVien_login.Designer.cs">
       <DependentUpon>FSinhVien_login.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Progress.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSinhVien\FSinhVien_Progress.Designer.cs">
-      <DependentUpon>FSinhVien_Progress.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormSinhVien\FSinhVien_Progress_Check.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,12 +257,10 @@
     <Compile Include="F_Lich_SuKien.Designer.cs">
       <DependentUpon>F_Lich_SuKien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ToastMessage.cs" />
     <Compile Include="Nganh_Khoa.cs" />
     <Compile Include="ClassDao\ConNguoiDao.cs" />
     <Compile Include="ClassDao\GiangVienDao.cs" />
-    <Compile Include="ClassDoiTuong\ConNguoi.cs" />
-    <Compile Include="ClassDoiTuong\LuanVan.cs" />
-    <Compile Include="ClassDoiTuong\SinhVien.cs" />
     <Compile Include="FormGiangVien\FGiangVien_ThesisTopics_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -507,9 +537,6 @@
     <EmbeddedResource Include="FormSinhVien\FSinhVien_login.resx">
       <DependentUpon>FSinhVien_login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSinhVien\FSinhVien_Progress.resx">
-      <DependentUpon>FSinhVien_Progress.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormSinhVien\FSinhVien_Progress_Check.resx">
       <DependentUpon>FSinhVien_Progress_Check.cs</DependentUpon>
     </EmbeddedResource>
@@ -608,6 +635,13 @@
     <EmbeddedResource Include="uc_User_Chat.resx">
       <DependentUpon>uc_User_Chat.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="EntityModel\DatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityModel\DatabaseModel.edmx.diagram">
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Winform_Project.FormGiangVien.FGiangVien_Thesis_Accept.datasource" />
     <None Include="Properties\Settings.settings">
@@ -627,6 +661,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EntityModel\DatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel\DatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Resourcess\email.png" />
     <Content Include="Resourcess\letter.png" />
     <None Include="Resources\word %281%29.png" />

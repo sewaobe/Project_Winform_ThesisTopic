@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseDFModelStoreContainer" CdmEntityContainer="DatabaseContext">
+    <EntitySetMapping Name="BaoCaoos">
+      <EntityTypeMapping TypeName="DatabaseDFModel.BaoCaoo">
+        <MappingFragment StoreEntitySet="BaoCao">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="MaSoNhom" ColumnName="MaSoNhom" />
+          <ScalarProperty Name="MaDeTai" ColumnName="MaDeTai" />
+          <ScalarProperty Name="FileBaoCao" ColumnName="FileBaoCao" />
+          <ScalarProperty Name="TienDo" ColumnName="TienDo" />
+          <ScalarProperty Name="NhanXet" ColumnName="NhanXet" />
+          <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiangVienns">
+      <EntityTypeMapping TypeName="DatabaseDFModel.GiangVienn">
+        <MappingFragment StoreEntitySet="GiangVien">
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="FaceBook" ColumnName="FaceBook" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lichhs">
+      <EntityTypeMapping TypeName="DatabaseDFModel.Lichh">
+        <MappingFragment StoreEntitySet="Lich">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="ThoiGianBatDau" ColumnName="ThoiGianBatDau" />
+          <ScalarProperty Name="ThoiGianKetThuc" ColumnName="ThoiGianKetThuc" />
+          <ScalarProperty Name="SuKien" ColumnName="SuKien" />
+          <ScalarProperty Name="MaSoNhom" ColumnName="MaSoNhom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messengerrs">
+      <EntityTypeMapping TypeName="DatabaseDFModel.Messengerr">
+        <MappingFragment StoreEntitySet="Messenger">
+          <ScalarProperty Name="NguoiGui" ColumnName="NguoiGui" />
+          <ScalarProperty Name="NguoiNhan" ColumnName="NguoiNhan" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NoiDungDacBiet" ColumnName="NoiDungDacBiet" />
+          <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhiemVuus">
+      <EntityTypeMapping TypeName="DatabaseDFModel.NhiemVuu">
+        <MappingFragment StoreEntitySet="NhiemVu">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+          <ScalarProperty Name="ThoiGianKetThuc" ColumnName="ThoiGianKetThuc" />
+          <ScalarProperty Name="TenNguoiNhan" ColumnName="TenNguoiNhan" />
+          <ScalarProperty Name="TenNguoiGui" ColumnName="TenNguoiGui" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="MaSoNhom" ColumnName="MaSoNhom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SinhVienns">
+      <EntityTypeMapping TypeName="DatabaseDFModel.SinhVienn">
+        <MappingFragment StoreEntitySet="SinhVien">
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Khoa" ColumnName="Khoa" />
+          <ScalarProperty Name="Nganh" ColumnName="Nganh" />
+          <ScalarProperty Name="MaSoNhom" ColumnName="MaSoNhom" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongBaoos">
+      <EntityTypeMapping TypeName="DatabaseDFModel.ThongBaoo">
+        <MappingFragment StoreEntitySet="ThongBao">
+          <ScalarProperty Name="MaSoNhom" ColumnName="MaSoNhom" />
+          <ScalarProperty Name="TenGiangVien" ColumnName="TenGiangVien" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinDangNhapps">
+      <EntityTypeMapping TypeName="DatabaseDFModel.ThongTinDangNhapp">
+        <MappingFragment StoreEntitySet="ThongTinDangNhap">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinDeTaiis">
+      <EntityTypeMapping TypeName="DatabaseDFModel.ThongTinDeTaii">
+        <MappingFragment StoreEntitySet="ThongTinDeTai">
+          <ScalarProperty Name="MaDeTai" ColumnName="MaDeTai" />
+          <ScalarProperty Name="TenDeTai" ColumnName="TenDeTai" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="YeuCau" ColumnName="YeuCau" />
+          <ScalarProperty Name="ChucNang" ColumnName="ChucNang" />
+          <ScalarProperty Name="TheLoai" ColumnName="TheLoai" />
+          <ScalarProperty Name="CongNghe" ColumnName="CongNghe" />
+          <ScalarProperty Name="Nganh" ColumnName="Nganh" />
+          <ScalarProperty Name="Khoa" ColumnName="Khoa" />
+          <ScalarProperty Name="HocKy" ColumnName="HocKy" />
+          <ScalarProperty Name="TenGiangVien" ColumnName="TenGiangVien" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinNhomDangKyies">
+      <EntityTypeMapping TypeName="DatabaseDFModel.ThongTinNhomDangKyy">
+        <MappingFragment StoreEntitySet="ThongTinNhomDangKy">
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaSoNhom" ColumnName="MaSoNhom" />
+          <ScalarProperty Name="MaDeTai" ColumnName="MaDeTai" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

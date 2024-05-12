@@ -9,15 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
-
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.FormSinhVien
 {
     public partial class FSinhVien_Progress_Check : Form
     {
         SinhVienDao svDao = new SinhVienDao();
-        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienn SinhVienAccount = FDangNhap.SinhVienAccount;
         public FSinhVien_Progress_Check()
         {
             InitializeComponent();
@@ -47,13 +46,12 @@ namespace Winform_Project.FormSinhVien
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            BaoCao bc = new BaoCao(txtTieuDe.Text,
-                       DateTime.Now.ToString(),
-                       txtFile.Text,
-                       "NULL",
-                       "NULL",
-                       SinhVienAccount.Masonhom,
-                       "Dang cho");
+            BaoCaoo bc = new BaoCaoo{TieuDe = txtFile.Text,
+                       ThoiGianGui = DateTime.Now.ToString(),
+                       TienDo = "NULL",
+                       NhanXet = "NULL",
+                       MaSoNhom = SinhVienAccount.MaSoNhom,
+                       TrangThai = "Dang cho" };
             svDao.Save_File(bc);
             this.Hide();
 

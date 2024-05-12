@@ -7,22 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project
 {
     public partial class uc_TinNhan : UserControl
     {
-        public TinNhan tinNhan;
+        public Messengerr tinNhan;
         public uc_TinNhan()
         {
             InitializeComponent();
         }
-        public uc_TinNhan(TinNhan tn)
+        public uc_TinNhan(Messengerr tn)
         {
             InitializeComponent();  
-            lblNoiDung.Text = tn.Noidung;
-            lblThoiGianGui.Text = tn.Thoigiangui.ToShortTimeString();
+            lblNoiDung.Text = tn.NoiDung;
+            lblThoiGianGui.Text = tn.ThoiGianGui.ToShortTimeString();
             setHeight();
             this.tinNhan = tn;
         }

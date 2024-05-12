@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
@@ -18,8 +18,8 @@ namespace Winform_Project
         ConNguoiDao conNguoiDao = new ConNguoiDao();
         SinhVienDao svDao = new SinhVienDao();
         GiangVienDao gvDao = new GiangVienDao();
-        public static SinhVien SinhVienAccount;
-        public static GiangVien giangVienAccount;
+        public static SinhVienn SinhVienAccount;
+        public static GiangVienn giangVienAccount;
         public FDangNhap()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace Winform_Project
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            TaiKhoanDangNhap tk = new TaiKhoanDangNhap(txtTaiKhoan.Text,txtMatKhau.Text);
+            ThongTinDangNhapp tk = new ThongTinDangNhapp { TenDangNhap = txtTaiKhoan.Text, MatKhau = txtMatKhau.Text };
             DataTable dt = conNguoiDao.XacNhanDangNhap(tk);
             if (dt.Rows.Count > 0)
             {

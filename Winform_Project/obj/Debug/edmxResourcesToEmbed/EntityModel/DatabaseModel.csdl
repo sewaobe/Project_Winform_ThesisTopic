@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseDFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaoCaoo">
+    <Key>
+      <PropertyRef Name="TieuDe" />
+    </Key>
+    <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaSoNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FileBaoCao" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TienDo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NhanXet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianGui" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GiangVienn">
+    <Key>
+      <PropertyRef Name="HoTen" />
+    </Key>
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="FaceBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Lichh">
+    <Key>
+      <PropertyRef Name="ThoiGianBatDau" />
+    </Key>
+    <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianBatDau" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="3" />
+    <Property Name="SuKien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaSoNhom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Messengerr">
+    <Key>
+      <PropertyRef Name="ThoiGianGui" />
+    </Key>
+    <Property Name="NguoiGui" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungDacBiet" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ThoiGianGui" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NhiemVuu">
+    <Key>
+      <PropertyRef Name="TieuDe" />
+    </Key>
+    <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ThoiGianGui" Type="DateTime" Precision="3" />
+    <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="3" />
+    <Property Name="TenNguoiNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenNguoiGui" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaSoNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SinhVienn">
+    <Key>
+      <PropertyRef Name="MSSV" />
+    </Key>
+    <Property Name="MSSV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Khoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nganh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaSoNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diem" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThongBaoo">
+    <Key>
+      <PropertyRef Name="MaSoNhom" />
+      <PropertyRef Name="ThoiGianGui" />
+    </Key>
+    <Property Name="MaSoNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenGiangVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianGui" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThongTinDangNhapp">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThongTinDeTaii">
+    <Key>
+      <PropertyRef Name="MaDeTai" />
+    </Key>
+    <Property Name="MaDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YeuCau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChucNang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CongNghe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nganh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Khoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HocKy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TenGiangVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diem" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThongTinNhomDangKyy">
+    <Key>
+      <PropertyRef Name="MSSV" />
+    </Key>
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaSoNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaDeTai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaoCaoos" EntityType="DatabaseDFModel.BaoCaoo" />
+    <EntitySet Name="GiangVienns" EntityType="DatabaseDFModel.GiangVienn" />
+    <EntitySet Name="Lichhs" EntityType="DatabaseDFModel.Lichh" />
+    <EntitySet Name="Messengerrs" EntityType="DatabaseDFModel.Messengerr" />
+    <EntitySet Name="NhiemVuus" EntityType="DatabaseDFModel.NhiemVuu" />
+    <EntitySet Name="SinhVienns" EntityType="DatabaseDFModel.SinhVienn" />
+    <EntitySet Name="ThongBaoos" EntityType="DatabaseDFModel.ThongBaoo" />
+    <EntitySet Name="ThongTinDangNhapps" EntityType="DatabaseDFModel.ThongTinDangNhapp" />
+    <EntitySet Name="ThongTinDeTaiis" EntityType="DatabaseDFModel.ThongTinDeTaii" />
+    <EntitySet Name="ThongTinNhomDangKyies" EntityType="DatabaseDFModel.ThongTinNhomDangKyy" />
+  </EntityContainer>
+</Schema>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormSinhVien;
 
 namespace Winform_Project.FormGiangVien
@@ -19,7 +19,7 @@ namespace Winform_Project.FormGiangVien
         public FGiangVien_SupportTopic_Add()
         {
             InitializeComponent();
-            txtNguoiGiaoViec.Text = FDangNhap.giangVienAccount.Ten;
+            txtNguoiGiaoViec.Text = FDangNhap.giangVienAccount.HoTen;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -29,24 +29,28 @@ namespace Winform_Project.FormGiangVien
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            NhiemVu nhiemVu = new NhiemVu(txtTieuDe.Text,
-                                          pckThoiGianBatDau.Value,
-                                          pckThoiGianKetThuc.Value,
-                                          txtNguoiGiaoViec.Text,
-                                          txtSinhVien.Text,
-                                          cbbTrangThai.Text,
-                                          txtNoiDung.Text,
-                                          FGiangVien_Support_Add_SinhVien.sinhVien.Mssv,
-                                          FGiangVien_Support_Add_SinhVien.sinhVien.Masonhom);
+            NhiemVuu nhiemVu = new NhiemVuu
+            {
+                TieuDe = txtTieuDe.Text,
+                ThoiGianGui = pckThoiGianBatDau.Value,
+                ThoiGianKetThuc = pckThoiGianKetThuc.Value,
+                TenNguoiGui = txtNguoiGiaoViec.Text,
+                TenNguoiNhan = txtSinhVien.Text,
+                TrangThai = cbbTrangThai.Text,
+                NoiDung = txtNoiDung.Text,
+                MSSV = FGiangVien_Support_Add_SinhVien.sinhVien.MSSV,
+                MaSoNhom = FGiangVien_Support_Add_SinhVien.sinhVien.MaSoNhom
+            };
             gvDao.ThemNhiemVu(nhiemVu);
             FSinhVien_Controls.flag_NhiemVu = 1;
+            this.Hide();
         }
 
         private void btnThemSinhVien_Click(object sender, EventArgs e)
         {
             FGiangVien_Support_Add_SinhVien fGiangVien_Support_Add_SinhVien = new FGiangVien_Support_Add_SinhVien();
             fGiangVien_Support_Add_SinhVien.ShowDialog();
-            txtSinhVien.Text = FGiangVien_Support_Add_SinhVien.sinhVien.Ten;
+            txtSinhVien.Text = FGiangVien_Support_Add_SinhVien.sinhVien.HoTen;
         }
 
         private void pckThoiGianBatDau_ValueChanged(object sender, EventArgs e)

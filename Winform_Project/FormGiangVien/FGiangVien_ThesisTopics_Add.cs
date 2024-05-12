@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.FormGiangVien
 {
@@ -34,21 +34,44 @@ namespace Winform_Project.FormGiangVien
             InitializeComponent();
         }
 
+        /*//Chưa sửa
         private LuanVan LoadData()
         {
-            return new LuanVan(txtMaDeTai.Text, 
-                               txtTenDeTai.Text, 
-                               txtTheLoai.Text, 
-                               txtSoLuong.Text, 
-                               txtMoTa.Text, 
-                               txtChucNang.Text, 
-                               txtYeuCau.Text, 
+            return new LuanVan(txtMaDeTai.Text,
+                               txtTenDeTai.Text,
+                               txtTheLoai.Text,
+                               txtSoLuong.Text,
+                               txtMoTa.Text,
+                               txtChucNang.Text,
+                               txtYeuCau.Text,
                                cbbCongNghe.Text,
                                khoa,
                                nganh,
                                hocKi,
                                tenGiangVien,
                                "Chua dang ki");
+        }*/
+        //Đã sửa
+        private ThongTinDeTaii LoadData()
+        {
+            ThongTinDeTaii lv = new ThongTinDeTaii
+            {
+                MaDeTai = txtMaDeTai.Text,
+                TenDeTai = txtTenDeTai.Text,
+                TheLoai = txtTheLoai.Text,
+                SoLuong = txtSoLuong.Text,
+                MoTa = txtMoTa.Text,
+                ChucNang = txtChucNang.Text,
+                YeuCau = txtYeuCau.Text,
+                CongNghe = cbbCongNghe.Text,
+                Khoa = khoa,
+                Nganh = nganh,
+                HocKy = hocKi,
+                TenGiangVien = tenGiangVien,
+                TrangThai = "Chua dang ki"
+
+            };
+            return lv;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -79,7 +102,7 @@ namespace Winform_Project.FormGiangVien
         }*/
         private void btnThem_Click(object sender, EventArgs e)
         {
-            LuanVan lv = LoadData();
+            ThongTinDeTaii lv = LoadData();
             if(conNguoiDao.Validation(this,lv)==true)
                 gvDao.Them(lv);
             else

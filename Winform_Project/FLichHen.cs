@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 using Winform_Project.FormSinhVien;
 
@@ -52,16 +52,16 @@ namespace Winform_Project
             DTPTimeStart.Value = dateTimeStart;
             DTPTimeEnd.Value = dateTimeEnd;
         }
-        public FLichHen(Lich lich)
+        public FLichHen(Lichh lich)
         {
             InitializeComponent();
 
             txtTieuDe.Text = lich.TieuDe;
             txtNoiDung.Text = lich.NoiDung;
             ThoiGianBatDau.Value = lich.ThoiGianBatDau;
-            ThoiGianKetThuc.Value = lich.ThoiGianKetThuc;
+            ThoiGianKetThuc.Value = lich.ThoiGianKetThuc.Value;
             DTPTimeStart.Value = lich.ThoiGianBatDau;
-            DTPTimeEnd.Value = lich.ThoiGianKetThuc;
+            DTPTimeEnd.Value = lich.ThoiGianKetThuc.Value;
             cbbSuKien.StartIndex = cbbSuKien.Items.IndexOf(lich.SuKien);
             btnGui.Visible = false;
 
@@ -78,9 +78,16 @@ namespace Winform_Project
 
         private void btnGui_Click(object sender, EventArgs e)
         {
-            Lich lich = new Lich(txtTieuDe.Text, txtNoiDung.Text, dateTimeStart, dateTimeEnd, cbbSuKien.Text, FGiangVien_Controls.maSoNhom);
+            Lichh lich = new Lichh { TieuDe = txtTieuDe.Text, 
+                                    NoiDung = txtNoiDung.Text, 
+                                    ThoiGianBatDau = dateTimeStart, 
+                                    ThoiGianKetThuc = dateTimeEnd, 
+                                    SuKien = cbbSuKien.Text, 
+                                    MaSoNhom = FGiangVien_Controls.maSoNhom };
             gvDao.DatLich(lich);
             FSinhVien_Controls.flag_Lich = 1;
+            this.Hide();
+            
         }
     }
 }

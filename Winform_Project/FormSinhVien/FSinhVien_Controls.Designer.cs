@@ -40,6 +40,7 @@
             this.btnThayDoiLich = new Guna.UI2.WinForms.Guna2Button();
             this.btnTroChuyen = new Guna.UI2.WinForms.Guna2Button();
             this.btnThayDoiTroChuyen = new Guna.UI2.WinForms.Guna2Button();
+            this.btnXemDiem = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // btnNhanXet
@@ -229,12 +230,29 @@
             this.btnThayDoiTroChuyen.TabIndex = 22;
             this.btnThayDoiTroChuyen.Visible = false;
             // 
+            // btnXemDiem
+            // 
+            this.btnXemDiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXemDiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXemDiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXemDiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXemDiem.FillColor = System.Drawing.Color.White;
+            this.btnXemDiem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXemDiem.ForeColor = System.Drawing.Color.Black;
+            this.btnXemDiem.Location = new System.Drawing.Point(1036, 55);
+            this.btnXemDiem.Name = "btnXemDiem";
+            this.btnXemDiem.Size = new System.Drawing.Size(180, 45);
+            this.btnXemDiem.TabIndex = 23;
+            this.btnXemDiem.Text = "Xem điểm";
+            this.btnXemDiem.Click += new System.EventHandler(this.btnXemDiem_Click);
+            // 
             // FSinhVien_Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1440, 862);
+            this.Controls.Add(this.btnXemDiem);
             this.Controls.Add(this.btnThayDoiTroChuyen);
             this.Controls.Add(this.btnTroChuyen);
             this.Controls.Add(this.btnThayDoiLich);
@@ -269,5 +287,6 @@
         public Guna.UI2.WinForms.Guna2Button btnThayDoiLich;
         public Guna.UI2.WinForms.Guna2Button btnTroChuyen;
         public Guna.UI2.WinForms.Guna2Button btnThayDoiTroChuyen;
+        public Guna.UI2.WinForms.Guna2Button btnXemDiem;
     }
 }

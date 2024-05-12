@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.Model;
 
 namespace Winform_Project.ClassDao
@@ -15,114 +15,200 @@ namespace Winform_Project.ClassDao
     internal class SinhVienDao
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.ConnStr);
-        DBConnection db = new DBConnection();
-        SinhVien sinhvien = new SinhVien();
+        DatabaseContext dbContext = new DatabaseContext();
+        ToastMessage ToastMessage = new ToastMessage();
+
+        SinhVienn sinhvien = new SinhVienn();
         public static byte[] buffer_s;
 
         public SinhVienDao() { }
-        public DataTable LoadData(string sqlStr)
+        static DataTable ToDataTable<T>(List<T> items)
         {
-            return db.Load(sqlStr);
-        }
-        public void DeXuatDeTai(LuanVan lv)
-        {
-            string sqlStr = string.Format("INSERT INTO ThongTinDeTai(MaDeTai, TenDeTai, SoLuong, MoTa, YeuCau, ChucNang, TheLoai,CongNghe, Nganh, Khoa, HocKy, TenGiangVien, TrangThai) " +
-                                            "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','Chua duyet') ",
-                                            lv.MaDeTai, lv.TenDeTai, lv.SoLuong, lv.MoTa, lv.YeuCau, lv.ChucNang, lv.TheLoai, lv.CongNghe, lv.Nganh, lv.Khoa, lv.HocKy, lv.TenGiangVien);
-            db.ThucThi(sqlStr);
-        }
-        public void DangKy(SinhVien svAccount, string masonhom, string madetai)
-        {
-            string sqlStr = string.Format("INSERT INTO ThongTinNhomDangKy(MSSV,HoTen,MaSoNhom,MaDeTai)" +
-                                            "VALUES('{0}','{1}','{2}','{3}')",
-                                            svAccount.Mssv, svAccount.Ten, masonhom, madetai);
-            db.ThucThi(sqlStr);
-            sqlStr = string.Format("UPDATE SinhVien SET MaSoNhom = '{0}' WHERE MSSV='{1}'", masonhom, svAccount.Mssv);
-            db.ThucThi(sqlStr);
-            sqlStr = string.Format("UPDATE ThongTinDeTai SET TrangThai = '{0}' WHERE MaDeTai='{1}'", "Chua duyet", madetai);
-            db.ThucThi(sqlStr);
-        }
-        public SinhVien LayThongTinSinhVien(string MSSV)
-        {
-            string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV={0}", MSSV);
-            DataTable dtSinhVien = db.Load(sqlStr);
-            if (dtSinhVien.Rows.Count > 0)
+            DataTable dataTable = new DataTable(typeof(T).Name);
+
+            // Lấy tất cả các thuộc tính public của đối tượng
+            System.Reflection.PropertyInfo[] Props = typeof(T).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+
+            // Tạo các cột trong DataTable dựa trên tên của các thuộc tính
+            foreach (System.Reflection.PropertyInfo prop in Props)
             {
-                //DateTime dt =Convert.ToDateTime(dtSinhVien.Rows[0][3]);
-                sinhvien = new SinhVien(dtSinhVien.Rows[0]["HoTen"].ToString(), dtSinhVien.Rows[0][2].ToString(), Convert.ToDateTime(dtSinhVien.Rows[0][3]), dtSinhVien.Rows[0][4].ToString(), dtSinhVien.Rows[0][5].ToString(), dtSinhVien.Rows[0][6].ToString(), dtSinhVien.Rows[0][0].ToString(), dtSinhVien.Rows[0]["MaSoNhom"].ToString());
+                dataTable.Columns.Add(prop.Name);
+            }
+
+            // Thêm dữ liệu vào DataTable từ danh sách đối tượng
+            foreach (T item in items)
+            {
+                object[] values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    // Lấy giá trị của thuộc tính tương ứng của đối tượng
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+
+            return dataTable;
+        }
+        
+        public DataTable LayTatCaThongBaoCuaNhom(string MSN)
+        {
+            var query = (from p in dbContext.ThongBaoos
+                         where p.MaSoNhom == MSN
+                         select p).ToList();
+
+            return ToDataTable<ThongBaoo>(query);
+        }
+        public DataTable LayThongTinTatCaGiangVien()
+        {
+            var query = (dbContext.GiangVienns).ToList();
+
+            return ToDataTable<GiangVienn>(query);
+        }
+        public DataTable LayNhiemVuCuaNhom(string MSN)
+        {
+            var query = (from p in dbContext.NhiemVuus
+                         where p.MaSoNhom == MSN
+                         select p).ToList();
+
+            return ToDataTable<NhiemVuu>(query);
+        }
+        public DataTable LayBaoCaoCuaNhomDangKy(string MSN)
+        {
+            var query = (from p in dbContext.BaoCaoos
+                         where p.MaSoNhom == MSN
+                         select p).ToList();
+
+            return ToDataTable<BaoCaoo>(query);
+        }
+        public void DeXuatDeTai(ThongTinDeTaii lv)
+        {
+            ThongTinDeTaii thongTinDeTai = new ThongTinDeTaii
+            {
+                MaDeTai = lv.MaDeTai,
+                TenDeTai = lv.TenDeTai,
+                SoLuong = lv.SoLuong,
+                MoTa = lv.MoTa,
+                YeuCau = lv.YeuCau,
+                ChucNang = lv.ChucNang,
+                TheLoai = lv.TheLoai,
+                CongNghe = lv.CongNghe,
+                Nganh = lv.Nganh,
+                Khoa = lv.Khoa,
+                HocKy = lv.HocKy,
+                TenGiangVien = lv.TenGiangVien,
+                TrangThai = "Chua duyet"
+            };
+            dbContext.ThongTinDeTaiis.Add(thongTinDeTai);
+            ToastMessage.Check(dbContext.SaveChanges());
+        }
+        public void DangKy(SinhVienn svAccount, string masonhom, string madetai)
+        {
+            var insert = new ThongTinNhomDangKyy
+            {
+                MSSV = svAccount.MSSV,
+                HoTen = svAccount.HoTen,
+                MaSoNhom = masonhom,
+                MaDeTai = madetai
+            };
+            dbContext.ThongTinNhomDangKyies.Add(insert);
+
+            var update1 = dbContext.SinhVienns.Where(p => p.MSSV == svAccount.MSSV).FirstOrDefault();
+            update1.MaSoNhom = masonhom;
+
+            var update2 = dbContext.ThongTinDeTaiis.Where(p => p.MaDeTai == madetai).FirstOrDefault();
+            update2.TrangThai = "Chua duyet";
+
+            ToastMessage.Check(dbContext.SaveChanges());
+        }
+        public SinhVienn LayThongTinSinhVien(string MSSV)
+        {
+            var query = from p in dbContext.SinhVienns
+                        where p.MSSV == MSSV
+                        select p;
+            foreach (var item in query)
+            {
+                sinhvien = new SinhVienn
+                {   
+                    HoTen = item.HoTen,
+                    GioiTinh = item.GioiTinh,
+                    NgaySinh = (DateTime)item.NgaySinh,
+                    SDT = item.SDT,
+                    Khoa = item.Khoa,
+                    Nganh = item.Nganh,
+                    MSSV = item.MSSV,
+                    MaSoNhom = item.MaSoNhom
+                };
                 return sinhvien;
             }
             return null;
         }
-        public void themSinhVien(SinhVien sinhvien, string madetai)
+        public void themSinhVien(SinhVienn sinhvien, string madetai)
         {
-            string sqlStr = string.Format("INSERT INTO ThongTinNhomDangKy(MSSV,HoTen,MaSoNhom,MaDeTai)" +
-                                            "VALUES('{0}','{1}','{2}','{3}')",
-                                            sinhvien.Mssv, sinhvien.Ten, sinhvien.Masonhom, madetai);
-            db.ThucThi(sqlStr);
-            sqlStr = string.Format("UPDATE SinhVien SET MaSoNhom = '{0}' WHERE MSSV='{1}'", sinhvien.Masonhom, sinhvien.Mssv);
-            db.ThucThi(sqlStr);
+            var insert = new ThongTinNhomDangKyy()
+            {
+                MSSV = sinhvien.MSSV,
+                HoTen = sinhvien.HoTen,
+                MaSoNhom = sinhvien.MaSoNhom,
+                MaDeTai = madetai
+            };
+            dbContext.ThongTinNhomDangKyies.Add(insert);
+            var update1 = dbContext.SinhVienns.Where(x => x.MSSV == sinhvien.MSSV).FirstOrDefault();
+            update1.MaSoNhom = sinhvien.MaSoNhom;
+
+            ToastMessage.Check(dbContext.SaveChanges());
         }
-        public void guiBaoCao(BaoCao baocao)
+        
+        
+        public void capnhatTrangThaiNhiemVu(NhiemVuu nv)
         {
-            string sqlStr = string.Format("INSERT INTO BaoCao(TieuDe,MaSoNhom,TrangThai,FileBaoCao,TienDo,NhanXet,ThoiGianGui)" +
-                                            "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                                            baocao.TieuDe,baocao.MaSoNhom,baocao.TrangThai, baocao.File, baocao.TienDo,baocao.NhanXet,baocao.ThoiGianGui);
-            db.ThucThi(sqlStr);
+            var query = (from p in dbContext.NhiemVuus
+                        where p.TieuDe == nv.TieuDe
+                        select p).SingleOrDefault();
+            query.TrangThai = "Da hoan thanh";
+            ToastMessage.Check(dbContext.SaveChanges());
+
         }
-        public void docThongBao(ThongBao tb)
+        public void Save_File(BaoCaoo baoCao)
         {
-            string sqlStr = string.Format("UPDATE ThongBao SET TrangThai='Da Doc' Where MaSoNhom='{0}'",
-                                            tb.Masonhom);
-            db.ThucThi(sqlStr);
-        }
-        public void GuiTinNhan(TinNhan tinnhan)
-        {
-            string sqlStr = string.Format("INSERT INTO Messenger(NguoiGui,NguoiNhan,NoiDung,ThoiGianGui)" +
-                                            "VALUES('{0}','{1}','{2}','{3}')",
-                                            tinnhan.Nguoigui, tinnhan.Nguoinhan, tinnhan.Noidung, tinnhan.Thoigiangui);
-            db.ThucThi(sqlStr);
-        }
-        public void capnhatTrangThaiNhiemVu(NhiemVu nv)
-        {
-            string sqlStr = string.Format("UPDATE NhiemVu SET TrangThai='Da hoan thanh' Where TieuDe='{0}'",
-                                            nv.TieuDe);
-            db.ThucThi(sqlStr);
-        }
-        public void Save_File(BaoCao baoCao)
-        {
-            using (Stream stream = File.OpenRead(baoCao.File))
+            using (Stream stream = File.OpenRead(baoCao.TieuDe))
             {
                 byte[] buffer = new byte[stream.Length];
                 stream.Read(buffer, 0, buffer.Length);
 
-                string extn = new FileInfo(baoCao.File).Extension;
-
-                string sqlStr = string.Format("INSERT INTO BaoCao(TieuDe,MaSoNhom, FileBaoCao, TienDo, NhanXet, ThoiGianGui, TrangThai)" +
-                                            $"VALUES('{baoCao.TieuDe}','{baoCao.MaSoNhom}',@File,'{baoCao.TienDo}','{baoCao.NhanXet}','{baoCao.ThoiGianGui}','{baoCao.TrangThai}')");
+                string extn = new FileInfo(baoCao.TieuDe).Extension;
                 buffer_s = buffer;
-                db.ThucThi(sqlStr);
+
+                var insert = new BaoCaoo()
+                {
+                    TieuDe = baoCao.TieuDe,
+                    MaSoNhom = baoCao.MaSoNhom,
+                    FileBaoCao = buffer,
+                    TienDo = baoCao.TienDo,
+                    NhanXet = baoCao.NhanXet,
+                    ThoiGianGui = baoCao.ThoiGianGui,
+                    TrangThai = baoCao.TrangThai
+                };
+                dbContext.BaoCaoos.Add(insert);
+                ToastMessage.Check(dbContext.SaveChanges());
             }
         }
-        public int kiemtraTrangThai(SinhVien sv)
+        public int kiemtraTrangThai(SinhVienn sv)
         {
-            string sqlStr = string.Format("SELECT * FROM SinhVien WHERE MSSV={0}", sv.Mssv);
-            DataTable dt = LoadData(sqlStr);
+                var sinhVien = dbContext.SinhVienns.Where(p => p.MSSV == sv.MSSV).SingleOrDefault();
+                if (sinhVien.MaSoNhom is null)
+                    return 2;
 
-            if (dt.Rows[0]["MaSoNhom"].ToString() == "")
+                var thongTinNhomDangKy = dbContext.ThongTinNhomDangKyies.Where(p => p.MaSoNhom == sinhVien.MaSoNhom).ToList();
+            foreach (ThongTinNhomDangKyy thongTinNhomDangKyy in thongTinNhomDangKy) 
             {
-                return 2;
-            }
-            string sqlStr1 = string.Format("SELECT * FROM ThongTinNhomDangKy WHERE MaSoNhom ={0}", dt.Rows[0]["MaSoNhom"].ToString());
-            DataTable dtNhom = db.Load(sqlStr1);
-            if (dtNhom.Rows.Count > 0)
-            {
-                string sqlStr2 = string.Format("SELECT * FROM ThongTinDeTai WHERE MaDeTai = {0}", dtNhom.Rows[0]["MaDeTai"].ToString());
-                DataTable dtDeTai = db.Load(sqlStr2);
-                if (dtDeTai.Rows[0]["TrangThai"].ToString() == "Chua duyet")
+                var deTaiNhomDangKy = dbContext.ThongTinDeTaiis.Where(p => p.MaDeTai == thongTinNhomDangKyy.MaDeTai).SingleOrDefault();
+                if (deTaiNhomDangKy.TrangThai == "Chua duyet")
                     return 3;
             }
-            return 1;
+                
+                return 1;
+            
+            
         }
     }
 }

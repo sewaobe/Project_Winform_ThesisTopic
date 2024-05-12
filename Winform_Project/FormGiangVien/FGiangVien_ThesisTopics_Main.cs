@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.FormGiangVien
 {
@@ -33,10 +33,10 @@ namespace Winform_Project.FormGiangVien
             /*gvDeTai.DataSource = gvDao.LoadData("SELECT * From ThongTinDeTai");
             Instance_GridView();*/
             DataTable dtDeTai = conNguoiDao.LayThongTinTatCaDeTai();
-            List<LuanVan> lv_list = gvDao.ChuyenDoiDuLieuSangLuanVan(dtDeTai);
+            List<ThongTinDeTaii> lv_list = gvDao.ChuyenDoiDuLieuSangLuanVan(dtDeTai);
             int pos_current_X = -100;
             int pos_current_Y = 0;
-            foreach (LuanVan lv in lv_list)
+            foreach (ThongTinDeTaii lv in lv_list)
             {
                 ucDeTai uc = new ucDeTai(lv);
                 uc.Location = new Point(pos_current_X, pos_current_Y);

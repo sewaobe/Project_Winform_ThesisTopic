@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 using Winform_Project.FSinhVien;
 using Winform_Project.uc_SV;
@@ -19,13 +19,13 @@ namespace Winform_Project.FormSinhVien
     public partial class FSinhVien_Reg_New : Form
     {
         SinhVienDao svDao = new SinhVienDao();
-        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienn SinhVienAccount = FDangNhap.SinhVienAccount;
         private string namHoc, hocKi;
         ConNguoiDao conNguoiDao = new ConNguoiDao();
         public FSinhVien_Reg_New(string HocKi)
         {
             InitializeComponent();
-            DataTable dtGiangVien = svDao.LoadData("SELECT * From GiangVien");
+            DataTable dtGiangVien = svDao.LayThongTinTatCaGiangVien();
             for (int i = 0; i < dtGiangVien.Rows.Count; i++)
             {
                 //đổ data vô các combobox
@@ -43,17 +43,18 @@ namespace Winform_Project.FormSinhVien
             DataTable dtSinhVien = conNguoiDao.TimThongTinSinhVien("");
             for (int i = 0; i < dtSinhVien.Rows.Count; i++)
             {
-                if (dtSinhVien.Rows[i]["MSSV"].ToString() == FDangNhap.SinhVienAccount.Mssv)
+                if (dtSinhVien.Rows[i]["MSSV"].ToString() == FDangNhap.SinhVienAccount.MSSV)
                 {
-                    SinhVien sinhvien = new SinhVien(dtSinhVien.Rows[i]["HoTen"].ToString(),
-                        dtSinhVien.Rows[i]["GioiTinh"].ToString(),
-                        Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
-                        dtSinhVien.Rows[i]["SDT"].ToString(),
-                        dtSinhVien.Rows[i]["Khoa"].ToString(),
-                        dtSinhVien.Rows[i]["Nganh"].ToString(),
-                        dtSinhVien.Rows[i]["MSSV"].ToString(),
-                        txtIDnhom.Text
-                                                        );
+                    SinhVienn sinhvien = new SinhVienn
+                    {   HoTen = dtSinhVien.Rows[i]["HoTen"].ToString(),
+                        GioiTinh = dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                        NgaySinh = Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                        SDT = dtSinhVien.Rows[i]["SDT"].ToString(),
+                        Khoa = dtSinhVien.Rows[i]["Khoa"].ToString(),
+                        Nganh = dtSinhVien.Rows[i]["Nganh"].ToString(),
+                        MSSV = dtSinhVien.Rows[i]["MSSV"].ToString(),
+                        MaSoNhom = txtIDnhom.Text
+                    };
                     uc_SV_ThongTin uc_SV_ThongTin = new uc_SV_ThongTin(sinhvien);
                     uc_SV_ThongTin.btnThemSinhVien.Image = Properties.Resources.check;
                     flowThongTinSV.Controls.Add(uc_SV_ThongTin);
@@ -66,15 +67,33 @@ namespace Winform_Project.FormSinhVien
        
 
       
-        private LuanVan LoadData()
+        /*private LuanVan LoadData()
         {
            
             return new LuanVan(txtMaDeTai.Text, txtTenDeTai.Text, txtTheLoai.Text,
                                 flowThongTinSV.Controls.Count.ToString(), txtMoTa.Text, 
                                 txtChucNang.Text, "NULL",txtCongNghe.Text, SinhVienAccount.Khoa, 
                                 SinhVienAccount.Nganh,hocKi, cbbGVHD1.Text, "Chua duyet");
+        }*/
+        private ThongTinDeTaii LoadData()
+        {
+            ThongTinDeTaii lv = new ThongTinDeTaii
+            {
+                MaDeTai = txtMaDeTai.Text,
+                TenDeTai = txtTenDeTai.Text,
+                TheLoai = txtTheLoai.Text,
+                SoLuong = flowThongTinSV.Controls.Count.ToString(),
+                MoTa = txtMoTa.Text,
+                ChucNang = txtChucNang.Text,
+                CongNghe = txtCongNghe.Text,
+                Khoa = SinhVienAccount.Khoa,
+                Nganh = SinhVienAccount.Nganh,
+                HocKy = hocKi,
+                TenGiangVien = cbbGVHD1.Text,
+                TrangThai = "Chua duyet"
+            };
+            return lv;
         }
-
         private void btnThemSinhVien_Click(object sender, EventArgs e)
         {
             FGiangVien_Support_Add_SinhVien fGiangVien_Support_Add_SinhVien = new FGiangVien_Support_Add_SinhVien();
@@ -89,7 +108,7 @@ namespace Winform_Project.FormSinhVien
 
         private void btnDangKy_Click_1(object sender, EventArgs e)
         {
-            LuanVan lv = LoadData();
+            ThongTinDeTaii lv = LoadData();
             if (cbXacNhan.Checked == true)
             {
                 
@@ -106,7 +125,7 @@ namespace Winform_Project.FormSinhVien
                     else
                     {
                         svDao.DeXuatDeTai(lv);
-                        FDangNhap.SinhVienAccount.Masonhom = txtIDnhom.Text;
+                        FDangNhap.SinhVienAccount.MaSoNhom = txtIDnhom.Text;
                         foreach (uc_SV_ThongTin uc in flowThongTinSV.Controls.OfType<uc_SV_ThongTin>())
                         {
                             svDao.DangKy(uc.sv, txtIDnhom.Text, txtMaDeTai.Text);

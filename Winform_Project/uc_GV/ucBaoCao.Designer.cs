@@ -179,6 +179,7 @@
             this.Controls.Add(this.lblThoiGianGui);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTieuDe);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ucBaoCao";
             this.Size = new System.Drawing.Size(294, 307);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();

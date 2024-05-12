@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 using Winform_Project.FormSinhVien;
 
@@ -17,14 +17,14 @@ namespace Winform_Project.FSinhVien
 {
     public partial class FSinhVien : Form
     {
-        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienn SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
         public static Guna2Panel panelTrungTam;
         public FSinhVien()
         {
             InitializeComponent();
-            lblTen.Text = SinhVienAccount.Ten;
-            lblMSSV.Text = SinhVienAccount.Mssv;
+            lblTen.Text = SinhVienAccount.HoTen;
+            lblMSSV.Text = SinhVienAccount.MSSV;
             lblChucVu.Text = "Sinh viên";
             if (svDao.kiemtraTrangThai(SinhVienAccount) == 1)
             {

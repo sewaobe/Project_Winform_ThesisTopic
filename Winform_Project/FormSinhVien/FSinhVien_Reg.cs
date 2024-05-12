@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 using Winform_Project.FormSinhVien;
 
@@ -18,7 +18,7 @@ namespace Winform_Project.FSinhVien
 {
     public partial class FSinhVien_Reg : Form
     {
-        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienn SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
         ConNguoiDao conNguoiDao = new ConNguoiDao();
         public FSinhVien_Reg()
@@ -57,20 +57,20 @@ namespace Winform_Project.FSinhVien
                 //thêm uc_DeTai
                 if (dtDeTai.Rows[i]["TrangThai"].ToString() == "Chua dang ki")
                 {
-                    LuanVan lv = new LuanVan(dtDeTai.Rows[i]["MaDeTai"].ToString(),
-                                            dtDeTai.Rows[i]["TenDeTai"].ToString(),
-                                            dtDeTai.Rows[i]["TheLoai"].ToString(),
-                                            dtDeTai.Rows[i]["SoLuong"].ToString(),
-                                            dtDeTai.Rows[i]["MoTa"].ToString(),
-                                            dtDeTai.Rows[i]["ChucNang"].ToString(),
-                                            dtDeTai.Rows[i]["YeuCau"].ToString(),
-                                            dtDeTai.Rows[i]["CongNghe"].ToString(),
-                                            dtDeTai.Rows[i]["Khoa"].ToString(),
-                                            dtDeTai.Rows[i]["Nganh"].ToString(),
-                                            dtDeTai.Rows[i]["HocKy"].ToString(),
-                                            dtDeTai.Rows[i]["TenGiangVien"].ToString(),
-                                            dtDeTai.Rows[i]["TrangThai"].ToString()
-                                            );
+                    ThongTinDeTaii lv = new ThongTinDeTaii{MaDeTai = dtDeTai.Rows[i]["MaDeTai"].ToString(),
+                                            TenDeTai = dtDeTai.Rows[i]["TenDeTai"].ToString(),
+                                            TheLoai = dtDeTai.Rows[i]["TheLoai"].ToString(),
+                                            SoLuong = dtDeTai.Rows[i]["SoLuong"].ToString(),
+                                            MoTa = dtDeTai.Rows[i]["MoTa"].ToString(),
+                                            ChucNang = dtDeTai.Rows[i]["ChucNang"].ToString(),
+                                            YeuCau = dtDeTai.Rows[i]["YeuCau"].ToString(),
+                                            CongNghe = dtDeTai.Rows[i]["CongNghe"].ToString(),
+                                            Khoa = dtDeTai.Rows[i]["Khoa"].ToString(),
+                                            Nganh = dtDeTai.Rows[i]["Nganh"].ToString(),
+                                            HocKy = dtDeTai.Rows[i]["HocKy"].ToString(),
+                                            TenGiangVien = dtDeTai.Rows[i]["TenGiangVien"].ToString(),
+                                            TrangThai = dtDeTai.Rows[i]["TrangThai"].ToString()
+                    };
                     uc_SV_DeTai uc_sv_detai = new uc_SV_DeTai(lv);
                     uc_sv_detai.btnChiTiet.Click += btnChiTiet_Click;
                     flow_DeTai.Controls.Add(uc_sv_detai);

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
 
 namespace Winform_Project
@@ -16,13 +16,14 @@ namespace Winform_Project
     public partial class FNhiemVu_NoiDung : Form
     {
         SinhVienDao svDao = new SinhVienDao();
-        NhiemVu nhiemVu;
+        public NhiemVuu nhiemVu;
 
-        public FNhiemVu_NoiDung(NhiemVu nhiemVu)
+        public FNhiemVu_NoiDung(NhiemVuu nhiemVu)
         {
             InitializeComponent();
             lblTieuDe.Text = nhiemVu.TieuDe;
-            lblThoiGian.Text = nhiemVu.ThoiGianGui.Day.ToString() + "/" + nhiemVu.ThoiGianGui.Month.ToString() + "/" + nhiemVu.ThoiGianGui.Year.ToString() + " --> " + nhiemVu.ThoiGianKetThuc.Day.ToString() + "/" + nhiemVu.ThoiGianKetThuc.Month.ToString() + "/" + nhiemVu.ThoiGianKetThuc.Year.ToString();
+
+            lblThoiGian.Text = nhiemVu.ThoiGianGui.Value.Day.ToString() + "/" + nhiemVu.ThoiGianGui.Value.Month.ToString() + "/" + nhiemVu.ThoiGianGui.Value.Year.ToString() + " --> " + nhiemVu.ThoiGianKetThuc.Value.Day.ToString() + "/" + nhiemVu.ThoiGianKetThuc.Value.Month.ToString() + "/" + nhiemVu.ThoiGianKetThuc.Value.Year.ToString();
             lblNguoiThucHien.Text = nhiemVu.TenNguoiNhan;
             txtNoiDung.Text = nhiemVu.NoiDung;
             

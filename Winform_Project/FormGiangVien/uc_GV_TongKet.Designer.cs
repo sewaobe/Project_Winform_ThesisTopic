@@ -110,9 +110,9 @@
             this.btnTongKetDeTai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnTongKetDeTai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTongKetDeTai.ForeColor = System.Drawing.Color.Black;
-            this.btnTongKetDeTai.Location = new System.Drawing.Point(708, 530);
+            this.btnTongKetDeTai.Location = new System.Drawing.Point(641, 530);
             this.btnTongKetDeTai.Name = "btnTongKetDeTai";
-            this.btnTongKetDeTai.Size = new System.Drawing.Size(180, 45);
+            this.btnTongKetDeTai.Size = new System.Drawing.Size(247, 55);
             this.btnTongKetDeTai.TabIndex = 5;
             this.btnTongKetDeTai.Text = "Xác nhận";
             // 

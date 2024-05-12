@@ -142,7 +142,6 @@ C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_NhiemVu.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_login.resources
-C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Progress.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FormSinhVien.FSinhVien_Progress_Check.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg.resources
 C:\Win\Win (1)\Winform_Project\obj\Debug\Winform_Project.FSinhVien.FSinhVien_Reg_Done.resources

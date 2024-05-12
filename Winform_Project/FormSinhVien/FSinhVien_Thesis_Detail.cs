@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 
 namespace Winform_Project.FormSinhVien
 {
     public partial class FSinhVien_Thesis_Detail : UserControl
     {
-        public FSinhVien_Thesis_Detail(LuanVan lv, List<SinhVien> listSinhVien)
+        public FSinhVien_Thesis_Detail(ThongTinDeTaii lv, List<SinhVienn> listSinhVien)
         {
             InitializeComponent();
             txtMaDeTai.Text = lv.MaDeTai;
@@ -31,8 +31,8 @@ namespace Winform_Project.FormSinhVien
             string maNhom = "";
             for (int i = 0; i < listSinhVien.Count; i++)
             {
-                tenCacThanhVien += (listSinhVien[i].Ten) + " - ";
-                maNhom = listSinhVien[i].Masonhom;
+                tenCacThanhVien += (listSinhVien[i].HoTen) + " - ";
+                maNhom = listSinhVien[i].MaSoNhom;
             }
             txtMaNhom.Text = maNhom;
             txtThanhVien.Text = tenCacThanhVien;

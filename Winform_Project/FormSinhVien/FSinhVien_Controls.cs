@@ -10,15 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Winform_Project.ClassDao;
-using Winform_Project.ClassDoiTuong;
+using Winform_Project.EntityModel;
 using Winform_Project.FormGiangVien;
+using Winform_Project.uc_SV;
 
 namespace Winform_Project.FormSinhVien
 {
     public partial class FSinhVien_Controls : Form
     {
-        SinhVien SinhVienAccount = FDangNhap.SinhVienAccount;
+        SinhVienn SinhVienAccount = FDangNhap.SinhVienAccount;
         SinhVienDao svDao = new SinhVienDao();
+        ConNguoiDao conNguoiDao = new ConNguoiDao();    
         public static int flag_NhiemVu = 0, flag_NhanXet = 0, flag_TienDo = 0, flag_Lich = 0, flag_TroChuyen = 0;
 
         public FSinhVien_Controls()
@@ -47,8 +49,8 @@ namespace Winform_Project.FormSinhVien
             btnThemBaocao.Click += BtnThemBaocao_Click;
             fLoTrungTam.Controls.Add(btnThemBaocao);
 
-            string sqlStr = string.Format("SELECT * FROM BaoCao WHERE MaSoNhom = '{0}'", SinhVienAccount.Masonhom);
-            DataTable dt = svDao.LoadData(sqlStr);
+            
+            DataTable dt = svDao.LayBaoCaoCuaNhomDangKy(SinhVienAccount.MaSoNhom);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string trangThai;
@@ -56,13 +58,15 @@ namespace Winform_Project.FormSinhVien
                     trangThai = "Da duyet";
                 else
                     trangThai = "Chua duyet";
-                BaoCao bc = new BaoCao(dt.Rows[i]["TieuDe"].ToString(), 
-                                       dt.Rows[i]["ThoiGianGui"].ToString(), 
-                                       dt.Rows[i]["FileBaoCao"].ToString(),
-                                       dt.Rows[i]["NhanXet"].ToString(),
-                                       dt.Rows[i]["TienDo"].ToString(),
-                                       dt.Rows[i]["MaSoNhom"].ToString(),
-                                       trangThai);
+                string File = dt.Rows[i]["FileBaoCao"].ToString();
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(File);
+                BaoCaoo bc = new BaoCaoo{ TieuDe = dt.Rows[i]["TieuDe"].ToString(),
+                                       ThoiGianGui = dt.Rows[i]["ThoiGianGui"].ToString(),
+                                       FileBaoCao = data,
+                                       NhanXet = dt.Rows[i]["NhanXet"].ToString(),
+                                       TienDo = dt.Rows[i]["TienDo"].ToString(),
+                                       MaSoNhom = dt.Rows[i]["MaSoNhom"].ToString(),
+                                       TrangThai = trangThai};
                 ucBaoCao ucBaoCao = new ucBaoCao(bc);
                 ucBaoCao.btnDanhGia.Visible= false;
                 ucBaoCao.btnXoa.Visible= false;
@@ -86,12 +90,14 @@ namespace Winform_Project.FormSinhVien
             fGiangVien_Progress_Check.txtNhanXet.Visible = false;
             fGiangVien_Progress_Check.label1.Visible = false;*/
             fSinhVien_Progress_Check.ShowDialog();
+            FGiangVien_Controls.flag_BaoCao = 1;
+            btnNhanXet_Click(btnNhanXet, e);
         }
 
         private void UcBaoCao_Click(object sender, EventArgs e)
         {
             var uc = sender as ucBaoCao;
-            BaoCao bc = uc.baoCao;
+            BaoCaoo bc = uc.baoCao;
             FGiangVien_Progress_Check fGiangVien_Progress_Check = new FGiangVien_Progress_Check();
             fGiangVien_Progress_Check.txtNhanXet.Text = bc.NhanXet;
             fGiangVien_Progress_Check.txtTieuDe.Text = bc.TieuDe;
@@ -125,8 +131,7 @@ namespace Winform_Project.FormSinhVien
             // Đặt tên cho các trục
             chartArea.AxisX.Title = "Tiêu Đề";
             chartArea.AxisY.Title = "Tiến Độ";
-            string sqlStr = string.Format("SELECT * FROM BaoCao WHERE MaSoNhom='{0}'", SinhVienAccount.Masonhom);
-            DataTable dt = svDao.LoadData(sqlStr);
+            DataTable dt = svDao.LayBaoCaoCuaNhomDangKy(SinhVienAccount.MaSoNhom);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 //if (dt.Rows[i]["TrangThai"] == "Da duyet")
@@ -139,6 +144,74 @@ namespace Winform_Project.FormSinhVien
             chart.Show();
         }
 
+        private void btnXemDiem_Click(object sender, EventArgs e)
+        {
+            progress.Location = new Point(btnXemDiem.Location.X, btnNhanXet.Location.Y + 30);
+            uc_GV_TongKet uc_GV_TongKet = new uc_GV_TongKet();
+            DataTable dtSinhVien = conNguoiDao.LayThongTinSinhVien(SinhVienAccount.MaSoNhom);
+            for (int i = 0; i < dtSinhVien.Rows.Count; i++)
+            {
+                SinhVienn sv = new SinhVienn
+                {
+                    HoTen = dtSinhVien.Rows[i]["HoTen"].ToString(),
+                    GioiTinh = dtSinhVien.Rows[i]["GioiTinh"].ToString(),
+                    NgaySinh = Convert.ToDateTime(dtSinhVien.Rows[i]["NgaySinh"]),
+                    SDT = dtSinhVien.Rows[i]["SDT"].ToString(),
+                    Khoa = dtSinhVien.Rows[i]["Khoa"].ToString(),
+                    Nganh = dtSinhVien.Rows[i]["Nganh"].ToString(),
+                    MSSV = dtSinhVien.Rows[i]["MSSV"].ToString(),
+                    MaSoNhom = dtSinhVien.Rows[i]["MaSoNhom"].ToString()
+                };
+
+                uc_SV_TongKet uc_SV_TongKet = new uc_SV_TongKet(sv);
+                uc_SV_TongKet_DanhGia uc_SV_TongKet_DanhGia = new uc_SV_TongKet_DanhGia(sv);
+                uc_SV_TongKet_DanhGia.btnXacNhan.Visible = false;
+                if (dtSinhVien.Rows[i]["Diem"].ToString() != "")
+                {
+                    string ketQua;
+                    int diem = 0;
+                    if (int.TryParse(dtSinhVien.Rows[i]["Diem"].ToString(), out diem))
+                    {
+                        if (diem < 5)
+                            ketQua = "D";
+                        else if (diem >= 5 && diem < 6.5)
+                            ketQua = "C";
+                        else if (diem >= 6.5 && diem < 8)
+                            ketQua = "B";
+                        else if (diem >= 8 && diem < 9)
+                            ketQua = "A";
+                        else
+                            ketQua = "A+";
+                        uc_SV_TongKet.lblKetQua.Text = ketQua;
+                        uc_SV_TongKet.progress.Value = diem * 10;
+                        uc_SV_TongKet_DanhGia.progress.Value = diem * 10;
+                        uc_SV_TongKet_DanhGia.lblKetQua.Text = ketQua;
+                        uc_SV_TongKet_DanhGia.btnXacNhan.Text = "Đã xác nhận";
+                        uc_SV_TongKet_DanhGia.btnXacNhan.Enabled = false;
+                        uc_SV_TongKet_DanhGia.progress.AllowCursorChanges = false;
+                    }
+                }
+                uc_SV_TongKet.pic.Click += Load_UC_DanhGia;
+                uc_GV_TongKet.fLo_UC_SV_TongKet.Controls.Add(uc_SV_TongKet);
+                uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Add(uc_SV_TongKet_DanhGia);
+            }
+            fLoTrungTam.Controls.Clear();
+            fLoTrungTam.Controls.Add(uc_GV_TongKet);
+        }
+        private void Load_UC_DanhGia(object sender, EventArgs e)
+        {
+
+
+            Guna2PictureBox guna2PictureBox = sender as Guna2PictureBox;
+            uc_SV_TongKet uc = guna2PictureBox.Parent as uc_SV_TongKet;
+            FlowLayoutPanel fLo = uc.Parent as FlowLayoutPanel;
+            uc_GV_TongKet uc_GV_TongKet = fLo.Parent as uc_GV_TongKet;
+            uc_SV_TongKet_DanhGia uc_SV_TongKet_DanhGia = new uc_SV_TongKet_DanhGia(uc.sinhVien);
+            uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Clear();
+            uc_GV_TongKet.fLo_UC_SV_TongKet_DanhGia.Controls.Add(uc_SV_TongKet_DanhGia);
+
+
+        }
         private void btnTroChuyen_Click(object sender, EventArgs e)
         {
             btnThayDoiOff(FSinhVien_Controls.flag_TroChuyen, btnThayDoiTroChuyen);
